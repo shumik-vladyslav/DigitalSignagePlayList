@@ -1,0 +1,22 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/herotechnologies/DigitalSignage.git"
+  },
+  "author": "herotech",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/herotechnologies/DigitalSignage/issues"
+  },
+  "homepage": "https://github.com/herotechnologies/DigitalSignage#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
