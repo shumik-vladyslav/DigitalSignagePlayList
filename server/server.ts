@@ -30,11 +30,10 @@ app.use('/api',bodyParser.urlencoded({extended: true}));
 app.use('/api',bodyParser.json());
 var getDirectory = function(){
     var dir = __dirname;
-    if(dir.indexOf('node_modules')===-1) return dir;
-   return dir.substr(0,dir.indexOf('node_modules')-1);
+   return  dir.replace(new RegExp('server' + '$'), 'client');
 }
 
-app.use(express.static(getDirectory() + '/app'));
+app.use(express.static(getDirectory()));
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");

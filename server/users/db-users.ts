@@ -38,7 +38,7 @@ import User = DAO.User;
 
 export  class UserDAO implements DAO.DAO<User> {
 
-    private url:string='users/users.json';
+    private url:string='/users.json';
     private usersInd:{ [id:number]:User; };
     private users:User[];
     private fs=fs;
@@ -51,7 +51,7 @@ export  class UserDAO implements DAO.DAO<User> {
     }
 
     load(callback:Function):void{
-        this.fs.readFile(this.url, 'utf8',(err, data)=>{
+        this.fs.readFile(__dirname+this.url, 'utf8',(err, data)=>{
             if (err) throw err;
             this.users = JSON.parse(data);
             callback(this);

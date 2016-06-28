@@ -8,7 +8,7 @@ var _ = require('lodash');
 var fs = require('fs');
 var UserDAO = (function () {
     function UserDAO() {
-        this.url = 'users/users.json';
+        this.url = '/users.json';
         this.fs = fs;
         this._ = _;
         this.load(function () {
@@ -16,7 +16,7 @@ var UserDAO = (function () {
     }
     UserDAO.prototype.load = function (callback) {
         var _this = this;
-        this.fs.readFile(this.url, 'utf8', function (err, data) {
+        this.fs.readFile(__dirname + this.url, 'utf8', function (err, data) {
             if (err)
                 throw err;
             _this.users = JSON.parse(data);
