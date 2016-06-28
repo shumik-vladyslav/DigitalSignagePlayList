@@ -6,25 +6,31 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "express/express.d.ts": {
-      "commit": "1ec3d510e0c4d7c50e708ca7cb0765c7e06fa2ed"
+      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
     },
     "serve-static/serve-static.d.ts": {
-      "commit": "1ec3d510e0c4d7c50e708ca7cb0765c7e06fa2ed"
+      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
     },
     "mime/mime.d.ts": {
-      "commit": "1ec3d510e0c4d7c50e708ca7cb0765c7e06fa2ed"
+      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
     },
     "node/node.d.ts": {
-      "commit": "1ec3d510e0c4d7c50e708ca7cb0765c7e06fa2ed"
+      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
     },
     "express-serve-static-core/express-serve-static-core.d.ts": {
-      "commit": "1ec3d510e0c4d7c50e708ca7cb0765c7e06fa2ed"
+      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
     },
     "body-parser/body-parser.d.ts": {
       "commit": "1ec3d510e0c4d7c50e708ca7cb0765c7e06fa2ed"
     },
     "lodash/lodash.d.ts": {
       "commit": "9ee4cbccdc782cd36f223c15865ef380786a39ec"
+    },
+    "express-session/express-session.d.ts": {
+      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
+    },
+    "cookie-parser/cookie-parser.d.ts": {
+      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
     }
   }
 }
