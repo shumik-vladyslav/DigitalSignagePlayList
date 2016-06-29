@@ -26,10 +26,22 @@
     "lodash/lodash.d.ts": {
       "commit": "9ee4cbccdc782cd36f223c15865ef380786a39ec"
     },
+    "sqlite3/sqlite3.d.ts": {
+      "commit": "d9c8c528d8c9096a1506a1b6bffed8d368306f27"
+    },
+    "q/Q.d.ts": {
+      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
+    },
     "express-session/express-session.d.ts": {
       "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
     },
     "cookie-parser/cookie-parser.d.ts": {
+      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
+    },
+    "moment/moment.d.ts": {
+      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
+    },
+    "moment/moment-node.d.ts": {
       "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
     }
   }

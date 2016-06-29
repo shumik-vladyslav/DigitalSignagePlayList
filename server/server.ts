@@ -17,6 +17,8 @@ import * as cookie from 'cookie-parser';
 import users = require('./users/index');
 import user = require('./users/user');
 
+import db = require('./content/manager');
+
 //////////   Types  only/////////////
 import {Request} from "express";
 import {Response} from "express";
@@ -51,6 +53,7 @@ app.use(function(req:Request, res:Response, next) {
 const port:number = process.env.PORT || 8888;
 app.use('/api/users', users);
 app.use('/api/user', user);
+app.use('/api/content', db);
 app.listen(port,function(){
     console.log('http://127.0.0.1:' + port);
     console.log('http://127.0.0.1:' + port + '/api');

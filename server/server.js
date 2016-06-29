@@ -14,6 +14,7 @@ var session = require('express-session');
 var cookie = require('cookie-parser');
 var users = require('./users/index');
 var user = require('./users/user');
+var db = require('./content/manager');
 ///////////////////////////////////////
 var app = express();
 // configure our app to use bodyParser(it let us get the json data from a POST)
@@ -38,6 +39,7 @@ app.use(function (req, res, next) {
 var port = process.env.PORT || 8888;
 app.use('/api/users', users);
 app.use('/api/user', user);
+app.use('/api/content', db);
 app.listen(port, function () {
     console.log('http://127.0.0.1:' + port);
     console.log('http://127.0.0.1:' + port + '/api');
