@@ -9,12 +9,13 @@
 "use strict";
 //test
 var express = require('express');
-var app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var cookie = require('cookie-parser');
 var users = require('./users/index');
 var user = require('./users/user');
+///////////////////////////////////////
+var app = express();
 // configure our app to use bodyParser(it let us get the json data from a POST)
 app.use(cookie());
 app.use(session({

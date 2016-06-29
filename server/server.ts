@@ -10,14 +10,21 @@
 //test
 import * as express from 'express';
 
-const app = express();
-
 import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
 import * as cookie from 'cookie-parser';
 
 import users = require('./users/index');
 import user = require('./users/user');
+
+//////////   Types  only/////////////
+import {Request} from "express";
+import {Response} from "express";
+import {Express} from "express";
+///////////////////////////////////////
+
+
+const app:Express = express();
 
 // configure our app to use bodyParser(it let us get the json data from a POST)
 app.use(cookie());
@@ -29,12 +36,13 @@ app.use(session({
 app.use('/api',bodyParser.urlencoded({extended: true}));
 app.use('/api',bodyParser.json());
 var getDirectory = function(){
+
     var dir = __dirname;
    return  dir.replace(new RegExp('server' + '$'), 'client');
 }
 
 app.use(express.static(getDirectory()));
-app.use(function(req, res, next) {
+app.use(function(req:Request, res:Response, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
