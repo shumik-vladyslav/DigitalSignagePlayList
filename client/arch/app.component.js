@@ -8,4 +8,3 @@
             constructor: function () { }
         });
 })(window.app || (window.app = {}));
-//# sourceMappingURL=app.component.js.map
