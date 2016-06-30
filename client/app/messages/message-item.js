@@ -38,8 +38,7 @@ var MessageItem = (function () {
     MessageItem = __decorate([
         core_1.Component({
             selector: 'md-list-item',
-            templateUrl: './message-item.html',
-            styleUrls: ['./message-item.css'],
+            templateUrl: 'app/messages/message-item.html',
             directives: [checkbox_1.MdCheckbox, input_1.MdInput]
         }), 
         __metadata('design:paramtypes', [])

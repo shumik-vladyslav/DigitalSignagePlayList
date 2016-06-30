@@ -4,8 +4,8 @@ import {Message} from './message';
 
 @Component({
     selector: 'message-panel',
-    templateUrl: './message-panel.html',
-    styleUrls: ['./message-panel.css'],
+    templateUrl: 'app/messages/message-panel.html',
+    styleUrls: ['app/messages/message-panel.css'],
     directives: [MessageList]
 })
 

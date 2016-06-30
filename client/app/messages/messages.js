@@ -11,23 +11,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var message_panel_1 = require('./message-panel');
 var message_list_1 = require('./message-list');
-var Messages = (function () {
-    function Messages() {
+var MessagesComponent = (function () {
+    function MessagesComponent() {
         this.messages = [];
     }
-    Messages.prototype.onMessagesAdded = function (message) {
+    MessagesComponent.prototype.onMessagesAdded = function (message) {
         this.messages.push(message);
     };
-    Messages = __decorate([
+    MessagesComponent = __decorate([
         core_1.Component({
             selector: 'cms-app',
-            templateUrl: './app.html',
-            styleUrls: ['./css/app.css'],
+            templateUrl: 'app/messages/messages.html',
+            styleUrls: ['app/messages/messages.css'],
             directives: [message_panel_1.MessagePanel, message_list_1.MessageList]
         }), 
         __metadata('design:paramtypes', [])
-    ], Messages);
-    return Messages;
+    ], MessagesComponent);
+    return MessagesComponent;
 }());
-exports.Messages = Messages;
-//# sourceMappingURL=app.js.map
+exports.MessagesComponent = MessagesComponent;
+//# sourceMappingURL=messages.js.map

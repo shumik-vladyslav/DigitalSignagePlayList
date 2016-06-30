@@ -21,7 +21,7 @@ var MessageList = (function () {
     MessageList = __decorate([
         core_1.Component({
             selector: 'message-list',
-            templateUrl: './message-list.html',
+            templateUrl: 'app/messages/message-list.html',
             directives: [message_item_1.MessageItem, list_1.MdList]
         }), 
         __metadata('design:paramtypes', [])

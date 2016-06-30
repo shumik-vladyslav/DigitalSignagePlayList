@@ -6,8 +6,8 @@ import { Icon } from './icon';
 
 @Component({
     selector: 'cms-app',
-    templateUrl: './app.html',
-    styleUrls: ['./app.css'],
+    templateUrl: './messages.html',
+    styleUrls: ['./messages.css'],
     directives: [IconPanel, IconList]
 })
 export class Assets {

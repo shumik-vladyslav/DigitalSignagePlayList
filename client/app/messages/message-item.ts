@@ -6,8 +6,7 @@ import { Message } from './message';
 
 @Component({
     selector: 'md-list-item',
-    templateUrl: './message-item.html',
-    styleUrls: ['./message-item.css'],
+    templateUrl: 'app/messages/message-item.html',
     directives: [MdCheckbox, MdInput]
 })
 

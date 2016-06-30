@@ -5,7 +5,7 @@ import { Message } from './message';
 
 @Component({
     selector: 'message-list',
-    templateUrl: './message-list.html',
+    templateUrl: 'app/messages/message-list.html',
     directives: [MessageItem, MdList]
 })
 

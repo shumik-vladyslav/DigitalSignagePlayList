@@ -21,8 +21,8 @@ var Assets = (function () {
     Assets = __decorate([
         core_1.Component({
             selector: 'cms-app',
-            templateUrl: './app.html',
-            styleUrls: ['./app.css'],
+            templateUrl: './messages.html',
+            styleUrls: ['./messages.css'],
             directives: [icon_panel_1.IconPanel, icon_list_1.IconList]
         }), 
         __metadata('design:paramtypes', [])

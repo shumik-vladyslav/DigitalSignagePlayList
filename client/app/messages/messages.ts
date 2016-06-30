@@ -6,11 +6,11 @@ import { Message } from './message';
 
 @Component({
     selector: 'cms-app',
-    templateUrl: './app.html',
-    styleUrls: ['./css/app.css'],
+    templateUrl: 'app/messages/messages.html',
+    styleUrls: ['app/messages/messages.css'],
     directives: [MessagePanel, MessageList]
 })
-export class Messages {
+export class MessagesComponent {
     messages: Message [];
 
     constructor () {
