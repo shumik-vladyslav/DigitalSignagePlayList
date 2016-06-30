@@ -14,31 +14,30 @@ var input_1 = require('@angular2-material/input');
 var message_1 = require('./message');
 var MessageItem = (function () {
     function MessageItem() {
+        this.deleted = new core_1.EventEmitter();
     }
-    /*@Output () edited = new EventEmitter();*/
     MessageItem.prototype.toggleChangeActive = function () {
         this.message.active = !this.message.active;
     };
-    /*edit (message: Message, title: string) {
-        this.edited.emit(message, title);
-    }*/
-    MessageItem.prototype.onMessageDeleted = function (message) {
-        console.log("message");
-        /*if (message) {
-         let index = this.messages.indexOf(message);
-         if (index > -1) {
-         this.messages.splice(index,1);
-         }
-         }*/
+    MessageItem.prototype.inputChange = function (title) {
+        this.message.title = title;
+    };
+    MessageItem.prototype.del = function () {
+        this.deleted.emit(this.message);
     };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', message_1.Message)
     ], MessageItem.prototype, "message", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], MessageItem.prototype, "deleted", void 0);
     MessageItem = __decorate([
         core_1.Component({
-            selector: 'md-list-item',
+            selector: 'message-item',
             templateUrl: 'app/messages/message-item.html',
+            styleUrls: ['app/messages/message-item.css'],
             directives: [checkbox_1.MdCheckbox, input_1.MdInput]
         }), 
         __metadata('design:paramtypes', [])

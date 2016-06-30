@@ -12,12 +12,12 @@
                         <span>Add</span>
                     </a>
                 </div>
-                <div>
+                <!--<div>
                     <a id="btnEdit" class="btn" (click)="edit()">
                         <span class="fa fa-edit"></span>
                         <span>Edit</span>
                     </a>
-                </div>
+                </div>-->
                 <div>
                     <a id="btnDelete" class="btn" (click)="del()">
                         <span class="fa fa-remove"></span>
@@ -51,6 +51,7 @@
 
             <div class="panel-body">
                 <table id="tableone" class="table table-condensed table-striped">
+                    <message-list [messages]="messages"></message-list>
                     <thead>
                     <tr>
                         <th>
@@ -61,7 +62,6 @@
                         </th>
                     </tr>
                     </thead>
-                    <message-list [messages]="messages"></message-list>
                 </table>
             </div>
         </div>

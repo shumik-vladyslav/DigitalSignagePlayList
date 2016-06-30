@@ -20,4 +20,14 @@ export class MessagesComponent {
     onMessagesAdded (message: Message) {
         this.messages.push(message);
     }
+
+   /* onMessageDeleted () {
+        console.log("message");
+        /!*if (message) {
+         let index = this.messages.indexOf(message);
+         if (index > -1) {
+         this.messages.splice(index,1);
+         }
+         }*!/
+    }*/
 }

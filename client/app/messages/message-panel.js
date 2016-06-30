@@ -14,6 +14,7 @@ var message_1 = require('./message');
 var MessagePanel = (function () {
     function MessagePanel() {
         this.added = new core_1.EventEmitter();
+        this.deleted = new core_1.EventEmitter();
     }
     MessagePanel.prototype.add = function (title) {
         this.added.emit(new message_1.Message(title));
@@ -22,6 +23,10 @@ var MessagePanel = (function () {
         core_1.Output(), 
         __metadata('design:type', Object)
     ], MessagePanel.prototype, "added", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], MessagePanel.prototype, "deleted", void 0);
     __decorate([
         core_1.Input(), 
         __metadata('design:type', message_1.Message)

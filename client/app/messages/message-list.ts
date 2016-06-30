@@ -11,4 +11,14 @@ import { Message } from './message';
 
 export class MessageList {
     @Input () messages: Message[];
+    @Input () message: Message;
+
+    onMessageDeleted (message: Message) {
+        if (message) {
+            let index = this.messages.indexOf(message);
+            if (index > -1) {
+                this.messages.splice(index, 1);
+            }
+        }
+    }
 }

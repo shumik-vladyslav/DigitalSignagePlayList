@@ -5,31 +5,26 @@ import {MdInput} from '@angular2-material/input';
 import { Message } from './message';
 
 @Component({
-    selector: 'md-list-item',
+    selector: 'message-item',
     templateUrl: 'app/messages/message-item.html',
+    styleUrls: ['app/messages/message-item.css'],
     directives: [MdCheckbox, MdInput]
 })
 
 export class MessageItem {
     @Input () message: Message;
 
-    /*@Output () edited = new EventEmitter();*/
+    @Output () deleted = new EventEmitter();
 
     toggleChangeActive () {
         this.message.active =!this.message.active;
     }
 
-    /*edit (message: Message, title: string) {
-        this.edited.emit(message, title);
-    }*/
+    inputChange (title: string) {
+        this.message.title = title;
+    }
 
-    onMessageDeleted (message: Message) {
-        console.log("message");
-        /*if (message) {
-         let index = this.messages.indexOf(message);
-         if (index > -1) {
-         this.messages.splice(index,1);
-         }
-         }*/
+    del () {
+        this.deleted.emit(this.message);
     }
 }

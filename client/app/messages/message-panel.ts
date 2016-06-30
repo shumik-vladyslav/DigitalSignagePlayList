@@ -11,6 +11,7 @@ import {Message} from './message';
 
 export class MessagePanel {
     @Output () added = new EventEmitter();
+    @Output () deleted = new EventEmitter();
    
     @Input () message: Message;
     @Input () messages: Message [];
@@ -19,4 +20,8 @@ export class MessagePanel {
     add (title: string){
          this.added.emit(new Message(title));
     }
+
+    /*del () {
+        this.deleted.emit();
+    }*/
 }
