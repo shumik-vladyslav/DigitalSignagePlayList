@@ -6,7 +6,6 @@
     // map tells the System loader where to look for things
     var map = {
         'app':                        'app', // 'dist',
-        '@angular':                   'node_modules/@angular',
         'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
         'rxjs':                       'node_modules/rxjs'
     };
@@ -28,6 +27,23 @@
         'router-deprecated',
         'upgrade',
     ];
+
+    var materialPkgs = [
+        'core',
+        'checkbox',
+        'input',
+        'list'
+    ];
+
+    /*materialPkgs.forEach((pkg)=> {
+     packages['@angular2-material/${pkg}'] = {main: '${pkg}.js'};
+     });*/
+
+    packages['@angular2-material/core'] = {main: 'core.js'};
+    packages['@angular2-material/checkbox'] = {main: 'checkbox.js'};
+    packages['@angular2-material/input'] = {main: 'input.js'};
+    packages['@angular2-material/list'] = {main: 'list.js'};
+    
     // Individual files (~300 requests):
     function packIndex(pkgName) {
         packages['@angular/'+pkgName] = { main: 'index.js', defaultExtension: 'js' };

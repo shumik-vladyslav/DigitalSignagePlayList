@@ -1,0 +1,52 @@
+<div id="TableIcons" class="container">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading tools">
+                <div>
+                    <span class="fa fa-picture-o"></span>
+                    <span>Icons Manager</span>
+                    <small> (Note: Choosing new file replacing old one without backup copy )</small>
+                </div>
+
+                <div class="pull-right" >
+                    <a id="btn-logout" class="btn">
+                        <span class="fa fa-sign-out"></span>
+                        <span>Logout</span>
+                    </a>
+                    <script>
+                        $('#btn-logout').click(function(){
+                            $.get('users/login.php',{a:'logout'}).done(function(res){
+                                console.log(res)
+                                window.location.reload();
+                            }).fail(function(res){
+                                window.location.reload();
+                            })
+                        })
+                    </script>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <table id="tableone" class="table table-condensed table-striped">
+                    <thead>
+                    <tr>
+                        <th>
+                            Icons
+                        </th>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Change
+                        </th>
+                    </tr>
+                    </thead>
+                    <icon-list [icons]="icons"></icon-list>
+                    <tbody id="tablebody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

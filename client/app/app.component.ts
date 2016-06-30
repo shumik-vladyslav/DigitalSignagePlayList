@@ -1,7 +1,10 @@
 import {Component} from '@angular/core';
+import { Messages} from './messages/app';
+
 @Component({
     selector: 'my-app',
-    template: '<h3>My First Angular 2 App</h3>'
+    template: '',
+    directives: [Messages]
 })
 
 export class AppComponent {

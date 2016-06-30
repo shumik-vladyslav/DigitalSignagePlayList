@@ -9,19 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var app_1 = require('./messages/app');
-var AppComponent = (function () {
-    function AppComponent() {
+var list_1 = require('@angular2-material/list');
+var message_item_1 = require('./message-item');
+var MessageList = (function () {
+    function MessageList() {
     }
-    AppComponent = __decorate([
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Array)
+    ], MessageList.prototype, "messages", void 0);
+    MessageList = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: '',
-            directives: [app_1.Messages]
+            selector: 'message-list',
+            templateUrl: './message-list.html',
+            directives: [message_item_1.MessageItem, list_1.MdList]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], MessageList);
+    return MessageList;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.MessageList = MessageList;
+//# sourceMappingURL=message-list.js.map

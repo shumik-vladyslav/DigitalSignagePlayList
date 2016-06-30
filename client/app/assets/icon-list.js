@@ -9,19 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var app_1 = require('./messages/app');
-var AppComponent = (function () {
-    function AppComponent() {
+var icon_item_1 = require('./icon-item');
+var IconList = (function () {
+    function IconList() {
     }
-    AppComponent = __decorate([
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Array)
+    ], IconList.prototype, "icons", void 0);
+    IconList = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: '',
-            directives: [app_1.Messages]
+            selector: 'icon-list',
+            templateUrl: './icon-list.html',
+            directives: [icon_item_1.IconItem]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], IconList);
+    return IconList;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.IconList = IconList;
+//# sourceMappingURL=icon-list.js.map
