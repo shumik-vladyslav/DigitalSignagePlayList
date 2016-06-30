@@ -10,6 +10,7 @@ var mydb: DBContent = new db.DBContent();
 // var mycontent = new db.Content('cappuccino', 'coffee');
 // var mycontent = new db.Content();
 
+// mydb.deleteTable();
 // mydb.createNewTable();
 
 router.get('/select/all', function (req:express.Request, res:express.Response) {
@@ -18,6 +19,8 @@ router.get('/select/all', function (req:express.Request, res:express.Response) {
         console.log(result);
         res.json(result);
         // sellect
+    }, function (err) {
+        console.log(err);
     });
 });
 
@@ -42,6 +45,8 @@ router.post('/insert', function (req:express.Request, res:express.Response) {
         mycontent.id = result.id;
         res.json(mycontent);
         // sellect
+    }, function (err) {
+        console.log(err);
     });
 });
 
@@ -57,6 +62,8 @@ router.post('/update', function (req:express.Request, res:express.Response) {
         console.log(result);
         res.json(result);
         // sellect
+    }, function (err) {
+        console.log(err);
     });
 });
 
@@ -69,6 +76,8 @@ router.post('/delete', function (req:express.Request, res:express.Response) {
         console.log(result);
         res.json(result);
         // sellect
+    }, function (err) {
+        console.log(err);
     });
 });
 

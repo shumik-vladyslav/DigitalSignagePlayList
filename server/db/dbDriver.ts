@@ -7,6 +7,8 @@ import Q = require('q');
 export interface IDBDriver {
     runQuery(sql:string): Q.Promise<any>;
 
+    deleteTable(sql:string): Q.Promise<any>;
+
     createTable(sql1:string, sql2:string): Q.Promise<any>;
 
     selectAll(sql:string, data?:any[]): Q.Promise<any>;
@@ -36,6 +38,10 @@ export class DBDriver implements IDBDriver {
 
     runQuery(sql:string): Q.Promise<any> {
         return this.db.runQuery(sql);
+    }
+
+    deleteTable(sql:string): Q.Promise<any> {
+        return this.db.deleteTable(sql);
     }
 
     createTable(sql1:string, sql2:string): Q.Promise<any>  {
@@ -85,7 +91,7 @@ export class DBSQLite implements IDBDriver {
 
     runQuery(sql: string): Q.Promise<any> {
         var deferred: Q.Deferred<any> = Q.defer();
-
+        // console.log('dbDriver runQuery');
         this.db.run(sql, function(error) {
             if (error) {
                 deferred.reject({
@@ -93,7 +99,7 @@ export class DBSQLite implements IDBDriver {
                     code: error.code
                 });
             } else {
-                // console.log({ id: this.lastID });
+                // console.log('runQuery this ',this);
                 deferred.resolve(this);
             }
         });
@@ -101,14 +107,33 @@ export class DBSQLite implements IDBDriver {
         return deferred.promise;
     }
 
-    createTable(sql1:string, sql2:string): Q.Promise<any>  {
+    deleteTable(sql:string) {
         var deferred: Q.Deferred<any> = Q.defer();
 
+        var self: IDBDriver = this;
+        var p: Q.Promise<any>  = this.runQuery(sql);
+
+        p.then(function (val) {
+            console.log('table was deleted');
+            console.log(val);
+            deferred.resolve(val);
+        }, function (err) {
+            console.log('table was not deleted');
+            console.log(err);
+            deferred.reject(err);
+        });
+
+        return deferred.promise;
+    }
+
+    createTable(sql1:string, sql2:string): Q.Promise<any>  {
+        var deferred: Q.Deferred<any> = Q.defer();
+        // console.log('dbDriver createTable');
         var self: IDBDriver = this;
         var p: Q.Promise<any>  = this.runQuery(sql1);
 
         p.then(function (val) {
-            var p2 = self.runQuery(sql2);
+            var p2: Q.Promise<any> = self.runQuery(sql2);
 
             p2.then(function (val) {
                 deferred.resolve(val);
@@ -116,7 +141,13 @@ export class DBSQLite implements IDBDriver {
                 deferred.reject(err);
             })
         }, function (err) {
-            deferred.reject(err);
+            var p2: Q.Promise<any> = self.runQuery(sql2);
+
+            p2.then(function (val) {
+                deferred.resolve(val);
+            }, function (err) {
+                deferred.reject(err);
+            })
         });
 
         return deferred.promise;

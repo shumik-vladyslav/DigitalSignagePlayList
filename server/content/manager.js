@@ -7,6 +7,7 @@ var router = express.Router();
 var mydb = new db.DBContent();
 // var mycontent = new db.Content('cappuccino', 'coffee');
 // var mycontent = new db.Content();
+// mydb.deleteTable();
 // mydb.createNewTable();
 router.get('/select/all', function (req, res) {
     var promise = mydb.selectAllContent();
@@ -14,6 +15,8 @@ router.get('/select/all', function (req, res) {
         console.log(result);
         res.json(result);
         // sellect
+    }, function (err) {
+        console.log(err);
     });
 });
 router.get('/select/:id', function (req, res) {
@@ -35,6 +38,8 @@ router.post('/insert', function (req, res) {
         mycontent.id = result.id;
         res.json(mycontent);
         // sellect
+    }, function (err) {
+        console.log(err);
     });
 });
 router.post('/update', function (req, res) {
@@ -47,6 +52,8 @@ router.post('/update', function (req, res) {
         console.log(result);
         res.json(result);
         // sellect
+    }, function (err) {
+        console.log(err);
     });
 });
 router.post('/delete', function (req, res) {
@@ -57,6 +64,8 @@ router.post('/delete', function (req, res) {
         console.log(result);
         res.json(result);
         // sellect
+    }, function (err) {
+        console.log(err);
     });
 });
 module.exports = router;

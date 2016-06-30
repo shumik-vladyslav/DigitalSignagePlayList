@@ -9,6 +9,9 @@ var DBDriver = (function () {
     DBDriver.prototype.runQuery = function (sql) {
         return this.db.runQuery(sql);
     };
+    DBDriver.prototype.deleteTable = function (sql) {
+        return this.db.deleteTable(sql);
+    };
     DBDriver.prototype.createTable = function (sql1, sql2) {
         return this.db.createTable(sql1, sql2);
     };
@@ -46,6 +49,7 @@ var DBSQLite = (function () {
     }
     DBSQLite.prototype.runQuery = function (sql) {
         var deferred = Q.defer();
+        // console.log('dbDriver runQuery');
         this.db.run(sql, function (error) {
             if (error) {
                 deferred.reject({
@@ -54,14 +58,30 @@ var DBSQLite = (function () {
                 });
             }
             else {
-                // console.log({ id: this.lastID });
+                // console.log('runQuery this ',this);
                 deferred.resolve(this);
             }
         });
         return deferred.promise;
     };
+    DBSQLite.prototype.deleteTable = function (sql) {
+        var deferred = Q.defer();
+        var self = this;
+        var p = this.runQuery(sql);
+        p.then(function (val) {
+            console.log('table was deleted');
+            console.log(val);
+            deferred.resolve(val);
+        }, function (err) {
+            console.log('table was not deleted');
+            console.log(err);
+            deferred.reject(err);
+        });
+        return deferred.promise;
+    };
     DBSQLite.prototype.createTable = function (sql1, sql2) {
         var deferred = Q.defer();
+        // console.log('dbDriver createTable');
         var self = this;
         var p = this.runQuery(sql1);
         p.then(function (val) {
@@ -72,7 +92,12 @@ var DBSQLite = (function () {
                 deferred.reject(err);
             });
         }, function (err) {
-            deferred.reject(err);
+            var p2 = self.runQuery(sql2);
+            p2.then(function (val) {
+                deferred.resolve(val);
+            }, function (err) {
+                deferred.reject(err);
+            });
         });
         return deferred.promise;
     };

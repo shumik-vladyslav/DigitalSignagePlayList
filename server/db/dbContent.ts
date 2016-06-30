@@ -12,9 +12,15 @@ export class DBContent {
         this.db = new DBDriver();
     }
 
+    deleteTable(): Q.Promise<any> {
+        var sql = "DROP TABLE test1";
+
+        return this.db.deleteTable(sql);
+    }
+
     createNewTable(): Q.Promise<any>  {
-        var sql1 = "DROP TABLE test";
-        var sql2 = "CREATE TABLE test (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, type TEXT, path TEXT, user TEXT, timestamp INTEGER)";
+        var sql1 = "DROP TABLE test1";
+        var sql2 = "CREATE TABLE test1 (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, type TEXT, path TEXT, user TEXT, timestamp INTEGER)";
 
         return this.db.createTable(sql1, sql2);
     }
