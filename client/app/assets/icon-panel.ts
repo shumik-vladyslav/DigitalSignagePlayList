@@ -1,11 +1,11 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {IconList} from './icon-list';
-import {Icon} from './icon';
+import {Icon} from './icon-model';
 
 @Component({
     selector: 'icon-panel',
-    templateUrl: './icon-panel.html',
-    styleUrls: ['./icon-panel.css'],
+    templateUrl: 'app/assets/icon-panel.html',
+    styleUrls: ['app/assets/icon-panel.css'],
     directives: [IconList]
 })
 

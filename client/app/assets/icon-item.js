@@ -9,14 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var icon_1 = require('./icon');
+var icon_model_1 = require('./icon-model');
 var IconItem = (function () {
     function IconItem() {
         this.edited = new core_1.EventEmitter();
     }
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', icon_1.Icon)
+        __metadata('design:type', icon_model_1.Icon)
     ], IconItem.prototype, "icon", void 0);
     __decorate([
         core_1.Output(), 
@@ -25,7 +25,7 @@ var IconItem = (function () {
     IconItem = __decorate([
         core_1.Component({
             selector: 'icon-item',
-            templateUrl: './icon-item.html'
+            templateUrl: 'app/assets/icon-item.html'
         }), 
         __metadata('design:paramtypes', [])
     ], IconItem);

@@ -1,10 +1,10 @@
 
 import {Component, Input, Output, EventEmitter} from '@angular/core';
-import { Icon } from './icon';
+import { Icon } from './icon-model';
 
 @Component({
     selector: 'icon-item',
-    templateUrl: './icon-item.html'
+    templateUrl: 'app/assets/icon-item.html'
 })
 
 export class IconItem {

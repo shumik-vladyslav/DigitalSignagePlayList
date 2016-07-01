@@ -10,13 +10,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var icon_list_1 = require('./icon-list');
-var icon_1 = require('./icon');
+var icon_model_1 = require('./icon-model');
 var IconPanel = (function () {
     function IconPanel() {
     }
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', icon_1.Icon)
+        __metadata('design:type', icon_model_1.Icon)
     ], IconPanel.prototype, "icon", void 0);
     __decorate([
         core_1.Input(), 
@@ -25,8 +25,8 @@ var IconPanel = (function () {
     IconPanel = __decorate([
         core_1.Component({
             selector: 'icon-panel',
-            templateUrl: './icon-panel.html',
-            styleUrls: ['./icon-panel.css'],
+            templateUrl: 'app/assets/icon-panel.html',
+            styleUrls: ['app/assets/icon-panel.css'],
             directives: [icon_list_1.IconList]
         }), 
         __metadata('design:paramtypes', [])

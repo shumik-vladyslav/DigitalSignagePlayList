@@ -1,10 +1,10 @@
 import {Component, Input} from '@angular/core';
 import { IconItem } from './icon-item';
-import { Icon } from './icon';
+import { Icon } from './icon-model';
 
 @Component({
     selector: 'icon-list',
-    templateUrl: './icon-list.html',
+    templateUrl: 'app/assets/icon-list.html',
     directives: [IconItem]
 })
 

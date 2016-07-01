@@ -1,9 +1,8 @@
 <div class="container">
     <div class="col-md-12">
-        <a href="adminAssets.php" class="btn"><span class="fa fa-picture-o"></span> Icons Manager</a>
+        <a [routerLink]="['/assets']" class="btn"><span class="fa fa-picture-o"></span> Icons Manager</a>
     </div>
 <br>
 <br>
 <message-panel [messages]="messages" (added)="onMessagesAdded($event)"></message-panel>
-
 </div>

@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
+
 import { MessagePanel } from './message-panel';
 import { MessageList } from './message-list';
-import { Message } from './message';
+import { Message } from './message-model';
 
 
 @Component({
-    selector: 'cms-app',
+    selector: 'messages-app',
     templateUrl: 'app/messages/messages.html',
     styleUrls: ['app/messages/messages.css'],
-    directives: [MessagePanel, MessageList]
+    directives: [MessagePanel, MessageList, ROUTER_DIRECTIVES]
 })
 export class MessagesComponent {
     messages: Message [];

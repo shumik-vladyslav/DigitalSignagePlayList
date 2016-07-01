@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var message_panel_1 = require('./message-panel');
 var message_list_1 = require('./message-list');
 var MessagesComponent = (function () {
@@ -20,10 +21,10 @@ var MessagesComponent = (function () {
     };
     MessagesComponent = __decorate([
         core_1.Component({
-            selector: 'cms-app',
+            selector: 'messages-app',
             templateUrl: 'app/messages/messages.html',
             styleUrls: ['app/messages/messages.css'],
-            directives: [message_panel_1.MessagePanel, message_list_1.MessageList]
+            directives: [message_panel_1.MessagePanel, message_list_1.MessageList, router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
     ], MessagesComponent);

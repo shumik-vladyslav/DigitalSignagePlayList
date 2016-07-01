@@ -10,14 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var message_list_1 = require('./message-list');
-var message_1 = require('./message');
+var message_model_1 = require('./message-model');
 var MessagePanel = (function () {
     function MessagePanel() {
         this.added = new core_1.EventEmitter();
         this.deleted = new core_1.EventEmitter();
     }
     MessagePanel.prototype.add = function (title) {
-        this.added.emit(new message_1.Message(title));
+        this.added.emit(new message_model_1.Message(title));
     };
     __decorate([
         core_1.Output(), 
@@ -29,7 +29,7 @@ var MessagePanel = (function () {
     ], MessagePanel.prototype, "deleted", void 0);
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', message_1.Message)
+        __metadata('design:type', message_model_1.Message)
     ], MessagePanel.prototype, "message", void 0);
     __decorate([
         core_1.Input(), 

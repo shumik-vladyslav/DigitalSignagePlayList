@@ -7,4 +7,4 @@ var Message = (function () {
     return Message;
 }());
 exports.Message = Message;
-//# sourceMappingURL=message.js.map
+//# sourceMappingURL=message-model.js.map

@@ -2,7 +2,7 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {MdCheckbox} from '@angular2-material/checkbox';
 import {MdInput} from '@angular2-material/input';
-import { Message } from './message';
+import { Message } from './message-model';
 
 @Component({
     selector: 'message-item',
