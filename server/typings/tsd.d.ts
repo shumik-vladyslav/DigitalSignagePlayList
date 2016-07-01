@@ -11,3 +11,4 @@
 /// <reference path="moment/moment.d.ts" />
 /// <reference path="q/Q.d.ts" />
 /// <reference path="sqlite3/sqlite3.d.ts" />
+/// <reference path="multer/multer.d.ts" />

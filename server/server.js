@@ -16,9 +16,9 @@ var users = require('./users/index');
 var user = require('./users/user');
 var db_content = require('./content/manager');
 var db_assets = require('./assets/manager');
+var path = require('path');
 ///////////////////////////////////////
 var app = express();
-var multer = require('multer');
 // configure our app to use bodyParser(it let us get the json data from a POST)
 app.use(cookie());
 app.use(session({
@@ -28,11 +28,7 @@ app.use(session({
 }));
 app.use('/api', bodyParser.urlencoded({ extended: true }));
 app.use('/api', bodyParser.json());
-var getDirectory = function () {
-    var dir = __dirname;
-    return dir.replace(new RegExp('server' + '$'), 'client');
-};
-app.use(express.static(getDirectory()));
+app.use(express.static(path.resolve(__dirname + '/../client/')));
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");

@@ -6,19 +6,19 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "express/express.d.ts": {
-      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
+      "commit": "9d145c1a73a8e27a54d8a11aa0b46d3f8a759b89"
     },
     "serve-static/serve-static.d.ts": {
-      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
+      "commit": "9d145c1a73a8e27a54d8a11aa0b46d3f8a759b89"
     },
     "mime/mime.d.ts": {
-      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
+      "commit": "9d145c1a73a8e27a54d8a11aa0b46d3f8a759b89"
     },
     "node/node.d.ts": {
-      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
+      "commit": "9d145c1a73a8e27a54d8a11aa0b46d3f8a759b89"
     },
     "express-serve-static-core/express-serve-static-core.d.ts": {
-      "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
+      "commit": "9d145c1a73a8e27a54d8a11aa0b46d3f8a759b89"
     },
     "body-parser/body-parser.d.ts": {
       "commit": "1ec3d510e0c4d7c50e708ca7cb0765c7e06fa2ed"
@@ -43,6 +43,9 @@
     },
     "moment/moment-node.d.ts": {
       "commit": "3bbe35a4cfdf09bd2a87ed660bf918131679da19"
+    },
+    "multer/multer.d.ts": {
+      "commit": "9d145c1a73a8e27a54d8a11aa0b46d3f8a759b89"
     }
   }
 }
