@@ -9,19 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var messages_1 = require('./messages/messages');
-var AppComponent = (function () {
-    function AppComponent() {
+var message_panel_1 = require('./message-panel');
+var message_list_1 = require('./message-list');
+var MessagesComponent = (function () {
+    function MessagesComponent() {
+        this.messages = [];
     }
-    AppComponent = __decorate([
+    MessagesComponent.prototype.onMessagesAdded = function (message) {
+        this.messages.push(message);
+    };
+    MessagesComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: '<cms-app></cms-app>',
-            directives: [messages_1.MessagesComponent]
+            selector: 'cms-app',
+            templateUrl: 'app/messages/messages.html',
+            styleUrls: ['app/messages/messages.css'],
+            directives: [message_panel_1.MessagePanel, message_list_1.MessageList]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], MessagesComponent);
+    return MessagesComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.MessagesComponent = MessagesComponent;
+//# sourceMappingURL=messages.js.map

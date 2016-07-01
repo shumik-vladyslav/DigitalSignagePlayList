@@ -1,0 +1,8 @@
+<tr (dblclick)="del()">
+    <td>
+        <md-checkbox (change)="toggleChangeActive()"></md-checkbox>
+    </td>
+    <td>
+        <md-input #titleInput (change)="inputChange(titleInput.value)">{{ message.title }}</md-input>
+    </td>
+</tr>

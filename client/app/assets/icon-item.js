@@ -9,19 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var messages_1 = require('./messages/messages');
-var AppComponent = (function () {
-    function AppComponent() {
+var icon_1 = require('./icon');
+var IconItem = (function () {
+    function IconItem() {
+        this.edited = new core_1.EventEmitter();
     }
-    AppComponent = __decorate([
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', icon_1.Icon)
+    ], IconItem.prototype, "icon", void 0);
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], IconItem.prototype, "edited", void 0);
+    IconItem = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: '<cms-app></cms-app>',
-            directives: [messages_1.MessagesComponent]
+            selector: 'icon-item',
+            templateUrl: './icon-item.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], IconItem);
+    return IconItem;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.IconItem = IconItem;
+//# sourceMappingURL=icon-item.js.map

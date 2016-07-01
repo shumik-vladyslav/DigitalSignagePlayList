@@ -28,6 +28,10 @@
     "@angular/router":  "3.0.0-alpha.7",
     "@angular/router-deprecated":  "2.0.0-rc.2",
     "@angular/upgrade":  "2.0.0-rc.3",
+    "@angular2-material/core": "^2.0.0-alpha.5-2",
+    "@angular2-material/checkbox": "^2.0.0-alpha.5-2",
+    "@angular2-material/input": "^2.0.0-alpha.5-2",
+    "@angular2-material/list": "^2.0.0-alpha.5-2",
 
     "systemjs": "0.19.27",
 
@@ -37,6 +41,7 @@
     "zone.js": "0.6.12",
 
     "angular2-in-memory-web-api": "0.0.12",
+    "jquery": "^2.2.4",
     "bootstrap": "^3.3.6"
   },
   "devDependencies": {

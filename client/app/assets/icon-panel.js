@@ -9,19 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var messages_1 = require('./messages/messages');
-var AppComponent = (function () {
-    function AppComponent() {
+var icon_list_1 = require('./icon-list');
+var icon_1 = require('./icon');
+var IconPanel = (function () {
+    function IconPanel() {
     }
-    AppComponent = __decorate([
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', icon_1.Icon)
+    ], IconPanel.prototype, "icon", void 0);
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', Array)
+    ], IconPanel.prototype, "icons", void 0);
+    IconPanel = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: '<cms-app></cms-app>',
-            directives: [messages_1.MessagesComponent]
+            selector: 'icon-panel',
+            templateUrl: './icon-panel.html',
+            styleUrls: ['./icon-panel.css'],
+            directives: [icon_list_1.IconList]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], IconPanel);
+    return IconPanel;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.IconPanel = IconPanel;
+//# sourceMappingURL=icon-panel.js.map
