@@ -7,6 +7,7 @@ import { AssetsComponent } from './assets/assets';
 
 export const AppRoutes = [
     { path: '', redirectTo: '/dashboard', terminal: true },
-    { path: 'messages', component: MessagesComponent, useAsDefault: true},
-    { path: 'assets', component: AssetsComponent },
+    { path: 'dashboard/messages', component: MessagesComponent, useAsDefault: true},
+    { path: 'dashboard/assets', component: AssetsComponent },
+    { path: 'dashboard', component: AssetsComponent }
 ]
