@@ -6,4 +6,4 @@ var Icon = (function () {
     return Icon;
 }());
 exports.Icon = Icon;
-//# sourceMappingURL=icon.js.map
+//# sourceMappingURL=icon-model.js.map

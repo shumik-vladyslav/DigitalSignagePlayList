@@ -20,7 +20,7 @@ var IconList = (function () {
     IconList = __decorate([
         core_1.Component({
             selector: 'icon-list',
-            templateUrl: './icon-list.html',
+            templateUrl: 'app/assets/icon-list.html',
             directives: [icon_item_1.IconItem]
         }), 
         __metadata('design:paramtypes', [])

@@ -1,6 +1,6 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {MessageList} from './message-list';
-import {Message} from './message';
+import {Message} from './message-model';
 
 @Component({
     selector: 'message-panel',

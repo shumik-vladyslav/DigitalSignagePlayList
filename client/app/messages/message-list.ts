@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import { MdList } from '@angular2-material/list';
 import { MessageItem } from './message-item';
-import { Message } from './message';
+import { Message } from './message-model';
 
 @Component({
     selector: 'message-list',

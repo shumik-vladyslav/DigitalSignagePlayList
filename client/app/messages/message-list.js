@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var list_1 = require('@angular2-material/list');
 var message_item_1 = require('./message-item');
-var message_1 = require('./message');
+var message_model_1 = require('./message-model');
 var MessageList = (function () {
     function MessageList() {
     }
@@ -29,7 +29,7 @@ var MessageList = (function () {
     ], MessageList.prototype, "messages", void 0);
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', message_1.Message)
+        __metadata('design:type', message_model_1.Message)
     ], MessageList.prototype, "message", void 0);
     MessageList = __decorate([
         core_1.Component({

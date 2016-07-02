@@ -9,25 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var icon_panel_1 = require('./icon-panel');
 var icon_list_1 = require('./icon-list');
-var Assets = (function () {
-    function Assets() {
+var AssetsComponent = (function () {
+    function AssetsComponent() {
         this.icons = [];
     }
-    Assets.prototype.onMessagesAdded = function (icon) {
+    AssetsComponent.prototype.onMessagesAdded = function (icon) {
         this.icons.push(icon);
     };
-    Assets = __decorate([
+    AssetsComponent = __decorate([
         core_1.Component({
-            selector: 'cms-app',
-            templateUrl: './messages.html',
-            styleUrls: ['./messages.css'],
-            directives: [icon_panel_1.IconPanel, icon_list_1.IconList]
+            selector: 'assets-app',
+            templateUrl: 'app/assets/assets.html',
+            styleUrls: ['app/assets/assets.css'],
+            directives: [icon_panel_1.IconPanel, icon_list_1.IconList, router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
-    ], Assets);
-    return Assets;
+    ], AssetsComponent);
+    return AssetsComponent;
 }());
-exports.Assets = Assets;
-//# sourceMappingURL=app.js.map
+exports.AssetsComponent = AssetsComponent;
+//# sourceMappingURL=assets.js.map
