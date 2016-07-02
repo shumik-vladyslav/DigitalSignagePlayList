@@ -10,6 +10,7 @@
 //test
 import * as express from 'express';
 
+
 import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
 import * as cookie from 'cookie-parser';
@@ -17,12 +18,17 @@ import * as cookie from 'cookie-parser';
 import users = require('./users/index');
 import user = require('./users/user');
 
+import db_content = require('./content/manager');
+import db_assets = require('./assets/manager');
+
+var path = require('path');
+
+
 //////////   Types  only/////////////
 import {Request} from "express";
 import {Response} from "express";
 import {Express} from "express";
 ///////////////////////////////////////
-
 
 const app:Express = express();
 
@@ -35,13 +41,8 @@ app.use(session({
 }));
 app.use('/api',bodyParser.urlencoded({extended: true}));
 app.use('/api',bodyParser.json());
-var getDirectory = function(){
 
-    var dir = __dirname;
-   return  dir.replace(new RegExp('server' + '$'), 'client');
-}
-
-app.use(express.static(getDirectory()));
+app.use(express.static(path.resolve(__dirname + '/../client/')));
 app.use(function(req:Request, res:Response, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -51,6 +52,8 @@ app.use(function(req:Request, res:Response, next) {
 const port:number = process.env.PORT || 8888;
 app.use('/api/users', users);
 app.use('/api/user', user);
+app.use('/api/content', db_content);
+app.use('/api/assets', db_assets);
 app.listen(port,function(){
     console.log('http://127.0.0.1:' + port);
     console.log('http://127.0.0.1:' + port + '/api');
