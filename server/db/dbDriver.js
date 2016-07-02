@@ -45,7 +45,7 @@ exports.DBDriver = DBDriver;
 var DBSQLite = (function () {
     function DBSQLite() {
         var sqlite = require('sqlite3').verbose();
-        this.db = new sqlite.Database('./db/ads.db');
+        this.db = new sqlite.Database('./server/db/ads.db');
     }
     DBSQLite.prototype.runQuery = function (sql) {
         var deferred = Q.defer();

@@ -29,6 +29,7 @@ app.use(session({
 app.use('/api', bodyParser.urlencoded({ extended: true }));
 app.use('/api', bodyParser.json());
 app.use(express.static(path.resolve(__dirname + '/../client/')));
+pp.use('/dashboard/*', __dirname + '/../client/indexts.html');
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");

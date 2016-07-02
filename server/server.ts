@@ -43,13 +43,16 @@ app.use('/api',bodyParser.urlencoded({extended: true}));
 app.use('/api',bodyParser.json());
 
 app.use(express.static(path.resolve(__dirname + '/../client/')));
-app.use(function(req:Request, res:Response, next) {
+
+pp.use('/dashboard/*',__dirname + '/../client/indexts.html');
+app.use(function(req:express.Request, res:express.Response, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 
 const port:number = process.env.PORT || 8888;
+
 app.use('/api/users', users);
 app.use('/api/user', user);
 app.use('/api/content', db_content);

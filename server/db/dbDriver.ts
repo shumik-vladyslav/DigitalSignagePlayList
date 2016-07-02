@@ -86,7 +86,7 @@ export class DBSQLite implements IDBDriver {
 
     constructor(){
         var sqlite: any = require('sqlite3').verbose();
-        this.db = new sqlite.Database('./db/ads.db');
+        this.db = new sqlite.Database('./server/db/ads.db');
     }
 
     runQuery(sql: string): Q.Promise<any> {
