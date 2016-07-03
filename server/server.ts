@@ -14,14 +14,19 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
 import * as cookie from 'cookie-parser';
+import * as path from 'path';
+var expressJwt = require('express-jwt');
 
+
+/*
 import users = require('./users/index');
 import user = require('./users/user');
 
 import db_content = require('./content/manager');
 import db_assets = require('./assets/manager');
+*/
 
-var path = require('path');
+
 
 
 //////////   Types  only/////////////
@@ -39,12 +44,32 @@ app.use(session({
     saveUninitialized: false, // don't create session until something stored
     secret:'somesecrettokenhere'
 }));
-app.use('/api',bodyParser.urlencoded({extended: true}));
-app.use('/api',bodyParser.json());
+
+//app.use('/api',bodyParser.urlencoded({extended: false}));
+//app.use('/api',bodyParser.json());
+
+
+
+app.use('/api', expressJwt({ secret: 'somesecrettokenhere' }).unless({ path: ['/api/users/authenticate', '/api/users/register'] }));
+
+
+//app.use('/login', require('./controllers/login.controller'));
+//app.use('/register', require('./controllers/register.controller'));
+//app.use('/app', require('./controllers/app.controller'));
+//app.use('/api/users', require('./controllers/api/users.controller'));
+
+
+
 
 app.use(express.static(path.resolve(__dirname + '/../client/')));
 
-pp.use('/dashboard/*',__dirname + '/../client/indexts.html');
+
+app.get('/dashboard', function(req:express.Request, res:express.Response){
+    res.sendFile('indexts.html',{ 'root':__dirname + '/../client/'});
+});
+app.get('/dashboard/messages', function(req:express.Request, res:express.Response){
+    res.sendFile('indexts.html',{ 'root':__dirname + '/../client/'});
+});
 app.use(function(req:express.Request, res:express.Response, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -52,11 +77,11 @@ app.use(function(req:express.Request, res:express.Response, next) {
 });
 
 const port:number = process.env.PORT || 8888;
-
+/*
 app.use('/api/users', users);
 app.use('/api/user', user);
 app.use('/api/content', db_content);
-app.use('/api/assets', db_assets);
+app.use('/api/assets', db_assets);*/
 app.listen(port,function(){
     console.log('http://127.0.0.1:' + port);
     console.log('http://127.0.0.1:' + port + '/api');
