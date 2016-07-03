@@ -21,9 +21,6 @@ var expressJwt = require('express-jwt');
 /*
 import users = require('./users/index');
 import user = require('./users/user');
-
-import db_content = require('./content/manager');
-import db_assets = require('./assets/manager');
 */
 
 
@@ -58,18 +55,16 @@ app.use('/api', expressJwt({ secret: 'somesecrettokenhere' }).unless({ path: ['/
 //app.use('/app', require('./controllers/app.controller'));
 //app.use('/api/users', require('./controllers/api/users.controller'));
 
-
-
-
 app.use(express.static(path.resolve(__dirname + '/../client/')));
 
+app.get('/', function(req:express.Request, res:express.Response){
+    res.sendFile('indexts.html',{ 'root':__dirname + '/../client/'});
+});
 
 app.get('/dashboard', function(req:express.Request, res:express.Response){
     res.sendFile('indexts.html',{ 'root':__dirname + '/../client/'});
 });
-app.get('/dashboard/messages', function(req:express.Request, res:express.Response){
-    res.sendFile('indexts.html',{ 'root':__dirname + '/../client/'});
-});
+
 app.use(function(req:express.Request, res:express.Response, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -77,11 +72,11 @@ app.use(function(req:express.Request, res:express.Response, next) {
 });
 
 const port:number = process.env.PORT || 8888;
-/*
-app.use('/api/users', users);
-app.use('/api/user', user);
-app.use('/api/content', db_content);
-app.use('/api/assets', db_assets);*/
+
+//app.use('/api/users', users);
+//app.use('/api/user', user);
+ app.use('/api/content', require('./content/manager'));
+app.use('/api/assets', require('./assets/manager'));
 app.listen(port,function(){
     console.log('http://127.0.0.1:' + port);
     console.log('http://127.0.0.1:' + port + '/api');

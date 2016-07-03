@@ -30,10 +30,10 @@ app.use('/api', expressJwt({ secret: 'somesecrettokenhere' }).unless({ path: ['/
 //app.use('/app', require('./controllers/app.controller'));
 //app.use('/api/users', require('./controllers/api/users.controller'));
 app.use(express.static(path.resolve(__dirname + '/../client/')));
-app.get('/dashboard', function (req, res) {
+app.get('/', function (req, res) {
     res.sendFile('indexts.html', { 'root': __dirname + '/../client/' });
 });
-app.get('/dashboard/messages', function (req, res) {
+app.get('/dashboard', function (req, res) {
     res.sendFile('indexts.html', { 'root': __dirname + '/../client/' });
 });
 app.use(function (req, res, next) {
@@ -42,11 +42,10 @@ app.use(function (req, res, next) {
     next();
 });
 var port = process.env.PORT || 8888;
-/*
-app.use('/api/users', users);
-app.use('/api/user', user);
-app.use('/api/content', db_content);
-app.use('/api/assets', db_assets);*/
+//app.use('/api/users', users);
+//app.use('/api/user', user);
+app.use('/api/content', require('./content/manager'));
+app.use('/api/assets', require('./assets/manager'));
 app.listen(port, function () {
     console.log('http://127.0.0.1:' + port);
     console.log('http://127.0.0.1:' + port + '/api');
