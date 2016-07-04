@@ -62,13 +62,15 @@ router.post('/upload', function(req:express.Request,res:express.Response) {
 
     var processImage = function () {
         var details:IFileReq = fp.fileReq;
+        console.log('details\n', details);
         ip.makeThumbnail(details.path, details.originalname).then( function (thumbnailPath:string) {
+            console.log('thumbnailPath ',thumbnailPath);
             fp.moveFile(thumbnailPath, details.path, details.originalname);
         });
     };
     
     fp.startProces(req, res).then(function (result) {
-        // onSuccess();
+        onSuccess();
         processImage();
     }, function (error) {
         onError();

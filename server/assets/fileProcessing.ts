@@ -68,7 +68,7 @@ export class FileProcessing {
             }
         });
 
-        var upload:express.RequestHandler = multer({ storage : storage}).single('userImage');
+        var upload:express.RequestHandler = multer({ storage : storage}).single('userImages');
 
         upload(req,res, (err)=> {
             if(err) {
@@ -102,19 +102,22 @@ export class FileProcessing {
         return deferred.promise;
     }
 
-    moveFile(thumbnailPath:string, originaPath:string, originalName:string): Q.Promise<any> {
+    moveFile(thumbnailPath:string, originaImagePath:string, originaImagelName:string): Q.Promise<any> {
         var deferred: Q.Deferred<any> = Q.defer();
         // oldPath:string =
 
-        var newPathThumb:string = this.pathDestC + 'thumbnails/' + originalName;
-        var newOriginalPath:string = this.pathDestC + 'userImages/' + originalName;
+        var newPathThumb:string = this.path.resolve(__dirname + this.pathDestC + 'thumbnails/' + originaImagelName);
+        var newOriginaImagelPath:string = this.path.resolve(__dirname + this.pathDestC + 'userImages/' + originaImagelName);
+
+        console.log('newPathThumb ', newPathThumb);
+        console.log('newOriginalPath ', newOriginaImagelPath);
 
         this.fs.rename(thumbnailPath, newPathThumb, (err)=> {
             if(err){
                 deferred.reject(err);
             } else {
-                this.fs.rename(originaPath, newOriginalPath, (err)=>{
-                    deferred.resolve([newPathThumb, newOriginalPath]);
+                this.fs.rename(originaImagePath, newOriginaImagelPath, (err)=>{
+                    deferred.resolve([newPathThumb, newOriginaImagelPath]);
                 });
             }
         });

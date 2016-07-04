@@ -3,8 +3,9 @@
 var Q = require('q');
 var ImageProcess = (function () {
     function ImageProcess() {
+        this.path = require('path');
         this.Jimp = require("jimp");
-        this.folder = '/uploads/thumbnails';
+        this.folder = '/../uploads/thumbnails/';
         this.thumbSize = 128;
     }
     ImageProcess.prototype.getImagePath = function () {
@@ -17,10 +18,14 @@ var ImageProcess = (function () {
         var x = 0;
         var y = 0;
         if (this.isLandScape) {
-            x = this.image.bitmap.width - this.thumbSize / 2;
+            x = (this.image.bitmap.width - this.thumbSize) / 2;
+            console.log('this.image.bitmap.width = ', this.image.bitmap.width);
+            console.log('x = ', x);
         }
         else {
-            y = this.image.bitmap.height - this.thumbSize / 2;
+            y = (this.image.bitmap.height - this.thumbSize) / 2;
+            console.log('this.image.bitmap.height = ', this.image.bitmap.height);
+            console.log('y = ', y);
         }
         p.quality(80)
             .crop(x, y, this.thumbSize, this.thumbSize)
@@ -32,7 +37,7 @@ var ImageProcess = (function () {
         this.Jimp.read(filePath).then(function (image) {
             // console.log(__dirname + pathDest + '_small_' + fileOriginalname);
             _this.image = image;
-            console.log('image', _this.image);
+            // console.log('image', this.image);
             _this.resizeImage();
             // var height = image.bitmap.height;
             // var width = image.bitmap.width;
@@ -44,8 +49,9 @@ var ImageProcess = (function () {
     ImageProcess.prototype.makeThumbnail = function (filePath, fileOriginalname) {
         var deferred = Q.defer();
         this.deffered = deferred;
-        this.pathDest = __dirname + this.folder + '/' + fileOriginalname;
+        this.pathDest = this.path.resolve(__dirname + this.folder + fileOriginalname);
         this.fileOriginalname = fileOriginalname;
+        console.log('makeThumbnail pathDest\n', this.pathDest);
         this.readImage(filePath);
         // this.Jimp.read(filePath).then((image)=> {
         //     console.log(__dirname + pathDest + '_small_' + fileOriginalname);

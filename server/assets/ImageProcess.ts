@@ -5,10 +5,11 @@ import * as express from 'express';
 
 
 export class  ImageProcess {
+    path = require('path');
     Jimp = require("jimp");
 
     pathDest: string;
-    folder: string = '/uploads/thumbnails';
+    folder: string = '/../uploads/thumbnails/';
 
     fileOriginalname: string;
 
@@ -35,9 +36,13 @@ export class  ImageProcess {
         let y = 0;
 
         if(this.isLandScape){
-            x = this.image.bitmap.width-this.thumbSize/2;
+            x = (this.image.bitmap.width-this.thumbSize)/2;
+            console.log('this.image.bitmap.width = ', this.image.bitmap.width);
+            console.log('x = ', x);
         } else {
-            y = this.image.bitmap.height-this.thumbSize/2;
+            y = (this.image.bitmap.height-this.thumbSize)/2;
+            console.log('this.image.bitmap.height = ', this.image.bitmap.height);
+            console.log('y = ', y);
         }
 
         p.quality(80)
@@ -50,7 +55,7 @@ export class  ImageProcess {
         this.Jimp.read(filePath).then((image)=> {
             // console.log(__dirname + pathDest + '_small_' + fileOriginalname);
             this.image = image;
-            console.log('image', this.image);
+            // console.log('image', this.image);
             this.resizeImage();
             // var height = image.bitmap.height;
             // var width = image.bitmap.width;
@@ -64,8 +69,10 @@ export class  ImageProcess {
     makeThumbnail(filePath: string, fileOriginalname: string){
         var deferred: Q.Deferred<any> = Q.defer();
         this.deffered = deferred;
-        this.pathDest = __dirname + this.folder + '/' + fileOriginalname;
+        this.pathDest = this.path.resolve(__dirname + this.folder + fileOriginalname);
         this.fileOriginalname = fileOriginalname;
+
+        console.log('makeThumbnail pathDest\n', this.pathDest);
 
         this.readImage(filePath);
 
