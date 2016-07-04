@@ -1,0 +1,97 @@
+/// <reference path="../typings/express/express.d.ts" />
+"use strict";
+// import fs = require ('fs');
+// import path = require('path');
+// import Jimp = require("jimp");
+var Q = require('q');
+var multer = require("multer");
+var FileProcessing = (function () {
+    function FileProcessing() {
+        this.fs = require('fs');
+        this.path = require('path');
+        this.multer = require('multer');
+        this.pathDestS = '/../uploads/';
+        this.pathDestC = '/../../client/mikeFolder/uploads/';
+    }
+    FileProcessing.prototype.onFileUploaded = function () {
+        var _this = this;
+        this.fs.stat(this.fileReq.path, function (err, stats) {
+            if (err) {
+                _this.deffered.reject(err);
+            }
+            else {
+                if (_this.fileReq.size === stats["size"]) {
+                    _this.deffered.resolve(_this.fileReq);
+                }
+                else {
+                    _this.deffered.reject(stats);
+                }
+            }
+        });
+    };
+    FileProcessing.prototype.startProces = function (req, res) {
+        var _this = this;
+        var deferred = Q.defer();
+        this.deffered = deferred;
+        // this.fileReq = req.file;
+        //
+        // console.log(req.file);
+        // console.log(this.fileReq);
+        var storage = this.multer.diskStorage({
+            destination: function (req, file, callback) {
+                callback(null, __dirname + '/../uploads/' + file.fieldname);
+            },
+            filename: function (req, file, callback) {
+                callback(null, '_' + Date.now() + '_' + file.originalname);
+            }
+        });
+        var upload = multer({ storage: storage }).single('userImage');
+        upload(req, res, function (err) {
+            if (err) {
+                deferred.reject(err);
+            }
+            else {
+                _this.fileReq = req.file;
+                console.log(req.file);
+                console.log(_this.fileReq);
+                _this.onFileUploaded();
+                deferred.resolve();
+            }
+        });
+        return deferred.promise;
+    };
+    FileProcessing.prototype.checkFileSize = function (filePath) {
+        var deferred = Q.defer();
+        this.fs.stat(filePath, function (err, stats) {
+            if (err) {
+                deferred.reject(err);
+            }
+            else {
+                console.log('file size: ' + stats["size"]);
+                deferred.resolve(stats["size"]);
+            }
+        });
+        return deferred.promise;
+    };
+    FileProcessing.prototype.moveFile = function (thumbnailPath, originaPath, originalName) {
+        var _this = this;
+        var deferred = Q.defer();
+        // oldPath:string =
+        var newPathThumb = this.pathDestC + 'thumbnails/' + originalName;
+        var newOriginalPath = this.pathDestC + 'userImages/' + originalName;
+        this.fs.rename(thumbnailPath, newPathThumb, function (err) {
+            if (err) {
+                deferred.reject(err);
+            }
+            else {
+                _this.fs.rename(originaPath, newOriginalPath, function (err) {
+                    deferred.resolve([newPathThumb, newOriginalPath]);
+                });
+            }
+        });
+        return deferred.promise;
+    };
+    return FileProcessing;
+}());
+exports.FileProcessing = FileProcessing;
+//# sourceMappingURL=fileProcessing.js.map

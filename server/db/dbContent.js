@@ -14,6 +14,13 @@ var DBContent = (function () {
         var sql2 = "CREATE TABLE test1 (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, type TEXT, path TEXT, user TEXT, timestamp INTEGER)";
         return this.db.createTable(sql1, sql2);
     };
+    DBContent.prototype.addNewColumn = function () {
+        var sql = "ALTER TABLE test1 ADD COLUMN"; //column_name = ? datatype = ?
+        var data = ['new', 'TEXT'];
+        sql += ' ' + data[0] + ' ' + data[1];
+        console.log(sql);
+        return this.db.addColumn(sql);
+    };
     DBContent.prototype.selectAllContent = function () {
         var sql = "SELECT * FROM content";
         var data = [];

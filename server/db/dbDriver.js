@@ -15,6 +15,12 @@ var DBDriver = (function () {
     DBDriver.prototype.createTable = function (sql1, sql2) {
         return this.db.createTable(sql1, sql2);
     };
+    DBDriver.prototype.addColumn = function (sql, data) {
+        return this.db.addColumn(sql, data);
+    };
+    DBDriver.prototype.deleteColumn = function (sql, data) {
+        return this.db.deleteColumn(sql, data);
+    };
     DBDriver.prototype.selectAll = function (sql, data) {
         return this.db.selectAll(sql, data);
     };
@@ -66,7 +72,6 @@ var DBSQLite = (function () {
     };
     DBSQLite.prototype.deleteTable = function (sql) {
         var deferred = Q.defer();
-        var self = this;
         var p = this.runQuery(sql);
         p.then(function (val) {
             console.log('table was deleted');
@@ -98,6 +103,39 @@ var DBSQLite = (function () {
             }, function (err) {
                 deferred.reject(err);
             });
+        });
+        return deferred.promise;
+    };
+    DBSQLite.prototype.addColumn = function (sql, data) {
+        var deferred = Q.defer();
+        this.db.run(sql, function (error) {
+            if (error) {
+                console.log(error);
+                deferred.reject({
+                    errno: error.errno,
+                    code: error.code
+                });
+            }
+            else {
+                // console.log({ id: this.lastID });
+                deferred.resolve({ changes: this.changes });
+            }
+        });
+        return deferred.promise;
+    };
+    DBSQLite.prototype.deleteColumn = function (sql, data) {
+        var deferred = Q.defer();
+        this.db.run(sql, data, function (error) {
+            if (error) {
+                deferred.reject({
+                    errno: error.errno,
+                    code: error.code
+                });
+            }
+            else {
+                // console.log({ id: this.lastID });
+                deferred.resolve({ changes: this.changes });
+            }
         });
         return deferred.promise;
     };

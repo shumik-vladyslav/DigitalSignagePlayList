@@ -1,0 +1,88 @@
+/// <reference path="../typings/express/express.d.ts" />
+
+import Q = require('q');
+import * as express from 'express';
+
+
+export class  ImageProcess {
+    Jimp = require("jimp");
+
+    pathDest: string;
+    folder: string = '/uploads/thumbnails';
+
+    fileOriginalname: string;
+
+    thumbSize: number = 128;
+    image:any;
+    isLandScape:boolean;
+
+
+    constructor(){
+
+    }
+
+    deffered: Q.Deferred<any>;
+
+    getImagePath(): string{
+        return this.pathDest;
+    }
+
+    private resizeImage(){
+        this.isLandScape = this.image.bitmap.height<this.image.bitmap.width;
+        var p: any = this.isLandScape ? this.image.resize(this.Jimp.AUTO, this.thumbSize) :
+                                        this.image.resize(this.thumbSize, this.Jimp.AUTO);
+        let x = 0;
+        let y = 0;
+
+        if(this.isLandScape){
+            x = this.image.bitmap.width-this.thumbSize/2;
+        } else {
+            y = this.image.bitmap.height-this.thumbSize/2;
+        }
+
+        p.quality(80)
+            .crop(x,y,this.thumbSize,this.thumbSize)
+            .write(this.pathDest);
+        this.deffered.resolve(this.pathDest);
+    }
+
+    private readImage(filePath: string) {
+        this.Jimp.read(filePath).then((image)=> {
+            // console.log(__dirname + pathDest + '_small_' + fileOriginalname);
+            this.image = image;
+            console.log('image', this.image);
+            this.resizeImage();
+            // var height = image.bitmap.height;
+            // var width = image.bitmap.width;
+        }).catch(function (err) {
+            console.log(err);
+            this.deferred.reject(err);
+        });
+    }
+
+
+    makeThumbnail(filePath: string, fileOriginalname: string){
+        var deferred: Q.Deferred<any> = Q.defer();
+        this.deffered = deferred;
+        this.pathDest = __dirname + this.folder + '/' + fileOriginalname;
+        this.fileOriginalname = fileOriginalname;
+
+        this.readImage(filePath);
+
+        // this.Jimp.read(filePath).then((image)=> {
+        //     console.log(__dirname + pathDest + '_small_' + fileOriginalname);
+        //     var height = image.bitmap.height;
+        //     var width = image.bitmap.width;
+        //
+        //
+        //     image.resize(128, 128).write(__dirname + pathDest + '_small_' + fileOriginalname);
+        //     deferred.resolve(__dirname + pathDest + '_small_' + fileOriginalname);
+        // }).catch(function (err) {
+        //     console.log(err);
+        //     deferred.reject(err);
+        // });
+
+        return deferred.promise;
+    }
+
+}
