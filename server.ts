@@ -15,10 +15,14 @@ import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
 import * as cookie from 'cookie-parser';
 declare var GLOBAL:any;
+declare var ROOT:string;
 declare var WWW:string;
+declare var SERVER:string;
 
 var path = require('path');
-GLOBAL.WWW = path.resolve(__dirname + '/client/');
+GLOBAL.ROOT = __dirname;
+GLOBAL.WWW = path.resolve(ROOT + '/client/');
+GLOBAL.SERVER = path.resolve(ROOT + '/server/');
 
 //////////   Types  only/////////////
 import {Request} from "express";

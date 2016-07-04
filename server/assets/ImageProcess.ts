@@ -2,46 +2,51 @@
 
 import Q = require('q');
 import * as express from 'express';
-// import Jimp from 'jimp';
-
-// export interface IJimpImage {
-//     _originalMime: string;
-//     bitmap:{
-//         data:Buffer,
-//         width:number,
-//         height:number
-//     }
-// }
+declare var WWW:string;
+declare var SERVER:string;
 
 
 export class  ImageProcess {
     path = require('path');
     Jimp = require("jimp");
 
-    pathDest: string;
-    folder: string = '/../uploads/thumbnails/';
+    deferred: Q.Deferred<any>;
 
-    fileOriginalname: string;
+    pathDest: string;
+    tempFolder: string;
+
+    filename: string;
 
     thumbSize: number = 128;
-    image: Jimp;
+    image: any;
     isLandScape:boolean;
 
-
-    constructor(){
-
+    onError(err){
+        this.deferred.reject(err);
     }
 
-    deffered: Q.Deferred<any>;
+    onSuccess(result){
+        this.deferred.resolve(result);
+    }
+
+    constructor() {
+        this.deferred = Q.defer();
+        this.tempFolder = SERVER + '/uploads/thumbnails/';
+    }
 
     getImagePath(): string{
         return this.pathDest;
     }
 
     private resizeImage(){
-        this.isLandScape = this.image.bitmap.height<this.image.bitmap.width;
-        var p: any = this.isLandScape ? this.image.resize(this.Jimp.AUTO, this.thumbSize) :
-                                        this.image.resize(this.thumbSize, this.Jimp.AUTO);
+        try {
+            this.isLandScape = this.image.bitmap.height < this.image.bitmap.width;
+            var p:any = this.isLandScape ? this.image.resize(this.Jimp.AUTO, this.thumbSize) :
+                this.image.resize(this.thumbSize, this.Jimp.AUTO);
+        } catch (e) {
+            this.onError(e);
+            return;
+        }
         let x = 0;
         let y = 0;
 
@@ -55,55 +60,33 @@ export class  ImageProcess {
             console.log('y = ', y);
         }
 
-        //p.quality(80)
         p.crop(x,y,this.thumbSize,this.thumbSize)
-            .write(this.pathDest);
-            // .catch(function (err) {
-            //     console.log(err);
-            //     this.deferred.reject(err);
-            // });
-        this.deffered.resolve(this.pathDest);
+            .write(this.pathDest, (err) => {
+                if(err) this.onError(err);
+                else this.onSuccess(this.pathDest);
+            });
     }
 
     private readImage(filePath: string) {
         this.Jimp.read(filePath).then((image)=> {
-            // console.log(__dirname + pathDest + '_small_' + fileOriginalname);
             this.image = image;
             // console.log('image', this.image);
             this.resizeImage();
-            // var height = image.bitmap.height;
-            // var width = image.bitmap.width;
         }).catch(function (err) {
             console.log(err);
-            this.deferred.reject(err);
+            this.onError(err);
         });
     }
 
+    makeThumbnail(filePath: string, filename: string){
 
-    makeThumbnail(filePath: string, fileOriginalname: string){
-        var deferred: Q.Deferred<any> = Q.defer();
-        this.deffered = deferred;
-        this.pathDest = this.path.resolve(__dirname + this.folder + fileOriginalname);
-        this.fileOriginalname = fileOriginalname;
+        this.pathDest = this.tempFolder + filename;
+        this.filename = filename;
 
         console.log('makeThumbnail pathDest\n', this.pathDest);
 
         this.readImage(filePath);
 
-        // this.Jimp.read(filePath).then((image)=> {
-        //     console.log(__dirname + pathDest + '_small_' + fileOriginalname);
-        //     var height = image.bitmap.height;
-        //     var width = image.bitmap.width;
-        //
-        //
-        //     image.resize(128, 128).write(__dirname + pathDest + '_small_' + fileOriginalname);
-        //     deferred.resolve(__dirname + pathDest + '_small_' + fileOriginalname);
-        // }).catch(function (err) {
-        //     console.log(err);
-        //     deferred.reject(err);
-        // });
-
-        return deferred.promise;
+        return this.deferred.promise;
     }
-
 }

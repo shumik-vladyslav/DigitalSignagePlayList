@@ -1,12 +1,10 @@
 /// <reference path="../typings/express/express.d.ts" />
 
-// import fs = require ('fs');
-// import path = require('path');
-// import Jimp = require("jimp");
 import Q = require('q');
 import * as express from 'express';
 import multer = require("multer");
 declare var WWW:string;
+declare var SERVER:string;
 
 export interface IFileReq {
     fieldname: string;
@@ -27,10 +25,7 @@ export class FileProcessing {
     path = require('path');
     multer = require('multer');
 
-    // pathDestS = '/../uploads/';
-    // pathDestC = '/../../client/clientAssets/uploads/';
-
-    private pathDestC:string; // = WWW + 'clientAssets/uploads/';
+    private pathDestC:string;
 
     constructor() {
         this.pathDestC = WWW + '/clientAssets/uploads/';
@@ -57,14 +52,9 @@ export class FileProcessing {
         var deferred: Q.Deferred<any> = Q.defer();
         this.deffered = deferred;
 
-        // this.fileReq = req.file;
-        //
-        // console.log(req.file);
-        // console.log(this.fileReq);
-
         var storage = this.multer.diskStorage({
             destination: function (req, file, callback) {
-                callback(null, __dirname + '/../uploads/' + file.fieldname);
+                callback(null, SERVER + '/uploads/' + file.fieldname);
             },
             filename: function (req, file, callback) {
                 callback(null, '_' + Date.now() + '_' + file.originalname);
@@ -105,15 +95,14 @@ export class FileProcessing {
         return deferred.promise;
     }
 
-    moveFile(thumbnailPath:string, originaImagePath:string, originaImagelName:string): Q.Promise<any> {
+    moveFile(thumbnailPath:string, originaImagePath:string, filename:string): Q.Promise<any> {
         var deferred: Q.Deferred<any> = Q.defer();
-        // oldPath:string =
-
+       
         // var newPathThumb:string = this.path.resolve(__dirname + this.pathDestC + 'thumbnails/' + originaImagelName);
         // var newOriginaImagelPath:string = this.path.resolve(__dirname + this.pathDestC + 'userImages/' + originaImagelName);
 
-        var newPathThumb:string = this.pathDestC + 'thumbnails/' + originaImagelName;
-        var newOriginaImagelPath:string = this.pathDestC + 'userImages/' + originaImagelName;
+        var newPathThumb:string = this.pathDestC + 'thumbnails/' + filename;
+        var newOriginaImagelPath:string = this.pathDestC + 'userImages/' + filename;
 
         console.log('newPathThumb ', newPathThumb);
         console.log('newOriginalPath ', newOriginaImagelPath);
@@ -130,48 +119,4 @@ export class FileProcessing {
 
         return deferred.promise;
     }
-
-    // resizeImage(filePath:string, fileName:string, destination:string): Q.Promise<any> {
-    //     var deferred: Q.Deferred<any> = Q.defer();
-    //
-    //     this.Jimp.read(filePath).then(function (image) {
-    //         console.log(__dirname + destination + '_small_' + fileName);
-    //         image.resize(128, 128).write(__dirname + destination + '_small_' + fileName);
-    //         deferred.resolve(__dirname + destination + '_small_' + fileName);
-    //     }).catch(function (err) {
-    //         console.log(err);
-    //         deferred.reject(err);
-    //     });
-    //
-    //     return deferred.promise;
-    // }
-
-    // moveFile(filePath:string, fileName:string, destination:string): Q.Promise<any> {
-    //
-    //     this.fs.createReadStream(filePath)
-    //         .pipe(fs.createWriteStream(__dirname + destination + '_move_' + fileName))
-    //         .unlink(filePath, (err) => {
-    //             if (err) console.log(err);
-    //             console.log('successfully deleted /tmp/hello');
-    //         });
-    // }
-
-    // deleteFile(filePath:string): Q.Promise<any> {
-    //     // var deferred: Q.Deferred<any> = Q.defer();
-    //
-    //     var t = fs.unlink(filePath);
-    //
-    //     console.log('file deleted', t);
-    //
-    //     // return deferred.promise;
-    // }
-
-    // moveFile(filePath:string, destination:string): Q.Promise<any> {
-    //     var deferred: Q.Deferred<any> = Q.defer();
-    //
-    //     fs.createReadStream(filePath).pipe(fs.createWriteStream(destination));
-    //
-    //     return deferred.promise;
-    // }
-
 }

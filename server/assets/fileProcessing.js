@@ -1,8 +1,5 @@
 /// <reference path="../typings/express/express.d.ts" />
 "use strict";
-// import fs = require ('fs');
-// import path = require('path');
-// import Jimp = require("jimp");
 var Q = require('q');
 var multer = require("multer");
 var FileProcessing = (function () {
@@ -32,13 +29,9 @@ var FileProcessing = (function () {
         var _this = this;
         var deferred = Q.defer();
         this.deffered = deferred;
-        // this.fileReq = req.file;
-        //
-        // console.log(req.file);
-        // console.log(this.fileReq);
         var storage = this.multer.diskStorage({
             destination: function (req, file, callback) {
-                callback(null, __dirname + '/../uploads/' + file.fieldname);
+                callback(null, SERVER + '/uploads/' + file.fieldname);
             },
             filename: function (req, file, callback) {
                 callback(null, '_' + Date.now() + '_' + file.originalname);
@@ -72,14 +65,13 @@ var FileProcessing = (function () {
         });
         return deferred.promise;
     };
-    FileProcessing.prototype.moveFile = function (thumbnailPath, originaImagePath, originaImagelName) {
+    FileProcessing.prototype.moveFile = function (thumbnailPath, originaImagePath, filename) {
         var _this = this;
         var deferred = Q.defer();
-        // oldPath:string =
         // var newPathThumb:string = this.path.resolve(__dirname + this.pathDestC + 'thumbnails/' + originaImagelName);
         // var newOriginaImagelPath:string = this.path.resolve(__dirname + this.pathDestC + 'userImages/' + originaImagelName);
-        var newPathThumb = this.pathDestC + 'thumbnails/' + originaImagelName;
-        var newOriginaImagelPath = this.pathDestC + 'userImages/' + originaImagelName;
+        var newPathThumb = this.pathDestC + 'thumbnails/' + filename;
+        var newOriginaImagelPath = this.pathDestC + 'userImages/' + filename;
         console.log('newPathThumb ', newPathThumb);
         console.log('newOriginalPath ', newOriginaImagelPath);
         this.fs.rename(thumbnailPath, newPathThumb, function (err) {

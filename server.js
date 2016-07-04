@@ -13,7 +13,9 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var cookie = require('cookie-parser');
 var path = require('path');
-GLOBAL.WWW = path.resolve(__dirname + '/client/');
+GLOBAL.ROOT = __dirname;
+GLOBAL.WWW = path.resolve(ROOT + '/client/');
+GLOBAL.SERVER = path.resolve(ROOT + '/server/');
 ///////////////////////////////////////
 var app = express();
 // configure our app to use bodyParser(it let us get the json data from a POST)
