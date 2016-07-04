@@ -1,6 +1,15 @@
 /// <reference path="../typings/express/express.d.ts" />
 "use strict";
 var Q = require('q');
+// import Jimp from 'jimp';
+// export interface IJimpImage {
+//     _originalMime: string;
+//     bitmap:{
+//         data:Buffer,
+//         width:number,
+//         height:number
+//     }
+// }
 var ImageProcess = (function () {
     function ImageProcess() {
         this.path = require('path');
@@ -27,9 +36,13 @@ var ImageProcess = (function () {
             console.log('this.image.bitmap.height = ', this.image.bitmap.height);
             console.log('y = ', y);
         }
-        p.quality(80)
-            .crop(x, y, this.thumbSize, this.thumbSize)
+        //p.quality(80)
+        p.crop(x, y, this.thumbSize, this.thumbSize)
             .write(this.pathDest);
+        // .catch(function (err) {
+        //     console.log(err);
+        //     this.deferred.reject(err);
+        // });
         this.deffered.resolve(this.pathDest);
     };
     ImageProcess.prototype.readImage = function (filePath) {

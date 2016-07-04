@@ -10,8 +10,7 @@ var FileProcessing = (function () {
         this.fs = require('fs');
         this.path = require('path');
         this.multer = require('multer');
-        this.pathDestS = '/../uploads/';
-        this.pathDestC = '/../../client/mikeFolder/uploads/';
+        this.pathDestC = WWW + '/clientAssets/uploads/';
     }
     FileProcessing.prototype.onFileUploaded = function () {
         var _this = this;
@@ -77,8 +76,10 @@ var FileProcessing = (function () {
         var _this = this;
         var deferred = Q.defer();
         // oldPath:string =
-        var newPathThumb = this.path.resolve(__dirname + this.pathDestC + 'thumbnails/' + originaImagelName);
-        var newOriginaImagelPath = this.path.resolve(__dirname + this.pathDestC + 'userImages/' + originaImagelName);
+        // var newPathThumb:string = this.path.resolve(__dirname + this.pathDestC + 'thumbnails/' + originaImagelName);
+        // var newOriginaImagelPath:string = this.path.resolve(__dirname + this.pathDestC + 'userImages/' + originaImagelName);
+        var newPathThumb = this.pathDestC + 'thumbnails/' + originaImagelName;
+        var newOriginaImagelPath = this.pathDestC + 'userImages/' + originaImagelName;
         console.log('newPathThumb ', newPathThumb);
         console.log('newOriginalPath ', newOriginaImagelPath);
         this.fs.rename(thumbnailPath, newPathThumb, function (err) {

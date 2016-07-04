@@ -6,6 +6,7 @@
 import Q = require('q');
 import * as express from 'express';
 import multer = require("multer");
+declare var WWW:string;
 
 export interface IFileReq {
     fieldname: string;
@@ -26,11 +27,13 @@ export class FileProcessing {
     path = require('path');
     multer = require('multer');
 
-    pathDestS = '/../uploads/';
-    pathDestC = '/../../client/mikeFolder/uploads/';
+    // pathDestS = '/../uploads/';
+    // pathDestC = '/../../client/clientAssets/uploads/';
+
+    private pathDestC:string; // = WWW + 'clientAssets/uploads/';
 
     constructor() {
-        
+        this.pathDestC = WWW + '/clientAssets/uploads/';
     }
 
     onFileUploaded(){
@@ -106,8 +109,11 @@ export class FileProcessing {
         var deferred: Q.Deferred<any> = Q.defer();
         // oldPath:string =
 
-        var newPathThumb:string = this.path.resolve(__dirname + this.pathDestC + 'thumbnails/' + originaImagelName);
-        var newOriginaImagelPath:string = this.path.resolve(__dirname + this.pathDestC + 'userImages/' + originaImagelName);
+        // var newPathThumb:string = this.path.resolve(__dirname + this.pathDestC + 'thumbnails/' + originaImagelName);
+        // var newOriginaImagelPath:string = this.path.resolve(__dirname + this.pathDestC + 'userImages/' + originaImagelName);
+
+        var newPathThumb:string = this.pathDestC + 'thumbnails/' + originaImagelName;
+        var newOriginaImagelPath:string = this.pathDestC + 'userImages/' + originaImagelName;
 
         console.log('newPathThumb ', newPathThumb);
         console.log('newOriginalPath ', newOriginaImagelPath);

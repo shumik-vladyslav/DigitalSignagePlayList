@@ -52,8 +52,8 @@ router.post('/upload', function(req:express.Request,res:express.Response) {
         res.json({success:'success', result:'File is uploaded'});
     };
 
-    var onError = function () {
-        res.json({error:'error', result:'Error uploading file.'});
+    var onError = function (err) {
+        res.json({error:'error', result:err});
     };
 
     var insertInDB = function () {
@@ -65,18 +65,22 @@ router.post('/upload', function(req:express.Request,res:express.Response) {
         console.log('details\n', details);
         ip.makeThumbnail(details.path, details.originalname).then( function (thumbnailPath:string) {
             console.log('thumbnailPath ',thumbnailPath);
-            fp.moveFile(thumbnailPath, details.path, details.originalname);
+            fp.moveFile(thumbnailPath, details.path, details.originalname).then( function (result) {
+                onSuccess();
+            }, function (err) {
+                onError(err);
+            });
         });
     };
     
     fp.startProces(req, res).then(function (result) {
-        onSuccess();
+        // onSuccess();
         processImage();
     }, function (error) {
-        onError();
+        onError(error);
     });
     
-    fp
+    // fp
     
 /*    upload(req,res,function(err) {
         if(err) {
