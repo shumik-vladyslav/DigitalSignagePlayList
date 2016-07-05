@@ -9,6 +9,8 @@ var mydb = new db.DBContent();
 // var mycontent = new db.Content();
 // mydb.deleteTable();
 // mydb.createNewTable();
+// var p = mydb.addNewColumn();
+// console.log(p);
 router.get('/select/all', function (req, res) {
     var promise = mydb.selectAllContent();
     promise.then(function (result) {

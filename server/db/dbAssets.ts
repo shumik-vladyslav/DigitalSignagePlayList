@@ -20,7 +20,7 @@ export class DBAssets {
 
     createNewTable(): Q.Promise<any>  {
         var sql1 = "DROP TABLE assets";
-        var sql2 = "CREATE TABLE assets (id INTEGER PRIMARY KEY AUTOINCREMENT, raw_data TEXT, path TEXT)";
+        var sql2 = "CREATE TABLE assets (id INTEGER PRIMARY KEY AUTOINCREMENT, originalName TEXT, path TEXT, raw_data TEXT, path TEXT)";
 
         return this.db.createTable(sql1, sql2);
     }

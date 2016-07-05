@@ -13,6 +13,9 @@ var mydb: DBContent = new db.DBContent();
 // mydb.deleteTable();
 // mydb.createNewTable();
 
+// var p = mydb.addNewColumn();
+// console.log(p);
+
 router.get('/select/all', function (req:express.Request, res:express.Response) {
     var promise = mydb.selectAllContent();
     promise.then(function (result) {

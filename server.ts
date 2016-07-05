@@ -5,7 +5,7 @@
 /// <reference path="typings/body-parser/body-parser.d.ts" />
 ///<reference path="typings/express-session/express-session.d.ts"/>
 ///<reference path="typings/cookie-parser/cookie-parser.d.ts"/>
-///<reference path="users/db-users.ts"/>
+///<reference path="server/users/db-users.ts"/>
 
 //test
 import * as express from 'express';
@@ -14,17 +14,15 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
 import * as cookie from 'cookie-parser';
-import * as path from 'path';
-var expressJwt = require('express-jwt');
+declare var GLOBAL:any;
+declare var ROOT:string;
+declare var WWW:string;
+declare var SERVER:string;
 
-
-/*
-import users = require('./users/index');
-import user = require('./users/user');
-*/
-
-
-
+var path = require('path');
+GLOBAL.ROOT = __dirname;
+GLOBAL.WWW = path.resolve(ROOT + '/client/');
+GLOBAL.SERVER = path.resolve(ROOT + '/server/');
 
 //////////   Types  only/////////////
 import {Request} from "express";
@@ -41,42 +39,29 @@ app.use(session({
     saveUninitialized: false, // don't create session until something stored
     secret:'somesecrettokenhere'
 }));
+app.use('/api',bodyParser.urlencoded({extended: true}));
+app.use('/api',bodyParser.json());
 
-//app.use('/api',bodyParser.urlencoded({extended: false}));
-//app.use('/api',bodyParser.json());
-
-
-
-app.use('/api', expressJwt({ secret: 'somesecrettokenhere' }).unless({ path: ['/api/users/authenticate', '/api/users/register'] }));
-
-
-//app.use('/login', require('./controllers/login.controller'));
-//app.use('/register', require('./controllers/register.controller'));
-//app.use('/app', require('./controllers/app.controller'));
-//app.use('/api/users', require('./controllers/api/users.controller'));
-
-app.use(express.static(path.resolve(__dirname + '/../client/')));
+app.use(express.static(WWW));
 
 app.get('/', function(req:express.Request, res:express.Response){
-    res.sendFile('indexts.html',{ 'root':__dirname + '/../client/'});
+    res.sendFile('indexts.html',{ 'root':WWW});
 });
 
 app.get('/dashboard', function(req:express.Request, res:express.Response){
-    res.sendFile('indexts.html',{ 'root':__dirname + '/../client/'});
+    res.sendFile('indexts.html',{ 'root':WWW});
 });
-
-app.use(function(req:express.Request, res:express.Response, next) {
+app.use(function(req:Request, res:Response, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 
 const port:number = process.env.PORT || 8888;
-
-//app.use('/api/users', users);
-//app.use('/api/user', user);
- app.use('/api/content', require('./content/manager'));
-app.use('/api/assets', require('./assets/manager'));
+app.use('/api/users', require('./server/users/index'));
+app.use('/api/user', require('./server/users/user'));
+app.use('/api/content', require('./server/content/manager'));
+app.use('/api/assets', require('./server/assets/manager'));
 app.listen(port,function(){
     console.log('http://127.0.0.1:' + port);
     console.log('http://127.0.0.1:' + port + '/api');

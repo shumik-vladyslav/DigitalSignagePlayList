@@ -3,6 +3,8 @@
 
 import {Database} from "sqlite3";
 import Q = require('q');
+//var sqlite: any = require('sqlite');
+import db from 'sqlite';
 
 export interface IDBDriver {
     runQuery(sql:string): Q.Promise<any>;
@@ -10,6 +12,10 @@ export interface IDBDriver {
     deleteTable(sql:string): Q.Promise<any>;
 
     createTable(sql1:string, sql2:string): Q.Promise<any>;
+
+    addColumn(sql:string, data?:any[]): Q.Promise<any>;
+
+    deleteColumn(sql:string, data?:any[]): Q.Promise<any>;
 
     selectAll(sql:string, data?:any[]): Q.Promise<any>;
 
@@ -44,8 +50,16 @@ export class DBDriver implements IDBDriver {
         return this.db.deleteTable(sql);
     }
 
-    createTable(sql1:string, sql2:string): Q.Promise<any>  {
+    createTable(sql1:string, sql2:string): Q.Promise<any> {
         return this.db.createTable(sql1, sql2);
+    }
+
+    addColumn(sql:string, data?:any[]): Q.Promise<any> {
+        return this.db.addColumn(sql, data);
+    }
+
+    deleteColumn(sql:string, data?:any[]): Q.Promise<any> {
+        return this.db.deleteColumn(sql, data);
     }
 
     selectAll(sql:string, data?:any[]): Q.Promise<any> {
@@ -85,8 +99,9 @@ export class DBSQLite implements IDBDriver {
     private db;
 
     constructor(){
-        var sqlite: any = require('sqlite3').verbose();
-        this.db = new sqlite.Database('./server/db/ads.db');
+       // import sqlite from 'sqlite';
+       var sqlite: any = require('sqlite3').verbose();
+       this.db = new sqlite.Database('./server/db/ads.db');
     }
 
     runQuery(sql: string): Q.Promise<any> {
@@ -110,7 +125,6 @@ export class DBSQLite implements IDBDriver {
     deleteTable(sql:string) {
         var deferred: Q.Deferred<any> = Q.defer();
 
-        var self: IDBDriver = this;
         var p: Q.Promise<any>  = this.runQuery(sql);
 
         p.then(function (val) {
@@ -126,7 +140,7 @@ export class DBSQLite implements IDBDriver {
         return deferred.promise;
     }
 
-    createTable(sql1:string, sql2:string): Q.Promise<any>  {
+    createTable(sql1:string, sql2:string): Q.Promise<any> {
         var deferred: Q.Deferred<any> = Q.defer();
         // console.log('dbDriver createTable');
         var self: IDBDriver = this;
@@ -148,6 +162,43 @@ export class DBSQLite implements IDBDriver {
             }, function (err) {
                 deferred.reject(err);
             })
+        });
+
+        return deferred.promise;
+    }
+
+    addColumn(sql:string, data?:any[]): Q.Promise<any> {
+        var deferred: Q.Deferred<any> = Q.defer();
+
+        this.db.run(sql, function(error) {
+            if (error) {
+                console.log(error);
+                deferred.reject({
+                    errno: error.errno,
+                    code: error.code
+                });
+            } else {
+                // console.log({ id: this.lastID });
+                deferred.resolve({ changes: this.changes });
+            }
+        });
+
+        return deferred.promise;
+    }
+
+    deleteColumn(sql:string, data?:any[]): Q.Promise<any> {
+        var deferred: Q.Deferred<any> = Q.defer();
+
+        this.db.run(sql, data, function(error) {
+            if (error) {
+                deferred.reject({
+                    errno: error.errno,
+                    code: error.code
+                });
+            } else {
+                // console.log({ id: this.lastID });
+                deferred.resolve({ changes: this.changes });
+            }
         });
 
         return deferred.promise;
