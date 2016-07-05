@@ -11,22 +11,21 @@ var DBAssets = (function () {
     };
     DBAssets.prototype.createNewTable = function () {
         var sql1 = "DROP TABLE assets";
-        var sql2 = "CREATE TABLE assets (id INTEGER PRIMARY KEY AUTOINCREMENT, originalName TEXT, path TEXT, raw_data TEXT, path TEXT)";
+        var sql2 = "CREATE TABLE assets (id INTEGER PRIMARY KEY AUTOINCREMENT, originalName TEXT, path TEXT, thumb TEXT, size INTEGER, width INTEGER, height INTEGER, mime TEXT)";
         return this.db.createTable(sql1, sql2);
+    };
+    DBAssets.prototype.insertContent = function (assets) {
+        var sql = 'INSERT INTO assets (originalName, path, thumb, size, width, height, mime) VALUES (?, ?, ?, ?, ?, ?, ?)';
+        var data = [assets.originalName, assets.path, assets.thumb, assets.size, assets.width, assets.height, assets.mime];
+        return this.db.insertOne(sql, data);
     };
     return DBAssets;
 }());
 exports.DBAssets = DBAssets;
 var Assets = (function () {
-    function Assets(raw_data, path, id) {
-        this.raw_data = raw_data;
-        this.path = path;
-        this.id = id;
+    function Assets() {
         // console.log('constructor Assets');
     }
-    Assets.prototype.toArray = function () {
-        return [this.raw_data, this.path];
-    };
     return Assets;
 }());
 exports.Assets = Assets;

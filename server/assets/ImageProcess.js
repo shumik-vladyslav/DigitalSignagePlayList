@@ -15,11 +15,10 @@ var ImageProcess = (function () {
     ImageProcess.prototype.onSuccess = function (result) {
         this.deferred.resolve(result);
     };
-    ImageProcess.prototype.getImagePath = function () {
-        return this.pathDest;
-    };
     ImageProcess.prototype.resizeImage = function () {
         var _this = this;
+        this.widthImage = this.image.bitmap.width;
+        this.heightImage = this.image.bitmap.height;
         try {
             this.isLandScape = this.image.bitmap.height < this.image.bitmap.width;
             var p = this.isLandScape ? this.image.resize(this.Jimp.AUTO, this.thumbSize) :
@@ -33,13 +32,9 @@ var ImageProcess = (function () {
         var y = 0;
         if (this.isLandScape) {
             x = (this.image.bitmap.width - this.thumbSize) / 2;
-            console.log('this.image.bitmap.width = ', this.image.bitmap.width);
-            console.log('x = ', x);
         }
         else {
             y = (this.image.bitmap.height - this.thumbSize) / 2;
-            console.log('this.image.bitmap.height = ', this.image.bitmap.height);
-            console.log('y = ', y);
         }
         p.crop(x, y, this.thumbSize, this.thumbSize)
             .write(this.pathDest, function (err) {
@@ -63,7 +58,7 @@ var ImageProcess = (function () {
     ImageProcess.prototype.makeThumbnail = function (filePath, filename) {
         this.pathDest = this.tempFolder + filename;
         this.filename = filename;
-        console.log('makeThumbnail pathDest\n', this.pathDest);
+        // console.log('makeThumbnail pathDest\n', this.pathDest);
         this.readImage(filePath);
         return this.deferred.promise;
     };
