@@ -18,7 +18,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<router-outlet></router-outlet>',
+            template: '<navbar></navbar>' +
+                '<router-outlet></router-outlet>',
             directives: [messages_1.MessagesComponent, assets_1.AssetsComponent, router_1.ROUTER_DIRECTIVES],
         }), 
         __metadata('design:paramtypes', [])
@@ -26,4 +27,16 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
+var core_2 = require("@angular/core");
+var GlobalEventsManager = (function () {
+    function GlobalEventsManager() {
+        this.showNavBar = new core_2.EventEmitter();
+    }
+    GlobalEventsManager = __decorate([
+        Injectable(), 
+        __metadata('design:paramtypes', [])
+    ], GlobalEventsManager);
+    return GlobalEventsManager;
+}());
+exports.GlobalEventsManager = GlobalEventsManager;
 //# sourceMappingURL=app.component.js.map
