@@ -50,6 +50,7 @@ var DBDriver = (function () {
 exports.DBDriver = DBDriver;
 var DBSQLite = (function () {
     function DBSQLite() {
+        // import sqlite from 'sqlite';
         var sqlite = require('sqlite3').verbose();
         this.db = new sqlite.Database('./server/db/ads.db');
     }

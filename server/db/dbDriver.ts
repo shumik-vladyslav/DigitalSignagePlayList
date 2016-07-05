@@ -3,6 +3,8 @@
 
 import {Database} from "sqlite3";
 import Q = require('q');
+//var sqlite: any = require('sqlite');
+import db from 'sqlite';
 
 export interface IDBDriver {
     runQuery(sql:string): Q.Promise<any>;
@@ -97,8 +99,9 @@ export class DBSQLite implements IDBDriver {
     private db;
 
     constructor(){
-        var sqlite: any = require('sqlite3').verbose();
-        this.db = new sqlite.Database('./server/db/ads.db');
+       // import sqlite from 'sqlite';
+       var sqlite: any = require('sqlite3').verbose();
+       this.db = new sqlite.Database('./server/db/ads.db');
     }
 
     runQuery(sql: string): Q.Promise<any> {
