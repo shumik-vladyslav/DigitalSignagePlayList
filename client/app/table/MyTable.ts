@@ -13,6 +13,10 @@ export class MyTrComponent {
     onClick(col):void{
         console.log(this);
     }
+
+    ngOnInit(){
+        console.log(this);
+    }
 }
 
 
