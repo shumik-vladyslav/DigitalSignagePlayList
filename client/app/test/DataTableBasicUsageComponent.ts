@@ -10,6 +10,9 @@ import {MATERIAL_DIRECTIVES} from 'ng2-material';
     directives: [MATERIAL_DIRECTIVES]
 })
 export class DataTableBasicUsageComponent {
+    onClick(material){
+        console.log(material)
+    }
     materials: Array<any> = [
         {'id': 1, 'name': 'Acrylic (Transparent)', 'quantity': '25', 'price': '$2.90'},
         {'id': 2, 'name': 'Plywood (Birch)', 'quantity': '50', 'price': '$1.25'},

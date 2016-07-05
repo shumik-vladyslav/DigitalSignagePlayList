@@ -51,6 +51,9 @@ app.get('/', function(req:express.Request, res:express.Response){
 app.get('/dashboard', function(req:express.Request, res:express.Response){
     res.sendFile('indexts.html',{ 'root':WWW});
 });
+app.get('/dashboard/*', function(req:express.Request, res:express.Response){
+    res.sendFile('indexts.html',{ 'root':WWW});
+});
 app.use(function(req:Request, res:Response, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");

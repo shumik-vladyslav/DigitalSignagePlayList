@@ -1,4 +1,4 @@
-<md-data-table layout-fill>
+<md-data-table>
     <thead>
     <tr>
         <th class="md-text-cell">Material</th>
@@ -7,7 +7,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let material of materials">
+    <tr (click) ="onClick(material)" *ngFor="let material of materials">
         <td class="md-text-cell">{{ material.name }}</td>
         <td>{{ material.quantity }}</td>
         <td>{{ material.price }}</td>

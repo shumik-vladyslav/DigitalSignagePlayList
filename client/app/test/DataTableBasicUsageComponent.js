@@ -21,6 +21,9 @@ var DataTableBasicUsageComponent = (function () {
             { 'id': 3, 'name': 'Laminate (Gold on Blue)', 'quantity': '10', 'price': '$2.35' }
         ];
     }
+    DataTableBasicUsageComponent.prototype.onClick = function (material) {
+        console.log(material);
+    };
     DataTableBasicUsageComponent = __decorate([
         core_1.Component({
             //moduleId: module.id,
