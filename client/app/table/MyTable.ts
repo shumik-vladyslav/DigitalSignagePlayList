@@ -12,6 +12,7 @@ export class MyTrComponent {
     @Input('myTr') row;
     onClick(col):void{
         console.log(this);
+        
     }
 
     ngOnInit(){
