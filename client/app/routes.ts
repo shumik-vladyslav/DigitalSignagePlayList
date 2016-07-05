@@ -4,10 +4,12 @@
 
 import { MessagesComponent } from './messages/messages';
 import { AssetsComponent } from './assets/assets';
+import {DataTableBasicUsageComponent} from "./test/DataTableBasicUsageComponent";
+
 
 export const AppRoutes = [
     { path: '', redirectTo: '/dashboard', terminal: true },
     { path: 'dashboard/messages', component: MessagesComponent, useAsDefault: true},
     { path: 'dashboard/assets', component: AssetsComponent },
-    { path: 'dashboard', component: AssetsComponent }
+    { path: 'dashboard', component:DataTableBasicUsageComponent}
 ]
