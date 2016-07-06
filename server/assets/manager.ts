@@ -22,7 +22,7 @@ var mydb: DBAssets = new db.DBAssets();
 var fs = require('fs');
 
 // mydb.deleteTable();
-mydb.createNewTable();
+// mydb.createNewTable();
 
 
 router.post('/upload', function(req:express.Request,res:express.Response) {

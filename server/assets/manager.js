@@ -9,7 +9,7 @@ var router = express.Router();
 var mydb = new db.DBAssets();
 var fs = require('fs');
 // mydb.deleteTable();
-mydb.createNewTable();
+// mydb.createNewTable();
 router.post('/upload', function (req, res) {
     var fp = new fileProcessing_1.FileProcessing();
     var ip = new ImageProcess_1.ImageProcess();
