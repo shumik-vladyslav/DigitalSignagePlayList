@@ -1,0 +1,10 @@
+#TableMessages .tools>div, #TableMessages .tools input{
+    display: inline;
+}
+#TableMessages .panel-body{
+    height: 600px;
+    overflow: auto;
+}
+#TableMessages .selected {
+    background-color: khaki;
+}

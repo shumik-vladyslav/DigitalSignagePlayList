@@ -1,0 +1,3 @@
+<tbody *ngIf="messages.length > 0">
+    <message-item *ngFor="let message of messages" [message]="message" (deleted)="onMessageDeleted($event)"></message-item>
+</tbody>
