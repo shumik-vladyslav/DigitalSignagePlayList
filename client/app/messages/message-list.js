@@ -9,12 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var list_1 = require('@angular2-material/list');
-var message_item_1 = require('./message-item');
+var checkbox_1 = require('@angular2-material/checkbox');
+var input_1 = require('@angular2-material/input');
+/*import { MessageItem } from './message-item';*/
 var message_model_1 = require('./message-model');
 var MessageList = (function () {
     function MessageList() {
     }
+    MessageList.prototype.toggleChangeActive = function () {
+        console.log("toggle");
+        this.message.active = !this.message.active;
+    };
+    MessageList.prototype.inputChange = function (title) {
+        console.log("input");
+        this.message.title = title;
+    };
+    /*del () {
+    console.log("delete")
+    this.deleted.emit(this.message);
+    }*!/*/
     MessageList.prototype.onMessageDeleted = function (message) {
         if (message) {
             var index = this.messages.indexOf(message);
@@ -33,9 +46,9 @@ var MessageList = (function () {
     ], MessageList.prototype, "message", void 0);
     MessageList = __decorate([
         core_1.Component({
-            selector: 'message-list',
-            templateUrl: 'app/messages/message-list.html',
-            directives: [message_item_1.MessageItem, list_1.MdList]
+            selector: 'md-data-table',
+            template: "\n                <thead>\n                <tr>\n                    <th class=\"md-text-cell\">Active</th>\n                    <th class=\"md-text-cell\">Content</th>\n                </tr>\n                </thead>\n                <tbody *ngIf=\"messages.length > 0\">\n                    <tr *ngFor=\"let message of messages\" (deleted)=\"onMessageDeleted($event)\">\n                        <td class=\"md-text-cell\">\n                            <md-checkbox (change)=\"toggleChangeActive()\"></md-checkbox>\n                        </td>\n                        <td class=\"md-text-cell\">\n                    <md-input #titleInput (change)=\"inputChange(titleInput.value)\">{{ message.title }}</md-input>\n                    </td>\n                </tr>\n                </tbody>\n                ",
+            directives: [checkbox_1.MdCheckbox, input_1.MdInput]
         }), 
         __metadata('design:paramtypes', [])
     ], MessageList);

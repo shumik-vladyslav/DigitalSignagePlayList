@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
+
+import { MessageService} from './message-service';
 import { MessagePanel } from './message-panel';
 import { MessageList } from './message-list';
 import { Message } from './message-model';
@@ -10,26 +12,52 @@ import { Message } from './message-model';
     selector: 'messages-app',
     templateUrl: 'app/messages/messages.html',
     styleUrls: ['app/messages/messages.css'],
-    directives: [MessagePanel, MessageList, ROUTER_DIRECTIVES]
+    directives: [MessagePanel, MessageList, ROUTER_DIRECTIVES],
+    providers: [MessageService]
 })
-export class MessagesComponent {
-    messages: Message [];
+export class MessagesComponent implements OnInit {
+    errorMessage: string;
+    messages: Message[];
+    mode = 'Observable';
 
-    constructor () {
-        this.messages = [];
+    constructor (
+        private messageService: MessageService
+                )
+    {
+        this.messages =[];
     }
 
-    onMessagesAdded (message: Message) {
-        this.messages.push(message);
+    ngOnInit () {
+        this.messages = this.getMessages();
+        console.log(this.messages)
     }
 
-   /* onMessageDeleted () {
-        console.log("message");
-        /!*if (message) {
-         let index = this.messages.indexOf(message);
-         if (index > -1) {
-         this.messages.splice(index,1);
-         }
-         }*!/
-    }*/
+    getMessages(): any {
+        this.messageService.getMessages()
+            .subscribe(
+                messages => this.messages = messages,
+                error =>  this.errorMessage = <any>error);
+    }
+
+    addMessage (name: string) {
+        if (!name) { return; }
+        this.messageService.addMessage(name)
+            .subscribe(
+                message  => this.messages.push(message),
+                error =>  this.errorMessage = <any>error);
+    }
+
+   /* onMessagesAdded (message: Message) {
+      this.messages.push(message);
+     }*/
+
+    /* onMessageDeleted () {
+     console.log("message");
+     /!*if (message) {
+     let index = this.messages.indexOf(message);
+     if (index > -1) {
+     this.messages.splice(index,1);
+     }
+     }*!/
+     }*/
 }

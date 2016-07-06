@@ -10,6 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var http_1 = require('@angular/http');
+require('./rxjs-operators');
 var messages_1 = require('./messages/messages');
 var assets_1 = require('./assets/assets');
 var AppComponent = (function () {
@@ -20,6 +22,7 @@ var AppComponent = (function () {
             selector: 'my-app',
             template: '<router-outlet></router-outlet>',
             directives: [messages_1.MessagesComponent, assets_1.AssetsComponent, router_1.ROUTER_DIRECTIVES],
+            providers: [http_1.HTTP_PROVIDERS]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

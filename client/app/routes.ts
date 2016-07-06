@@ -9,7 +9,7 @@ import {AppComponent2} from "./table/MyTable";
 
 
 export const AppRoutes = [
-    { path: '', redirectTo: '/dashboard', terminal: true },
+    { path: '', redirectTo: '/dashboard/messages', terminal: true },
     { path: 'dashboard/messages', component: MessagesComponent, useAsDefault: true},
     { path: 'dashboard/assets', component: AssetsComponent },
     { path: 'dashboard/table', component:AppComponent2 },

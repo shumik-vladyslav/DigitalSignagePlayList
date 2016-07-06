@@ -7,7 +7,7 @@ var assets_1 = require('./assets/assets');
 var DataTableBasicUsageComponent_1 = require("./test/DataTableBasicUsageComponent");
 var MyTable_1 = require("./table/MyTable");
 exports.AppRoutes = [
-    { path: '', redirectTo: '/dashboard', terminal: true },
+    { path: '', redirectTo: '/dashboard/messages', terminal: true },
     { path: 'dashboard/messages', component: messages_1.MessagesComponent, useAsDefault: true },
     { path: 'dashboard/assets', component: assets_1.AssetsComponent },
     { path: 'dashboard/table', component: MyTable_1.AppComponent2 },

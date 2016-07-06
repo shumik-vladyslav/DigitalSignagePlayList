@@ -16,15 +16,6 @@ var MessageItem = (function () {
     function MessageItem() {
         this.deleted = new core_1.EventEmitter();
     }
-    MessageItem.prototype.toggleChangeActive = function () {
-        this.message.active = !this.message.active;
-    };
-    MessageItem.prototype.inputChange = function (title) {
-        this.message.title = title;
-    };
-    MessageItem.prototype.del = function () {
-        this.deleted.emit(this.message);
-    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', message_model_1.Message)

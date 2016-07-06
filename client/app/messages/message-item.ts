@@ -16,15 +16,18 @@ export class MessageItem {
 
     @Output () deleted = new EventEmitter();
 
-    toggleChangeActive () {
+   /* toggleChangeActive () {
+        console.log("toggle")
         this.message.active =!this.message.active;
     }
 
     inputChange (title: string) {
+        console.log("input")
         this.message.title = title;
     }
 
     del () {
+        console.log("delete")
         this.deleted.emit(this.message);
-    }
+    }*/
 }
