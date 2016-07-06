@@ -5,41 +5,58 @@ import {Component, Input} from '@angular/core';
 import {HTTP_PROVIDERS, Http} from "@angular/http";
 
 @Component({
-    selector: '[myTr]',
-    template: `<td (click)="onClick(val)"   *ngFor="let val of row"  >{{val}}</td>`
+    selector: '[myRow]',
+    template: `<td (click)="onClick(i)"   *ngFor="let val of row ; let i = index" >{{val}}</td>`
 })
 export class MyTrComponent {
-    @Input('myTr') row;
+    @Input('myRow') row;
     onClick(col):void{
-        console.log(this);
+        console.log(this.row);
         
     }
 
     ngOnInit(){
-        console.log(this);
+       // console.log(this);
     }
 }
 
 
 
 @Component({
-    selector: 'div',
-    template: `{{title}}
-    <table>
-    <tr *ngFor="let line of data" [myTr]="line"></tr>
+    selector: 'table-simple',
+    template: `<h3>{{title}}</h3>
+    <table class="table table-default">
+    <thead>
+    <tr>
+    <td *ngFor="let val of heads"  >{{val}}</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let myrow of data" [myRow]="myrow"></tr>
+    </tbody>
     </table>`,
     providers: [HTTP_PROVIDERS],
     directives: [MyTrComponent]
 })
-export class AppComponent2 {
+
+
+
+export class TableComponent {
+
+    @Input('thedata') data:string[][];
+
     title = "Angular 2 - tr attribute selector";
-    data //= [ [1,2,3], [11, 12, 13] ];
+   // private data:string[][];
+    private heads:string[]=[]
     constructor(private http:Http) {
-        http.get("http://front-desk.ca/tableblue/agents/getagents.php")
+       /* http.get("http://front-desk.ca/tableblue/agents/getagents.php")
             .subscribe((data:any)=> {
+                var head:string[]=[];
                 var ar:any[]=[];
+                var i=0;
                 data.json().list.forEach(function(item){
-                    var row:string[] =[]
+                    var row:string[] =[];
+                    if(i++===0)  for(var str in item)head.push(str);
                     for(var str in item) row.push(item[str]);
                     ar.push(row);
                 })
@@ -47,9 +64,10 @@ export class AppComponent2 {
 
                 console.log(data);
 
+                this.heads = head;
             this.data = ar;
 
-            });
+            });*/
 
     }
 

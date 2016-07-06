@@ -3,16 +3,23 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 
 
 import { MessageService} from './message-service';
-import { MessagePanel } from './message-panel';
+import { MessageTools } from './message-tools';
 import { MessageList } from './message-list';
 import { Message } from './message-model';
 
 
 @Component({
-    selector: 'messages-app',
-    templateUrl: 'app/messages/messages.html',
+    selector: 'div',
+    template: `<div class ="panel panel-default">
+               <div class="panel-heading">
+               <message-tools (added)="onMessagesAdded($event)"></message-tools>
+               </div>
+               <div class="panel-body">
+               <message-list [messages]="messages"></message-list>
+               </div>
+               </div>`,
     styleUrls: ['app/messages/messages.css'],
-    directives: [MessagePanel, MessageList, ROUTER_DIRECTIVES],
+    directives: [MessageTools, MessageList, ROUTER_DIRECTIVES],
     providers: [MessageService]
 })
 export class MessagesComponent implements OnInit {
@@ -28,18 +35,19 @@ export class MessagesComponent implements OnInit {
     }
 
     ngOnInit () {
-        this.messages = this.getMessages();
-        console.log(this.messages)
+        this.getMessages();
     }
 
-    getMessages(): any {
+    getMessages() {
         this.messageService.getMessages()
             .subscribe(
                 messages => this.messages = messages,
-                error =>  this.errorMessage = <any>error);
+                error =>  this.errorMessage = <any>error);{
+        }
     }
 
-    addMessage (name: string) {
+    saveMessage (name: string) {
+        console.log(name);
         if (!name) { return; }
         this.messageService.addMessage(name)
             .subscribe(
@@ -47,9 +55,9 @@ export class MessagesComponent implements OnInit {
                 error =>  this.errorMessage = <any>error);
     }
 
-   /* onMessagesAdded (message: Message) {
+    onMessagesAdded (message: Message) {
       this.messages.push(message);
-     }*/
+    }
 
     /* onMessageDeleted () {
      console.log("message");

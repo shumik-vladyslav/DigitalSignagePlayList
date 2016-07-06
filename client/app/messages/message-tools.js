@@ -36,4 +36,4 @@ var MessageItem = (function () {
     return MessageItem;
 }());
 exports.MessageItem = MessageItem;
-//# sourceMappingURL=message-item.js.map
+//# sourceMappingURL=message-tools.jss.map

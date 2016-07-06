@@ -17,56 +17,68 @@ var MyTrComponent = (function () {
     function MyTrComponent() {
     }
     MyTrComponent.prototype.onClick = function (col) {
-        console.log(this);
+        console.log(this.row);
     };
     MyTrComponent.prototype.ngOnInit = function () {
-        console.log(this);
+        // console.log(this);
     };
     __decorate([
-        core_1.Input('myTr'), 
+        core_1.Input('myRow'), 
         __metadata('design:type', Object)
     ], MyTrComponent.prototype, "row", void 0);
     MyTrComponent = __decorate([
         core_1.Component({
-            selector: '[myTr]',
-            template: "<td (click)=\"onClick(val)\"   *ngFor=\"let val of row\"  >{{val}}</td>"
+            selector: '[myRow]',
+            template: "<td (click)=\"onClick(i)\"   *ngFor=\"let val of row ; let i = index\" >{{val}}</td>"
         }), 
         __metadata('design:paramtypes', [])
     ], MyTrComponent);
     return MyTrComponent;
 }());
 exports.MyTrComponent = MyTrComponent;
-var AppComponent2 = (function () {
-    function AppComponent2(http) {
-        var _this = this;
+var TableComponent = (function () {
+    function TableComponent(http) {
+        /* http.get("http://front-desk.ca/tableblue/agents/getagents.php")
+             .subscribe((data:any)=> {
+                 var head:string[]=[];
+                 var ar:any[]=[];
+                 var i=0;
+                 data.json().list.forEach(function(item){
+                     var row:string[] =[];
+                     if(i++===0)  for(var str in item)head.push(str);
+                     for(var str in item) row.push(item[str]);
+                     ar.push(row);
+                 })
+ 
+ 
+                 console.log(data);
+ 
+                 this.heads = head;
+             this.data = ar;
+ 
+             });*/
         this.http = http;
         this.title = "Angular 2 - tr attribute selector";
-        http.get("http://front-desk.ca/tableblue/agents/getagents.php")
-            .subscribe(function (data) {
-            var ar = [];
-            data.json().list.forEach(function (item) {
-                var row = [];
-                for (var str in item)
-                    row.push(item[str]);
-                ar.push(row);
-            });
-            console.log(data);
-            _this.data = ar;
-        });
+        // private data:string[][];
+        this.heads = [];
     }
-    AppComponent2.prototype.onClick = function (col) {
+    TableComponent.prototype.onClick = function (col) {
         console.log(col);
     };
-    AppComponent2 = __decorate([
+    __decorate([
+        core_1.Input('thedata'), 
+        __metadata('design:type', Array)
+    ], TableComponent.prototype, "data", void 0);
+    TableComponent = __decorate([
         core_1.Component({
-            selector: 'div',
-            template: "{{title}}\n    <table>\n    <tr *ngFor=\"let line of data\" [myTr]=\"line\"></tr>\n    </table>",
+            selector: 'table-simple',
+            template: "<h3>{{title}}</h3>\n    <table class=\"table table-default\">\n    <thead>\n    <tr>\n    <td *ngFor=\"let val of heads\"  >{{val}}</td>\n    </tr>\n    </thead>\n    <tbody>\n    <tr *ngFor=\"let myrow of data\" [myRow]=\"myrow\"></tr>\n    </tbody>\n    </table>",
             providers: [http_1.HTTP_PROVIDERS],
             directives: [MyTrComponent]
         }), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], AppComponent2);
-    return AppComponent2;
+    ], TableComponent);
+    return TableComponent;
 }());
-exports.AppComponent2 = AppComponent2;
+exports.TableComponent = TableComponent;
 //# sourceMappingURL=MyTable.js.map

@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var message_service_1 = require('./message-service');
-var message_panel_1 = require('./message-panel');
+var message_tools_1 = require('./message-tools');
 var message_list_1 = require('./message-list');
 var MessagesComponent = (function () {
     function MessagesComponent(messageService) {
@@ -20,28 +20,33 @@ var MessagesComponent = (function () {
         this.messages = [];
     }
     MessagesComponent.prototype.ngOnInit = function () {
-        this.messages = this.getMessages();
-        console.log(this.messages);
+        this.getMessages();
     };
     MessagesComponent.prototype.getMessages = function () {
         var _this = this;
         this.messageService.getMessages()
             .subscribe(function (messages) { return _this.messages = messages; }, function (error) { return _this.errorMessage = error; });
+        {
+        }
     };
-    MessagesComponent.prototype.addMessage = function (name) {
+    MessagesComponent.prototype.saveMessage = function (name) {
         var _this = this;
+        console.log(name);
         if (!name) {
             return;
         }
         this.messageService.addMessage(name)
             .subscribe(function (message) { return _this.messages.push(message); }, function (error) { return _this.errorMessage = error; });
     };
+    MessagesComponent.prototype.onMessagesAdded = function (message) {
+        this.messages.push(message);
+    };
     MessagesComponent = __decorate([
         core_1.Component({
-            selector: 'messages-app',
-            templateUrl: 'app/messages/messages.html',
+            selector: 'div',
+            template: "<div class =\"panel panel-default\">\n               <div class=\"panel-heading\">\n               <message-tools (added)=\"onMessagesAdded($event)\"></message-tools>\n               </div>\n               <div class=\"panel-body\">\n               <message-list [messages]=\"messages\"></message-list>\n               </div>\n               </div>",
             styleUrls: ['app/messages/messages.css'],
-            directives: [message_panel_1.MessagePanel, message_list_1.MessageList, router_1.ROUTER_DIRECTIVES],
+            directives: [message_tools_1.MessageTools, message_list_1.MessageList, router_1.ROUTER_DIRECTIVES],
             providers: [message_service_1.MessageService]
         }), 
         __metadata('design:paramtypes', [message_service_1.MessageService])
@@ -49,4 +54,4 @@ var MessagesComponent = (function () {
     return MessagesComponent;
 }());
 exports.MessagesComponent = MessagesComponent;
-//# sourceMappingURL=messages.js.map
+//# sourceMappingURL=messages-main.jsap
