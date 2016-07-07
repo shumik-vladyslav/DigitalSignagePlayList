@@ -10,7 +10,7 @@ import { HTTP_PROVIDERS } from '@angular/http';
 //import { APP_ROUTER_PROVIDERS } from './app.routes';
 
 import { provideRouter } from '@angular/router';
-import { AppRoutes } from './routes';
+import { AppRoutes } from './app.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { AppComponent } from './app.component';
 

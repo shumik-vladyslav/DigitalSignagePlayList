@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
 
-import { MessageService} from './message-service';
+import { MessageService} from '../services/message-service';
 import { MessageTools } from './message-tools';
 import { MessageList } from './message-list';
 
@@ -14,17 +14,17 @@ interface Message{
     selector: 'div',
     template: `<div class ="panel panel-default">
                <div class="panel-heading">
-               <message-tools (added)="onMessagesAdded($event)"></message-tools>
+               <message-tools (added)="onMessagesAdded($event)" (deleted)="onMessagesDeleted($event)"></message-tools>
                </div>
                <div class="panel-body">
                <message-list [messages]="messages"></message-list>
                </div>
                </div>`,
-    styleUrls: ['app/messages/messages.css'],
+    styleUrls: ['app/messages/messages-main.css'],
     directives: [MessageTools, MessageList, ROUTER_DIRECTIVES],
     providers: [MessageService]
 })
-export class MessagesComponent implements OnInit {
+export class MessagesMain implements OnInit {
     errorMessage: string;
     messages: Message[];
     mode = 'Observable';
@@ -49,7 +49,6 @@ export class MessagesComponent implements OnInit {
     }
 
     saveMessage (name: string) {
-        console.log(name);
         if (!name) { return; }
         this.messageService.addMessage(name)
             .subscribe(
@@ -58,16 +57,19 @@ export class MessagesComponent implements OnInit {
     }
 
     onMessagesAdded (message: Message) {
-      this.messages.push(message);
+        this.messages.push(message);
     }
 
-    /* onMessageDeleted () {
-     console.log("message");
-     /!*if (message) {
-     let index = this.messages.indexOf(message);
-     if (index > -1) {
-     this.messages.splice(index,1);
-     }
-     }*!/
-     }*/
+    onMessageDeleted (message: Message) {
+        let item: Message;
+        this.messages.forEach(function(message){
+            if (message.selected === true) item = message;
+        });
+        if (item) {
+            let index = this.messages.indexOf(item);
+            if (index > -1) {
+                this.messages.splice(index, 1);
+            }
+        }
+    }
 }

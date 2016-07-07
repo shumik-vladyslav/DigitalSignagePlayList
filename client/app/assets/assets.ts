@@ -1,26 +1,46 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
-import { IconPanel } from './icon-panel';
-import { IconList } from './icon-list';
-import { Icon } from './icon-model';
+import { AssetsService, Asset } from '../services/assets-service';
 
 
 @Component({
     selector: 'assets-app',
-    templateUrl: 'app/assets/assets.html',
-    styleUrls: ['app/assets/assets.css'],
-    directives: [IconPanel, IconList, ROUTER_DIRECTIVES]
+    template: `
+               <div class ="panel panel-default">
+               <div class="panel-body">
+                     <md-content layout="row">
+                     <div *ngFor="let item of data">
+                         <md-card layout="column">
+                                  <img md-card-sm-image src=" {{ item.thumb }} ">
+                         </md-card>
+                     </div>
+                     </md-content>
+               </div>
+               </div>
+                `,
+    styleUrls: ['app/assets/main.css'],
+    directives: [ROUTER_DIRECTIVES],
+    providers: [AssetsService]
 })
 
 export class AssetsComponent {
-    icons: Icon [];
+    errorMessage: string;
+    data: Asset[];
 
-    constructor () {
-        this.icons = [];
+    constructor ( private service: AssetsService ) {
+
     }
 
-    onMessagesAdded (icon: Icon) {
-        this.icons.push(icon);
+    ngOnInit () {
+        this.getData();
+    }
+
+    getData() {
+        this.service.getData()
+            .subscribe(
+                data => this.data = data,
+                error =>  this.errorMessage = <any>error);{
+        }
     }
 }

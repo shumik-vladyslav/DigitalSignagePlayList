@@ -5,34 +5,46 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
-import { Message } from './message-model';
 import { Observable } from 'rxjs/Observable';
 
+export class Asset {
+    id:number;
+    thumb: string;
+    img: string;
+}  
+
 @Injectable()
-export class MessageService {
+export class AssetsService {
     constructor(private http:Http) {
     }
 
-    //private messagesUrl = 'http://front-desk.ca/tableblue/agents/getagents.php';
-    private messagesUrl = 'app/messages/temp.json';
+    private dataUrl = 'images/images.json';
 
-    getMessages (): Observable<Message[]> {
-        return this.http.get(this.messagesUrl)
-            .map(this.extractData)
+    getData (): Observable<Asset[]> {
+        return this.http.get(this.dataUrl)
+            .map( (data) => this.parse (data))
             .catch(this.handleError);
     }
 
-    addMessage (name: string): Observable<Message> {
+    addItem (name: string): Observable<Asset> {
         let body = JSON.stringify({ name });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.messagesUrl, body, options)
-            .map(this.extractData)
+        return this.http.post(this.dataUrl, body, options)
+            .map(this.parseOne)
             .catch(this.handleError);
     }
 
-    private extractData(res: Response) {
+    private parse(res: Response) {
+        let body: Asset [] = res.json();
+        body.forEach (function (item: any) {
+            item.img = item.large;
+        })
+        return body || { };
+    }
+
+    private parseOne(res: Response) {
         let body = res.json();
         return body.data || { };
     }

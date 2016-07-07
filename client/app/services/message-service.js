@@ -17,12 +17,11 @@ var Observable_1 = require('rxjs/Observable');
 var MessageService = (function () {
     function MessageService(http) {
         this.http = http;
-        //private messagesUrl = 'http://front-desk.ca/tableblue/agents/getagents.php';
-        this.messagesUrl = 'app/messages/temp.json';
+        this.messagesUrl = 'http://localhost/GitHub/tableblue-master/crawl/crawl.php';
     }
     MessageService.prototype.getMessages = function () {
         return this.http.get(this.messagesUrl)
-            .map(this.extractData)
+            .map(this.parse)
             .catch(this.handleError);
     };
     MessageService.prototype.addMessage = function (name) {
@@ -30,10 +29,17 @@ var MessageService = (function () {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(this.messagesUrl, body, options)
-            .map(this.extractData)
+            .map(this.parseOne)
             .catch(this.handleError);
     };
-    MessageService.prototype.extractData = function (res) {
+    MessageService.prototype.parse = function (res) {
+        var body = res.json();
+        body.forEach(function (item) {
+            item.title = item.msg;
+        });
+        return body || {};
+    };
+    MessageService.prototype.parseOne = function (res) {
         var body = res.json();
         return body.data || {};
     };
