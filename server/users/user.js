@@ -1,7 +1,3 @@
-/**
- * Created by Vlad on 5/22/2016.
- */
-///<reference path="../server.ts"/>
 "use strict";
 var express = require('express');
 var router = express.Router();

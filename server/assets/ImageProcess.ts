@@ -1,4 +1,6 @@
-/// <reference path="../typings/express/express.d.ts" />
+/// <reference path="../../typings/express/express.d.ts" />
+///<reference path="../../typings/q/Q.d.ts"/>
+
 
 import Q = require('q');
 import * as express from 'express';
@@ -61,8 +63,8 @@ export class  ImageProcess {
             y = (this.image.bitmap.height-this.thumbSize)/2;
         }
 
-        p.crop(x,y,this.thumbSize,this.thumbSize)
-            .write(this.pathDest, (err) => {
+        // p.crop(x,y,this.thumbSize,this.thumbSize)
+            p.write(this.pathDest, (err) => {
                 if(err) this.onError(err);
                 else this.onSuccess(this.pathDest);
             });

@@ -1,4 +1,3 @@
-/// <reference path="../typings/express/express.d.ts" />
 "use strict";
 var Q = require('q');
 var multer = require("multer");
@@ -44,8 +43,6 @@ var FileProcessing = (function () {
             }
             else {
                 _this.fileReq = req.file;
-                // console.log(req.file);
-                //console.log('fileReq ', this.fileReq);
                 _this.onFileUploaded();
                 deferred.resolve(_this.fileReq);
             }
@@ -59,7 +56,6 @@ var FileProcessing = (function () {
                 deferred.reject(err);
             }
             else {
-                // console.log('file size: ' + stats["size"]);
                 deferred.resolve(stats["size"]);
             }
         });
@@ -68,12 +64,8 @@ var FileProcessing = (function () {
     FileProcessing.prototype.moveFile = function (thumbnailPath, originaImagePath, filename) {
         var _this = this;
         var deferred = Q.defer();
-        // var newPathThumb:string = this.path.resolve(__dirname + this.pathDestC + 'thumbnails/' + originaImagelName);
-        // var newOriginaImagelPath:string = this.path.resolve(__dirname + this.pathDestC + 'userImages/' + originaImagelName);
         this.newPathThumb = this.pathDestC + 'thumbnails/' + filename;
         this.newOriginaImagelPath = this.pathDestC + 'userImages/' + filename;
-        // console.log('newPathThumb ', newPathThumb);
-        // console.log('newOriginalPath ', newOriginaImagelPath);
         this.fs.rename(thumbnailPath, this.newPathThumb, function (err) {
             if (err) {
                 deferred.reject(err);

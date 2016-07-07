@@ -1,4 +1,6 @@
-/// <reference path="../typings/express/express.d.ts" />
+/// <reference path="../../typings/express/express.d.ts" />
+///<reference path="../../typings/q/Q.d.ts"/>
+///<reference path="../../typings/multer/multer.d.ts"/>
 
 import Q = require('q');
 import * as express from 'express';

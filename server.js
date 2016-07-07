@@ -1,13 +1,4 @@
-/**
- * Created by Vlad on 5/13/2016.
- */
-/// <reference path="typings/express/express.d.ts" />
-/// <reference path="typings/body-parser/body-parser.d.ts" />
-///<reference path="typings/express-session/express-session.d.ts"/>
-///<reference path="typings/cookie-parser/cookie-parser.d.ts"/>
-///<reference path="server/users/db-users.ts"/>
 "use strict";
-//test
 var express = require('express');
 var bodyParser = require('body-parser');
 var session = require('express-session');
@@ -16,9 +7,7 @@ var path = require('path');
 GLOBAL.ROOT = __dirname;
 GLOBAL.WWW = path.resolve(ROOT + '/client/');
 GLOBAL.SERVER = path.resolve(ROOT + '/server/');
-///////////////////////////////////////
 var app = express();
-// configure our app to use bodyParser(it let us get the json data from a POST)
 app.use(cookie());
 app.use(session({
     resave: false,

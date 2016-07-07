@@ -1,4 +1,3 @@
-/// <reference path="../typings/express/express.d.ts" />
 "use strict";
 var Q = require('q');
 var ImageProcess = (function () {
@@ -36,8 +35,7 @@ var ImageProcess = (function () {
         else {
             y = (this.image.bitmap.height - this.thumbSize) / 2;
         }
-        p.crop(x, y, this.thumbSize, this.thumbSize)
-            .write(this.pathDest, function (err) {
+        p.write(this.pathDest, function (err) {
             if (err)
                 _this.onError(err);
             else
@@ -48,7 +46,6 @@ var ImageProcess = (function () {
         var _this = this;
         this.Jimp.read(filePath).then(function (image) {
             _this.image = image;
-            // console.log('image', this.image);
             _this.resizeImage();
         }).catch(function (err) {
             console.log(err);
@@ -58,7 +55,6 @@ var ImageProcess = (function () {
     ImageProcess.prototype.makeThumbnail = function (filePath, filename) {
         this.pathDest = this.tempFolder + filename;
         this.filename = filename;
-        // console.log('makeThumbnail pathDest\n', this.pathDest);
         this.readImage(filePath);
         return this.deferred.promise;
     };

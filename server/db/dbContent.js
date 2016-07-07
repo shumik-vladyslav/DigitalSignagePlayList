@@ -1,4 +1,3 @@
-///<reference path="../typings/q/Q.d.ts"/>
 "use strict";
 var dbDriver_1 = require("../db/dbDriver");
 var DBContent = (function () {
@@ -15,7 +14,7 @@ var DBContent = (function () {
         return this.db.createTable(sql1, sql2);
     };
     DBContent.prototype.addNewColumn = function () {
-        var sql = "ALTER TABLE test1 ADD COLUMN"; //column_name = ? datatype = ?
+        var sql = "ALTER TABLE test1 ADD COLUMN";
         var data = ['new', 'TEXT'];
         sql += ' ' + data[0] + ' ' + data[1];
         console.log(sql);
@@ -57,7 +56,6 @@ var Content = (function () {
         this.user = user;
         this.timestamp = timestamp;
         this.id = id;
-        // console.log('constructor Product');
     }
     Content.prototype.toArray = function () {
         return [this.name, this.type, this.path, this.user, this.timestamp];

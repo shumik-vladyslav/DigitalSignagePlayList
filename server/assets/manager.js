@@ -1,4 +1,3 @@
-/// <reference path="../typings/express/express.d.ts" />
 "use strict";
 var express = require('express');
 var db = require("../db/dbAssets");
@@ -8,18 +7,33 @@ var ImageProcess_1 = require("./ImageProcess");
 var router = express.Router();
 var mydb = new db.DBAssets();
 var fs = require('fs');
-// mydb.deleteTable();
-// mydb.createNewTable();
+mydb.createNewTable();
+var IUplResult = (function () {
+    function IUplResult() {
+        this.result = {
+            insertId: 0,
+            thumbPath: '',
+            imagePath: ''
+        };
+    }
+    return IUplResult;
+}());
+var IError = (function () {
+    function IError() {
+    }
+    return IError;
+}());
 router.post('/upload', function (req, res) {
     var fp = new fileProcessing_1.FileProcessing();
     var ip = new ImageProcess_1.ImageProcess();
     var onSuccess = function (result) {
         console.log('onSuccess result\n', result);
-        res.json({ success: 'success', result: result });
+        result.success = "success";
+        res.json(result);
     };
     var onError = function (err) {
         console.log('onError error\n', err);
-        res.json({ error: 'error', result: err });
+        res.json({ error: 'error', reason: err });
     };
     var makeAsset = function () {
         var lenWWW = WWW.length;
@@ -36,10 +50,14 @@ router.post('/upload', function (req, res) {
         return asset;
     };
     var insertInDB = function () {
-        var promise = mydb.insertContent(makeAsset());
+        var a = makeAsset();
+        var promise = mydb.insertContent(a);
         promise.then(function (result) {
-            // console.log(result);
-            onSuccess(result);
+            var out = new IUplResult();
+            out.result.insertId = result.id;
+            out.result.thumbPath = a.thumb;
+            out.result.imagePath = a.path;
+            onSuccess(out);
         }, function (err) {
             console.log(err);
             fp.deleteFile(fp.newPathThumb, fp.newOriginaImagelPath);
@@ -48,11 +66,8 @@ router.post('/upload', function (req, res) {
     };
     var processImage = function () {
         var details = fp.fileReq;
-        // console.log('details\n', details);
         ip.makeThumbnail(details.path, details.filename).then(function (thumbnailPath) {
-            // console.log('thumbnailPath ',thumbnailPath);
             fp.moveFile(thumbnailPath, details.path, details.filename).then(function (result) {
-                // console.log('moveFile result ', result);
                 insertInDB();
             }, function (err) {
                 onError(err);
@@ -60,8 +75,6 @@ router.post('/upload', function (req, res) {
         });
     };
     fp.startProces(req, res).then(function (result) {
-        // console.log('result\n', result);
-        // console.log('asset\n', asset);
         processImage();
     }, function (error) {
         onError(error);

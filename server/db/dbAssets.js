@@ -1,4 +1,3 @@
-///<reference path="../typings/q/Q.d.ts"/>
 "use strict";
 var dbDriver_1 = require("../db/dbDriver");
 var DBAssets = (function () {
@@ -24,7 +23,6 @@ var DBAssets = (function () {
 exports.DBAssets = DBAssets;
 var Assets = (function () {
     function Assets() {
-        // console.log('constructor Assets');
     }
     return Assets;
 }());

@@ -1,4 +1,4 @@
-/// <reference path="../typings/express/express.d.ts" />
+/// <reference path="../../typings/express/express.d.ts" />
 
 import * as express from 'express';
 import db = require("../db/dbContent");

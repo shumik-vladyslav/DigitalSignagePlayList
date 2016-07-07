@@ -1,7 +1,7 @@
 /**
  * Created by Vlad on 5/22/2016.
  */
-///<reference path="../server.ts"/>
+///<reference path="../../server.ts"/>
 
 import * as express from 'express';
 const router = express.Router();

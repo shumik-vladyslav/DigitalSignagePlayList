@@ -1,4 +1,4 @@
-///<reference path="../typings/q/Q.d.ts"/>
+///<reference path="../../typings/q/Q.d.ts"/>
 
 import Q = require('q');
 import {DBDriver} from "../db/dbDriver";
@@ -25,7 +25,7 @@ export class DBAssets {
         return this.db.createTable(sql1, sql2);
     }
 
-    insertContent(assets:Assets) {
+    insertContent(assets:Assets): Q.Promise<{id:number}> {
         var sql: string = 'INSERT INTO assets (originalName, path, thumb, size, width, height, mime) VALUES (?, ?, ?, ?, ?, ?, ?)';
         var data: any[] = [assets.originalName, assets.path, assets.thumb, assets.size, assets.width, assets.height, assets.mime];
 

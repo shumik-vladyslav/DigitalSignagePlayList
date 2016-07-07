@@ -8,9 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-/**
- * Created by Vlad on 7/4/2016.
- */
 var core_1 = require('@angular/core');
 var ng2_material_1 = require('ng2-material');
 var DataTableBasicUsageComponent = (function () {
@@ -26,7 +23,6 @@ var DataTableBasicUsageComponent = (function () {
     };
     DataTableBasicUsageComponent = __decorate([
         core_1.Component({
-            //moduleId: module.id,
             selector: 'data-table-basic-usage',
             templateUrl: 'app/test/data-table-basic-usage.html',
             directives: [ng2_material_1.MATERIAL_DIRECTIVES]
