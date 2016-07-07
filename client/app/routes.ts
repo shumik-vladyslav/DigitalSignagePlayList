@@ -6,7 +6,7 @@ import { MessagesComponent } from './messages/messages';
 import { AssetsComponent } from './assets/assets';
 import {DataTableBasicUsageComponent} from "./test/DataTableBasicUsageComponent";
 import {TableComponent} from "./table/MyTable";
-import {AgentsManager} from "./agents/AgentsManager";
+import {AgentsManager} from "./agents/AgentsManager2";
 
 
 export const AppRoutes = [
