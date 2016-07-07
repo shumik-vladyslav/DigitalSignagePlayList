@@ -1,22 +1,21 @@
 /**
  * Created by Vlad on 7/5/2016.
  */
-import {Component, Input, ElementRef} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {HTTP_PROVIDERS, Http} from "@angular/http";
 
 @Component({
     selector: '[myRow]',
-    template: `<td (click)="onClick(i)"   *ngFor="let val of row ; let i = index" >{{val}}</td>`
+    template: `<td (click)="onClick(i)"  *ngFor="let val of row ; let i = index" >{{val}}</td>`
 })
 export class MyTrComponent {
     @Input('myRow') row;
+
+    selected:boolean;
+
     onClick(col):void{
-        console.log(this.el.nativeElement);
-       // this.el.nativeElement.addClass('disabled');
-        
-    }
-    constructor(private el:ElementRef){
-//console.log(el.nativeElement)
+        console.log(this.row);
+        this.selected = true;
     }
 
     ngOnInit(){
@@ -32,7 +31,7 @@ export class MyTrComponent {
     <table class="table table-default">
     <thead>
     <tr>
-    <td *ngFor="let val of heads"  >{{val}}</td>
+    <td *ngFor="let val of headers"  >{{val}}</td>
     </tr>
     </thead>
     <tbody>
@@ -48,10 +47,11 @@ export class MyTrComponent {
 export class TableComponent {
 
     @Input('thedata') data:string[][];
-
+    @Input('theheader') headers:string[];
+    
     title = "Angular 2 - tr attribute selector";
    // private data:string[][];
-    private heads:string[]=[]
+
     constructor(private http:Http) {
        /* http.get("http://front-desk.ca/tableblue/agents/getagents.php")
             .subscribe((data:any)=> {

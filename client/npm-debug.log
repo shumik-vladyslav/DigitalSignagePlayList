@@ -2,8 +2,9 @@
 1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
 1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
 1 verbose cli   'install',
+1 verbose cli   '--save',
 1 verbose cli   'ng2-material',
-1 verbose cli   '--save' ]
+1 verbose cli   '@angular2-material/core' ]
 2 info using npm@2.15.8
 3 info using node@v4.4.7
 4 verbose install initial load of C:\wamp\www\GitHub\DigitalSignage\client\package.json
@@ -44,12 +45,12 @@
 39 info package.json @angular/compiler@2.0.0-rc.3 No README data
 40 info package.json @angular/forms@0.1.1 No description
 41 info package.json @angular/forms@0.1.1 No README data
-42 info package.json @angular/http@2.0.0-rc.3 No description
-43 info package.json @angular/http@2.0.0-rc.3 No README data
-44 info package.json @angular/platform-browser@2.0.0-rc.3 No description
-45 info package.json @angular/platform-browser@2.0.0-rc.3 No README data
-46 info package.json @angular/platform-browser-dynamic@2.0.0-rc.3 No description
-47 info package.json @angular/platform-browser-dynamic@2.0.0-rc.3 No README data
+42 info package.json @angular/platform-browser-dynamic@2.0.0-rc.3 No description
+43 info package.json @angular/platform-browser-dynamic@2.0.0-rc.3 No README data
+44 info package.json @angular/http@2.0.0-rc.3 No description
+45 info package.json @angular/http@2.0.0-rc.3 No README data
+46 info package.json @angular/platform-browser@2.0.0-rc.3 No description
+47 info package.json @angular/platform-browser@2.0.0-rc.3 No README data
 48 info package.json @angular/router@3.0.0-alpha.8 No description
 49 info package.json @angular/router@3.0.0-alpha.8 No README data
 50 info package.json @angular/router-deprecated@2.0.0-rc.2 No description
@@ -60,810 +61,1202 @@
 55 verbose install ng2-material is installed as 0.5.0
 56 silly cache add args [ 'ng2-material', null ]
 57 verbose cache add spec ng2-material
-58 silly cache add parsed spec Result {
-58 silly cache add   raw: 'ng2-material',
-58 silly cache add   scope: null,
-58 silly cache add   name: 'ng2-material',
-58 silly cache add   rawSpec: '',
-58 silly cache add   spec: 'latest',
-58 silly cache add   type: 'tag' }
-59 silly addNamed ng2-material@latest
-60 verbose addNamed "latest" is being treated as a dist-tag for ng2-material
-61 info addNameTag [ 'ng2-material', 'latest' ]
-62 silly mapToRegistry name ng2-material
-63 silly mapToRegistry using default registry
-64 silly mapToRegistry registry https://registry.npmjs.org/
-65 silly mapToRegistry data Result {
-65 silly mapToRegistry   raw: 'ng2-material',
-65 silly mapToRegistry   scope: null,
-65 silly mapToRegistry   name: 'ng2-material',
-65 silly mapToRegistry   rawSpec: '',
-65 silly mapToRegistry   spec: 'latest',
-65 silly mapToRegistry   type: 'tag' }
-66 silly mapToRegistry uri https://registry.npmjs.org/ng2-material
-67 verbose addNameTag registry:https://registry.npmjs.org/ng2-material not in flight; fetching
-68 verbose request uri https://registry.npmjs.org/ng2-material
-69 verbose request no auth needed
-70 info attempt registry request try #1 at 11:57:19 AM
-71 verbose request id d4d816061539e3c7
-72 verbose etag "91XGX5ERSBVDTODUP69BRMAQW"
-73 http request GET https://registry.npmjs.org/ng2-material
-74 http 304 https://registry.npmjs.org/ng2-material
-75 verbose headers { date: 'Wed, 06 Jul 2016 15:57:17 GMT',
-75 verbose headers   via: '1.1 varnish',
-75 verbose headers   'cache-control': 'max-age=300',
-75 verbose headers   etag: '"91XGX5ERSBVDTODUP69BRMAQW"',
-75 verbose headers   age: '16',
-75 verbose headers   connection: 'keep-alive',
-75 verbose headers   'x-served-by': 'cache-ord1748-ORD',
-75 verbose headers   'x-cache': 'HIT',
-75 verbose headers   'x-cache-hits': '1',
-75 verbose headers   'x-timer': 'S1467820637.259301,VS0,VE0',
-75 verbose headers   vary: 'Accept-Encoding' }
-76 silly get cb [ 304,
-76 silly get   { date: 'Wed, 06 Jul 2016 15:57:17 GMT',
-76 silly get     via: '1.1 varnish',
-76 silly get     'cache-control': 'max-age=300',
-76 silly get     etag: '"91XGX5ERSBVDTODUP69BRMAQW"',
-76 silly get     age: '16',
-76 silly get     connection: 'keep-alive',
-76 silly get     'x-served-by': 'cache-ord1748-ORD',
-76 silly get     'x-cache': 'HIT',
-76 silly get     'x-cache-hits': '1',
-76 silly get     'x-timer': 'S1467820637.259301,VS0,VE0',
-76 silly get     vary: 'Accept-Encoding' } ]
-77 verbose etag https://registry.npmjs.org/ng2-material from cache
-78 verbose get saving ng2-material to C:\Users\Vlad\AppData\Roaming\npm-cache\registry.npmjs.org\ng2-material\.cache.json
-79 verbose correctMkdir C:\Users\Vlad\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
-80 silly addNameTag next cb for ng2-material with tag latest
-81 silly addNamed ng2-material@0.5.0
-82 verbose addNamed "0.5.0" is a plain semver version for ng2-material
-83 silly cache afterAdd ng2-material@0.5.0
-84 verbose afterAdd C:\Users\Vlad\AppData\Roaming\npm-cache\ng2-material\0.5.0\package\package.json not in flight; writing
-85 verbose correctMkdir C:\Users\Vlad\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
-86 verbose afterAdd C:\Users\Vlad\AppData\Roaming\npm-cache\ng2-material\0.5.0\package\package.json written
-87 silly install resolved [ { name: 'ng2-material',
-87 silly install resolved     version: '0.5.0',
-87 silly install resolved     description: 'ng2-material --- [![Build Status](https://travis-ci.org/justindujardin/ng2-material.svg?branch=master)](https://travis-ci.org/justindujardin/ng2-material) [![Coverage Status](https://coveralls.io/repos/justindujardin/ng2-material/badge.svg?branch=master&s',
-87 silly install resolved     main: './index.js',
-87 silly install resolved     repository:
-87 silly install resolved      { type: 'git',
-87 silly install resolved        url: 'git+ssh://git@github.com/justindujardin/ng2-material.git' },
-87 silly install resolved     author:
-87 silly install resolved      { name: 'Justin DuJardin',
-87 silly install resolved        email: 'justin@dujardinconsulting.com' },
-87 silly install resolved     license: 'MIT',
-87 silly install resolved     typings: './index.d.ts',
-87 silly install resolved     devDependencies:
-87 silly install resolved      { autoprefixer: '6.2.0',
-87 silly install resolved        codelyzer: '0.0.19',
-87 silly install resolved        coveralls: '2.11.6',
-87 silly install resolved        css: '^2.2.1',
-87 silly install resolved        'css-loader': '0.23.1',
-87 silly install resolved        'es6-module-loader': '0.17.4',
-87 silly install resolved        'file-loader': '0.8.5',
-87 silly install resolved        glob: '6.0.1',
-87 silly install resolved        grunt: '0.4.5',
-87 silly install resolved        'grunt-bump': '0.7.0',
-87 silly install resolved        'grunt-cli': '0.1.13',
-87 silly install resolved        'grunt-continue': '^0.1.0',
-87 silly install resolved        'grunt-contrib-clean': '0.7.0',
-87 silly install resolved        'grunt-contrib-connect': '0.11.2',
-87 silly install resolved        'grunt-contrib-copy': '0.8.2',
-87 silly install resolved        'grunt-contrib-sass': '0.9.2',
-87 silly install resolved        'grunt-contrib-watch': '0.6.1',
-87 silly install resolved        'grunt-conventional-changelog': '5.0.0',
-87 silly install resolved        'grunt-karma': '0.12.1',
-87 silly install resolved        'grunt-notify': '0.4.3',
-87 silly install resolved        'grunt-npm': '0.0.2',
-87 silly install resolved        'grunt-postcss': '0.7.1',
-87 silly install resolved        'grunt-ts': '5.2.0',
-87 silly install resolved        highlightjs: '8.7.0',
-87 silly install resolved        istanbul: '1.0.0-alpha.2',
-87 silly install resolved        karma: '0.13.19',
-87 silly install resolved        'karma-chrome-launcher': '0.2.2',
-87 silly install resolved        'karma-coverage': '0.5.3',
-87 silly install resolved        'karma-firefox-launcher': '0.1.7',
-87 silly install resolved        'karma-jasmine': '0.2.2',
-87 silly install resolved        'karma-mocha-reporter': '1.1.5',
-87 silly install resolved        'karma-sauce-launcher': '0.3.0',
-87 silly install resolved        'lcov-parse': '0.0.10',
-87 silly install resolved        marked: '0.3.5',
-87 silly install resolved        npm: '^3.9.2',
-87 silly install resolved        'remap-istanbul': '0.4.0',
-87 silly install resolved        'style-loader': '0.13.0',
-87 silly install resolved        systemjs: '0.19.26',
-87 silly install resolved        typescript: '>=1.8.9',
-87 silly install resolved        typings: '^1.0.4',
-87 silly install resolved        underscore: '1.8.3' },
-87 silly install resolved     contributors:
-87 silly install resolved      [ [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object],
-87 silly install resolved        [Object] ],
-87 silly install resolved     peerDependencies:
-87 silly install resolved      { '@angular/common': '2.0.0-rc.1',
-87 silly install resolved        '@angular/compiler': '2.0.0-rc.1',
-87 silly install resolved        '@angular/core': '2.0.0-rc.1',
-87 silly install resolved        '@angular/platform-browser': '2.0.0-rc.1',
-87 silly install resolved        '@angular/platform-browser-dynamic': '2.0.0-rc.1',
-87 silly install resolved        '@angular/router': '2.0.0-rc.1',
-87 silly install resolved        '@angular2-material/checkbox': '2.0.0-alpha.5-2',
-87 silly install resolved        '@angular2-material/core': '2.0.0-alpha.5-2',
-87 silly install resolved        'es6-promise': '>=3.0.2',
-87 silly install resolved        'reflect-metadata': '^0.1.3',
-87 silly install resolved        'es6-shim': '^0.35.0',
-87 silly install resolved        rxjs: '5.0.0-beta.6',
-87 silly install resolved        'zone.js': '^0.6.12' },
-87 silly install resolved     bugs: { url: 'https://github.com/justindujardin/ng2-material/issues' },
-87 silly install resolved     homepage: 'https://github.com/justindujardin/ng2-material#readme',
-87 silly install resolved     _id: 'ng2-material@0.5.0',
-87 silly install resolved     scripts: {},
-87 silly install resolved     _shasum: '3be232b4d40a5f2c6110b28c6ffa2e70b0e93939',
-87 silly install resolved     _from: 'ng2-material@latest',
-87 silly install resolved     _npmVersion: '2.15.1',
-87 silly install resolved     _nodeVersion: '4.4.4',
-87 silly install resolved     _npmUser:
-87 silly install resolved      { name: 'justindujardin',
-87 silly install resolved        email: 'justin@dujardinconsulting.com' },
-87 silly install resolved     dist:
-87 silly install resolved      { shasum: '3be232b4d40a5f2c6110b28c6ffa2e70b0e93939',
-87 silly install resolved        tarball: 'https://registry.npmjs.org/ng2-material/-/ng2-material-0.5.0.tgz' },
-87 silly install resolved     maintainers: [ [Object] ],
-87 silly install resolved     _npmOperationalInternal:
-87 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
-87 silly install resolved        tmp: 'tmp/ng2-material-0.5.0.tgz_1465772076178_0.11745647550560534' },
-87 silly install resolved     directories: {},
-87 silly install resolved     _resolved: 'https://registry.npmjs.org/ng2-material/-/ng2-material-0.5.0.tgz',
-87 silly install resolved     readme: 'ERROR: No README data found!' } ]
-88 info install ng2-material@0.5.0 into C:\wamp\www\GitHub\DigitalSignage\client
-89 info installOne ng2-material@0.5.0
-90 verbose installOne of ng2-material to C:\wamp\www\GitHub\DigitalSignage\client not in flight; installing
-91 verbose correctMkdir C:\Users\Vlad\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
-92 verbose lock using C:\Users\Vlad\AppData\Roaming\npm-cache\_locks\ng2-material-6333dc84784ca04c.lock for C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
-93 silly install write writing ng2-material 0.5.0 to C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
-94 verbose unbuild node_modules\ng2-material
-95 info preuninstall ng2-material@0.5.0
-96 info uninstall ng2-material@0.5.0
-97 verbose unbuild rmStuff ng2-material@0.5.0 from C:\wamp\www\GitHub\DigitalSignage\client\node_modules
-98 info postuninstall ng2-material@0.5.0
-99 silly gentlyRm C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material is being purged from base C:\wamp\www\GitHub\DigitalSignage\client
-100 verbose gentlyRm don't care about contents; nuking C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
-101 silly vacuum-fs purging C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
-102 silly vacuum-fs quitting because other entries in C:\wamp\www\GitHub\DigitalSignage\client\node_modules
-103 verbose tar unpack C:\Users\Vlad\AppData\Roaming\npm-cache\ng2-material\0.5.0\package.tgz
-104 verbose tar unpacking to C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
-105 silly gentlyRm C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material is being purged
-106 verbose gentlyRm don't care about contents; nuking C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
-107 silly gunzTarPerm modes [ '777', '666' ]
-108 silly gunzTarPerm extractEntry package.json
-109 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
-110 silly gunzTarPerm extractEntry README.md
-111 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
-112 silly gunzTarPerm extractEntry index.js
-113 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
-114 silly gunzTarPerm extractEntry index.d.ts
-115 silly gunzTarPerm modified mode [ 'index.d.ts', 420, 438 ]
-116 silly gunzTarPerm extractEntry components.scss
-117 silly gunzTarPerm modified mode [ 'components.scss', 420, 438 ]
-118 silly gunzTarPerm extractEntry core/key_codes.js
-119 silly gunzTarPerm modified mode [ 'core/key_codes.js', 420, 438 ]
-120 silly gunzTarPerm extractEntry core/key_codes.d.ts
-121 silly gunzTarPerm modified mode [ 'core/key_codes.d.ts', 420, 438 ]
-122 silly gunzTarPerm extractEntry core/key_codes.js.map
-123 silly gunzTarPerm modified mode [ 'core/key_codes.js.map', 420, 438 ]
-124 silly gunzTarPerm extractEntry core/style/default-theme.scss
-125 silly gunzTarPerm modified mode [ 'core/style/default-theme.scss', 420, 438 ]
-126 silly gunzTarPerm extractEntry core/style/layout.scss
-127 silly gunzTarPerm modified mode [ 'core/style/layout.scss', 420, 438 ]
-128 silly gunzTarPerm extractEntry core/style/mixins.scss
-129 silly gunzTarPerm modified mode [ 'core/style/mixins.scss', 420, 438 ]
-130 silly gunzTarPerm extractEntry core/style/palette.scss
-131 silly gunzTarPerm modified mode [ 'core/style/palette.scss', 420, 438 ]
-132 silly gunzTarPerm extractEntry core/style/shadows.scss
-133 silly gunzTarPerm modified mode [ 'core/style/shadows.scss', 420, 438 ]
-134 silly gunzTarPerm extractEntry core/style/structure.scss
-135 silly gunzTarPerm modified mode [ 'core/style/structure.scss', 420, 438 ]
-136 silly gunzTarPerm extractEntry core/style/theme-functions.scss
-137 silly gunzTarPerm modified mode [ 'core/style/theme-functions.scss', 420, 438 ]
-138 silly gunzTarPerm extractEntry core/style/typography.scss
-139 silly gunzTarPerm modified mode [ 'core/style/typography.scss', 420, 438 ]
-140 silly gunzTarPerm extractEntry core/style/variables.scss
-141 silly gunzTarPerm modified mode [ 'core/style/variables.scss', 420, 438 ]
-142 silly gunzTarPerm extractEntry core/util/media.js
-143 silly gunzTarPerm modified mode [ 'core/util/media.js', 420, 438 ]
-144 silly gunzTarPerm extractEntry core/util/ink.js
-145 silly gunzTarPerm modified mode [ 'core/util/ink.js', 420, 438 ]
-146 silly gunzTarPerm extractEntry core/util/ink_spec.js
-147 silly gunzTarPerm modified mode [ 'core/util/ink_spec.js', 420, 438 ]
-148 silly gunzTarPerm extractEntry core/util/animate.js
-149 silly gunzTarPerm modified mode [ 'core/util/animate.js', 420, 438 ]
-150 silly gunzTarPerm extractEntry core/util/media_spec.js
-151 silly gunzTarPerm modified mode [ 'core/util/media_spec.js', 420, 438 ]
-152 silly gunzTarPerm extractEntry core/util/util.js
-153 silly gunzTarPerm modified mode [ 'core/util/util.js', 420, 438 ]
-154 silly gunzTarPerm extractEntry core/util/viewport.js
-155 silly gunzTarPerm modified mode [ 'core/util/viewport.js', 420, 438 ]
-156 silly gunzTarPerm extractEntry core/util/animate.js.map
-157 silly gunzTarPerm modified mode [ 'core/util/animate.js.map', 420, 438 ]
-158 silly gunzTarPerm extractEntry core/util/ink_spec.js.map
-159 silly gunzTarPerm modified mode [ 'core/util/ink_spec.js.map', 420, 438 ]
-160 silly gunzTarPerm extractEntry core/util/media.d.ts
-161 silly gunzTarPerm modified mode [ 'core/util/media.d.ts', 420, 438 ]
-162 silly gunzTarPerm extractEntry core/util/ink.d.ts
-163 silly gunzTarPerm modified mode [ 'core/util/ink.d.ts', 420, 438 ]
-164 silly gunzTarPerm extractEntry core/util/media.js.map
-165 silly gunzTarPerm modified mode [ 'core/util/media.js.map', 420, 438 ]
-166 silly gunzTarPerm extractEntry core/util/media_spec.d.ts
-167 silly gunzTarPerm modified mode [ 'core/util/media_spec.d.ts', 420, 438 ]
-168 silly gunzTarPerm extractEntry core/util/animate.d.ts
-169 silly gunzTarPerm modified mode [ 'core/util/animate.d.ts', 420, 438 ]
-170 silly gunzTarPerm extractEntry core/util/media_spec.js.map
-171 silly gunzTarPerm modified mode [ 'core/util/media_spec.js.map', 420, 438 ]
-172 silly gunzTarPerm extractEntry core/util/util.d.ts
-173 silly gunzTarPerm modified mode [ 'core/util/util.d.ts', 420, 438 ]
-174 silly gunzTarPerm extractEntry core/util/ink.js.map
-175 silly gunzTarPerm modified mode [ 'core/util/ink.js.map', 420, 438 ]
-176 silly gunzTarPerm extractEntry core/util/util.js.map
-177 silly gunzTarPerm modified mode [ 'core/util/util.js.map', 420, 438 ]
-178 silly gunzTarPerm extractEntry core/util/viewport.d.ts
-179 silly gunzTarPerm modified mode [ 'core/util/viewport.d.ts', 420, 438 ]
-180 silly gunzTarPerm extractEntry core/util/ink_spec.d.ts
-181 silly gunzTarPerm modified mode [ 'core/util/ink_spec.d.ts', 420, 438 ]
-182 silly gunzTarPerm extractEntry core/util/viewport.js.map
-183 silly gunzTarPerm modified mode [ 'core/util/viewport.js.map', 420, 438 ]
-184 silly gunzTarPerm extractEntry core.scss
-185 silly gunzTarPerm modified mode [ 'core.scss', 420, 438 ]
-186 silly gunzTarPerm extractEntry font/README.md
-187 silly gunzTarPerm modified mode [ 'font/README.md', 420, 438 ]
-188 silly gunzTarPerm extractEntry font/MaterialIcons-Regular.eot
-189 silly gunzTarPerm modified mode [ 'font/MaterialIcons-Regular.eot', 420, 438 ]
-190 silly gunzTarPerm extractEntry font/MaterialIcons-Regular.ijmap
-191 silly gunzTarPerm modified mode [ 'font/MaterialIcons-Regular.ijmap', 420, 438 ]
-192 silly gunzTarPerm extractEntry font/MaterialIcons-Regular.ttf
-193 silly gunzTarPerm modified mode [ 'font/MaterialIcons-Regular.ttf', 420, 438 ]
-194 silly gunzTarPerm extractEntry font/MaterialIcons-Regular.woff
-195 silly gunzTarPerm modified mode [ 'font/MaterialIcons-Regular.woff', 420, 438 ]
-196 silly gunzTarPerm extractEntry font/MaterialIcons-Regular.woff2
-197 silly gunzTarPerm modified mode [ 'font/MaterialIcons-Regular.woff2', 420, 438 ]
-198 silly gunzTarPerm extractEntry font/font.css
-199 silly gunzTarPerm modified mode [ 'font/font.css', 420, 438 ]
-200 silly gunzTarPerm extractEntry font/font.css.map
-201 silly gunzTarPerm modified mode [ 'font/font.css.map', 420, 438 ]
-202 silly gunzTarPerm extractEntry font/font.scss
-203 silly gunzTarPerm modified mode [ 'font/font.scss', 420, 438 ]
-204 silly gunzTarPerm extractEntry CHANGELOG.md
-205 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 420, 438 ]
-206 silly gunzTarPerm extractEntry all.scss
-207 silly gunzTarPerm modified mode [ 'all.scss', 420, 438 ]
-208 silly gunzTarPerm extractEntry index.js.map
-209 silly gunzTarPerm modified mode [ 'index.js.map', 420, 438 ]
-210 silly gunzTarPerm extractEntry ng2-material.css
-211 silly gunzTarPerm modified mode [ 'ng2-material.css', 420, 438 ]
-212 silly gunzTarPerm extractEntry ng2-material.css.map
-213 silly gunzTarPerm modified mode [ 'ng2-material.css.map', 420, 438 ]
-214 silly gunzTarPerm extractEntry components/icon/icon.js
-215 silly gunzTarPerm modified mode [ 'components/icon/icon.js', 420, 438 ]
-216 silly gunzTarPerm extractEntry components/icon/icon.d.ts
-217 silly gunzTarPerm modified mode [ 'components/icon/icon.d.ts', 420, 438 ]
-218 silly gunzTarPerm extractEntry components/icon/icon.js.map
-219 silly gunzTarPerm modified mode [ 'components/icon/icon.js.map', 420, 438 ]
-220 silly gunzTarPerm extractEntry components/icon/icon.scss
-221 silly gunzTarPerm modified mode [ 'components/icon/icon.scss', 420, 438 ]
-222 silly gunzTarPerm extractEntry components/backdrop/backdrop.js
-223 silly gunzTarPerm modified mode [ 'components/backdrop/backdrop.js', 420, 438 ]
-224 silly gunzTarPerm extractEntry components/backdrop/backdrop_spec.js
-225 silly gunzTarPerm modified mode [ 'components/backdrop/backdrop_spec.js', 420, 438 ]
-226 silly gunzTarPerm extractEntry components/backdrop/backdrop.d.ts
-227 silly gunzTarPerm modified mode [ 'components/backdrop/backdrop.d.ts', 420, 438 ]
-228 silly gunzTarPerm extractEntry components/backdrop/backdrop.js.map
-229 silly gunzTarPerm modified mode [ 'components/backdrop/backdrop.js.map', 420, 438 ]
-230 silly gunzTarPerm extractEntry components/backdrop/backdrop.scss
-231 silly gunzTarPerm modified mode [ 'components/backdrop/backdrop.scss', 420, 438 ]
-232 silly gunzTarPerm extractEntry components/backdrop/backdrop_spec.d.ts
-233 silly gunzTarPerm modified mode [ 'components/backdrop/backdrop_spec.d.ts', 420, 438 ]
-234 silly gunzTarPerm extractEntry components/backdrop/backdrop_spec.js.map
-235 silly gunzTarPerm modified mode [ 'components/backdrop/backdrop_spec.js.map', 420, 438 ]
-236 silly gunzTarPerm extractEntry components/card/card.js
-237 silly gunzTarPerm modified mode [ 'components/card/card.js', 420, 438 ]
-238 silly gunzTarPerm extractEntry components/card/card_spec.js
-239 silly gunzTarPerm modified mode [ 'components/card/card_spec.js', 420, 438 ]
-240 silly gunzTarPerm extractEntry components/card/card.d.ts
-241 silly gunzTarPerm modified mode [ 'components/card/card.d.ts', 420, 438 ]
-242 silly gunzTarPerm extractEntry components/card/card.js.map
-243 silly gunzTarPerm modified mode [ 'components/card/card.js.map', 420, 438 ]
-244 silly gunzTarPerm extractEntry components/card/card.scss
-245 silly gunzTarPerm modified mode [ 'components/card/card.scss', 420, 438 ]
-246 silly gunzTarPerm extractEntry components/card/card_spec.d.ts
-247 silly gunzTarPerm modified mode [ 'components/card/card_spec.d.ts', 420, 438 ]
-248 silly gunzTarPerm extractEntry components/card/card_spec.js.map
-249 silly gunzTarPerm modified mode [ 'components/card/card_spec.js.map', 420, 438 ]
-250 silly gunzTarPerm extractEntry components/content/content.js
-251 silly gunzTarPerm modified mode [ 'components/content/content.js', 420, 438 ]
-252 silly gunzTarPerm extractEntry components/content/content_spec.js
-253 silly gunzTarPerm modified mode [ 'components/content/content_spec.js', 420, 438 ]
-254 silly gunzTarPerm extractEntry components/content/content.d.ts
-255 silly gunzTarPerm modified mode [ 'components/content/content.d.ts', 420, 438 ]
-256 silly gunzTarPerm extractEntry components/content/content.js.map
-257 silly gunzTarPerm modified mode [ 'components/content/content.js.map', 420, 438 ]
-258 silly gunzTarPerm extractEntry components/content/content.scss
-259 silly gunzTarPerm modified mode [ 'components/content/content.scss', 420, 438 ]
-260 silly gunzTarPerm extractEntry components/content/content_spec.d.ts
-261 silly gunzTarPerm modified mode [ 'components/content/content_spec.d.ts', 420, 438 ]
-262 silly gunzTarPerm extractEntry components/content/content_spec.js.map
-263 silly gunzTarPerm modified mode [ 'components/content/content_spec.js.map', 420, 438 ]
-264 silly gunzTarPerm extractEntry components/data-table/data_table_selectable_tr.js
-265 silly gunzTarPerm modified mode [ 'components/data-table/data_table_selectable_tr.js', 420, 438 ]
-266 silly gunzTarPerm extractEntry components/data-table/data_table.js
-267 silly gunzTarPerm modified mode [ 'components/data-table/data_table.js', 420, 438 ]
-268 silly gunzTarPerm extractEntry components/data-table/data_table_spec.js
-269 silly gunzTarPerm modified mode [ 'components/data-table/data_table_spec.js', 420, 438 ]
-270 silly gunzTarPerm extractEntry components/data-table/index.js
-271 silly gunzTarPerm modified mode [ 'components/data-table/index.js', 420, 438 ]
-272 silly gunzTarPerm extractEntry components/data-table/data_table_selectable_tr.js.map
-273 silly gunzTarPerm modified mode [ 'components/data-table/data_table_selectable_tr.js.map',
-273 silly gunzTarPerm   420,
-273 silly gunzTarPerm   438 ]
-274 silly gunzTarPerm extractEntry components/data-table/data_table.d.ts
-275 silly gunzTarPerm modified mode [ 'components/data-table/data_table.d.ts', 420, 438 ]
-276 silly gunzTarPerm extractEntry components/data-table/data_table.js.map
-277 silly gunzTarPerm modified mode [ 'components/data-table/data_table.js.map', 420, 438 ]
-278 silly gunzTarPerm extractEntry components/data-table/data_table_spec.d.ts
-279 silly gunzTarPerm modified mode [ 'components/data-table/data_table_spec.d.ts', 420, 438 ]
-280 silly gunzTarPerm extractEntry components/data-table/data_table.scss
-281 silly gunzTarPerm modified mode [ 'components/data-table/data_table.scss', 420, 438 ]
-282 silly gunzTarPerm extractEntry components/data-table/data_table_spec.js.map
-283 silly gunzTarPerm modified mode [ 'components/data-table/data_table_spec.js.map', 420, 438 ]
-284 silly gunzTarPerm extractEntry components/data-table/index.d.ts
-285 silly gunzTarPerm modified mode [ 'components/data-table/index.d.ts', 420, 438 ]
-286 silly gunzTarPerm extractEntry components/data-table/data_table_selectable_tr.d.ts
-287 silly gunzTarPerm modified mode [ 'components/data-table/data_table_selectable_tr.d.ts',
-287 silly gunzTarPerm   420,
-287 silly gunzTarPerm   438 ]
-288 silly gunzTarPerm extractEntry components/data-table/index.js.map
-289 silly gunzTarPerm modified mode [ 'components/data-table/index.js.map', 420, 438 ]
-290 silly gunzTarPerm extractEntry components/dialog/dialog-portal.js
-291 silly gunzTarPerm modified mode [ 'components/dialog/dialog-portal.js', 420, 438 ]
-292 silly gunzTarPerm extractEntry components/dialog/dialog-title.js
-293 silly gunzTarPerm modified mode [ 'components/dialog/dialog-title.js', 420, 438 ]
-294 silly gunzTarPerm extractEntry components/dialog/dialog-actions.js
-295 silly gunzTarPerm modified mode [ 'components/dialog/dialog-actions.js', 420, 438 ]
-296 silly gunzTarPerm extractEntry components/dialog/dialog.js
-297 silly gunzTarPerm modified mode [ 'components/dialog/dialog.js', 420, 438 ]
-298 silly gunzTarPerm extractEntry components/dialog/dialog_spec.js
-299 silly gunzTarPerm modified mode [ 'components/dialog/dialog_spec.js', 420, 438 ]
-300 silly gunzTarPerm extractEntry components/dialog/index.js
-301 silly gunzTarPerm modified mode [ 'components/dialog/index.js', 420, 438 ]
-302 silly gunzTarPerm extractEntry components/dialog/dialog-title.scss
-303 silly gunzTarPerm modified mode [ 'components/dialog/dialog-title.scss', 420, 438 ]
-304 silly gunzTarPerm extractEntry components/dialog/dialog-title.d.ts
-305 silly gunzTarPerm modified mode [ 'components/dialog/dialog-title.d.ts', 420, 438 ]
-306 silly gunzTarPerm extractEntry components/dialog/dialog-actions.js.map
-307 silly gunzTarPerm modified mode [ 'components/dialog/dialog-actions.js.map', 420, 438 ]
-308 silly gunzTarPerm extractEntry components/dialog/dialog-title.js.map
-309 silly gunzTarPerm modified mode [ 'components/dialog/dialog-title.js.map', 420, 438 ]
-310 silly gunzTarPerm extractEntry components/dialog/dialog-actions.scss
-311 silly gunzTarPerm modified mode [ 'components/dialog/dialog-actions.scss', 420, 438 ]
-312 silly gunzTarPerm extractEntry components/dialog/dialog.d.ts
-313 silly gunzTarPerm modified mode [ 'components/dialog/dialog.d.ts', 420, 438 ]
-314 silly gunzTarPerm extractEntry components/dialog/dialog-portal.d.ts
-315 silly gunzTarPerm modified mode [ 'components/dialog/dialog-portal.d.ts', 420, 438 ]
-316 silly gunzTarPerm extractEntry components/dialog/dialog.js.map
-317 silly gunzTarPerm modified mode [ 'components/dialog/dialog.js.map', 420, 438 ]
-318 silly gunzTarPerm extractEntry components/dialog/dialog.scss
-319 silly gunzTarPerm modified mode [ 'components/dialog/dialog.scss', 420, 438 ]
-320 silly gunzTarPerm extractEntry components/dialog/dialog_spec.d.ts
-321 silly gunzTarPerm modified mode [ 'components/dialog/dialog_spec.d.ts', 420, 438 ]
-322 silly gunzTarPerm extractEntry components/dialog/dialog-actions.d.ts
-323 silly gunzTarPerm modified mode [ 'components/dialog/dialog-actions.d.ts', 420, 438 ]
-324 silly gunzTarPerm extractEntry components/dialog/dialog_spec.js.map
-325 silly gunzTarPerm modified mode [ 'components/dialog/dialog_spec.js.map', 420, 438 ]
-326 silly gunzTarPerm extractEntry components/dialog/index.d.ts
-327 silly gunzTarPerm modified mode [ 'components/dialog/index.d.ts', 420, 438 ]
-328 silly gunzTarPerm extractEntry components/dialog/dialog-portal.js.map
-329 silly gunzTarPerm modified mode [ 'components/dialog/dialog-portal.js.map', 420, 438 ]
-330 silly gunzTarPerm extractEntry components/dialog/index.js.map
-331 silly gunzTarPerm modified mode [ 'components/dialog/index.js.map', 420, 438 ]
-332 silly gunzTarPerm extractEntry components/divider/divider.js
-333 silly gunzTarPerm modified mode [ 'components/divider/divider.js', 420, 438 ]
-334 silly gunzTarPerm extractEntry components/divider/divider_spec.js
-335 silly gunzTarPerm modified mode [ 'components/divider/divider_spec.js', 420, 438 ]
-336 silly gunzTarPerm extractEntry components/divider/divider.d.ts
-337 silly gunzTarPerm modified mode [ 'components/divider/divider.d.ts', 420, 438 ]
-338 silly gunzTarPerm extractEntry components/divider/divider.js.map
-339 silly gunzTarPerm modified mode [ 'components/divider/divider.js.map', 420, 438 ]
-340 silly gunzTarPerm extractEntry components/divider/divider.scss
-341 silly gunzTarPerm modified mode [ 'components/divider/divider.scss', 420, 438 ]
-342 silly gunzTarPerm extractEntry components/divider/divider_spec.d.ts
-343 silly gunzTarPerm modified mode [ 'components/divider/divider_spec.d.ts', 420, 438 ]
-344 silly gunzTarPerm extractEntry components/divider/divider_spec.js.map
-345 silly gunzTarPerm modified mode [ 'components/divider/divider_spec.js.map', 420, 438 ]
-346 silly gunzTarPerm extractEntry components/form/messages_spec.js
-347 silly gunzTarPerm modified mode [ 'components/form/messages_spec.js', 420, 438 ]
-348 silly gunzTarPerm extractEntry components/form/messages.js
-349 silly gunzTarPerm modified mode [ 'components/form/messages.js', 420, 438 ]
-350 silly gunzTarPerm extractEntry components/form/validators.js
-351 silly gunzTarPerm modified mode [ 'components/form/validators.js', 420, 438 ]
-352 silly gunzTarPerm extractEntry components/form/validators_spec.js
-353 silly gunzTarPerm modified mode [ 'components/form/validators_spec.js', 420, 438 ]
-354 silly gunzTarPerm extractEntry components/form/messages_spec.js.map
-355 silly gunzTarPerm modified mode [ 'components/form/messages_spec.js.map', 420, 438 ]
-356 silly gunzTarPerm extractEntry components/form/messages.d.ts
-357 silly gunzTarPerm modified mode [ 'components/form/messages.d.ts', 420, 438 ]
-358 silly gunzTarPerm extractEntry components/form/messages.js.map
-359 silly gunzTarPerm modified mode [ 'components/form/messages.js.map', 420, 438 ]
-360 silly gunzTarPerm extractEntry components/form/validators.d.ts
-361 silly gunzTarPerm modified mode [ 'components/form/validators.d.ts', 420, 438 ]
-362 silly gunzTarPerm extractEntry components/form/messages.scss
-363 silly gunzTarPerm modified mode [ 'components/form/messages.scss', 420, 438 ]
-364 silly gunzTarPerm extractEntry components/form/validators.js.map
-365 silly gunzTarPerm modified mode [ 'components/form/validators.js.map', 420, 438 ]
-366 silly gunzTarPerm extractEntry components/form/validators_spec.d.ts
-367 silly gunzTarPerm modified mode [ 'components/form/validators_spec.d.ts', 420, 438 ]
-368 silly gunzTarPerm extractEntry components/form/messages_spec.d.ts
-369 silly gunzTarPerm modified mode [ 'components/form/messages_spec.d.ts', 420, 438 ]
-370 silly gunzTarPerm extractEntry components/form/validators_spec.js.map
-371 silly gunzTarPerm modified mode [ 'components/form/validators_spec.js.map', 420, 438 ]
-372 silly gunzTarPerm extractEntry components/button/button.js
-373 silly gunzTarPerm modified mode [ 'components/button/button.js', 420, 438 ]
-374 silly gunzTarPerm extractEntry components/button/button_spec.js
-375 silly gunzTarPerm modified mode [ 'components/button/button_spec.js', 420, 438 ]
-376 silly gunzTarPerm extractEntry components/button/button.d.ts
-377 silly gunzTarPerm modified mode [ 'components/button/button.d.ts', 420, 438 ]
-378 silly gunzTarPerm extractEntry components/button/button.js.map
-379 silly gunzTarPerm modified mode [ 'components/button/button.js.map', 420, 438 ]
-380 silly gunzTarPerm extractEntry components/button/button.scss
-381 silly gunzTarPerm modified mode [ 'components/button/button.scss', 420, 438 ]
-382 silly gunzTarPerm extractEntry components/button/button_spec.d.ts
-383 silly gunzTarPerm modified mode [ 'components/button/button_spec.d.ts', 420, 438 ]
-384 silly gunzTarPerm extractEntry components/button/button_spec.js.map
-385 silly gunzTarPerm modified mode [ 'components/button/button_spec.js.map', 420, 438 ]
-386 silly gunzTarPerm extractEntry components/ink/ink.js
-387 silly gunzTarPerm modified mode [ 'components/ink/ink.js', 420, 438 ]
-388 silly gunzTarPerm extractEntry components/ink/ink_spec.js
-389 silly gunzTarPerm modified mode [ 'components/ink/ink_spec.js', 420, 438 ]
-390 silly gunzTarPerm extractEntry components/ink/ink.d.ts
-391 silly gunzTarPerm modified mode [ 'components/ink/ink.d.ts', 420, 438 ]
-392 silly gunzTarPerm extractEntry components/ink/ink.js.map
-393 silly gunzTarPerm modified mode [ 'components/ink/ink.js.map', 420, 438 ]
-394 silly gunzTarPerm extractEntry components/ink/ink_spec.d.ts
-395 silly gunzTarPerm modified mode [ 'components/ink/ink_spec.d.ts', 420, 438 ]
-396 silly gunzTarPerm extractEntry components/ink/ink_spec.js.map
-397 silly gunzTarPerm modified mode [ 'components/ink/ink_spec.js.map', 420, 438 ]
-398 silly gunzTarPerm extractEntry components/list/list.js
-399 silly gunzTarPerm modified mode [ 'components/list/list.js', 420, 438 ]
-400 silly gunzTarPerm extractEntry components/list/list_spec.js
-401 silly gunzTarPerm modified mode [ 'components/list/list_spec.js', 420, 438 ]
-402 silly gunzTarPerm extractEntry components/list/list.d.ts
-403 silly gunzTarPerm modified mode [ 'components/list/list.d.ts', 420, 438 ]
-404 silly gunzTarPerm extractEntry components/list/list.js.map
-405 silly gunzTarPerm modified mode [ 'components/list/list.js.map', 420, 438 ]
-406 silly gunzTarPerm extractEntry components/list/list.scss
-407 silly gunzTarPerm modified mode [ 'components/list/list.scss', 420, 438 ]
-408 silly gunzTarPerm extractEntry components/list/list_spec.d.ts
-409 silly gunzTarPerm modified mode [ 'components/list/list_spec.d.ts', 420, 438 ]
-410 silly gunzTarPerm extractEntry components/list/list_spec.js.map
-411 silly gunzTarPerm modified mode [ 'components/list/list_spec.js.map', 420, 438 ]
-412 silly gunzTarPerm extractEntry components/pagination/pagination.js
-413 silly gunzTarPerm modified mode [ 'components/pagination/pagination.js', 420, 438 ]
-414 silly gunzTarPerm extractEntry components/pagination/index.js
-415 silly gunzTarPerm modified mode [ 'components/pagination/index.js', 420, 438 ]
-416 silly gunzTarPerm extractEntry components/pagination/pagination_service.js
-417 silly gunzTarPerm modified mode [ 'components/pagination/pagination_service.js', 420, 438 ]
-418 silly gunzTarPerm extractEntry components/pagination/pagination_spec.js
-419 silly gunzTarPerm modified mode [ 'components/pagination/pagination_spec.js', 420, 438 ]
-420 silly gunzTarPerm extractEntry components/pagination/pagination.scss
-421 silly gunzTarPerm modified mode [ 'components/pagination/pagination.scss', 420, 438 ]
-422 silly gunzTarPerm extractEntry components/pagination/pagination.js.map
-423 silly gunzTarPerm modified mode [ 'components/pagination/pagination.js.map', 420, 438 ]
-424 silly gunzTarPerm extractEntry components/pagination/index.js.map
-425 silly gunzTarPerm modified mode [ 'components/pagination/index.js.map', 420, 438 ]
-426 silly gunzTarPerm extractEntry components/pagination/pagination_service.d.ts
-427 silly gunzTarPerm modified mode [ 'components/pagination/pagination_service.d.ts', 420, 438 ]
-428 silly gunzTarPerm extractEntry components/pagination/pagination.d.ts
-429 silly gunzTarPerm modified mode [ 'components/pagination/pagination.d.ts', 420, 438 ]
-430 silly gunzTarPerm extractEntry components/pagination/pagination_service.js.map
-431 silly gunzTarPerm modified mode [ 'components/pagination/pagination_service.js.map', 420, 438 ]
-432 silly gunzTarPerm extractEntry components/pagination/pagination_spec.d.ts
-433 silly gunzTarPerm modified mode [ 'components/pagination/pagination_spec.d.ts', 420, 438 ]
-434 silly gunzTarPerm extractEntry components/pagination/index.d.ts
-435 silly gunzTarPerm modified mode [ 'components/pagination/index.d.ts', 420, 438 ]
-436 silly gunzTarPerm extractEntry components/pagination/pagination_spec.js.map
-437 silly gunzTarPerm modified mode [ 'components/pagination/pagination_spec.js.map', 420, 438 ]
-438 silly gunzTarPerm extractEntry components/peekaboo/peekaboo.js
-439 silly gunzTarPerm modified mode [ 'components/peekaboo/peekaboo.js', 420, 438 ]
-440 silly gunzTarPerm extractEntry components/peekaboo/peekaboo_spec.js
-441 silly gunzTarPerm modified mode [ 'components/peekaboo/peekaboo_spec.js', 420, 438 ]
-442 silly gunzTarPerm extractEntry components/peekaboo/peekaboo.d.ts
-443 silly gunzTarPerm modified mode [ 'components/peekaboo/peekaboo.d.ts', 420, 438 ]
-444 silly gunzTarPerm extractEntry components/peekaboo/peekaboo.js.map
-445 silly gunzTarPerm modified mode [ 'components/peekaboo/peekaboo.js.map', 420, 438 ]
-446 silly gunzTarPerm extractEntry components/peekaboo/peekaboo.scss
-447 silly gunzTarPerm modified mode [ 'components/peekaboo/peekaboo.scss', 420, 438 ]
-448 silly gunzTarPerm extractEntry components/peekaboo/peekaboo_spec.d.ts
-449 silly gunzTarPerm modified mode [ 'components/peekaboo/peekaboo_spec.d.ts', 420, 438 ]
-450 silly gunzTarPerm extractEntry components/peekaboo/peekaboo_spec.js.map
-451 silly gunzTarPerm modified mode [ 'components/peekaboo/peekaboo_spec.js.map', 420, 438 ]
-452 silly gunzTarPerm extractEntry components/subheader/subheader.js
-453 silly gunzTarPerm modified mode [ 'components/subheader/subheader.js', 420, 438 ]
-454 silly gunzTarPerm extractEntry components/subheader/subheader_spec.js
-455 silly gunzTarPerm modified mode [ 'components/subheader/subheader_spec.js', 420, 438 ]
-456 silly gunzTarPerm extractEntry components/subheader/subheader.d.ts
-457 silly gunzTarPerm modified mode [ 'components/subheader/subheader.d.ts', 420, 438 ]
-458 silly gunzTarPerm extractEntry components/subheader/subheader.js.map
-459 silly gunzTarPerm modified mode [ 'components/subheader/subheader.js.map', 420, 438 ]
-460 silly gunzTarPerm extractEntry components/subheader/subheader.scss
-461 silly gunzTarPerm modified mode [ 'components/subheader/subheader.scss', 420, 438 ]
-462 silly gunzTarPerm extractEntry components/subheader/subheader_spec.d.ts
-463 silly gunzTarPerm modified mode [ 'components/subheader/subheader_spec.d.ts', 420, 438 ]
-464 silly gunzTarPerm extractEntry components/subheader/subheader_spec.js.map
-465 silly gunzTarPerm modified mode [ 'components/subheader/subheader_spec.js.map', 420, 438 ]
-466 silly gunzTarPerm extractEntry components/switch/switch.js
-467 silly gunzTarPerm modified mode [ 'components/switch/switch.js', 420, 438 ]
-468 silly gunzTarPerm extractEntry components/switch/switch_spec.js
-469 silly gunzTarPerm modified mode [ 'components/switch/switch_spec.js', 420, 438 ]
-470 silly gunzTarPerm extractEntry components/switch/switch.d.ts
-471 silly gunzTarPerm modified mode [ 'components/switch/switch.d.ts', 420, 438 ]
-472 silly gunzTarPerm extractEntry components/switch/switch.js.map
-473 silly gunzTarPerm modified mode [ 'components/switch/switch.js.map', 420, 438 ]
-474 silly gunzTarPerm extractEntry components/switch/switch.scss
-475 silly gunzTarPerm modified mode [ 'components/switch/switch.scss', 420, 438 ]
-476 silly gunzTarPerm extractEntry components/switch/switch_spec.d.ts
-477 silly gunzTarPerm modified mode [ 'components/switch/switch_spec.d.ts', 420, 438 ]
-478 silly gunzTarPerm extractEntry components/switch/switch_spec.js.map
-479 silly gunzTarPerm modified mode [ 'components/switch/switch_spec.js.map', 420, 438 ]
-480 silly gunzTarPerm extractEntry components/whiteframe/whiteframe.scss
-481 silly gunzTarPerm modified mode [ 'components/whiteframe/whiteframe.scss', 420, 438 ]
-482 silly gunzTarPerm extractEntry platform/testing/bootstrap.js
-483 silly gunzTarPerm modified mode [ 'platform/testing/bootstrap.js', 420, 438 ]
-484 silly gunzTarPerm extractEntry platform/testing/test_url_resolver.js
-485 silly gunzTarPerm modified mode [ 'platform/testing/test_url_resolver.js', 420, 438 ]
-486 silly gunzTarPerm extractEntry platform/testing/util.js
-487 silly gunzTarPerm modified mode [ 'platform/testing/util.js', 420, 438 ]
-488 silly gunzTarPerm extractEntry platform/testing/bootstrap.d.ts
-489 silly gunzTarPerm modified mode [ 'platform/testing/bootstrap.d.ts', 420, 438 ]
-490 silly gunzTarPerm extractEntry platform/testing/bootstrap.js.map
-491 silly gunzTarPerm modified mode [ 'platform/testing/bootstrap.js.map', 420, 438 ]
-492 silly gunzTarPerm extractEntry platform/testing/test_url_resolver.d.ts
-493 silly gunzTarPerm modified mode [ 'platform/testing/test_url_resolver.d.ts', 420, 438 ]
-494 silly gunzTarPerm extractEntry platform/testing/test_url_resolver.js.map
-495 silly gunzTarPerm modified mode [ 'platform/testing/test_url_resolver.js.map', 420, 438 ]
-496 silly gunzTarPerm extractEntry platform/testing/util.d.ts
-497 silly gunzTarPerm modified mode [ 'platform/testing/util.d.ts', 420, 438 ]
-498 silly gunzTarPerm extractEntry platform/testing/util.js.map
-499 silly gunzTarPerm modified mode [ 'platform/testing/util.js.map', 420, 438 ]
-500 silly gunzTarPerm extractEntry src/components/form/messages.ts
-501 silly gunzTarPerm modified mode [ 'src/components/form/messages.ts', 420, 438 ]
-502 silly gunzTarPerm extractEntry src/components/form/messages_spec.ts
-503 silly gunzTarPerm modified mode [ 'src/components/form/messages_spec.ts', 420, 438 ]
-504 silly gunzTarPerm extractEntry src/components/form/validators.ts
-505 silly gunzTarPerm modified mode [ 'src/components/form/validators.ts', 420, 438 ]
-506 silly gunzTarPerm extractEntry src/components/form/validators_spec.ts
-507 silly gunzTarPerm modified mode [ 'src/components/form/validators_spec.ts', 420, 438 ]
-508 silly gunzTarPerm extractEntry src/components/backdrop/backdrop.ts
-509 silly gunzTarPerm modified mode [ 'src/components/backdrop/backdrop.ts', 420, 438 ]
-510 silly gunzTarPerm extractEntry src/components/backdrop/backdrop_spec.ts
-511 silly gunzTarPerm modified mode [ 'src/components/backdrop/backdrop_spec.ts', 420, 438 ]
-512 silly gunzTarPerm extractEntry src/components/card/card.ts
-513 silly gunzTarPerm modified mode [ 'src/components/card/card.ts', 420, 438 ]
-514 silly gunzTarPerm extractEntry src/components/card/card_spec.ts
-515 silly gunzTarPerm modified mode [ 'src/components/card/card_spec.ts', 420, 438 ]
-516 silly gunzTarPerm extractEntry src/components/content/content.ts
-517 silly gunzTarPerm modified mode [ 'src/components/content/content.ts', 420, 438 ]
-518 silly gunzTarPerm extractEntry src/components/content/content_spec.ts
-519 silly gunzTarPerm modified mode [ 'src/components/content/content_spec.ts', 420, 438 ]
-520 silly gunzTarPerm extractEntry src/components/data-table/data_table.ts
-521 silly gunzTarPerm modified mode [ 'src/components/data-table/data_table.ts', 420, 438 ]
-522 silly gunzTarPerm extractEntry src/components/data-table/data_table_selectable_tr.ts
-523 silly gunzTarPerm modified mode [ 'src/components/data-table/data_table_selectable_tr.ts',
-523 silly gunzTarPerm   420,
-523 silly gunzTarPerm   438 ]
-524 silly gunzTarPerm extractEntry src/components/data-table/data_table_spec.ts
-525 silly gunzTarPerm modified mode [ 'src/components/data-table/data_table_spec.ts', 420, 438 ]
-526 silly gunzTarPerm extractEntry src/components/data-table/index.ts
-527 silly gunzTarPerm modified mode [ 'src/components/data-table/index.ts', 420, 438 ]
-528 silly gunzTarPerm extractEntry src/components/dialog/dialog-actions.ts
-529 silly gunzTarPerm modified mode [ 'src/components/dialog/dialog-actions.ts', 420, 438 ]
-530 silly gunzTarPerm extractEntry src/components/dialog/dialog-portal.ts
-531 silly gunzTarPerm modified mode [ 'src/components/dialog/dialog-portal.ts', 420, 438 ]
-532 silly gunzTarPerm extractEntry src/components/dialog/dialog-title.ts
-533 silly gunzTarPerm modified mode [ 'src/components/dialog/dialog-title.ts', 420, 438 ]
-534 silly gunzTarPerm extractEntry src/components/dialog/dialog.ts
-535 silly gunzTarPerm modified mode [ 'src/components/dialog/dialog.ts', 420, 438 ]
-536 silly gunzTarPerm extractEntry src/components/dialog/dialog_spec.ts
-537 silly gunzTarPerm modified mode [ 'src/components/dialog/dialog_spec.ts', 420, 438 ]
-538 silly gunzTarPerm extractEntry src/components/dialog/index.ts
-539 silly gunzTarPerm modified mode [ 'src/components/dialog/index.ts', 420, 438 ]
-540 silly gunzTarPerm extractEntry src/components/divider/divider.ts
-541 silly gunzTarPerm modified mode [ 'src/components/divider/divider.ts', 420, 438 ]
-542 silly gunzTarPerm extractEntry src/components/divider/divider_spec.ts
-543 silly gunzTarPerm modified mode [ 'src/components/divider/divider_spec.ts', 420, 438 ]
-544 silly gunzTarPerm extractEntry src/components/button/button.ts
-545 silly gunzTarPerm modified mode [ 'src/components/button/button.ts', 420, 438 ]
-546 silly gunzTarPerm extractEntry src/components/button/button_spec.ts
-547 silly gunzTarPerm modified mode [ 'src/components/button/button_spec.ts', 420, 438 ]
-548 silly gunzTarPerm extractEntry src/components/icon/icon.ts
-549 silly gunzTarPerm modified mode [ 'src/components/icon/icon.ts', 420, 438 ]
-550 silly gunzTarPerm extractEntry src/components/ink/ink.ts
-551 silly gunzTarPerm modified mode [ 'src/components/ink/ink.ts', 420, 438 ]
-552 silly gunzTarPerm extractEntry src/components/ink/ink_spec.ts
-553 silly gunzTarPerm modified mode [ 'src/components/ink/ink_spec.ts', 420, 438 ]
-554 silly gunzTarPerm extractEntry src/components/list/list.ts
-555 silly gunzTarPerm modified mode [ 'src/components/list/list.ts', 420, 438 ]
-556 silly gunzTarPerm extractEntry src/components/list/list_spec.ts
-557 silly gunzTarPerm modified mode [ 'src/components/list/list_spec.ts', 420, 438 ]
-558 silly gunzTarPerm extractEntry src/components/pagination/index.ts
-559 silly gunzTarPerm modified mode [ 'src/components/pagination/index.ts', 420, 438 ]
-560 silly gunzTarPerm extractEntry src/components/pagination/pagination.ts
-561 silly gunzTarPerm modified mode [ 'src/components/pagination/pagination.ts', 420, 438 ]
-562 silly gunzTarPerm extractEntry src/components/pagination/pagination_service.ts
-563 silly gunzTarPerm modified mode [ 'src/components/pagination/pagination_service.ts', 420, 438 ]
-564 silly gunzTarPerm extractEntry src/components/pagination/pagination_spec.ts
-565 silly gunzTarPerm modified mode [ 'src/components/pagination/pagination_spec.ts', 420, 438 ]
-566 silly gunzTarPerm extractEntry src/components/peekaboo/peekaboo.ts
-567 silly gunzTarPerm modified mode [ 'src/components/peekaboo/peekaboo.ts', 420, 438 ]
-568 silly gunzTarPerm extractEntry src/components/peekaboo/peekaboo_spec.ts
-569 silly gunzTarPerm modified mode [ 'src/components/peekaboo/peekaboo_spec.ts', 420, 438 ]
-570 silly gunzTarPerm extractEntry src/components/subheader/subheader.ts
-571 silly gunzTarPerm modified mode [ 'src/components/subheader/subheader.ts', 420, 438 ]
-572 silly gunzTarPerm extractEntry src/components/subheader/subheader_spec.ts
-573 silly gunzTarPerm modified mode [ 'src/components/subheader/subheader_spec.ts', 420, 438 ]
-574 silly gunzTarPerm extractEntry src/components/switch/switch.ts
-575 silly gunzTarPerm modified mode [ 'src/components/switch/switch.ts', 420, 438 ]
-576 silly gunzTarPerm extractEntry src/components/switch/switch_spec.ts
-577 silly gunzTarPerm modified mode [ 'src/components/switch/switch_spec.ts', 420, 438 ]
-578 silly gunzTarPerm extractEntry src/core/key_codes.ts
-579 silly gunzTarPerm modified mode [ 'src/core/key_codes.ts', 420, 438 ]
-580 silly gunzTarPerm extractEntry src/core/util/animate.ts
-581 silly gunzTarPerm modified mode [ 'src/core/util/animate.ts', 420, 438 ]
-582 silly gunzTarPerm extractEntry src/core/util/ink.ts
-583 silly gunzTarPerm modified mode [ 'src/core/util/ink.ts', 420, 438 ]
-584 silly gunzTarPerm extractEntry src/core/util/ink_spec.ts
-585 silly gunzTarPerm modified mode [ 'src/core/util/ink_spec.ts', 420, 438 ]
-586 silly gunzTarPerm extractEntry src/core/util/media.ts
-587 silly gunzTarPerm modified mode [ 'src/core/util/media.ts', 420, 438 ]
-588 silly gunzTarPerm extractEntry src/core/util/media_spec.ts
-589 silly gunzTarPerm modified mode [ 'src/core/util/media_spec.ts', 420, 438 ]
-590 silly gunzTarPerm extractEntry src/core/util/util.ts
-591 silly gunzTarPerm modified mode [ 'src/core/util/util.ts', 420, 438 ]
-592 silly gunzTarPerm extractEntry src/core/util/viewport.ts
-593 silly gunzTarPerm modified mode [ 'src/core/util/viewport.ts', 420, 438 ]
-594 silly gunzTarPerm extractEntry src/index.ts
-595 silly gunzTarPerm modified mode [ 'src/index.ts', 420, 438 ]
-596 silly gunzTarPerm extractEntry src/platform/testing/bootstrap.ts
-597 silly gunzTarPerm modified mode [ 'src/platform/testing/bootstrap.ts', 420, 438 ]
-598 silly gunzTarPerm extractEntry src/platform/testing/test_url_resolver.ts
-599 silly gunzTarPerm modified mode [ 'src/platform/testing/test_url_resolver.ts', 420, 438 ]
-600 silly gunzTarPerm extractEntry src/platform/testing/util.ts
-601 silly gunzTarPerm modified mode [ 'src/platform/testing/util.ts', 420, 438 ]
-602 verbose write writing to C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material\package.json
-603 info preinstall ng2-material@0.5.0
-604 verbose readDependencies loading dependencies from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material\package.json
-605 silly prepareForInstallMany adding @angular/common@2.0.0-rc.1 from ng2-material peerDependencies
-606 silly prepareForInstallMany adding @angular/compiler@2.0.0-rc.1 from ng2-material peerDependencies
-607 silly prepareForInstallMany adding @angular/core@2.0.0-rc.1 from ng2-material peerDependencies
-608 silly prepareForInstallMany adding @angular/platform-browser@2.0.0-rc.1 from ng2-material peerDependencies
-609 silly prepareForInstallMany adding @angular/platform-browser-dynamic@2.0.0-rc.1 from ng2-material peerDependencies
-610 silly prepareForInstallMany adding @angular/router@2.0.0-rc.1 from ng2-material peerDependencies
-611 silly prepareForInstallMany adding @angular2-material/checkbox@2.0.0-alpha.5-2 from ng2-material peerDependencies
-612 warn peerDependencies The peer dependency @angular/common@2.0.0-rc.1 included from ng2-material will no
-613 warn peerDependencies longer be automatically installed to fulfill the peerDependency
-614 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
-615 warn peerDependencies The peer dependency @angular/compiler@2.0.0-rc.1 included from ng2-material will no
-616 warn peerDependencies longer be automatically installed to fulfill the peerDependency
-617 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
-618 warn peerDependencies The peer dependency @angular/core@2.0.0-rc.1 included from ng2-material will no
-619 warn peerDependencies longer be automatically installed to fulfill the peerDependency
-620 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
-621 warn peerDependencies The peer dependency @angular/platform-browser@2.0.0-rc.1 included from ng2-material will no
-622 warn peerDependencies longer be automatically installed to fulfill the peerDependency
-623 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
-624 warn peerDependencies The peer dependency @angular/platform-browser-dynamic@2.0.0-rc.1 included from ng2-material will no
-625 warn peerDependencies longer be automatically installed to fulfill the peerDependency
-626 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
-627 warn peerDependencies The peer dependency @angular/router@2.0.0-rc.1 included from ng2-material will no
-628 warn peerDependencies longer be automatically installed to fulfill the peerDependency
-629 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
-630 warn peerDependencies The peer dependency @angular2-material/checkbox@2.0.0-alpha.5-2 included from ng2-material will no
-631 warn peerDependencies longer be automatically installed to fulfill the peerDependency
-632 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
-633 verbose readDependencies loading dependencies from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material\package.json
-634 silly install resolved []
-635 verbose about to build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
-636 info build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
-637 info linkStuff ng2-material@0.5.0
-638 silly linkStuff ng2-material@0.5.0 has C:\wamp\www\GitHub\DigitalSignage\client\node_modules as its parent node_modules
-639 verbose linkBins ng2-material@0.5.0
-640 verbose linkMans ng2-material@0.5.0
-641 verbose rebuildBundles ng2-material@0.5.0
-642 info install ng2-material@0.5.0
-643 info postinstall ng2-material@0.5.0
-644 verbose readDependencies loading dependencies from C:\wamp\www\GitHub\DigitalSignage\client\package.json
-645 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\angular2-in-memory-web-api\package.json
-646 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\bootstrap\package.json
-647 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\concurrently\package.json
-648 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\core-js\package.json
-649 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\es6-promise\package.json
-650 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\es6-shim\package.json
-651 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\jquery\package.json
-652 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\lite-server\package.json
-653 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material\package.json
-654 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\reflect-metadata\package.json
-655 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\rxjs\package.json
-656 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\systemjs\package.json
-657 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\zone.js\package.json
-658 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\concurrent\package.json
-659 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\concurrent.cmd\package.json
-660 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\concurrently\package.json
-661 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\concurrently.cmd\package.json
-662 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\lite-server\package.json
-663 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\lite-server.cmd\package.json
-664 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\common\package.json
-665 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\compiler\package.json
-666 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\core\package.json
-667 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\forms\package.json
-668 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\http\package.json
-669 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\platform-browser\package.json
-670 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\platform-browser-dynamic\package.json
-671 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router\package.json
-672 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated\package.json
-673 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\upgrade\package.json
-674 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\checkbox\package.json
-675 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core\package.json
-676 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\input\package.json
-677 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\list\package.json
-678 verbose already installed skipping @angular/core@2.0.0-rc.1 C:\wamp\www\GitHub\DigitalSignage\client
-679 verbose already installed skipping @angular/platform-browser@2.0.0-rc.1 C:\wamp\www\GitHub\DigitalSignage\client
-680 verbose already installed skipping @angular/platform-browser-dynamic@2.0.0-rc.1 C:\wamp\www\GitHub\DigitalSignage\client
-681 verbose already installed skipping @angular/router@2.0.0-rc.1 C:\wamp\www\GitHub\DigitalSignage\client
-682 verbose already installed skipping @angular2-material/checkbox@2.0.0-alpha.5-2 C:\wamp\www\GitHub\DigitalSignage\client
-683 verbose already installed skipping @angular/common@2.0.0-rc.1 C:\wamp\www\GitHub\DigitalSignage\client
-684 verbose already installed skipping @angular/compiler@2.0.0-rc.1 C:\wamp\www\GitHub\DigitalSignage\client
-685 silly install resolved []
-686 verbose unlock done using C:\Users\Vlad\AppData\Roaming\npm-cache\_locks\ng2-material-6333dc84784ca04c.lock for C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
-687 verbose validateInstall loading C:\wamp\www\GitHub\DigitalSignage\client\package.json for validation
-688 verbose stack Error: The package @angular/common@2.0.0-rc.3 does not satisfy its siblings' peerDependencies requirements!
-688 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\install.js:125:32
-688 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\install.js:268:7
-688 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:142:5
-688 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
-688 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
-688 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
-688 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
-688 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
-688 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
-688 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
-689 verbose cwd C:\wamp\www\GitHub\DigitalSignage\client
-690 error Windows_NT 10.0.10586
-691 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "ng2-material" "--save"
-692 error node v4.4.7
-693 error npm  v2.15.8
-694 error code EPEERINVALID
-695 error peerinvalid The package @angular/common@2.0.0-rc.3 does not satisfy its siblings' peerDependencies requirements!
-695 error peerinvalid Peer @angular/forms@0.1.1 wants @angular/common@2.0.0-rc.3
-695 error peerinvalid Peer @angular/platform-browser@2.0.0-rc.3 wants @angular/common@2.0.0-rc.3
-695 error peerinvalid Peer @angular/platform-browser-dynamic@2.0.0-rc.3 wants @angular/common@2.0.0-rc.3
-695 error peerinvalid Peer @angular/router@3.0.0-alpha.8 wants @angular/common@^2.0.0-rc.2
-695 error peerinvalid Peer @angular2-material/core@2.0.0-alpha.5-2 wants @angular/common@^2.0.0-rc.1
-695 error peerinvalid Peer ng2-material@0.5.0 wants @angular/common@2.0.0-rc.1
-695 error peerinvalid Peer @angular/router-deprecated@2.0.0-rc.2 wants @angular/common@^2.0.0-rc
-696 verbose exit [ 1, true ]
+58 verbose install @angular2-material/core is installed as 2.0.0-alpha.5-2
+59 silly cache add args [ '@angular2-material/core@2.0.0-alpha.5-2', null ]
+60 verbose cache add spec @angular2-material/core@2.0.0-alpha.5-2
+61 silly cache add parsed spec Result {
+61 silly cache add   raw: '@angular2-material/core@2.0.0-alpha.5-2',
+61 silly cache add   scope: '@angular2-material',
+61 silly cache add   name: '@angular2-material/core',
+61 silly cache add   rawSpec: '2.0.0-alpha.5-2',
+61 silly cache add   spec: '2.0.0-alpha.5-2',
+61 silly cache add   type: 'version' }
+62 silly addNamed @angular2-material/core@2.0.0-alpha.5-2
+63 verbose addNamed "2.0.0-alpha.5-2" is a plain semver version for @angular2-material/core
+64 silly mapToRegistry name @angular2-material/core
+65 silly mapToRegistry scope (from package name) @angular2-material
+66 verbose mapToRegistry no registry URL found in name for scope @angular2-material
+67 silly mapToRegistry using default registry
+68 silly mapToRegistry registry https://registry.npmjs.org/
+69 silly mapToRegistry data Result {
+69 silly mapToRegistry   raw: '@angular2-material/core',
+69 silly mapToRegistry   scope: '@angular2-material',
+69 silly mapToRegistry   name: '@angular2-material/core',
+69 silly mapToRegistry   rawSpec: '',
+69 silly mapToRegistry   spec: 'latest',
+69 silly mapToRegistry   type: 'tag' }
+70 silly mapToRegistry uri https://registry.npmjs.org/@angular2-material%2fcore
+71 verbose addNameVersion registry:https://registry.npmjs.org/@angular2-material%2fcore not in flight; fetching
+72 silly cache add parsed spec Result {
+72 silly cache add   raw: 'ng2-material',
+72 silly cache add   scope: null,
+72 silly cache add   name: 'ng2-material',
+72 silly cache add   rawSpec: '',
+72 silly cache add   spec: 'latest',
+72 silly cache add   type: 'tag' }
+73 silly addNamed ng2-material@latest
+74 verbose addNamed "latest" is being treated as a dist-tag for ng2-material
+75 info addNameTag [ 'ng2-material', 'latest' ]
+76 silly mapToRegistry name ng2-material
+77 silly mapToRegistry using default registry
+78 silly mapToRegistry registry https://registry.npmjs.org/
+79 silly mapToRegistry data Result {
+79 silly mapToRegistry   raw: 'ng2-material',
+79 silly mapToRegistry   scope: null,
+79 silly mapToRegistry   name: 'ng2-material',
+79 silly mapToRegistry   rawSpec: '',
+79 silly mapToRegistry   spec: 'latest',
+79 silly mapToRegistry   type: 'tag' }
+80 silly mapToRegistry uri https://registry.npmjs.org/ng2-material
+81 verbose addNameTag registry:https://registry.npmjs.org/ng2-material not in flight; fetching
+82 verbose request uri https://registry.npmjs.org/@angular2-material%2fcore
+83 verbose request no auth needed
+84 info attempt registry request try #1 at 9:39:06 PM
+85 verbose request id d3642c8b38eef57e
+86 verbose etag "32XNK2V0AUAOVDSKNQJBCYOUR"
+87 http request GET https://registry.npmjs.org/@angular2-material%2fcore
+88 verbose request uri https://registry.npmjs.org/ng2-material
+89 verbose request no auth needed
+90 info attempt registry request try #1 at 9:39:06 PM
+91 verbose etag "91XGX5ERSBVDTODUP69BRMAQW"
+92 http request GET https://registry.npmjs.org/ng2-material
+93 http 304 https://registry.npmjs.org/ng2-material
+94 verbose headers { date: 'Tue, 05 Jul 2016 01:38:57 GMT',
+94 verbose headers   via: '1.1 varnish',
+94 verbose headers   'cache-control': 'max-age=300',
+94 verbose headers   etag: '"91XGX5ERSBVDTODUP69BRMAQW"',
+94 verbose headers   age: '0',
+94 verbose headers   connection: 'keep-alive',
+94 verbose headers   'x-served-by': 'cache-ord1724-ORD',
+94 verbose headers   'x-cache': 'MISS',
+94 verbose headers   'x-cache-hits': '0',
+94 verbose headers   'x-timer': 'S1467682737.843847,VS0,VE128',
+94 verbose headers   vary: 'Accept-Encoding' }
+95 silly get cb [ 304,
+95 silly get   { date: 'Tue, 05 Jul 2016 01:38:57 GMT',
+95 silly get     via: '1.1 varnish',
+95 silly get     'cache-control': 'max-age=300',
+95 silly get     etag: '"91XGX5ERSBVDTODUP69BRMAQW"',
+95 silly get     age: '0',
+95 silly get     connection: 'keep-alive',
+95 silly get     'x-served-by': 'cache-ord1724-ORD',
+95 silly get     'x-cache': 'MISS',
+95 silly get     'x-cache-hits': '0',
+95 silly get     'x-timer': 'S1467682737.843847,VS0,VE128',
+95 silly get     vary: 'Accept-Encoding' } ]
+96 verbose etag https://registry.npmjs.org/ng2-material from cache
+97 verbose get saving ng2-material to C:\Users\Vlad\AppData\Roaming\npm-cache\registry.npmjs.org\ng2-material\.cache.json
+98 verbose correctMkdir C:\Users\Vlad\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+99 silly addNameTag next cb for ng2-material with tag latest
+100 silly addNamed ng2-material@0.5.0
+101 verbose addNamed "0.5.0" is a plain semver version for ng2-material
+102 silly cache afterAdd ng2-material@0.5.0
+103 verbose afterAdd C:\Users\Vlad\AppData\Roaming\npm-cache\ng2-material\0.5.0\package\package.json not in flight; writing
+104 verbose correctMkdir C:\Users\Vlad\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+105 verbose afterAdd C:\Users\Vlad\AppData\Roaming\npm-cache\ng2-material\0.5.0\package\package.json written
+106 http 304 https://registry.npmjs.org/@angular2-material%2fcore
+107 verbose headers { date: 'Tue, 05 Jul 2016 01:38:57 GMT',
+107 verbose headers   via: '1.1 varnish',
+107 verbose headers   'cache-control': 'max-age=0',
+107 verbose headers   etag: '"32XNK2V0AUAOVDSKNQJBCYOUR"',
+107 verbose headers   age: '0',
+107 verbose headers   connection: 'keep-alive',
+107 verbose headers   'x-served-by': 'cache-ord1745-ORD',
+107 verbose headers   'x-cache': 'MISS',
+107 verbose headers   'x-cache-hits': '0',
+107 verbose headers   'x-timer': 'S1467682737.845421,VS0,VE663',
+107 verbose headers   vary: 'Accept-Encoding' }
+108 silly get cb [ 304,
+108 silly get   { date: 'Tue, 05 Jul 2016 01:38:57 GMT',
+108 silly get     via: '1.1 varnish',
+108 silly get     'cache-control': 'max-age=0',
+108 silly get     etag: '"32XNK2V0AUAOVDSKNQJBCYOUR"',
+108 silly get     age: '0',
+108 silly get     connection: 'keep-alive',
+108 silly get     'x-served-by': 'cache-ord1745-ORD',
+108 silly get     'x-cache': 'MISS',
+108 silly get     'x-cache-hits': '0',
+108 silly get     'x-timer': 'S1467682737.845421,VS0,VE663',
+108 silly get     vary: 'Accept-Encoding' } ]
+109 verbose etag https://registry.npmjs.org/@angular2-material%2fcore from cache
+110 verbose get saving @angular2-material/core to C:\Users\Vlad\AppData\Roaming\npm-cache\registry.npmjs.org\_40angular2-material_252fcore\.cache.json
+111 verbose correctMkdir C:\Users\Vlad\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+112 silly cache afterAdd @angular2-material/core@2.0.0-alpha.5-2
+113 verbose afterAdd C:\Users\Vlad\AppData\Roaming\npm-cache\@angular2-material\core\2.0.0-alpha.5-2\package\package.json not in flight; writing
+114 verbose correctMkdir C:\Users\Vlad\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+115 verbose afterAdd C:\Users\Vlad\AppData\Roaming\npm-cache\@angular2-material\core\2.0.0-alpha.5-2\package\package.json written
+116 silly install resolved [ { name: 'ng2-material',
+116 silly install resolved     version: '0.5.0',
+116 silly install resolved     description: 'ng2-material --- [![Build Status](https://travis-ci.org/justindujardin/ng2-material.svg?branch=master)](https://travis-ci.org/justindujardin/ng2-material) [![Coverage Status](https://coveralls.io/repos/justindujardin/ng2-material/badge.svg?branch=master&s',
+116 silly install resolved     main: './index.js',
+116 silly install resolved     repository:
+116 silly install resolved      { type: 'git',
+116 silly install resolved        url: 'git+ssh://git@github.com/justindujardin/ng2-material.git' },
+116 silly install resolved     author:
+116 silly install resolved      { name: 'Justin DuJardin',
+116 silly install resolved        email: 'justin@dujardinconsulting.com' },
+116 silly install resolved     license: 'MIT',
+116 silly install resolved     typings: './index.d.ts',
+116 silly install resolved     devDependencies:
+116 silly install resolved      { autoprefixer: '6.2.0',
+116 silly install resolved        codelyzer: '0.0.19',
+116 silly install resolved        coveralls: '2.11.6',
+116 silly install resolved        css: '^2.2.1',
+116 silly install resolved        'css-loader': '0.23.1',
+116 silly install resolved        'es6-module-loader': '0.17.4',
+116 silly install resolved        'file-loader': '0.8.5',
+116 silly install resolved        glob: '6.0.1',
+116 silly install resolved        grunt: '0.4.5',
+116 silly install resolved        'grunt-bump': '0.7.0',
+116 silly install resolved        'grunt-cli': '0.1.13',
+116 silly install resolved        'grunt-continue': '^0.1.0',
+116 silly install resolved        'grunt-contrib-clean': '0.7.0',
+116 silly install resolved        'grunt-contrib-connect': '0.11.2',
+116 silly install resolved        'grunt-contrib-copy': '0.8.2',
+116 silly install resolved        'grunt-contrib-sass': '0.9.2',
+116 silly install resolved        'grunt-contrib-watch': '0.6.1',
+116 silly install resolved        'grunt-conventional-changelog': '5.0.0',
+116 silly install resolved        'grunt-karma': '0.12.1',
+116 silly install resolved        'grunt-notify': '0.4.3',
+116 silly install resolved        'grunt-npm': '0.0.2',
+116 silly install resolved        'grunt-postcss': '0.7.1',
+116 silly install resolved        'grunt-ts': '5.2.0',
+116 silly install resolved        highlightjs: '8.7.0',
+116 silly install resolved        istanbul: '1.0.0-alpha.2',
+116 silly install resolved        karma: '0.13.19',
+116 silly install resolved        'karma-chrome-launcher': '0.2.2',
+116 silly install resolved        'karma-coverage': '0.5.3',
+116 silly install resolved        'karma-firefox-launcher': '0.1.7',
+116 silly install resolved        'karma-jasmine': '0.2.2',
+116 silly install resolved        'karma-mocha-reporter': '1.1.5',
+116 silly install resolved        'karma-sauce-launcher': '0.3.0',
+116 silly install resolved        'lcov-parse': '0.0.10',
+116 silly install resolved        marked: '0.3.5',
+116 silly install resolved        npm: '^3.9.2',
+116 silly install resolved        'remap-istanbul': '0.4.0',
+116 silly install resolved        'style-loader': '0.13.0',
+116 silly install resolved        systemjs: '0.19.26',
+116 silly install resolved        typescript: '>=1.8.9',
+116 silly install resolved        typings: '^1.0.4',
+116 silly install resolved        underscore: '1.8.3' },
+116 silly install resolved     contributors:
+116 silly install resolved      [ [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object],
+116 silly install resolved        [Object] ],
+116 silly install resolved     peerDependencies:
+116 silly install resolved      { '@angular/common': '2.0.0-rc.1',
+116 silly install resolved        '@angular/compiler': '2.0.0-rc.1',
+116 silly install resolved        '@angular/core': '2.0.0-rc.1',
+116 silly install resolved        '@angular/platform-browser': '2.0.0-rc.1',
+116 silly install resolved        '@angular/platform-browser-dynamic': '2.0.0-rc.1',
+116 silly install resolved        '@angular/router': '2.0.0-rc.1',
+116 silly install resolved        '@angular2-material/checkbox': '2.0.0-alpha.5-2',
+116 silly install resolved        '@angular2-material/core': '2.0.0-alpha.5-2',
+116 silly install resolved        'es6-promise': '>=3.0.2',
+116 silly install resolved        'reflect-metadata': '^0.1.3',
+116 silly install resolved        'es6-shim': '^0.35.0',
+116 silly install resolved        rxjs: '5.0.0-beta.6',
+116 silly install resolved        'zone.js': '^0.6.12' },
+116 silly install resolved     bugs: { url: 'https://github.com/justindujardin/ng2-material/issues' },
+116 silly install resolved     homepage: 'https://github.com/justindujardin/ng2-material#readme',
+116 silly install resolved     _id: 'ng2-material@0.5.0',
+116 silly install resolved     scripts: {},
+116 silly install resolved     _shasum: '3be232b4d40a5f2c6110b28c6ffa2e70b0e93939',
+116 silly install resolved     _from: 'ng2-material@latest',
+116 silly install resolved     _npmVersion: '2.15.1',
+116 silly install resolved     _nodeVersion: '4.4.4',
+116 silly install resolved     _npmUser:
+116 silly install resolved      { name: 'justindujardin',
+116 silly install resolved        email: 'justin@dujardinconsulting.com' },
+116 silly install resolved     dist:
+116 silly install resolved      { shasum: '3be232b4d40a5f2c6110b28c6ffa2e70b0e93939',
+116 silly install resolved        tarball: 'https://registry.npmjs.org/ng2-material/-/ng2-material-0.5.0.tgz' },
+116 silly install resolved     maintainers: [ [Object] ],
+116 silly install resolved     _npmOperationalInternal:
+116 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+116 silly install resolved        tmp: 'tmp/ng2-material-0.5.0.tgz_1465772076178_0.11745647550560534' },
+116 silly install resolved     directories: {},
+116 silly install resolved     _resolved: 'https://registry.npmjs.org/ng2-material/-/ng2-material-0.5.0.tgz',
+116 silly install resolved     readme: 'ERROR: No README data found!' },
+116 silly install resolved   { name: '@angular2-material/core',
+116 silly install resolved     version: '2.0.0-alpha.5-2',
+116 silly install resolved     description: 'Angular 2 Material core',
+116 silly install resolved     main: './core.js',
+116 silly install resolved     typings: './core.d.ts',
+116 silly install resolved     repository:
+116 silly install resolved      { type: 'git',
+116 silly install resolved        url: 'git+https://github.com/angular/material2.git' },
+116 silly install resolved     keywords: [ 'angular', 'material', 'material design', 'components' ],
+116 silly install resolved     license: 'MIT',
+116 silly install resolved     bugs: { url: 'https://github.com/angular/material2/issues' },
+116 silly install resolved     homepage: 'https://github.com/angular/material2#readme',
+116 silly install resolved     peerDependencies:
+116 silly install resolved      { '@angular/core': '^2.0.0-rc.1',
+116 silly install resolved        '@angular/common': '^2.0.0-rc.1' },
+116 silly install resolved     _id: '@angular2-material/core@2.0.0-alpha.5-2',
+116 silly install resolved     scripts: {},
+116 silly install resolved     _shasum: '8bb9ecddc6677abae794f1173d4b80b79e45ade8',
+116 silly install resolved     _from: '@angular2-material/core@2.0.0-alpha.5-2',
+116 silly install resolved     _resolved: 'https://registry.npmjs.org/@angular2-material/core/-/core-2.0.0-alpha.5-2.tgz',
+116 silly install resolved     _npmVersion: '3.7.5',
+116 silly install resolved     _nodeVersion: '5.7.0',
+116 silly install resolved     _npmUser:
+116 silly install resolved      { name: 'angular2-material',
+116 silly install resolved        email: 'angular-core+npm@google.com' },
+116 silly install resolved     dist:
+116 silly install resolved      { shasum: '8bb9ecddc6677abae794f1173d4b80b79e45ade8',
+116 silly install resolved        tarball: 'https://registry.npmjs.org/@angular2-material/core/-/core-2.0.0-alpha.5-2.tgz' },
+116 silly install resolved     maintainers: [ [Object] ],
+116 silly install resolved     _npmOperationalInternal:
+116 silly install resolved      { host: 'packages-16-east.internal.npmjs.com',
+116 silly install resolved        tmp: 'tmp/core-2.0.0-alpha.5-2.tgz_1464814630971_0.1296463767066598' },
+116 silly install resolved     directories: {},
+116 silly install resolved     readme: 'ERROR: No README data found!' } ]
+117 info install ng2-material@0.5.0 into C:\wamp\www\GitHub\DigitalSignage\client
+118 info install @angular2-material/core@2.0.0-alpha.5-2 into C:\wamp\www\GitHub\DigitalSignage\client
+119 info installOne ng2-material@0.5.0
+120 verbose installOne of ng2-material to C:\wamp\www\GitHub\DigitalSignage\client not in flight; installing
+121 verbose correctMkdir C:\Users\Vlad\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+122 info installOne @angular2-material/core@2.0.0-alpha.5-2
+123 verbose installOne of @angular2-material/core to C:\wamp\www\GitHub\DigitalSignage\client not in flight; installing
+124 verbose correctMkdir C:\Users\Vlad\AppData\Roaming\npm-cache\_locks correctMkdir already in flight; waiting
+125 verbose lock using C:\Users\Vlad\AppData\Roaming\npm-cache\_locks\ng2-material-6333dc84784ca04c.lock for C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
+126 verbose lock using C:\Users\Vlad\AppData\Roaming\npm-cache\_locks\angular2-material-core-c6340df6949107e4.lock for C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core
+127 silly install write writing ng2-material 0.5.0 to C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
+128 silly install write writing @angular2-material/core 2.0.0-alpha.5-2 to C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core
+129 verbose unbuild node_modules\ng2-material
+130 verbose unbuild node_modules\@angular2-material\core
+131 info preuninstall ng2-material@0.5.0
+132 info preuninstall @angular2-material/core@2.0.0-alpha.5-2
+133 info uninstall ng2-material@0.5.0
+134 info uninstall @angular2-material/core@2.0.0-alpha.5-2
+135 verbose unbuild rmStuff ng2-material@0.5.0 from C:\wamp\www\GitHub\DigitalSignage\client\node_modules
+136 info postuninstall ng2-material@0.5.0
+137 verbose unbuild rmStuff @angular2-material/core@2.0.0-alpha.5-2 from C:\wamp\www\GitHub\DigitalSignage\client\node_modules
+138 verbose unbuild rmStuff in C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material
+139 info postuninstall @angular2-material/core@2.0.0-alpha.5-2
+140 silly gentlyRm C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material is being purged from base C:\wamp\www\GitHub\DigitalSignage\client
+141 verbose gentlyRm don't care about contents; nuking C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
+142 silly gentlyRm C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core is being purged from base C:\wamp\www\GitHub\DigitalSignage\client
+143 verbose gentlyRm don't care about contents; nuking C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core
+144 silly vacuum-fs purging C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
+145 silly vacuum-fs purging C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core
+146 silly vacuum-fs quitting because other entries in C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material
+147 verbose tar unpack C:\Users\Vlad\AppData\Roaming\npm-cache\@angular2-material\core\2.0.0-alpha.5-2\package.tgz
+148 verbose tar unpacking to C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core
+149 silly gentlyRm C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core is being purged
+150 verbose gentlyRm don't care about contents; nuking C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core
+151 silly gunzTarPerm modes [ '777', '666' ]
+152 silly vacuum-fs quitting because other entries in C:\wamp\www\GitHub\DigitalSignage\client\node_modules
+153 verbose tar unpack C:\Users\Vlad\AppData\Roaming\npm-cache\ng2-material\0.5.0\package.tgz
+154 verbose tar unpacking to C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
+155 silly gentlyRm C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material is being purged
+156 verbose gentlyRm don't care about contents; nuking C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
+157 silly gunzTarPerm modes [ '777', '666' ]
+158 silly gunzTarPerm extractEntry package.json
+159 silly gunzTarPerm modified mode [ 'package.json', 416, 438 ]
+160 silly gunzTarPerm extractEntry package.json
+161 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+162 silly gunzTarPerm extractEntry README.md
+163 silly gunzTarPerm modified mode [ 'README.md', 416, 438 ]
+164 silly gunzTarPerm extractEntry core.js
+165 silly gunzTarPerm modified mode [ 'core.js', 416, 438 ]
+166 silly gunzTarPerm extractEntry README.md
+167 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+168 silly gunzTarPerm extractEntry index.js
+169 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+170 silly gunzTarPerm extractEntry core.d.ts
+171 silly gunzTarPerm modified mode [ 'core.d.ts', 416, 438 ]
+172 silly gunzTarPerm extractEntry style/apply-transform.js
+173 silly gunzTarPerm modified mode [ 'style/apply-transform.js', 416, 438 ]
+174 silly gunzTarPerm extractEntry index.d.ts
+175 silly gunzTarPerm modified mode [ 'index.d.ts', 420, 438 ]
+176 silly gunzTarPerm extractEntry components.scss
+177 silly gunzTarPerm modified mode [ 'components.scss', 420, 438 ]
+178 silly gunzTarPerm extractEntry style/_palette.scss
+179 silly gunzTarPerm modified mode [ 'style/_palette.scss', 416, 438 ]
+180 silly gunzTarPerm extractEntry style/_elevation.css
+181 silly gunzTarPerm modified mode [ 'style/_elevation.css', 416, 438 ]
+182 silly gunzTarPerm extractEntry core/key_codes.js
+183 silly gunzTarPerm modified mode [ 'core/key_codes.js', 420, 438 ]
+184 silly gunzTarPerm extractEntry core/key_codes.d.ts
+185 silly gunzTarPerm modified mode [ 'core/key_codes.d.ts', 420, 438 ]
+186 silly gunzTarPerm extractEntry style/_elevation.scss
+187 silly gunzTarPerm modified mode [ 'style/_elevation.scss', 416, 438 ]
+188 silly gunzTarPerm extractEntry style/_list-shared.css
+189 silly gunzTarPerm modified mode [ 'style/_list-shared.css', 416, 438 ]
+190 silly gunzTarPerm extractEntry core/key_codes.js.map
+191 silly gunzTarPerm modified mode [ 'core/key_codes.js.map', 420, 438 ]
+192 silly gunzTarPerm extractEntry core/style/default-theme.scss
+193 silly gunzTarPerm modified mode [ 'core/style/default-theme.scss', 420, 438 ]
+194 silly gunzTarPerm extractEntry core/style/layout.scss
+195 silly gunzTarPerm modified mode [ 'core/style/layout.scss', 420, 438 ]
+196 silly gunzTarPerm extractEntry style/_list-shared.scss
+197 silly gunzTarPerm modified mode [ 'style/_list-shared.scss', 416, 438 ]
+198 silly gunzTarPerm extractEntry style/_mixins.css
+199 silly gunzTarPerm modified mode [ 'style/_mixins.css', 416, 438 ]
+200 silly gunzTarPerm extractEntry core/style/mixins.scss
+201 silly gunzTarPerm modified mode [ 'core/style/mixins.scss', 420, 438 ]
+202 silly gunzTarPerm extractEntry core/style/palette.scss
+203 silly gunzTarPerm modified mode [ 'core/style/palette.scss', 420, 438 ]
+204 silly gunzTarPerm extractEntry core/style/shadows.scss
+205 silly gunzTarPerm modified mode [ 'core/style/shadows.scss', 420, 438 ]
+206 silly gunzTarPerm extractEntry core/style/structure.scss
+207 silly gunzTarPerm modified mode [ 'core/style/structure.scss', 420, 438 ]
+208 silly gunzTarPerm extractEntry style/_mixins.scss
+209 silly gunzTarPerm modified mode [ 'style/_mixins.scss', 416, 438 ]
+210 silly gunzTarPerm extractEntry style/_palette.css
+211 silly gunzTarPerm modified mode [ 'style/_palette.css', 416, 438 ]
+212 silly gunzTarPerm extractEntry core/style/theme-functions.scss
+213 silly gunzTarPerm modified mode [ 'core/style/theme-functions.scss', 420, 438 ]
+214 silly gunzTarPerm extractEntry core/style/typography.scss
+215 silly gunzTarPerm modified mode [ 'core/style/typography.scss', 420, 438 ]
+216 silly gunzTarPerm extractEntry core/style/variables.scss
+217 silly gunzTarPerm modified mode [ 'core/style/variables.scss', 420, 438 ]
+218 silly gunzTarPerm extractEntry core/util/media.js
+219 silly gunzTarPerm modified mode [ 'core/util/media.js', 420, 438 ]
+220 silly gunzTarPerm extractEntry core/util/ink.js
+221 silly gunzTarPerm modified mode [ 'core/util/ink.js', 420, 438 ]
+222 silly gunzTarPerm extractEntry core/util/ink_spec.js
+223 silly gunzTarPerm modified mode [ 'core/util/ink_spec.js', 420, 438 ]
+224 silly gunzTarPerm extractEntry style/_default-theme.scss
+225 silly gunzTarPerm modified mode [ 'style/_default-theme.scss', 416, 438 ]
+226 silly gunzTarPerm extractEntry style/_theme-functions.css
+227 silly gunzTarPerm modified mode [ 'style/_theme-functions.css', 416, 438 ]
+228 silly gunzTarPerm extractEntry core/util/animate.js
+229 silly gunzTarPerm modified mode [ 'core/util/animate.js', 420, 438 ]
+230 silly gunzTarPerm extractEntry core/util/media_spec.js
+231 silly gunzTarPerm modified mode [ 'core/util/media_spec.js', 420, 438 ]
+232 silly gunzTarPerm extractEntry style/_theme-functions.scss
+233 silly gunzTarPerm modified mode [ 'style/_theme-functions.scss', 416, 438 ]
+234 silly gunzTarPerm extractEntry style/_variables.css
+235 silly gunzTarPerm modified mode [ 'style/_variables.css', 416, 438 ]
+236 silly gunzTarPerm extractEntry core/util/util.js
+237 silly gunzTarPerm modified mode [ 'core/util/util.js', 420, 438 ]
+238 silly gunzTarPerm extractEntry core/util/viewport.js
+239 silly gunzTarPerm modified mode [ 'core/util/viewport.js', 420, 438 ]
+240 silly gunzTarPerm extractEntry style/_variables.scss
+241 silly gunzTarPerm modified mode [ 'style/_variables.scss', 416, 438 ]
+242 silly gunzTarPerm extractEntry style/apply-transform.d.ts
+243 silly gunzTarPerm modified mode [ 'style/apply-transform.d.ts', 416, 438 ]
+244 silly gunzTarPerm extractEntry core/util/animate.js.map
+245 silly gunzTarPerm modified mode [ 'core/util/animate.js.map', 420, 438 ]
+246 silly gunzTarPerm extractEntry core/util/ink_spec.js.map
+247 silly gunzTarPerm modified mode [ 'core/util/ink_spec.js.map', 420, 438 ]
+248 silly gunzTarPerm extractEntry style/_default-theme.css
+249 silly gunzTarPerm modified mode [ 'style/_default-theme.css', 416, 438 ]
+250 silly gunzTarPerm extractEntry style/apply-transform.js.map
+251 silly gunzTarPerm modified mode [ 'style/apply-transform.js.map', 416, 438 ]
+252 silly gunzTarPerm extractEntry core/util/media.d.ts
+253 silly gunzTarPerm modified mode [ 'core/util/media.d.ts', 420, 438 ]
+254 silly gunzTarPerm extractEntry core/util/ink.d.ts
+255 silly gunzTarPerm modified mode [ 'core/util/ink.d.ts', 420, 438 ]
+256 silly gunzTarPerm extractEntry style/core.css
+257 silly gunzTarPerm modified mode [ 'style/core.css', 416, 438 ]
+258 silly gunzTarPerm extractEntry style/core.scss
+259 silly gunzTarPerm modified mode [ 'style/core.scss', 416, 438 ]
+260 silly gunzTarPerm extractEntry core/util/media.js.map
+261 silly gunzTarPerm modified mode [ 'core/util/media.js.map', 420, 438 ]
+262 silly gunzTarPerm extractEntry core/util/media_spec.d.ts
+263 silly gunzTarPerm modified mode [ 'core/util/media_spec.d.ts', 420, 438 ]
+264 silly gunzTarPerm extractEntry core.js.map
+265 silly gunzTarPerm modified mode [ 'core.js.map', 416, 438 ]
+266 silly gunzTarPerm extractEntry errors/error.js
+267 silly gunzTarPerm modified mode [ 'errors/error.js', 416, 438 ]
+268 silly gunzTarPerm extractEntry errors/error.d.ts
+269 silly gunzTarPerm modified mode [ 'errors/error.d.ts', 416, 438 ]
+270 silly gunzTarPerm extractEntry errors/error.js.map
+271 silly gunzTarPerm modified mode [ 'errors/error.js.map', 416, 438 ]
+272 silly gunzTarPerm extractEntry core/util/animate.d.ts
+273 silly gunzTarPerm modified mode [ 'core/util/animate.d.ts', 420, 438 ]
+274 silly gunzTarPerm extractEntry core/util/media_spec.js.map
+275 silly gunzTarPerm modified mode [ 'core/util/media_spec.js.map', 420, 438 ]
+276 silly gunzTarPerm extractEntry annotations/field-value.js
+277 silly gunzTarPerm modified mode [ 'annotations/field-value.js', 416, 438 ]
+278 silly gunzTarPerm extractEntry annotations/field-value.spec.js
+279 silly gunzTarPerm modified mode [ 'annotations/field-value.spec.js', 416, 438 ]
+280 silly gunzTarPerm extractEntry core/util/util.d.ts
+281 silly gunzTarPerm modified mode [ 'core/util/util.d.ts', 420, 438 ]
+282 silly gunzTarPerm extractEntry core/util/ink.js.map
+283 silly gunzTarPerm modified mode [ 'core/util/ink.js.map', 420, 438 ]
+284 silly gunzTarPerm extractEntry core/util/util.js.map
+285 silly gunzTarPerm modified mode [ 'core/util/util.js.map', 420, 438 ]
+286 silly gunzTarPerm extractEntry core/util/viewport.d.ts
+287 silly gunzTarPerm modified mode [ 'core/util/viewport.d.ts', 420, 438 ]
+288 silly gunzTarPerm extractEntry annotations/field-value.d.ts
+289 silly gunzTarPerm modified mode [ 'annotations/field-value.d.ts', 416, 438 ]
+290 silly gunzTarPerm extractEntry annotations/field-value.js.map
+291 silly gunzTarPerm modified mode [ 'annotations/field-value.js.map', 416, 438 ]
+292 silly gunzTarPerm extractEntry annotations/field-value.spec.d.ts
+293 silly gunzTarPerm modified mode [ 'annotations/field-value.spec.d.ts', 416, 438 ]
+294 silly gunzTarPerm extractEntry annotations/field-value.spec.js.map
+295 silly gunzTarPerm modified mode [ 'annotations/field-value.spec.js.map', 416, 438 ]
+296 silly gunzTarPerm extractEntry line/line.js
+297 silly gunzTarPerm modified mode [ 'line/line.js', 416, 438 ]
+298 silly gunzTarPerm extractEntry line/line.d.ts
+299 silly gunzTarPerm modified mode [ 'line/line.d.ts', 416, 438 ]
+300 silly gunzTarPerm extractEntry line/line.js.map
+301 silly gunzTarPerm modified mode [ 'line/line.js.map', 416, 438 ]
+302 silly gunzTarPerm extractEntry live-announcer/README.md
+303 silly gunzTarPerm modified mode [ 'live-announcer/README.md', 416, 438 ]
+304 silly gunzTarPerm extractEntry core/util/ink_spec.d.ts
+305 silly gunzTarPerm modified mode [ 'core/util/ink_spec.d.ts', 420, 438 ]
+306 silly gunzTarPerm extractEntry core/util/viewport.js.map
+307 silly gunzTarPerm modified mode [ 'core/util/viewport.js.map', 420, 438 ]
+308 silly gunzTarPerm extractEntry live-announcer/live-announcer.js
+309 silly gunzTarPerm modified mode [ 'live-announcer/live-announcer.js', 416, 438 ]
+310 silly gunzTarPerm extractEntry live-announcer/live-announcer.spec.js
+311 silly gunzTarPerm modified mode [ 'live-announcer/live-announcer.spec.js', 416, 438 ]
+312 silly gunzTarPerm extractEntry core.scss
+313 silly gunzTarPerm modified mode [ 'core.scss', 420, 438 ]
+314 silly gunzTarPerm extractEntry font/README.md
+315 silly gunzTarPerm modified mode [ 'font/README.md', 420, 438 ]
+316 silly gunzTarPerm extractEntry live-announcer/live-announcer.css
+317 silly gunzTarPerm modified mode [ 'live-announcer/live-announcer.css', 416, 438 ]
+318 silly gunzTarPerm extractEntry live-announcer/live-announcer.d.ts
+319 silly gunzTarPerm modified mode [ 'live-announcer/live-announcer.d.ts', 416, 438 ]
+320 silly gunzTarPerm extractEntry font/MaterialIcons-Regular.eot
+321 silly gunzTarPerm modified mode [ 'font/MaterialIcons-Regular.eot', 420, 438 ]
+322 silly gunzTarPerm extractEntry live-announcer/live-announcer.js.map
+323 silly gunzTarPerm modified mode [ 'live-announcer/live-announcer.js.map', 416, 438 ]
+324 silly gunzTarPerm extractEntry live-announcer/live-announcer.scss
+325 silly gunzTarPerm modified mode [ 'live-announcer/live-announcer.scss', 416, 438 ]
+326 silly gunzTarPerm extractEntry font/MaterialIcons-Regular.ijmap
+327 silly gunzTarPerm modified mode [ 'font/MaterialIcons-Regular.ijmap', 420, 438 ]
+328 silly gunzTarPerm extractEntry font/MaterialIcons-Regular.ttf
+329 silly gunzTarPerm modified mode [ 'font/MaterialIcons-Regular.ttf', 420, 438 ]
+330 silly gunzTarPerm extractEntry font/MaterialIcons-Regular.woff
+331 silly gunzTarPerm modified mode [ 'font/MaterialIcons-Regular.woff', 420, 438 ]
+332 silly gunzTarPerm extractEntry live-announcer/live-announcer.spec.d.ts
+333 silly gunzTarPerm modified mode [ 'live-announcer/live-announcer.spec.d.ts', 416, 438 ]
+334 silly gunzTarPerm extractEntry live-announcer/live-announcer.spec.js.map
+335 silly gunzTarPerm modified mode [ 'live-announcer/live-announcer.spec.js.map', 416, 438 ]
+336 silly gunzTarPerm extractEntry font/MaterialIcons-Regular.woff2
+337 silly gunzTarPerm modified mode [ 'font/MaterialIcons-Regular.woff2', 420, 438 ]
+338 silly gunzTarPerm extractEntry font/font.css
+339 silly gunzTarPerm modified mode [ 'font/font.css', 420, 438 ]
+340 silly gunzTarPerm extractEntry overlay/overlay-directives.js
+341 silly gunzTarPerm modified mode [ 'overlay/overlay-directives.js', 416, 438 ]
+342 silly gunzTarPerm extractEntry overlay/overlay-directives.spec.js
+343 silly gunzTarPerm modified mode [ 'overlay/overlay-directives.spec.js', 416, 438 ]
+344 silly gunzTarPerm extractEntry font/font.css.map
+345 silly gunzTarPerm modified mode [ 'font/font.css.map', 420, 438 ]
+346 silly gunzTarPerm extractEntry font/font.scss
+347 silly gunzTarPerm modified mode [ 'font/font.scss', 420, 438 ]
+348 silly gunzTarPerm extractEntry overlay/overlay-ref.js
+349 silly gunzTarPerm modified mode [ 'overlay/overlay-ref.js', 416, 438 ]
+350 silly gunzTarPerm extractEntry overlay/overlay-container.js
+351 silly gunzTarPerm modified mode [ 'overlay/overlay-container.js', 416, 438 ]
+352 silly gunzTarPerm extractEntry overlay/overlay-state.js
+353 silly gunzTarPerm modified mode [ 'overlay/overlay-state.js', 416, 438 ]
+354 silly gunzTarPerm extractEntry overlay/overlay.js
+355 silly gunzTarPerm modified mode [ 'overlay/overlay.js', 416, 438 ]
+356 silly gunzTarPerm extractEntry CHANGELOG.md
+357 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 420, 438 ]
+358 silly gunzTarPerm extractEntry all.scss
+359 silly gunzTarPerm modified mode [ 'all.scss', 420, 438 ]
+360 silly gunzTarPerm extractEntry index.js.map
+361 silly gunzTarPerm modified mode [ 'index.js.map', 420, 438 ]
+362 silly gunzTarPerm extractEntry ng2-material.css
+363 silly gunzTarPerm modified mode [ 'ng2-material.css', 420, 438 ]
+364 silly gunzTarPerm extractEntry overlay/overlay.spec.js
+365 silly gunzTarPerm modified mode [ 'overlay/overlay.spec.js', 416, 438 ]
+366 silly gunzTarPerm extractEntry overlay/overlay-state.d.ts
+367 silly gunzTarPerm modified mode [ 'overlay/overlay-state.d.ts', 416, 438 ]
+368 silly gunzTarPerm extractEntry overlay/overlay-directives.spec.js.map
+369 silly gunzTarPerm modified mode [ 'overlay/overlay-directives.spec.js.map', 416, 438 ]
+370 silly gunzTarPerm extractEntry overlay/overlay-ref.d.ts
+371 silly gunzTarPerm modified mode [ 'overlay/overlay-ref.d.ts', 416, 438 ]
+372 silly gunzTarPerm extractEntry ng2-material.css.map
+373 silly gunzTarPerm modified mode [ 'ng2-material.css.map', 420, 438 ]
+374 silly gunzTarPerm extractEntry components/icon/icon.js
+375 silly gunzTarPerm modified mode [ 'components/icon/icon.js', 420, 438 ]
+376 silly gunzTarPerm extractEntry overlay/overlay-directives.d.ts
+377 silly gunzTarPerm modified mode [ 'overlay/overlay-directives.d.ts', 416, 438 ]
+378 silly gunzTarPerm extractEntry overlay/overlay-ref.js.map
+379 silly gunzTarPerm modified mode [ 'overlay/overlay-ref.js.map', 416, 438 ]
+380 silly gunzTarPerm extractEntry overlay/overlay-container.d.ts
+381 silly gunzTarPerm modified mode [ 'overlay/overlay-container.d.ts', 416, 438 ]
+382 silly gunzTarPerm extractEntry overlay/overlay-directives.js.map
+383 silly gunzTarPerm modified mode [ 'overlay/overlay-directives.js.map', 416, 438 ]
+384 silly gunzTarPerm extractEntry overlay/overlay-state.js.map
+385 silly gunzTarPerm modified mode [ 'overlay/overlay-state.js.map', 416, 438 ]
+386 silly gunzTarPerm extractEntry overlay/overlay.css
+387 silly gunzTarPerm modified mode [ 'overlay/overlay.css', 416, 438 ]
+388 silly gunzTarPerm extractEntry overlay/overlay.d.ts
+389 silly gunzTarPerm modified mode [ 'overlay/overlay.d.ts', 416, 438 ]
+390 silly gunzTarPerm extractEntry overlay/overlay-directives.spec.d.ts
+391 silly gunzTarPerm modified mode [ 'overlay/overlay-directives.spec.d.ts', 416, 438 ]
+392 silly gunzTarPerm extractEntry overlay/overlay.js.map
+393 silly gunzTarPerm modified mode [ 'overlay/overlay.js.map', 416, 438 ]
+394 silly gunzTarPerm extractEntry overlay/overlay.scss
+395 silly gunzTarPerm modified mode [ 'overlay/overlay.scss', 416, 438 ]
+396 silly gunzTarPerm extractEntry overlay/overlay.spec.d.ts
+397 silly gunzTarPerm modified mode [ 'overlay/overlay.spec.d.ts', 416, 438 ]
+398 silly gunzTarPerm extractEntry overlay/overlay-container.js.map
+399 silly gunzTarPerm modified mode [ 'overlay/overlay-container.js.map', 416, 438 ]
+400 silly gunzTarPerm extractEntry components/icon/icon.d.ts
+401 silly gunzTarPerm modified mode [ 'components/icon/icon.d.ts', 420, 438 ]
+402 silly gunzTarPerm extractEntry components/icon/icon.js.map
+403 silly gunzTarPerm modified mode [ 'components/icon/icon.js.map', 420, 438 ]
+404 silly gunzTarPerm extractEntry overlay/overlay.spec.js.map
+405 silly gunzTarPerm modified mode [ 'overlay/overlay.spec.js.map', 416, 438 ]
+406 silly gunzTarPerm extractEntry overlay/position/viewport-ruler.spec.js
+407 silly gunzTarPerm modified mode [ 'overlay/position/viewport-ruler.spec.js', 416, 438 ]
+408 silly gunzTarPerm extractEntry components/icon/icon.scss
+409 silly gunzTarPerm modified mode [ 'components/icon/icon.scss', 420, 438 ]
+410 silly gunzTarPerm extractEntry components/backdrop/backdrop.js
+411 silly gunzTarPerm modified mode [ 'components/backdrop/backdrop.js', 420, 438 ]
+412 silly gunzTarPerm extractEntry components/backdrop/backdrop_spec.js
+413 silly gunzTarPerm modified mode [ 'components/backdrop/backdrop_spec.js', 420, 438 ]
+414 silly gunzTarPerm extractEntry components/backdrop/backdrop.d.ts
+415 silly gunzTarPerm modified mode [ 'components/backdrop/backdrop.d.ts', 420, 438 ]
+416 silly gunzTarPerm extractEntry overlay/position/connected-position.js
+417 silly gunzTarPerm modified mode [ 'overlay/position/connected-position.js', 416, 438 ]
+418 silly gunzTarPerm extractEntry overlay/position/global-position-strategy.js
+419 silly gunzTarPerm modified mode [ 'overlay/position/global-position-strategy.js', 416, 438 ]
+420 silly gunzTarPerm extractEntry components/backdrop/backdrop.js.map
+421 silly gunzTarPerm modified mode [ 'components/backdrop/backdrop.js.map', 420, 438 ]
+422 silly gunzTarPerm extractEntry components/backdrop/backdrop.scss
+423 silly gunzTarPerm modified mode [ 'components/backdrop/backdrop.scss', 420, 438 ]
+424 silly gunzTarPerm extractEntry overlay/position/global-position-strategy.spec.js
+425 silly gunzTarPerm modified mode [ 'overlay/position/global-position-strategy.spec.js', 416, 438 ]
+426 silly gunzTarPerm extractEntry overlay/position/connected-position-strategy.spec.js
+427 silly gunzTarPerm modified mode [ 'overlay/position/connected-position-strategy.spec.js',
+427 silly gunzTarPerm   416,
+427 silly gunzTarPerm   438 ]
+428 silly gunzTarPerm extractEntry components/backdrop/backdrop_spec.d.ts
+429 silly gunzTarPerm modified mode [ 'components/backdrop/backdrop_spec.d.ts', 420, 438 ]
+430 silly gunzTarPerm extractEntry components/backdrop/backdrop_spec.js.map
+431 silly gunzTarPerm modified mode [ 'components/backdrop/backdrop_spec.js.map', 420, 438 ]
+432 silly gunzTarPerm extractEntry components/card/card.js
+433 silly gunzTarPerm modified mode [ 'components/card/card.js', 420, 438 ]
+434 silly gunzTarPerm extractEntry components/card/card_spec.js
+435 silly gunzTarPerm modified mode [ 'components/card/card_spec.js', 420, 438 ]
+436 silly gunzTarPerm extractEntry overlay/position/overlay-position-builder.js
+437 silly gunzTarPerm modified mode [ 'overlay/position/overlay-position-builder.js', 416, 438 ]
+438 silly gunzTarPerm extractEntry overlay/position/position-strategy.js
+439 silly gunzTarPerm modified mode [ 'overlay/position/position-strategy.js', 416, 438 ]
+440 silly gunzTarPerm extractEntry components/card/card.d.ts
+441 silly gunzTarPerm modified mode [ 'components/card/card.d.ts', 420, 438 ]
+442 silly gunzTarPerm extractEntry components/card/card.js.map
+443 silly gunzTarPerm modified mode [ 'components/card/card.js.map', 420, 438 ]
+444 silly gunzTarPerm extractEntry overlay/position/relative-position-strategy.js
+445 silly gunzTarPerm modified mode [ 'overlay/position/relative-position-strategy.js', 416, 438 ]
+446 silly gunzTarPerm extractEntry overlay/position/viewport-ruler.js
+447 silly gunzTarPerm modified mode [ 'overlay/position/viewport-ruler.js', 416, 438 ]
+448 silly gunzTarPerm extractEntry components/card/card.scss
+449 silly gunzTarPerm modified mode [ 'components/card/card.scss', 420, 438 ]
+450 silly gunzTarPerm extractEntry components/card/card_spec.d.ts
+451 silly gunzTarPerm modified mode [ 'components/card/card_spec.d.ts', 420, 438 ]
+452 silly gunzTarPerm extractEntry components/card/card_spec.js.map
+453 silly gunzTarPerm modified mode [ 'components/card/card_spec.js.map', 420, 438 ]
+454 silly gunzTarPerm extractEntry components/content/content.js
+455 silly gunzTarPerm modified mode [ 'components/content/content.js', 420, 438 ]
+456 silly gunzTarPerm extractEntry overlay/position/connected-position-strategy.js
+457 silly gunzTarPerm modified mode [ 'overlay/position/connected-position-strategy.js', 416, 438 ]
+458 silly gunzTarPerm extractEntry overlay/position/overlay-position-builder.d.ts
+459 silly gunzTarPerm modified mode [ 'overlay/position/overlay-position-builder.d.ts', 416, 438 ]
+460 silly gunzTarPerm extractEntry components/content/content_spec.js
+461 silly gunzTarPerm modified mode [ 'components/content/content_spec.js', 420, 438 ]
+462 silly gunzTarPerm extractEntry components/content/content.d.ts
+463 silly gunzTarPerm modified mode [ 'components/content/content.d.ts', 420, 438 ]
+464 silly gunzTarPerm extractEntry components/content/content.js.map
+465 silly gunzTarPerm modified mode [ 'components/content/content.js.map', 420, 438 ]
+466 silly gunzTarPerm extractEntry components/content/content.scss
+467 silly gunzTarPerm modified mode [ 'components/content/content.scss', 420, 438 ]
+468 silly gunzTarPerm extractEntry overlay/position/global-position-strategy.js.map
+469 silly gunzTarPerm modified mode [ 'overlay/position/global-position-strategy.js.map', 416, 438 ]
+470 silly gunzTarPerm extractEntry overlay/position/global-position-strategy.spec.d.ts
+471 silly gunzTarPerm modified mode [ 'overlay/position/global-position-strategy.spec.d.ts',
+471 silly gunzTarPerm   416,
+471 silly gunzTarPerm   438 ]
+472 silly gunzTarPerm extractEntry components/content/content_spec.d.ts
+473 silly gunzTarPerm modified mode [ 'components/content/content_spec.d.ts', 420, 438 ]
+474 silly gunzTarPerm extractEntry components/content/content_spec.js.map
+475 silly gunzTarPerm modified mode [ 'components/content/content_spec.js.map', 420, 438 ]
+476 silly gunzTarPerm extractEntry components/data-table/data_table_selectable_tr.js
+477 silly gunzTarPerm modified mode [ 'components/data-table/data_table_selectable_tr.js', 420, 438 ]
+478 silly gunzTarPerm extractEntry components/data-table/data_table.js
+479 silly gunzTarPerm modified mode [ 'components/data-table/data_table.js', 420, 438 ]
+480 silly gunzTarPerm extractEntry overlay/position/connected-position-strategy.d.ts
+481 silly gunzTarPerm modified mode [ 'overlay/position/connected-position-strategy.d.ts', 416, 438 ]
+482 silly gunzTarPerm extractEntry overlay/position/global-position-strategy.spec.js.map
+483 silly gunzTarPerm modified mode [ 'overlay/position/global-position-strategy.spec.js.map',
+483 silly gunzTarPerm   416,
+483 silly gunzTarPerm   438 ]
+484 silly gunzTarPerm extractEntry overlay/position/connected-position-strategy.spec.js.map
+485 silly gunzTarPerm modified mode [ 'overlay/position/connected-position-strategy.spec.js.map',
+485 silly gunzTarPerm   416,
+485 silly gunzTarPerm   438 ]
+486 silly gunzTarPerm extractEntry overlay/position/connected-position.d.ts
+487 silly gunzTarPerm modified mode [ 'overlay/position/connected-position.d.ts', 416, 438 ]
+488 silly gunzTarPerm extractEntry components/data-table/data_table_spec.js
+489 silly gunzTarPerm modified mode [ 'components/data-table/data_table_spec.js', 420, 438 ]
+490 silly gunzTarPerm extractEntry components/data-table/index.js
+491 silly gunzTarPerm modified mode [ 'components/data-table/index.js', 420, 438 ]
+492 silly gunzTarPerm extractEntry components/data-table/data_table_selectable_tr.js.map
+493 silly gunzTarPerm modified mode [ 'components/data-table/data_table_selectable_tr.js.map',
+493 silly gunzTarPerm   420,
+493 silly gunzTarPerm   438 ]
+494 silly gunzTarPerm extractEntry components/data-table/data_table.d.ts
+495 silly gunzTarPerm modified mode [ 'components/data-table/data_table.d.ts', 420, 438 ]
+496 silly gunzTarPerm extractEntry components/data-table/data_table.js.map
+497 silly gunzTarPerm modified mode [ 'components/data-table/data_table.js.map', 420, 438 ]
+498 silly gunzTarPerm extractEntry components/data-table/data_table_spec.d.ts
+499 silly gunzTarPerm modified mode [ 'components/data-table/data_table_spec.d.ts', 420, 438 ]
+500 silly gunzTarPerm extractEntry components/data-table/data_table.scss
+501 silly gunzTarPerm modified mode [ 'components/data-table/data_table.scss', 420, 438 ]
+502 silly gunzTarPerm extractEntry components/data-table/data_table_spec.js.map
+503 silly gunzTarPerm modified mode [ 'components/data-table/data_table_spec.js.map', 420, 438 ]
+504 silly gunzTarPerm extractEntry components/data-table/index.d.ts
+505 silly gunzTarPerm modified mode [ 'components/data-table/index.d.ts', 420, 438 ]
+506 silly gunzTarPerm extractEntry components/data-table/data_table_selectable_tr.d.ts
+507 silly gunzTarPerm modified mode [ 'components/data-table/data_table_selectable_tr.d.ts',
+507 silly gunzTarPerm   420,
+507 silly gunzTarPerm   438 ]
+508 silly gunzTarPerm extractEntry components/data-table/index.js.map
+509 silly gunzTarPerm modified mode [ 'components/data-table/index.js.map', 420, 438 ]
+510 silly gunzTarPerm extractEntry overlay/position/overlay-position-builder.js.map
+511 silly gunzTarPerm modified mode [ 'overlay/position/overlay-position-builder.js.map', 416, 438 ]
+512 silly gunzTarPerm extractEntry overlay/position/position-strategy.d.ts
+513 silly gunzTarPerm modified mode [ 'overlay/position/position-strategy.d.ts', 416, 438 ]
+514 silly gunzTarPerm extractEntry overlay/position/connected-position-strategy.js.map
+515 silly gunzTarPerm modified mode [ 'overlay/position/connected-position-strategy.js.map',
+515 silly gunzTarPerm   416,
+515 silly gunzTarPerm   438 ]
+516 silly gunzTarPerm extractEntry overlay/position/position-strategy.js.map
+517 silly gunzTarPerm modified mode [ 'overlay/position/position-strategy.js.map', 416, 438 ]
+518 silly gunzTarPerm extractEntry overlay/position/relative-position-strategy.d.ts
+519 silly gunzTarPerm modified mode [ 'overlay/position/relative-position-strategy.d.ts', 416, 438 ]
+520 silly gunzTarPerm extractEntry overlay/position/connected-position.js.map
+521 silly gunzTarPerm modified mode [ 'overlay/position/connected-position.js.map', 416, 438 ]
+522 silly gunzTarPerm extractEntry components/dialog/dialog-portal.js
+523 silly gunzTarPerm modified mode [ 'components/dialog/dialog-portal.js', 420, 438 ]
+524 silly gunzTarPerm extractEntry components/dialog/dialog-title.js
+525 silly gunzTarPerm modified mode [ 'components/dialog/dialog-title.js', 420, 438 ]
+526 silly gunzTarPerm extractEntry components/dialog/dialog-actions.js
+527 silly gunzTarPerm modified mode [ 'components/dialog/dialog-actions.js', 420, 438 ]
+528 silly gunzTarPerm extractEntry components/dialog/dialog.js
+529 silly gunzTarPerm modified mode [ 'components/dialog/dialog.js', 420, 438 ]
+530 silly gunzTarPerm extractEntry overlay/position/relative-position-strategy.js.map
+531 silly gunzTarPerm modified mode [ 'overlay/position/relative-position-strategy.js.map',
+531 silly gunzTarPerm   416,
+531 silly gunzTarPerm   438 ]
+532 silly gunzTarPerm extractEntry overlay/position/viewport-ruler.d.ts
+533 silly gunzTarPerm modified mode [ 'overlay/position/viewport-ruler.d.ts', 416, 438 ]
+534 silly gunzTarPerm extractEntry components/dialog/dialog_spec.js
+535 silly gunzTarPerm modified mode [ 'components/dialog/dialog_spec.js', 420, 438 ]
+536 silly gunzTarPerm extractEntry components/dialog/index.js
+537 silly gunzTarPerm modified mode [ 'components/dialog/index.js', 420, 438 ]
+538 silly gunzTarPerm extractEntry components/dialog/dialog-title.scss
+539 silly gunzTarPerm modified mode [ 'components/dialog/dialog-title.scss', 420, 438 ]
+540 silly gunzTarPerm extractEntry components/dialog/dialog-title.d.ts
+541 silly gunzTarPerm modified mode [ 'components/dialog/dialog-title.d.ts', 420, 438 ]
+542 silly gunzTarPerm extractEntry components/dialog/dialog-actions.js.map
+543 silly gunzTarPerm modified mode [ 'components/dialog/dialog-actions.js.map', 420, 438 ]
+544 silly gunzTarPerm extractEntry components/dialog/dialog-title.js.map
+545 silly gunzTarPerm modified mode [ 'components/dialog/dialog-title.js.map', 420, 438 ]
+546 silly gunzTarPerm extractEntry components/dialog/dialog-actions.scss
+547 silly gunzTarPerm modified mode [ 'components/dialog/dialog-actions.scss', 420, 438 ]
+548 silly gunzTarPerm extractEntry components/dialog/dialog.d.ts
+549 silly gunzTarPerm modified mode [ 'components/dialog/dialog.d.ts', 420, 438 ]
+550 silly gunzTarPerm extractEntry components/dialog/dialog-portal.d.ts
+551 silly gunzTarPerm modified mode [ 'components/dialog/dialog-portal.d.ts', 420, 438 ]
+552 silly gunzTarPerm extractEntry components/dialog/dialog.js.map
+553 silly gunzTarPerm modified mode [ 'components/dialog/dialog.js.map', 420, 438 ]
+554 silly gunzTarPerm extractEntry components/dialog/dialog.scss
+555 silly gunzTarPerm modified mode [ 'components/dialog/dialog.scss', 420, 438 ]
+556 silly gunzTarPerm extractEntry components/dialog/dialog_spec.d.ts
+557 silly gunzTarPerm modified mode [ 'components/dialog/dialog_spec.d.ts', 420, 438 ]
+558 silly gunzTarPerm extractEntry components/dialog/dialog-actions.d.ts
+559 silly gunzTarPerm modified mode [ 'components/dialog/dialog-actions.d.ts', 420, 438 ]
+560 silly gunzTarPerm extractEntry components/dialog/dialog_spec.js.map
+561 silly gunzTarPerm modified mode [ 'components/dialog/dialog_spec.js.map', 420, 438 ]
+562 silly gunzTarPerm extractEntry components/dialog/index.d.ts
+563 silly gunzTarPerm modified mode [ 'components/dialog/index.d.ts', 420, 438 ]
+564 silly gunzTarPerm extractEntry components/dialog/dialog-portal.js.map
+565 silly gunzTarPerm modified mode [ 'components/dialog/dialog-portal.js.map', 420, 438 ]
+566 silly gunzTarPerm extractEntry overlay/position/global-position-strategy.d.ts
+567 silly gunzTarPerm modified mode [ 'overlay/position/global-position-strategy.d.ts', 416, 438 ]
+568 silly gunzTarPerm extractEntry overlay/position/viewport-ruler.js.map
+569 silly gunzTarPerm modified mode [ 'overlay/position/viewport-ruler.js.map', 416, 438 ]
+570 silly gunzTarPerm extractEntry components/dialog/index.js.map
+571 silly gunzTarPerm modified mode [ 'components/dialog/index.js.map', 420, 438 ]
+572 silly gunzTarPerm extractEntry components/divider/divider.js
+573 silly gunzTarPerm modified mode [ 'components/divider/divider.js', 420, 438 ]
+574 silly gunzTarPerm extractEntry components/divider/divider_spec.js
+575 silly gunzTarPerm modified mode [ 'components/divider/divider_spec.js', 420, 438 ]
+576 silly gunzTarPerm extractEntry components/divider/divider.d.ts
+577 silly gunzTarPerm modified mode [ 'components/divider/divider.d.ts', 420, 438 ]
+578 silly gunzTarPerm extractEntry components/divider/divider.js.map
+579 silly gunzTarPerm modified mode [ 'components/divider/divider.js.map', 420, 438 ]
+580 silly gunzTarPerm extractEntry overlay/position/viewport-ruler.spec.d.ts
+581 silly gunzTarPerm modified mode [ 'overlay/position/viewport-ruler.spec.d.ts', 416, 438 ]
+582 silly gunzTarPerm extractEntry overlay/position/connected-position-strategy.spec.d.ts
+583 silly gunzTarPerm modified mode [ 'overlay/position/connected-position-strategy.spec.d.ts',
+583 silly gunzTarPerm   416,
+583 silly gunzTarPerm   438 ]
+584 silly gunzTarPerm extractEntry components/divider/divider.scss
+585 silly gunzTarPerm modified mode [ 'components/divider/divider.scss', 420, 438 ]
+586 silly gunzTarPerm extractEntry components/divider/divider_spec.d.ts
+587 silly gunzTarPerm modified mode [ 'components/divider/divider_spec.d.ts', 420, 438 ]
+588 silly gunzTarPerm extractEntry components/divider/divider_spec.js.map
+589 silly gunzTarPerm modified mode [ 'components/divider/divider_spec.js.map', 420, 438 ]
+590 silly gunzTarPerm extractEntry components/form/messages_spec.js
+591 silly gunzTarPerm modified mode [ 'components/form/messages_spec.js', 420, 438 ]
+592 silly gunzTarPerm extractEntry components/form/messages-main.js
+593 silly gunzTarPerm modified mode [ 'components/form/messages-main.js', 420, 438 ]
+594 silly gunzTarPerm extractEntry components/form/validators.js
+595 silly gunzTarPerm modified mode [ 'components/form/validators.js', 420, 438 ]
+596 silly gunzTarPerm extractEntry components/form/validators_spec.js
+597 silly gunzTarPerm modified mode [ 'components/form/validators_spec.js', 420, 438 ]
+598 silly gunzTarPerm extractEntry components/form/messages_spec.js.map
+599 silly gunzTarPerm modified mode [ 'components/form/messages_spec.js.map', 420, 438 ]
+600 silly gunzTarPerm extractEntry components/form/messages.d.ts
+601 silly gunzTarPerm modified mode [ 'components/form/messages.d.ts', 420, 438 ]
+602 silly gunzTarPerm extractEntry overlay/position/viewport-ruler.spec.js.map
+603 silly gunzTarPerm modified mode [ 'overlay/position/viewport-ruler.spec.js.map', 416, 438 ]
+604 silly gunzTarPerm extractEntry async/promise-completer.js
+605 silly gunzTarPerm modified mode [ 'async/promise-completer.js', 416, 438 ]
+606 silly gunzTarPerm extractEntry components/form/messages-main.js.maps.map
+607 silly gunzTarPerm modified mode [ 'components/form/messages-main.js.maps.map', 420, 438 ]
+608 silly gunzTarPerm extractEntry async/promise-completer.d.ts
+609 silly gunzTarPerm modified mode [ 'async/promise-completer.d.ts', 416, 438 ]
+610 silly gunzTarPerm extractEntry async/promise-completer.js.map
+611 silly gunzTarPerm modified mode [ 'async/promise-completer.js.map', 416, 438 ]
+612 silly gunzTarPerm extractEntry components/form/validators.d.ts
+613 silly gunzTarPerm modified mode [ 'components/form/validators.d.ts', 420, 438 ]
+614 silly gunzTarPerm extractEntry components/form/messages.scss
+615 silly gunzTarPerm modified mode [ 'components/form/messages.scss', 420, 438 ]
+616 silly gunzTarPerm extractEntry components/form/validators.js.map
+617 silly gunzTarPerm modified mode [ 'components/form/validators.js.map', 420, 438 ]
+618 silly gunzTarPerm extractEntry components/form/validators_spec.d.ts
+619 silly gunzTarPerm modified mode [ 'components/form/validators_spec.d.ts', 420, 438 ]
+620 silly gunzTarPerm extractEntry portal/README.md
+621 silly gunzTarPerm modified mode [ 'portal/README.md', 416, 438 ]
+622 silly gunzTarPerm extractEntry portal/dom-portal-host.js
+623 silly gunzTarPerm modified mode [ 'portal/dom-portal-host.js', 416, 438 ]
+624 silly gunzTarPerm extractEntry components/form/messages_spec.d.ts
+625 silly gunzTarPerm modified mode [ 'components/form/messages_spec.d.ts', 420, 438 ]
+626 silly gunzTarPerm extractEntry components/form/validators_spec.js.map
+627 silly gunzTarPerm modified mode [ 'components/form/validators_spec.js.map', 420, 438 ]
+628 silly gunzTarPerm extractEntry portal/portal.spec.js
+629 silly gunzTarPerm modified mode [ 'portal/portal.spec.js', 416, 438 ]
+630 silly gunzTarPerm extractEntry portal/portal.js
+631 silly gunzTarPerm modified mode [ 'portal/portal.js', 416, 438 ]
+632 silly gunzTarPerm extractEntry components/button/button.js
+633 silly gunzTarPerm modified mode [ 'components/button/button.js', 420, 438 ]
+634 silly gunzTarPerm extractEntry components/button/button_spec.js
+635 silly gunzTarPerm modified mode [ 'components/button/button_spec.js', 420, 438 ]
+636 silly gunzTarPerm extractEntry components/button/button.d.ts
+637 silly gunzTarPerm modified mode [ 'components/button/button.d.ts', 420, 438 ]
+638 silly gunzTarPerm extractEntry components/button/button.js.map
+639 silly gunzTarPerm modified mode [ 'components/button/button.js.map', 420, 438 ]
+640 silly gunzTarPerm extractEntry components/button/button.scss
+641 silly gunzTarPerm modified mode [ 'components/button/button.scss', 420, 438 ]
+642 silly gunzTarPerm extractEntry components/button/button_spec.d.ts
+643 silly gunzTarPerm modified mode [ 'components/button/button_spec.d.ts', 420, 438 ]
+644 silly gunzTarPerm extractEntry components/button/button_spec.js.map
+645 silly gunzTarPerm modified mode [ 'components/button/button_spec.js.map', 420, 438 ]
+646 silly gunzTarPerm extractEntry components/ink/ink.js
+647 silly gunzTarPerm modified mode [ 'components/ink/ink.js', 420, 438 ]
+648 silly gunzTarPerm extractEntry components/ink/ink_spec.js
+649 silly gunzTarPerm modified mode [ 'components/ink/ink_spec.js', 420, 438 ]
+650 silly gunzTarPerm extractEntry components/ink/ink.d.ts
+651 silly gunzTarPerm modified mode [ 'components/ink/ink.d.ts', 420, 438 ]
+652 silly gunzTarPerm extractEntry components/ink/ink.js.map
+653 silly gunzTarPerm modified mode [ 'components/ink/ink.js.map', 420, 438 ]
+654 silly gunzTarPerm extractEntry components/ink/ink_spec.d.ts
+655 silly gunzTarPerm modified mode [ 'components/ink/ink_spec.d.ts', 420, 438 ]
+656 silly gunzTarPerm extractEntry components/ink/ink_spec.js.map
+657 silly gunzTarPerm modified mode [ 'components/ink/ink_spec.js.map', 420, 438 ]
+658 silly gunzTarPerm extractEntry components/list/list.js
+659 silly gunzTarPerm modified mode [ 'components/list/list.js', 420, 438 ]
+660 silly gunzTarPerm extractEntry components/list/list_spec.js
+661 silly gunzTarPerm modified mode [ 'components/list/list_spec.js', 420, 438 ]
+662 silly gunzTarPerm extractEntry components/list/list.d.ts
+663 silly gunzTarPerm modified mode [ 'components/list/list.d.ts', 420, 438 ]
+664 silly gunzTarPerm extractEntry components/list/list.js.map
+665 silly gunzTarPerm modified mode [ 'components/list/list.js.map', 420, 438 ]
+666 silly gunzTarPerm extractEntry components/list/list.scss
+667 silly gunzTarPerm modified mode [ 'components/list/list.scss', 420, 438 ]
+668 silly gunzTarPerm extractEntry components/list/list_spec.d.ts
+669 silly gunzTarPerm modified mode [ 'components/list/list_spec.d.ts', 420, 438 ]
+670 silly gunzTarPerm extractEntry portal/portal-directives.js
+671 silly gunzTarPerm modified mode [ 'portal/portal-directives.js', 416, 438 ]
+672 silly gunzTarPerm extractEntry portal/portal-errors.js
+673 silly gunzTarPerm modified mode [ 'portal/portal-errors.js', 416, 438 ]
+674 silly gunzTarPerm extractEntry portal/portal-directives.js.map
+675 silly gunzTarPerm modified mode [ 'portal/portal-directives.js.map', 416, 438 ]
+676 silly gunzTarPerm extractEntry portal/portal-errors.d.ts
+677 silly gunzTarPerm modified mode [ 'portal/portal-errors.d.ts', 416, 438 ]
+678 silly gunzTarPerm extractEntry components/list/list_spec.js.map
+679 silly gunzTarPerm modified mode [ 'components/list/list_spec.js.map', 420, 438 ]
+680 silly gunzTarPerm extractEntry components/pagination/pagination.js
+681 silly gunzTarPerm modified mode [ 'components/pagination/pagination.js', 420, 438 ]
+682 silly gunzTarPerm extractEntry components/pagination/index.js
+683 silly gunzTarPerm modified mode [ 'components/pagination/index.js', 420, 438 ]
+684 silly gunzTarPerm extractEntry components/pagination/pagination_service.js
+685 silly gunzTarPerm modified mode [ 'components/pagination/pagination_service.js', 420, 438 ]
+686 silly gunzTarPerm extractEntry components/pagination/pagination_spec.js
+687 silly gunzTarPerm modified mode [ 'components/pagination/pagination_spec.js', 420, 438 ]
+688 silly gunzTarPerm extractEntry components/pagination/pagination.scss
+689 silly gunzTarPerm modified mode [ 'components/pagination/pagination.scss', 420, 438 ]
+690 silly gunzTarPerm extractEntry components/pagination/pagination.js.map
+691 silly gunzTarPerm modified mode [ 'components/pagination/pagination.js.map', 420, 438 ]
+692 silly gunzTarPerm extractEntry components/pagination/index.js.map
+693 silly gunzTarPerm modified mode [ 'components/pagination/index.js.map', 420, 438 ]
+694 silly gunzTarPerm extractEntry components/pagination/pagination_service.d.ts
+695 silly gunzTarPerm modified mode [ 'components/pagination/pagination_service.d.ts', 420, 438 ]
+696 silly gunzTarPerm extractEntry components/pagination/pagination.d.ts
+697 silly gunzTarPerm modified mode [ 'components/pagination/pagination.d.ts', 420, 438 ]
+698 silly gunzTarPerm extractEntry portal/dom-portal-host.d.ts
+699 silly gunzTarPerm modified mode [ 'portal/dom-portal-host.d.ts', 416, 438 ]
+700 silly gunzTarPerm extractEntry portal/portal-errors.js.map
+701 silly gunzTarPerm modified mode [ 'portal/portal-errors.js.map', 416, 438 ]
+702 silly gunzTarPerm extractEntry components/pagination/pagination_service.js.map
+703 silly gunzTarPerm modified mode [ 'components/pagination/pagination_service.js.map', 420, 438 ]
+704 silly gunzTarPerm extractEntry components/pagination/pagination_spec.d.ts
+705 silly gunzTarPerm modified mode [ 'components/pagination/pagination_spec.d.ts', 420, 438 ]
+706 silly gunzTarPerm extractEntry portal/portal.d.ts
+707 silly gunzTarPerm modified mode [ 'portal/portal.d.ts', 416, 438 ]
+708 silly gunzTarPerm extractEntry portal/portal-directives.d.ts
+709 silly gunzTarPerm modified mode [ 'portal/portal-directives.d.ts', 416, 438 ]
+710 silly gunzTarPerm extractEntry portal/portal.js.map
+711 silly gunzTarPerm modified mode [ 'portal/portal.js.map', 416, 438 ]
+712 silly gunzTarPerm extractEntry portal/portal.spec.d.ts
+713 silly gunzTarPerm modified mode [ 'portal/portal.spec.d.ts', 416, 438 ]
+714 silly gunzTarPerm extractEntry portal/dom-portal-host.js.map
+715 silly gunzTarPerm modified mode [ 'portal/dom-portal-host.js.map', 416, 438 ]
+716 silly gunzTarPerm extractEntry portal/portal.spec.js.map
+717 silly gunzTarPerm modified mode [ 'portal/portal.spec.js.map', 416, 438 ]
+718 silly gunzTarPerm extractEntry rtl/dir.js
+719 silly gunzTarPerm modified mode [ 'rtl/dir.js', 416, 438 ]
+720 silly gunzTarPerm extractEntry rtl/dir.d.ts
+721 silly gunzTarPerm modified mode [ 'rtl/dir.d.ts', 416, 438 ]
+722 silly gunzTarPerm extractEntry rtl/dir.js.map
+723 silly gunzTarPerm modified mode [ 'rtl/dir.js.map', 416, 438 ]
+724 silly gunzTarPerm extractEntry gestures/MdGestureConfig.js
+725 silly gunzTarPerm modified mode [ 'gestures/MdGestureConfig.js', 416, 438 ]
+726 silly gunzTarPerm extractEntry components/pagination/index.d.ts
+727 silly gunzTarPerm modified mode [ 'components/pagination/index.d.ts', 420, 438 ]
+728 silly gunzTarPerm extractEntry components/pagination/pagination_spec.js.map
+729 silly gunzTarPerm modified mode [ 'components/pagination/pagination_spec.js.map', 420, 438 ]
+730 silly gunzTarPerm extractEntry gestures/MdGestureConfig.d.ts
+731 silly gunzTarPerm modified mode [ 'gestures/MdGestureConfig.d.ts', 416, 438 ]
+732 silly gunzTarPerm extractEntry gestures/MdGestureConfig.js.map
+733 silly gunzTarPerm modified mode [ 'gestures/MdGestureConfig.js.map', 416, 438 ]
+734 silly gunzTarPerm extractEntry components/peekaboo/peekaboo.js
+735 silly gunzTarPerm modified mode [ 'components/peekaboo/peekaboo.js', 420, 438 ]
+736 silly gunzTarPerm extractEntry components/peekaboo/peekaboo_spec.js
+737 silly gunzTarPerm modified mode [ 'components/peekaboo/peekaboo_spec.js', 420, 438 ]
+738 silly gunzTarPerm extractEntry components/peekaboo/peekaboo.d.ts
+739 silly gunzTarPerm modified mode [ 'components/peekaboo/peekaboo.d.ts', 420, 438 ]
+740 silly gunzTarPerm extractEntry components/peekaboo/peekaboo.js.map
+741 silly gunzTarPerm modified mode [ 'components/peekaboo/peekaboo.js.map', 420, 438 ]
+742 silly gunzTarPerm extractEntry components/peekaboo/peekaboo.scss
+743 silly gunzTarPerm modified mode [ 'components/peekaboo/peekaboo.scss', 420, 438 ]
+744 silly gunzTarPerm extractEntry components/peekaboo/peekaboo_spec.d.ts
+745 silly gunzTarPerm modified mode [ 'components/peekaboo/peekaboo_spec.d.ts', 420, 438 ]
+746 silly gunzTarPerm extractEntry components/peekaboo/peekaboo_spec.js.map
+747 silly gunzTarPerm modified mode [ 'components/peekaboo/peekaboo_spec.js.map', 420, 438 ]
+748 silly gunzTarPerm extractEntry components/subheader/subheader.js
+749 silly gunzTarPerm modified mode [ 'components/subheader/subheader.js', 420, 438 ]
+750 silly gunzTarPerm extractEntry components/subheader/subheader_spec.js
+751 silly gunzTarPerm modified mode [ 'components/subheader/subheader_spec.js', 420, 438 ]
+752 silly gunzTarPerm extractEntry components/subheader/subheader.d.ts
+753 silly gunzTarPerm modified mode [ 'components/subheader/subheader.d.ts', 420, 438 ]
+754 silly gunzTarPerm extractEntry components/subheader/subheader.js.map
+755 silly gunzTarPerm modified mode [ 'components/subheader/subheader.js.map', 420, 438 ]
+756 silly gunzTarPerm extractEntry components/subheader/subheader.scss
+757 silly gunzTarPerm modified mode [ 'components/subheader/subheader.scss', 420, 438 ]
+758 silly gunzTarPerm extractEntry components/subheader/subheader_spec.d.ts
+759 silly gunzTarPerm modified mode [ 'components/subheader/subheader_spec.d.ts', 420, 438 ]
+760 silly gunzTarPerm extractEntry components/subheader/subheader_spec.js.map
+761 silly gunzTarPerm modified mode [ 'components/subheader/subheader_spec.js.map', 420, 438 ]
+762 silly gunzTarPerm extractEntry components/switch/switch.js
+763 silly gunzTarPerm modified mode [ 'components/switch/switch.js', 420, 438 ]
+764 silly gunzTarPerm extractEntry components/switch/switch_spec.js
+765 silly gunzTarPerm modified mode [ 'components/switch/switch_spec.js', 420, 438 ]
+766 silly gunzTarPerm extractEntry components/switch/switch.d.ts
+767 silly gunzTarPerm modified mode [ 'components/switch/switch.d.ts', 420, 438 ]
+768 silly gunzTarPerm extractEntry components/switch/switch.js.map
+769 silly gunzTarPerm modified mode [ 'components/switch/switch.js.map', 420, 438 ]
+770 silly gunzTarPerm extractEntry components/switch/switch.scss
+771 silly gunzTarPerm modified mode [ 'components/switch/switch.scss', 420, 438 ]
+772 silly gunzTarPerm extractEntry components/switch/switch_spec.d.ts
+773 silly gunzTarPerm modified mode [ 'components/switch/switch_spec.d.ts', 420, 438 ]
+774 silly gunzTarPerm extractEntry components/switch/switch_spec.js.map
+775 silly gunzTarPerm modified mode [ 'components/switch/switch_spec.js.map', 420, 438 ]
+776 silly gunzTarPerm extractEntry components/whiteframe/whiteframe.scss
+777 silly gunzTarPerm modified mode [ 'components/whiteframe/whiteframe.scss', 420, 438 ]
+778 silly gunzTarPerm extractEntry platform/testing/bootstrap.js
+779 silly gunzTarPerm modified mode [ 'platform/testing/bootstrap.js', 420, 438 ]
+780 silly gunzTarPerm extractEntry platform/testing/test_url_resolver.js
+781 silly gunzTarPerm modified mode [ 'platform/testing/test_url_resolver.js', 420, 438 ]
+782 silly gunzTarPerm extractEntry platform/testing/util.js
+783 silly gunzTarPerm modified mode [ 'platform/testing/util.js', 420, 438 ]
+784 silly gunzTarPerm extractEntry platform/testing/bootstrap.d.ts
+785 silly gunzTarPerm modified mode [ 'platform/testing/bootstrap.d.ts', 420, 438 ]
+786 silly gunzTarPerm extractEntry platform/testing/bootstrap.js.map
+787 silly gunzTarPerm modified mode [ 'platform/testing/bootstrap.js.map', 420, 438 ]
+788 silly gunzTarPerm extractEntry platform/testing/test_url_resolver.d.ts
+789 silly gunzTarPerm modified mode [ 'platform/testing/test_url_resolver.d.ts', 420, 438 ]
+790 silly gunzTarPerm extractEntry platform/testing/test_url_resolver.js.map
+791 silly gunzTarPerm modified mode [ 'platform/testing/test_url_resolver.js.map', 420, 438 ]
+792 silly gunzTarPerm extractEntry platform/testing/util.d.ts
+793 silly gunzTarPerm modified mode [ 'platform/testing/util.d.ts', 420, 438 ]
+794 silly gunzTarPerm extractEntry platform/testing/util.js.map
+795 silly gunzTarPerm modified mode [ 'platform/testing/util.js.map', 420, 438 ]
+796 silly gunzTarPerm extractEntry src/components/form/messages-main.ts
+797 silly gunzTarPerm modified mode [ 'src/components/form/messages-main.ts', 420, 438 ]
+798 silly gunzTarPerm extractEntry src/components/form/messages_spec.ts
+799 silly gunzTarPerm modified mode [ 'src/components/form/messages_spec.ts', 420, 438 ]
+800 silly gunzTarPerm extractEntry src/components/form/validators.ts
+801 silly gunzTarPerm modified mode [ 'src/components/form/validators.ts', 420, 438 ]
+802 silly gunzTarPerm extractEntry src/components/form/validators_spec.ts
+803 silly gunzTarPerm modified mode [ 'src/components/form/validators_spec.ts', 420, 438 ]
+804 silly gunzTarPerm extractEntry src/components/backdrop/backdrop.ts
+805 silly gunzTarPerm modified mode [ 'src/components/backdrop/backdrop.ts', 420, 438 ]
+806 silly gunzTarPerm extractEntry src/components/backdrop/backdrop_spec.ts
+807 silly gunzTarPerm modified mode [ 'src/components/backdrop/backdrop_spec.ts', 420, 438 ]
+808 silly gunzTarPerm extractEntry src/components/card/card.ts
+809 silly gunzTarPerm modified mode [ 'src/components/card/card.ts', 420, 438 ]
+810 silly gunzTarPerm extractEntry src/components/card/card_spec.ts
+811 silly gunzTarPerm modified mode [ 'src/components/card/card_spec.ts', 420, 438 ]
+812 silly gunzTarPerm extractEntry src/components/content/content.ts
+813 silly gunzTarPerm modified mode [ 'src/components/content/content.ts', 420, 438 ]
+814 silly gunzTarPerm extractEntry src/components/content/content_spec.ts
+815 silly gunzTarPerm modified mode [ 'src/components/content/content_spec.ts', 420, 438 ]
+816 silly gunzTarPerm extractEntry src/components/data-table/data_table.ts
+817 silly gunzTarPerm modified mode [ 'src/components/data-table/data_table.ts', 420, 438 ]
+818 silly gunzTarPerm extractEntry src/components/data-table/data_table_selectable_tr.ts
+819 silly gunzTarPerm modified mode [ 'src/components/data-table/data_table_selectable_tr.ts',
+819 silly gunzTarPerm   420,
+819 silly gunzTarPerm   438 ]
+820 silly gunzTarPerm extractEntry src/components/data-table/data_table_spec.ts
+821 silly gunzTarPerm modified mode [ 'src/components/data-table/data_table_spec.ts', 420, 438 ]
+822 silly gunzTarPerm extractEntry src/components/data-table/index.ts
+823 silly gunzTarPerm modified mode [ 'src/components/data-table/index.ts', 420, 438 ]
+824 silly gunzTarPerm extractEntry src/components/dialog/dialog-actions.ts
+825 silly gunzTarPerm modified mode [ 'src/components/dialog/dialog-actions.ts', 420, 438 ]
+826 silly gunzTarPerm extractEntry src/components/dialog/dialog-portal.ts
+827 silly gunzTarPerm modified mode [ 'src/components/dialog/dialog-portal.ts', 420, 438 ]
+828 silly gunzTarPerm extractEntry src/components/dialog/dialog-title.ts
+829 silly gunzTarPerm modified mode [ 'src/components/dialog/dialog-title.ts', 420, 438 ]
+830 silly gunzTarPerm extractEntry src/components/dialog/dialog.ts
+831 silly gunzTarPerm modified mode [ 'src/components/dialog/dialog.ts', 420, 438 ]
+832 silly gunzTarPerm extractEntry src/components/dialog/dialog_spec.ts
+833 silly gunzTarPerm modified mode [ 'src/components/dialog/dialog_spec.ts', 420, 438 ]
+834 silly gunzTarPerm extractEntry src/components/dialog/index.ts
+835 silly gunzTarPerm modified mode [ 'src/components/dialog/index.ts', 420, 438 ]
+836 silly gunzTarPerm extractEntry src/components/divider/divider.ts
+837 silly gunzTarPerm modified mode [ 'src/components/divider/divider.ts', 420, 438 ]
+838 silly gunzTarPerm extractEntry src/components/divider/divider_spec.ts
+839 silly gunzTarPerm modified mode [ 'src/components/divider/divider_spec.ts', 420, 438 ]
+840 silly gunzTarPerm extractEntry src/components/button/button.ts
+841 silly gunzTarPerm modified mode [ 'src/components/button/button.ts', 420, 438 ]
+842 silly gunzTarPerm extractEntry src/components/button/button_spec.ts
+843 silly gunzTarPerm modified mode [ 'src/components/button/button_spec.ts', 420, 438 ]
+844 silly gunzTarPerm extractEntry src/components/icon/icon.ts
+845 silly gunzTarPerm modified mode [ 'src/components/icon/icon.ts', 420, 438 ]
+846 silly gunzTarPerm extractEntry src/components/ink/ink.ts
+847 silly gunzTarPerm modified mode [ 'src/components/ink/ink.ts', 420, 438 ]
+848 silly gunzTarPerm extractEntry src/components/ink/ink_spec.ts
+849 silly gunzTarPerm modified mode [ 'src/components/ink/ink_spec.ts', 420, 438 ]
+850 silly gunzTarPerm extractEntry src/components/list/list.ts
+851 silly gunzTarPerm modified mode [ 'src/components/list/list.ts', 420, 438 ]
+852 silly gunzTarPerm extractEntry src/components/list/list_spec.ts
+853 silly gunzTarPerm modified mode [ 'src/components/list/list_spec.ts', 420, 438 ]
+854 silly gunzTarPerm extractEntry src/components/pagination/index.ts
+855 silly gunzTarPerm modified mode [ 'src/components/pagination/index.ts', 420, 438 ]
+856 silly gunzTarPerm extractEntry src/components/pagination/pagination.ts
+857 silly gunzTarPerm modified mode [ 'src/components/pagination/pagination.ts', 420, 438 ]
+858 silly gunzTarPerm extractEntry src/components/pagination/pagination_service.ts
+859 silly gunzTarPerm modified mode [ 'src/components/pagination/pagination_service.ts', 420, 438 ]
+860 silly gunzTarPerm extractEntry src/components/pagination/pagination_spec.ts
+861 silly gunzTarPerm modified mode [ 'src/components/pagination/pagination_spec.ts', 420, 438 ]
+862 silly gunzTarPerm extractEntry src/components/peekaboo/peekaboo.ts
+863 silly gunzTarPerm modified mode [ 'src/components/peekaboo/peekaboo.ts', 420, 438 ]
+864 silly gunzTarPerm extractEntry src/components/peekaboo/peekaboo_spec.ts
+865 silly gunzTarPerm modified mode [ 'src/components/peekaboo/peekaboo_spec.ts', 420, 438 ]
+866 silly gunzTarPerm extractEntry src/components/subheader/subheader.ts
+867 silly gunzTarPerm modified mode [ 'src/components/subheader/subheader.ts', 420, 438 ]
+868 silly gunzTarPerm extractEntry src/components/subheader/subheader_spec.ts
+869 silly gunzTarPerm modified mode [ 'src/components/subheader/subheader_spec.ts', 420, 438 ]
+870 silly gunzTarPerm extractEntry src/components/switch/switch.ts
+871 silly gunzTarPerm modified mode [ 'src/components/switch/switch.ts', 420, 438 ]
+872 silly gunzTarPerm extractEntry src/components/switch/switch_spec.ts
+873 silly gunzTarPerm modified mode [ 'src/components/switch/switch_spec.ts', 420, 438 ]
+874 silly gunzTarPerm extractEntry src/core/key_codes.ts
+875 silly gunzTarPerm modified mode [ 'src/core/key_codes.ts', 420, 438 ]
+876 silly gunzTarPerm extractEntry src/core/util/animate.ts
+877 silly gunzTarPerm modified mode [ 'src/core/util/animate.ts', 420, 438 ]
+878 silly gunzTarPerm extractEntry src/core/util/ink.ts
+879 silly gunzTarPerm modified mode [ 'src/core/util/ink.ts', 420, 438 ]
+880 silly gunzTarPerm extractEntry src/core/util/ink_spec.ts
+881 silly gunzTarPerm modified mode [ 'src/core/util/ink_spec.ts', 420, 438 ]
+882 silly gunzTarPerm extractEntry src/core/util/media.ts
+883 silly gunzTarPerm modified mode [ 'src/core/util/media.ts', 420, 438 ]
+884 silly gunzTarPerm extractEntry src/core/util/media_spec.ts
+885 silly gunzTarPerm modified mode [ 'src/core/util/media_spec.ts', 420, 438 ]
+886 silly gunzTarPerm extractEntry src/core/util/util.ts
+887 silly gunzTarPerm modified mode [ 'src/core/util/util.ts', 420, 438 ]
+888 silly gunzTarPerm extractEntry src/core/util/viewport.ts
+889 silly gunzTarPerm modified mode [ 'src/core/util/viewport.ts', 420, 438 ]
+890 silly gunzTarPerm extractEntry src/index.ts
+891 silly gunzTarPerm modified mode [ 'src/index.ts', 420, 438 ]
+892 silly gunzTarPerm extractEntry src/platform/testing/bootstrap.ts
+893 silly gunzTarPerm modified mode [ 'src/platform/testing/bootstrap.ts', 420, 438 ]
+894 silly gunzTarPerm extractEntry src/platform/testing/test_url_resolver.ts
+895 silly gunzTarPerm modified mode [ 'src/platform/testing/test_url_resolver.ts', 420, 438 ]
+896 silly gunzTarPerm extractEntry src/platform/testing/util.ts
+897 silly gunzTarPerm modified mode [ 'src/platform/testing/util.ts', 420, 438 ]
+898 verbose write writing to C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core\package.json
+899 info preinstall @angular2-material/core@2.0.0-alpha.5-2
+900 verbose readDependencies loading dependencies from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core\package.json
+901 verbose readDependencies loading dependencies from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core\package.json
+902 silly install resolved []
+903 verbose about to build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core
+904 info build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core
+905 info linkStuff @angular2-material/core@2.0.0-alpha.5-2
+906 silly linkStuff @angular2-material/core@2.0.0-alpha.5-2 has C:\wamp\www\GitHub\DigitalSignage\client\node_modules as its parent node_modules
+907 verbose linkBins @angular2-material/core@2.0.0-alpha.5-2
+908 verbose linkMans @angular2-material/core@2.0.0-alpha.5-2
+909 verbose rebuildBundles @angular2-material/core@2.0.0-alpha.5-2
+910 info install @angular2-material/core@2.0.0-alpha.5-2
+911 info postinstall @angular2-material/core@2.0.0-alpha.5-2
+912 verbose unlock done using C:\Users\Vlad\AppData\Roaming\npm-cache\_locks\angular2-material-core-c6340df6949107e4.lock for C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core
+913 verbose write writing to C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material\package.json
+914 info preinstall ng2-material@0.5.0
+915 verbose readDependencies loading dependencies from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material\package.json
+916 silly prepareForInstallMany adding @angular/common@2.0.0-rc.1 from ng2-material peerDependencies
+917 silly prepareForInstallMany adding @angular/compiler@2.0.0-rc.1 from ng2-material peerDependencies
+918 silly prepareForInstallMany adding @angular/core@2.0.0-rc.1 from ng2-material peerDependencies
+919 silly prepareForInstallMany adding @angular/platform-browser@2.0.0-rc.1 from ng2-material peerDependencies
+920 silly prepareForInstallMany adding @angular/platform-browser-dynamic@2.0.0-rc.1 from ng2-material peerDependencies
+921 silly prepareForInstallMany adding @angular/router@2.0.0-rc.1 from ng2-material peerDependencies
+922 silly prepareForInstallMany adding @angular2-material/checkbox@2.0.0-alpha.5-2 from ng2-material peerDependencies
+923 warn peerDependencies The peer dependency @angular/common@2.0.0-rc.1 included from ng2-material will no
+924 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+925 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+926 warn peerDependencies The peer dependency @angular/compiler@2.0.0-rc.1 included from ng2-material will no
+927 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+928 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+929 warn peerDependencies The peer dependency @angular/core@2.0.0-rc.1 included from ng2-material will no
+930 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+931 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+932 warn peerDependencies The peer dependency @angular/platform-browser@2.0.0-rc.1 included from ng2-material will no
+933 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+934 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+935 warn peerDependencies The peer dependency @angular/platform-browser-dynamic@2.0.0-rc.1 included from ng2-material will no
+936 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+937 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+938 warn peerDependencies The peer dependency @angular/router@2.0.0-rc.1 included from ng2-material will no
+939 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+940 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+941 warn peerDependencies The peer dependency @angular2-material/checkbox@2.0.0-alpha.5-2 included from ng2-material will no
+942 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+943 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+944 verbose readDependencies loading dependencies from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material\package.json
+945 silly install resolved []
+946 verbose about to build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
+947 info build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
+948 info linkStuff ng2-material@0.5.0
+949 silly linkStuff ng2-material@0.5.0 has C:\wamp\www\GitHub\DigitalSignage\client\node_modules as its parent node_modules
+950 verbose linkBins ng2-material@0.5.0
+951 verbose linkMans ng2-material@0.5.0
+952 verbose rebuildBundles ng2-material@0.5.0
+953 info install ng2-material@0.5.0
+954 info postinstall ng2-material@0.5.0
+955 verbose readDependencies loading dependencies from C:\wamp\www\GitHub\DigitalSignage\client\package.json
+956 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\angular2-in-memory-web-api\package.json
+957 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\bootstrap\package.json
+958 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\concurrently\package.json
+959 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\core-js\package.json
+960 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\es6-promise\package.json
+961 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\es6-shim\package.json
+962 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\jquery\package.json
+963 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\lite-server\package.json
+964 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material\package.json
+965 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\reflect-metadata\package.json
+966 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\rxjs\package.json
+967 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\systemjs\package.json
+968 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\zone.js\package.json
+969 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\common\package.json
+970 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\compiler\package.json
+971 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\core\package.json
+972 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\forms\package.json
+973 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\http\package.json
+974 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\platform-browser\package.json
+975 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\platform-browser-dynamic\package.json
+976 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router\package.json
+977 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated\package.json
+978 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\upgrade\package.json
+979 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\concurrent\package.json
+980 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\concurrent.cmd\package.json
+981 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\concurrently\package.json
+982 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\concurrently.cmd\package.json
+983 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\lite-server\package.json
+984 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\lite-server.cmd\package.json
+985 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\checkbox\package.json
+986 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core\package.json
+987 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\input\package.json
+988 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\list\package.json
+989 verbose already installed skipping @angular/platform-browser-dynamic@2.0.0-rc.1 C:\wamp\www\GitHub\DigitalSignage\client
+990 verbose already installed skipping @angular/router@2.0.0-rc.1 C:\wamp\www\GitHub\DigitalSignage\client
+991 verbose already installed skipping @angular2-material/checkbox@2.0.0-alpha.5-2 C:\wamp\www\GitHub\DigitalSignage\client
+992 verbose already installed skipping @angular/common@2.0.0-rc.1 C:\wamp\www\GitHub\DigitalSignage\client
+993 verbose already installed skipping @angular/compiler@2.0.0-rc.1 C:\wamp\www\GitHub\DigitalSignage\client
+994 verbose already installed skipping @angular/core@2.0.0-rc.1 C:\wamp\www\GitHub\DigitalSignage\client
+995 verbose already installed skipping @angular/platform-browser@2.0.0-rc.1 C:\wamp\www\GitHub\DigitalSignage\client
+996 silly install resolved []
+997 verbose unlock done using C:\Users\Vlad\AppData\Roaming\npm-cache\_locks\ng2-material-6333dc84784ca04c.lock for C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
+998 verbose validateInstall loading C:\wamp\www\GitHub\DigitalSignage\client\package.json for validation
+999 verbose stack Error: The package @angular/common@2.0.0-rc.3 does not satisfy its siblings' peerDependencies requirements!
+999 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\install.js:125:32
+999 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\install.js:268:7
+999 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:142:5
+999 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+999 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+999 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+999 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+999 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+999 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+999 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+1000 verbose cwd C:\wamp\www\GitHub\DigitalSignage\client
+1001 error Windows_NT 10.0.10586
+1002 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "--save" "ng2-material" "@angular2-material/core"
+1003 error node v4.4.7
+1004 error npm  v2.15.8
+1005 error code EPEERINVALID
+1006 error peerinvalid The package @angular/common@2.0.0-rc.3 does not satisfy its siblings' peerDependencies requirements!
+1006 error peerinvalid Peer @angular/forms@0.1.1 wants @angular/common@2.0.0-rc.3
+1006 error peerinvalid Peer @angular/platform-browser@2.0.0-rc.3 wants @angular/common@2.0.0-rc.3
+1006 error peerinvalid Peer @angular/platform-browser-dynamic@2.0.0-rc.3 wants @angular/common@2.0.0-rc.3
+1006 error peerinvalid Peer @angular/router@3.0.0-alpha.8 wants @angular/common@^2.0.0-rc.2
+1006 error peerinvalid Peer @angular2-material/core@2.0.0-alpha.5-2 wants @angular/common@^2.0.0-rc.1
+1006 error peerinvalid Peer ng2-material@0.5.0 wants @angular/common@2.0.0-rc.1
+1006 error peerinvalid Peer @angular/router-deprecated@2.0.0-rc.2 wants @angular/common@^2.0.0-rc
+1007 verbose exit [ 1, true ]
