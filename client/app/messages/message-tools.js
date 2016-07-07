@@ -12,19 +12,19 @@ var core_1 = require('@angular/core');
 var checkbox_1 = require('@angular2-material/checkbox');
 var input_1 = require('@angular2-material/input');
 var message_model_1 = require('./message-model');
-var MessageItem = (function () {
-    function MessageItem() {
+var MessageTools = (function () {
+    function MessageTools() {
         this.deleted = new core_1.EventEmitter();
     }
     __decorate([
         core_1.Input(), 
         __metadata('design:type', message_model_1.Message)
-    ], MessageItem.prototype, "message", void 0);
+    ], MessageTools.prototype, "message", void 0);
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)
-    ], MessageItem.prototype, "deleted", void 0);
-    MessageItem = __decorate([
+    ], MessageTools.prototype, "deleted", void 0);
+    MessageTools = __decorate([
         core_1.Component({
             selector: 'message-item',
             templateUrl: 'app/messages/message-item.html',
@@ -32,8 +32,8 @@ var MessageItem = (function () {
             directives: [checkbox_1.MdCheckbox, input_1.MdInput]
         }), 
         __metadata('design:paramtypes', [])
-    ], MessageItem);
-    return MessageItem;
+    ], MessageTools);
+    return MessageTools;
 }());
-exports.MessageItem = MessageItem;
-//# sourceMappingURL=message-tools.jss.map
+exports.MessageTools = MessageTools;
+//# sourceMappingURL=message-tools.js.map

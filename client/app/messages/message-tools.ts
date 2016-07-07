@@ -11,7 +11,9 @@ import { Message } from './message-model';
     directives: [MdCheckbox, MdInput]
 })
 
-export class MessageItem {
+
+
+export class MessageTools{
     @Input () message: Message;
 
     @Output () deleted = new EventEmitter();

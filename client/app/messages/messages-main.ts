@@ -5,8 +5,10 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 import { MessageService} from './message-service';
 import { MessageTools } from './message-tools';
 import { MessageList } from './message-list';
-import { Message } from './message-model';
 
+interface Message{
+
+}
 
 @Component({
     selector: 'div',
