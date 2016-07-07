@@ -1,4 +1,4 @@
-{
+{ "headers": ["title", "active"],
   "data": [
     { "title": "fdvfdvfdv", "active": true }
   ]

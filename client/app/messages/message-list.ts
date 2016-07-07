@@ -1,12 +1,16 @@
 import {Component, Input} from '@angular/core';
 import { MdCheckbox } from '@angular2-material/checkbox';
-import { MdInput } from '@angular2-material/input';
-/*import { MessageItem } from './message-item';*/
-import { Message } from './message-model';
+
+interface IMessage {
+    title: string;
+    active: boolean;
+    selected: boolean;
+    editable: boolean;
+}
 
 @Component({
-    selector: 'md-data-table',
-    template: `
+    selector: 'message-list',
+    template:  `<md-data-table>
                 <thead>
                 <tr>
                     <th class="md-text-cell">Active</th>
@@ -14,44 +18,46 @@ import { Message } from './message-model';
                 </tr>
                 </thead>
                 <tbody *ngIf="messages.length > 0">
-                    <tr *ngFor="let message of messages" (deleted)="onMessageDeleted($event)">
+                    <tr *ngFor="let message of messages" [ngClass]="{'selected': message.selected}" (click)="onSelected(message)">
                         <td class="md-text-cell">
-                            <md-checkbox (change)="toggleChangeActive()"></md-checkbox>
+                            <md-checkbox (change)="toggleChangeActive(message)" [checked]="message.active"></md-checkbox>
                         </td>
-                        <td class="md-text-cell">
-                    <md-input #titleInput (change)="inputChange(titleInput.value)">{{ message.title }}</md-input>
-                    </td>
+                        <td class="md-text-cell" contenteditable = "true" (input)="inputChange(message, $event)" (click)="toggleEditable(message)">
+                            {{ message.title }}
+                        </td>
                 </tr>
                 </tbody>
+                </md-data-table>
                 `,
-    directives: [MdCheckbox, MdInput]
+    styleUrls: ['app/messages/message-list.css'],
+    directives: [MdCheckbox]
 })
 
 export class MessageList {
-    @Input () messages: Message[];
-    @Input () message: Message;
+    @Input () messages: IMessage[];
+    @Input () message: IMessage;
 
-    toggleChangeActive () {
-        console.log("toggle")
-        this.message.active =!this.message.active;
+    toggleEditable (message:IMessage) {
+        message.editable = !message.editable;
     }
 
-    inputChange (title: string) {
-        console.log("input")
-        this.message.title = title;
+    toggleChangeActive (message:IMessage) {
+        this.message = message;
+        this.message.active = !this.message.active;
+        console.log(message);
     }
 
-     /*del () {
-     console.log("delete")
-     this.deleted.emit(this.message);
-     }*!/*/
+    inputChange (message:IMessage, event) {
+        this.message = message;
+        this.message.title = event.target.outerText;
+    }
 
-    onMessageDeleted (message: Message) {
-        if (message) {
-            let index = this.messages.indexOf(message);
-            if (index > -1) {
-                this.messages.splice(index, 1);
-            }
-        }
+    onSelected (message:IMessage) {
+        this.message = message;
+        this.messages.forEach(function(message){
+            message.selected = false;
+        });
+        console.log("sel");
+        this.message.selected = !this.message.selected;
     }
 }

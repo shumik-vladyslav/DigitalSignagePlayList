@@ -1,33 +1,27 @@
 
 import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {MdCheckbox} from '@angular2-material/checkbox';
-import {MdInput} from '@angular2-material/input';
-import { Message } from './message-model';
+
+import {Message} from './message-model';
+
 
 @Component({
-    selector: 'message-item',
-    templateUrl: 'app/messages/message-item.html',
-    styleUrls: ['app/messages/message-item.css'],
-    directives: [MdCheckbox, MdInput]
+    selector: 'message-tools',
+    templateUrl: 'app/messages/message-tools.html',
+    styleUrls: ['app/messages/message-tools.css'],
 })
 
-export class MessageItem {
+export class MessageTools {
     @Input () message: Message;
+    @Input () messages: Message[];
 
     @Output () deleted = new EventEmitter();
+    @Output () added = new EventEmitter();
 
-   /* toggleChangeActive () {
-        console.log("toggle")
-        this.message.active =!this.message.active;
-    }
-
-    inputChange (title: string) {
-        console.log("input")
-        this.message.title = title;
+    add (title: string){
+        this.added.emit(new Message(title));
     }
 
     del () {
-        console.log("delete")
-        this.deleted.emit(this.message);
-    }*/
+        this.deleted.emit();
+    }
 }
