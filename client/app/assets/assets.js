@@ -28,8 +28,9 @@ var AssetsComponent = (function () {
     AssetsComponent = __decorate([
         core_1.Component({
             selector: 'assets-app',
-            template: "\n               <div class =\"panel panel-default\">\n               <div class=\"panel-body\">\n                     <md-content layout=\"row\">\n                     <div *ngFor=\"let item of data\">\n                         <md-card layout=\"column\">\n                                  <img md-card-sm-image src=\" {{ item.thumb }} \">\n                         </md-card>\n                     </div>\n                     </md-content>\n               </div>\n               </div>\n                ",
-            styleUrls: ['app/assets/main.css'],
+            template: "\n               <div class =\"panel panel-default\">\n               <div class=\"panel-body\">\n                     <md-content  class=\"content\">                   \n                         <md-card *ngFor=\"let item of data\" class=\"card\">\n                                  <img src=\" {{ item.thumb }} \">\n                         </md-card>\n                     \n                     </md-content>\n               </div>\n               </div>\n                ",
+            //styleUrls: ['app/assets/main.css'],
+            styles: ["\n        .card {\n          height: 128px;\n          width: 128px;\n          float: left;\n        }\n    "],
             directives: [router_1.ROUTER_DIRECTIVES],
             providers: [assets_service_1.AssetsService]
         }), 

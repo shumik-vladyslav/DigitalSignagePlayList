@@ -9,17 +9,23 @@ import { AssetsService, Asset } from '../services/assets-service';
     template: `
                <div class ="panel panel-default">
                <div class="panel-body">
-                     <md-content layout="row">
-                     <div *ngFor="let item of data">
-                         <md-card layout="column">
-                                  <img md-card-sm-image src=" {{ item.thumb }} ">
+                     <md-content  class="content">                   
+                         <md-card *ngFor="let item of data" class="card">
+                                  <img src=" {{ item.thumb }} ">
                          </md-card>
-                     </div>
+                     
                      </md-content>
                </div>
                </div>
                 `,
-    styleUrls: ['app/assets/main.css'],
+    //styleUrls: ['app/assets/main.css'],
+    styles: [`
+        .card {
+          height: 128px;
+          width: 128px;
+          float: left;
+        }
+    `],
     directives: [ROUTER_DIRECTIVES],
     providers: [AssetsService]
 })
