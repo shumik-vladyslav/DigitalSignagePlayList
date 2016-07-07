@@ -14,10 +14,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require("@angular/http");
 var MyTrComponent = (function () {
-    function MyTrComponent() {
+    function MyTrComponent(el) {
+        this.el = el;
+        //console.log(el.nativeElement)
     }
     MyTrComponent.prototype.onClick = function (col) {
-        console.log(this.row);
+        console.log(this.el.nativeElement);
+        // this.el.nativeElement.addClass('disabled');
     };
     MyTrComponent.prototype.ngOnInit = function () {
         // console.log(this);
@@ -31,7 +34,7 @@ var MyTrComponent = (function () {
             selector: '[myRow]',
             template: "<td (click)=\"onClick(i)\"   *ngFor=\"let val of row ; let i = index\" >{{val}}</td>"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [core_1.ElementRef])
     ], MyTrComponent);
     return MyTrComponent;
 }());

@@ -1,7 +1,7 @@
 /**
  * Created by Vlad on 7/5/2016.
  */
-import {Component, Input} from '@angular/core';
+import {Component, Input, ElementRef} from '@angular/core';
 import {HTTP_PROVIDERS, Http} from "@angular/http";
 
 @Component({
@@ -11,8 +11,12 @@ import {HTTP_PROVIDERS, Http} from "@angular/http";
 export class MyTrComponent {
     @Input('myRow') row;
     onClick(col):void{
-        console.log(this.row);
+        console.log(this.el.nativeElement);
+       // this.el.nativeElement.addClass('disabled');
         
+    }
+    constructor(private el:ElementRef){
+//console.log(el.nativeElement)
     }
 
     ngOnInit(){
