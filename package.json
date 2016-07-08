@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test",
-    "start": "node ./server"
+    "start": "node ./server",
+    "test": "apidoc -i server/ -o apidocs/ -t apitemplate/"
   },
   "repository": {
     "type": "git",

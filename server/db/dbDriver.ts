@@ -1,10 +1,12 @@
-///<reference path="../typings/sqlite3/sqlite3.d.ts"/>
-///<reference path="../typings/q/Q.d.ts"/>
+///<reference path="../../typings/sqlite3/sqlite3.d.ts"/>
+///<reference path="../../typings/q/Q.d.ts"/>
 
 import {Database} from "sqlite3";
 import Q = require('q');
+import db = require('sqlite3');
 //var sqlite: any = require('sqlite');
-import db from 'sqlite';
+// import db from 'sqlite3';
+
 
 export interface IDBDriver {
     runQuery(sql:string): Q.Promise<any>;
@@ -241,7 +243,7 @@ export class DBSQLite implements IDBDriver {
         return deferred.promise;
     }
 
-    insertOne(sql:string, data?:any[]): Q.Promise<any> {
+    insertOne(sql:string, data?:any[]): Q.Promise<{id:number}> {
         var deferred: Q.Deferred<any> = Q.defer();
 
         this.db.run(sql, data, function(error) {

@@ -1,7 +1,11 @@
-/// <reference path="../typings/express/express.d.ts" />
+/// <reference path="../../typings/express/express.d.ts" />
+///<reference path="../../typings/q/Q.d.ts"/>
+
 
 import Q = require('q');
 import * as express from 'express';
+import {IFileReq} from "./fileProcessing";
+
 declare var WWW:string;
 declare var SERVER:string;
 
@@ -16,6 +20,8 @@ export class  ImageProcess {
     tempFolder: string;
 
     filename: string;
+    widthImage: number;
+    heightImage: number;
 
     thumbSize: number = 128;
     image: any;
@@ -34,11 +40,11 @@ export class  ImageProcess {
         this.tempFolder = SERVER + '/uploads/thumbnails/';
     }
 
-    getImagePath(): string{
-        return this.pathDest;
-    }
-
     private resizeImage(){
+
+        this.widthImage = this.image.bitmap.width;
+        this.heightImage = this.image.bitmap.height;
+
         try {
             this.isLandScape = this.image.bitmap.height < this.image.bitmap.width;
             var p:any = this.isLandScape ? this.image.resize(this.Jimp.AUTO, this.thumbSize) :
@@ -47,21 +53,18 @@ export class  ImageProcess {
             this.onError(e);
             return;
         }
+
         let x = 0;
         let y = 0;
 
         if(this.isLandScape){
             x = (this.image.bitmap.width-this.thumbSize)/2;
-            console.log('this.image.bitmap.width = ', this.image.bitmap.width);
-            console.log('x = ', x);
         } else {
             y = (this.image.bitmap.height-this.thumbSize)/2;
-            console.log('this.image.bitmap.height = ', this.image.bitmap.height);
-            console.log('y = ', y);
         }
 
-        p.crop(x,y,this.thumbSize,this.thumbSize)
-            .write(this.pathDest, (err) => {
+        // p.crop(x,y,this.thumbSize,this.thumbSize)
+            p.write(this.pathDest, (err) => {
                 if(err) this.onError(err);
                 else this.onSuccess(this.pathDest);
             });
@@ -83,7 +86,7 @@ export class  ImageProcess {
         this.pathDest = this.tempFolder + filename;
         this.filename = filename;
 
-        console.log('makeThumbnail pathDest\n', this.pathDest);
+        // console.log('makeThumbnail pathDest\n', this.pathDest);
 
         this.readImage(filePath);
 

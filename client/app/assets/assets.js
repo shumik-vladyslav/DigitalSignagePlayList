@@ -10,23 +10,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var icon_panel_1 = require('./icon-panel');
-var icon_list_1 = require('./icon-list');
+var assets_service_1 = require('../services/assets-service');
 var AssetsComponent = (function () {
-    function AssetsComponent() {
-        this.icons = [];
+    function AssetsComponent(service) {
+        this.service = service;
     }
-    AssetsComponent.prototype.onMessagesAdded = function (icon) {
-        this.icons.push(icon);
+    AssetsComponent.prototype.ngOnInit = function () {
+        this.getData();
+    };
+    AssetsComponent.prototype.getData = function () {
+        var _this = this;
+        this.service.getData()
+            .subscribe(function (data) { return _this.data = data; }, function (error) { return _this.errorMessage = error; });
+        {
+        }
     };
     AssetsComponent = __decorate([
         core_1.Component({
             selector: 'assets-app',
-            templateUrl: 'app/assets/assets.html',
-            styleUrls: ['app/assets/assets.css'],
-            directives: [icon_panel_1.IconPanel, icon_list_1.IconList, router_1.ROUTER_DIRECTIVES]
+            template: "\n               <div class =\"panel panel-default\">\n               <div class=\"panel-body\">\n                     <md-content  class=\"content\">                   \n                         <md-card *ngFor=\"let item of data\" class=\"card\">\n                                  <img src=\" {{ item.thumb }} \">\n                         </md-card>\n                     \n                     </md-content>\n               </div>\n               </div>\n                ",
+            //styleUrls: ['app/assets/main.css'],
+            styles: ["\n        .card {\n          height: 128px;\n          width: 128px;\n          float: left;\n        }\n    "],
+            directives: [router_1.ROUTER_DIRECTIVES],
+            providers: [assets_service_1.AssetsService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [assets_service_1.AssetsService])
     ], AssetsComponent);
     return AssetsComponent;
 }());

@@ -1,9 +1,9 @@
-/// <reference path="../typings/express/express.d.ts" />
+/// <reference path="../../typings/express/express.d.ts" />
 
 import * as express from 'express';
-import db = require("../db/dbContent");
-import {DBContent} from "../db/dbContent";
-import {Content} from "../db/dbContent";
+import db = require("./dbContent");
+import {DBContent} from "./dbContent";
+import {Content} from "./dbContent";
 
 const router = express.Router();
 var mydb: DBContent = new db.DBContent();

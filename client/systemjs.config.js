@@ -8,7 +8,7 @@
         'app':                        'app', // 'dist',
         '@angular':                   'node_modules/@angular',
         '@angular2-material':         'node_modules/@angular2-material',
-        'ng2-material':               'node_modules/ng2-material',
+        'ng2-material':         'node_modules/ng2-material',
         'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
         'rxjs':                       'node_modules/rxjs'
     };
@@ -17,7 +17,7 @@
         'app':                        { main: 'main.js',  defaultExtension: 'js' },
         'rxjs':                       { defaultExtension: 'js' },
         'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
-        'ng2-material':               { main: 'index.js', defaultExtension: 'js'}
+        'ng2-material':         { main: 'index.js', defaultExtension: 'js' },
     };
     var ngPackageNames = [
         'common',
@@ -38,15 +38,15 @@
         'list'
     ];
 
-    /*materialPkgs.forEach((pkg)=> {
-     packages['@angular2-material/${pkg}'] = {main: '${pkg}.js'};
-     });*/
 
-    packages['@angular2-material/core'] = {main: 'core.js'};
-    packages['@angular2-material/checkbox'] = {main: 'checkbox.js'};
-    packages['@angular2-material/input'] = {main: 'input.js'};
-    packages['@angular2-material/list'] = {main: 'list.js'};
-    
+    var materialPackages = [
+        'core', 'toolbar', 'button', 'card', 'checkbox', 'icon', 'input', 'list', 'progress-bar',
+        'progress-circle', 'radio', 'sidenav', 'grid-list', 'tabs', 'slide-toggle'
+    ];
+    materialPackages.forEach(function(item) {
+        packages['@angular2-material/' + item] = { main: item };
+    });
+
     // Individual files (~300 requests):
     function packIndex(pkgName) {
         packages['@angular/'+pkgName] = { main: 'index.js', defaultExtension: 'js' };
@@ -57,7 +57,7 @@
     }
     // Most environments should use UMD; some (Karma) need the individual index files
     var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
-    // Add package entries for angular packages
+
     ngPackageNames.forEach(setPackageConfig);
     var config = {
         map: map,

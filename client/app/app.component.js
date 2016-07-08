@@ -10,20 +10,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var messages_1 = require('./messages/messages');
+require('./rxjs-operators');
+var messages_main_1 = require('./messages/messages-main');
 var assets_1 = require('./assets/assets');
+var DataTableBasicUsageComponent_1 = require("./test/DataTableBasicUsageComponent");
+var MyTable_1 = require("./table/MyTable");
+var AgentsManager_1 = require("./agents/AgentsManager");
 var AppComponent = (function () {
     function AppComponent() {
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<router-outlet></router-outlet>',
-            directives: [messages_1.MessagesComponent, assets_1.AssetsComponent, router_1.ROUTER_DIRECTIVES],
+            template: "\n    <h1 class=\"title\">Dashboard</h1>\n    <nav>\n      <a [routerLink]=\"['/dashboard/messages']\" class=\"btn\"><span class=\"fa fa-messages\"></span> Messages Marquee</a>\n      <a [routerLink]=\"['/dashboard/table']\" class=\"btn\"><span class=\"fa fa-calculator\"></span> Table</a>\n      <a [routerLink]=\"['/dashboard/assets']\" class=\"btn\"><span class=\"fa fa-picture-o\"></span> Assets</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
+            directives: [router_1.ROUTER_DIRECTIVES],
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
+exports.AppRoutes = [
+    { path: '', redirectTo: '/dashboard/messages', terminal: true },
+    { path: 'dashboard/messages', component: messages_main_1.MessagesMain, useAsDefault: true },
+    { path: 'dashboard/assets', component: assets_1.AssetsComponent },
+    { path: 'dashboard/table', component: MyTable_1.TableComponent },
+    { path: 'dashboard/agents', component: AgentsManager_1.AgentsManager },
+    { path: 'dashboard', component: DataTableBasicUsageComponent_1.DataTableBasicUsageComponent }
+];
 //# sourceMappingURL=app.component.js.map

@@ -1,4 +1,6 @@
-/// <reference path="../typings/express/express.d.ts" />
+/// <reference path="../../typings/express/express.d.ts" />
+///<reference path="../../typings/q/Q.d.ts"/>
+///<reference path="../../typings/multer/multer.d.ts"/>
 
 import Q = require('q');
 import * as express from 'express';
@@ -18,14 +20,17 @@ export interface IFileReq {
 }
 
 export class FileProcessing {
-    
-    fileReq: IFileReq;
 
     fs = require('fs');
     path = require('path');
     multer = require('multer');
 
+    fileReq: IFileReq;
+
     private pathDestC:string;
+
+    promise: Q.Promise<any>;
+    deffered: Q.Deferred<any>;
 
     constructor() {
         this.pathDestC = WWW + '/clientAssets/uploads/';
@@ -44,9 +49,6 @@ export class FileProcessing {
             }
         });
     }
-
-    promise: Q.Promise<any>;
-    deffered: Q.Deferred<any>;
 
     startProces(req:express.Request, res:express.Response): Q.Promise<any> {
         var deferred: Q.Deferred<any> = Q.defer();
@@ -69,11 +71,11 @@ export class FileProcessing {
             } else {
                 this.fileReq = req.file;
 
-                console.log(req.file);
-                console.log(this.fileReq);
+                // console.log(req.file);
+                //console.log('fileReq ', this.fileReq);
 
                 this.onFileUploaded();
-                deferred.resolve();
+                deferred.resolve(this.fileReq);
             }
         });
 
@@ -87,7 +89,7 @@ export class FileProcessing {
             if (err) {
                 deferred.reject(err);
             } else {
-                console.log('file size: ' + stats["size"]);
+                // console.log('file size: ' + stats["size"]);
                 deferred.resolve(stats["size"]);
             }
         });
@@ -95,24 +97,47 @@ export class FileProcessing {
         return deferred.promise;
     }
 
+    newPathThumb: string;
+    newOriginaImagelPath: string;
+
     moveFile(thumbnailPath:string, originaImagePath:string, filename:string): Q.Promise<any> {
         var deferred: Q.Deferred<any> = Q.defer();
        
         // var newPathThumb:string = this.path.resolve(__dirname + this.pathDestC + 'thumbnails/' + originaImagelName);
         // var newOriginaImagelPath:string = this.path.resolve(__dirname + this.pathDestC + 'userImages/' + originaImagelName);
 
-        var newPathThumb:string = this.pathDestC + 'thumbnails/' + filename;
-        var newOriginaImagelPath:string = this.pathDestC + 'userImages/' + filename;
+        this.newPathThumb = this.pathDestC + 'thumbnails/' + filename;
+        this.newOriginaImagelPath = this.pathDestC + 'userImages/' + filename;
 
-        console.log('newPathThumb ', newPathThumb);
-        console.log('newOriginalPath ', newOriginaImagelPath);
+        // console.log('newPathThumb ', newPathThumb);
+        // console.log('newOriginalPath ', newOriginaImagelPath);
 
-        this.fs.rename(thumbnailPath, newPathThumb, (err)=> {
+        this.fs.rename(thumbnailPath, this.newPathThumb, (err)=> {
             if(err){
                 deferred.reject(err);
             } else {
-                this.fs.rename(originaImagePath, newOriginaImagelPath, (err)=>{
-                    deferred.resolve([newPathThumb, newOriginaImagelPath]);
+                this.fs.rename(originaImagePath, this.newOriginaImagelPath, (err)=> {
+                    deferred.resolve([this.newPathThumb, this.newOriginaImagelPath]);
+                });
+            }
+        });
+
+        return deferred.promise;
+    }
+
+    deleteFile(thumbnailPath:string, originaImagePath:string) {
+        var deferred: Q.Deferred<any> = Q.defer();
+
+        this.fs.unlink(thumbnailPath, (err)=> {
+            if(err){
+                deferred.reject(err);
+            } else {
+                this.fs.unlink(originaImagePath, (err)=> {
+                    if(err) {
+                        deferred.reject(err);
+                    } else {
+                        deferred.resolve();
+                    }
                 });
             }
         });
