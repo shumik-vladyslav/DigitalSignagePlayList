@@ -16,8 +16,8 @@ var MessageTools = (function () {
         this.added = new core_1.EventEmitter();
         this.saveEvt = new core_1.EventEmitter();
     }
-    MessageTools.prototype.add = function (title) {
-        this.added.emit(new message_model_1.Message(title));
+    MessageTools.prototype.add = function () {
+        this.added.emit(new message_model_1.Message(false, ""));
     };
     MessageTools.prototype.del = function () {
         this.deleted.emit(null);

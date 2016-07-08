@@ -1,12 +1,6 @@
 import {Component, Input} from '@angular/core';
 import { MdCheckbox } from '@angular2-material/checkbox';
-
-interface IMessage {
-    title: string;
-    active: boolean;
-    selected: boolean;
-    editable: boolean;
-}
+import {Message} from "./message-model";
 
 @Component({
     selector: 'message-list',
@@ -34,32 +28,32 @@ interface IMessage {
 })
 
 export class MessageList {
-    @Input () messages: IMessage[];
-    @Input () message: IMessage;
+    @Input () messages:Message[];
+    @Input () message: Message;
 
-    toggleEditable (message:IMessage) {
+    toggleEditable (message:Message) {
         this.message = message;
-        this.messages.forEach(function(message){
-            message.editable = false;
+        this.messages.forEach(function(item){
+            if (item !== message) item.editable = false;
         });
         this.message.editable = !this.message.editable;
     }
 
-    toggleChangeActive (message:IMessage) {
+    toggleChangeActive (message:Message) {
         this.message = message;
         this.message.active = !this.message.active;
         console.log(message);
     }
 
-    inputChange (message:IMessage, event) {
+    inputChange (message:Message, event) {
         this.message = message;
         this.message.title = event.target.outerText;
     }
 
-    onSelected (message:IMessage) {
+    onSelected (message:Message) {
         this.message = message;
-        this.messages.forEach(function(message){
-            message.selected = false;
+        this.messages.forEach(function(item){
+            if (item !== message) item.selected = false;
         });
         this.message.selected = !this.message.selected;
     }

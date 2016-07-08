@@ -35,8 +35,9 @@ export class MessageService {
         let body:IMessage [] = res.json();
         let out:Message [] = [];
         body.forEach (function (item:Message) {
-            out.push(new Message (item.msg))
-        })
+            out.push(new Message (item.active, item.msg))
+        });
+        console.log(out);
         return out;
     }
 

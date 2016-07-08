@@ -37,8 +37,9 @@ var MessageService = (function () {
         var body = res.json();
         var out = [];
         body.forEach(function (item) {
-            out.push(new message_model_1.Message(item.msg));
+            out.push(new message_model_1.Message(item.active, item.msg));
         });
+        console.log(out);
         return out;
     };
     MessageService.prototype.parseOne = function (res) {

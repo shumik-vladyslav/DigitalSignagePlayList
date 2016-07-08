@@ -13,9 +13,9 @@ export class Message implements IMessage{
     message: string;
     msg: string;
 
-    constructor (title:string) {
+    constructor (active:boolean, title:string) {
         this.title = title;
-        this.active = false;
+        this.active = active;
         this.selected = false;
         this.editable = false;
     }
