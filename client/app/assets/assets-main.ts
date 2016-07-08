@@ -11,11 +11,17 @@ import { AssetsService, Asset } from '../services/assets-service';
                <div class="panel-body">
                      <md-content layout="row">
                      <div *ngFor="let item of data">
-                         <md-card layout="column">
-                                  <img md-card-sm-image src=" {{ item.thumb }} ">
-                         </md-card>
+                        <md-card>
+                                  <img md-card-sm-image src=" {{ item.thumb }} " (click)="showFullImage(item)" (dragend)="toCard(item)">
+                        </md-card>
+                        <div *ngIf="item.full"> 
+                           <img src=" {{ item.img }} " width="200" (click)="hideFullImage(item)">
+                        </div>
                      </div>
                      </md-content>
+               </div>
+               <div class = "cart" *ngFor="let item of cart"> 
+                    <img src=" {{ item.img }} " width="200" (dragend)="dropCard(item)">
                </div>
                </div>
                 `,
@@ -27,9 +33,10 @@ import { AssetsService, Asset } from '../services/assets-service';
 export class AssetsMain {
     errorMessage: string;
     data: Asset[];
+    cart: Asset[];
 
     constructor ( private service: AssetsService ) {
-
+        this.cart =[];
     }
 
     ngOnInit () {
@@ -41,6 +48,27 @@ export class AssetsMain {
             .subscribe(
                 data => this.data = data,
                 error =>  this.errorMessage = <any>error);{
+        }
+    }
+
+    showFullImage (item) {
+        item.full = item;
+    }
+
+    hideFullImage (item) {
+        item.full ='';
+    }
+
+    toCard (item) {
+        this.cart.push(item);
+    }
+
+    dropCard (item) {
+        if (item) {
+            let index = this.cart.indexOf(item);
+            if (index > -1) {
+                this.cart.splice(index,1);
+            }
         }
     }
 }

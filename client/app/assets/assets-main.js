@@ -14,6 +14,7 @@ var assets_service_1 = require('../services/assets-service');
 var AssetsMain = (function () {
     function AssetsMain(service) {
         this.service = service;
+        this.cart = [];
     }
     AssetsMain.prototype.ngOnInit = function () {
         this.getData();
@@ -25,10 +26,27 @@ var AssetsMain = (function () {
         {
         }
     };
+    AssetsMain.prototype.showFullImage = function (item) {
+        item.full = item;
+    };
+    AssetsMain.prototype.hideFullImage = function (item) {
+        item.full = '';
+    };
+    AssetsMain.prototype.toCard = function (item) {
+        this.cart.push(item);
+    };
+    AssetsMain.prototype.dropCard = function (item) {
+        if (item) {
+            var index = this.cart.indexOf(item);
+            if (index > -1) {
+                this.cart.splice(index, 1);
+            }
+        }
+    };
     AssetsMain = __decorate([
         core_1.Component({
             selector: 'assets-app',
-            template: "\n               <div class =\"panel panel-default\">\n               <div class=\"panel-body\">\n                     <md-content layout=\"row\">\n                     <div *ngFor=\"let item of data\">\n                         <md-card layout=\"column\">\n                                  <img md-card-sm-image src=\" {{ item.thumb }} \">\n                         </md-card>\n                     </div>\n                     </md-content>\n               </div>\n               </div>\n                ",
+            template: "\n               <div class =\"panel panel-default\">\n               <div class=\"panel-body\">\n                     <md-content layout=\"row\">\n                     <div *ngFor=\"let item of data\">\n                        <md-card>\n                                  <img md-card-sm-image src=\" {{ item.thumb }} \" (click)=\"showFullImage(item)\" (dragend)=\"toCard(item)\">\n                        </md-card>\n                        <div *ngIf=\"item.full\"> \n                           <img src=\" {{ item.img }} \" width=\"200\" (click)=\"hideFullImage(item)\">\n                        </div>\n                     </div>\n                     </md-content>\n               </div>\n               <div class = \"cart\" *ngFor=\"let item of cart\"> \n                    <img src=\" {{ item.img }} \" width=\"200\" (dragend)=\"dropCard(item)\">\n               </div>\n               </div>\n                ",
             styleUrls: ['app/assets/main.css'],
             directives: [router_1.ROUTER_DIRECTIVES],
             providers: [assets_service_1.AssetsService]

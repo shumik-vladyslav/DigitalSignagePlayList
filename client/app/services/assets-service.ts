@@ -40,7 +40,7 @@ export class AssetsService {
         let body: Asset [] = res.json();
         body.forEach (function (item: any) {
             item.img = item.large;
-        })
+        });
         return body || { };
     }
 
