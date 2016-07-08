@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 require('./rxjs-operators');
 var messages_main_1 = require('./messages/messages-main');
+var assets_main_1 = require('./assets/assets-main');
 var assets_1 = require('./assets/assets');
 var MyTable_1 = require("./table/MyTable");
 var AgentsManager_1 = require("./agents/AgentsManager");
@@ -32,8 +33,9 @@ var AppComponent = (function () {
 exports.AppComponent = AppComponent;
 exports.AppRoutes = [
     { path: '', redirectTo: '/dashboard/messages', terminal: true },
+    { path: 'dashboard/assets', component: assets_main_1.AssetsMain },
     { path: 'dashboard/messages', component: messages_main_1.MessagesMain, useAsDefault: true },
-    { path: 'dashboard/assets', component: assets_1.AssetsComponent },
+    { path: 'dashboard/assets1', component: assets_1.AssetsComponent },
     { path: 'dashboard/table', component: MyTable_1.TableComponent },
     { path: 'dashboard/agents', component: AgentsManager_1.AgentsManager },
     { path: 'dashboard', component: DragulaApp_1.DragulaAppApp }
