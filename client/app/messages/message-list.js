@@ -9,19 +9,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var list_1 = require('@angular2-material/list');
-var message_item_1 = require('./message-item');
-var message_model_1 = require('./message-model');
+var checkbox_1 = require('@angular2-material/checkbox');
 var MessageList = (function () {
     function MessageList() {
     }
-    MessageList.prototype.onMessageDeleted = function (message) {
-        if (message) {
-            var index = this.messages.indexOf(message);
-            if (index > -1) {
-                this.messages.splice(index, 1);
-            }
-        }
+    MessageList.prototype.toggleEditable = function (message) {
+        message.editable = !message.editable;
+    };
+    MessageList.prototype.toggleChangeActive = function (message) {
+        this.message = message;
+        this.message.active = !this.message.active;
+        console.log(message);
+    };
+    MessageList.prototype.inputChange = function (message, event) {
+        this.message = message;
+        this.message.title = event.target.outerText;
+    };
+    MessageList.prototype.onSelected = function (message) {
+        this.message = message;
+        this.messages.forEach(function (message) {
+            message.selected = false;
+        });
+        console.log("sel");
+        this.message.selected = !this.message.selected;
     };
     __decorate([
         core_1.Input(), 
@@ -29,13 +39,14 @@ var MessageList = (function () {
     ], MessageList.prototype, "messages", void 0);
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', message_model_1.Message)
+        __metadata('design:type', Object)
     ], MessageList.prototype, "message", void 0);
     MessageList = __decorate([
         core_1.Component({
             selector: 'message-list',
-            templateUrl: 'app/messages/message-list.html',
-            directives: [message_item_1.MessageItem, list_1.MdList]
+            template: "<md-data-table>\n                <thead>\n                <tr>\n                    <th class=\"md-text-cell\">Active</th>\n                    <th class=\"md-text-cell\">Content</th>\n                </tr>\n                </thead>\n                <tbody *ngIf=\"messages.length > 0\">\n                    <tr *ngFor=\"let message of messages\" [ngClass]=\"{'selected': message.selected}\" (click)=\"onSelected(message)\">\n                        <td class=\"md-text-cell\">\n                            <md-checkbox (change)=\"toggleChangeActive(message)\" [checked]=\"message.active\"></md-checkbox>\n                        </td>\n                        <td class=\"md-text-cell\" contenteditable = \"true\" (input)=\"inputChange(message, $event)\" (click)=\"toggleEditable(message)\">\n                            {{ message.title }}\n                        </td>\n                </tr>\n                </tbody>\n                </md-data-table>\n                ",
+            styleUrls: ['app/messages/message-list.css'],
+            directives: [checkbox_1.MdCheckbox]
         }), 
         __metadata('design:paramtypes', [])
     ], MessageList);

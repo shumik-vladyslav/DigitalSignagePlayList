@@ -2,34 +2,36 @@
  * Created by Vlad on 7/6/2016.
  */
 import {Component, Input} from '@angular/core';
-import {TableComponent} from "../table/MyTable";
+import {TableObject} from "../table/TableObject";
 import {HTTP_PROVIDERS, Http} from "@angular/http";
 
 @Component({
     selector: 'agents',
     template: `
-    <h1 class="title">Agents</h1>
+    <h1 class="title">Agents 2</h1>
     <div class="panel panel-default">
       <div></div>
       <div class="panel-body">
-      <table-simple [thedata]="mydata" [theheader]="myheads"></table-simple>
-      </div>      
-    </div>      
-    `,
-    directives: [TableComponent]
+      <table-object [thedata]="mydata" [header]="header"></table-object>
+      </div>
+      
+    </div>
+      `,
+    directives: [TableObject]
 })
 
 
 export class AgentsManager{
-    table:TableComponent
+    table:TableObject
     myurl:string = '';
-    title:string ='Agents Header';
-    mydata:string[][];
+    header:string ='Agents Header';
+   mydata:string[][];
     private myheads:string[];
     constructor(private http:Http) {
         http.get("http://front-desk.ca/tableblue/agents/getagents.php")
             .subscribe((data:any)=> {
-                var head:string[]=[];
+
+              /*  var head:string[]=[];
                 var ar:any[]=[];
                 var i=0;
                 data.json().list.forEach(function(item){
@@ -41,9 +43,12 @@ export class AgentsManager{
 
 
                 console.log(ar);
+*/
+              //  this.myheads = head;
 
-                this.myheads = head;
-                this.mydata = ar;
+
+                this.mydata = data.json().list;
+                console.log(this.mydata);
 
             });
 
