@@ -9,9 +9,12 @@ import { AssetsService, Asset } from '../services/assets-service';
     template: `
                <div class ="panel panel-default">
                <div class ="panel-heading">
-                   <div class = "cart" (dragenter)="onDragEnter($event)" (dragleave)="onDragOut($event)">
-                       <div class="item" *ngFor="let item of cartItems" layout="row">
-                                <img src=" {{ item.img }} " width="128" (dragend)="dropCard(item)">
+                   <div class = "cart" (dragleave)="onDragOut($event)">
+                       <div class="item" *ngFor="let item of cartItems" layout="row" (dragstart)="onCartDragItemStart(item)" (dragend)="onCartDragItemEnd($event, item)">
+                                <img src=" {{ item.img }} " width="128">
+                            <div class="spacer" (dragenter)="onSpacerDragEnter(item)">
+                            
+                            </div>
                        </div>
                    </div>
                </div>
@@ -40,9 +43,10 @@ export class AssetsMain {
     cartItems: Asset[];
     dragItem: Asset;
     fullItem: Asset;
+    dragMove: Asset;
 
     constructor ( private service: AssetsService ) {
-        this.cartItems =[];
+        this.cartItems =[new Asset()];
     }
 
     ngOnInit () {
@@ -71,29 +75,73 @@ export class AssetsMain {
 
     onDragEnter (evt:DragEvent) {
         this.toCart (this.dragItem);
-        this.dragItem = null;
     }
 
 
     onDragStart (item: Asset) {
+        this.isMove = false;
         this.dragItem = item;
     }
 
     onDragOut (evt) {
-        this.offCart(this.dragItem);
+        if (!this.isMove) this.offCart(this.dragItem);
+    }
+
+    onSpacerDragEnter (item: Asset) {
+        let i:number = this.cartItems.indexOf(item);
+        this.insertToCardAt(this.dragItem, i)
+    }
+
+    insertToCardAt (item: Asset, i:number) {
+        console.log(item, i, this.isMove);
+        if (item && i !== -1) {
+            if (this.isMove) {
+                let index:number = this.cartItems.indexOf(item);
+                if (index > -1) {
+                    this.cartItems.splice(index,1);
+                }
+                this.cartItems.splice(i + 1, 0, item);
+            }
+            else {
+                if (i === (this.cartItems.length - 1) ) this.cartItems.push(item);
+                else this.cartItems.splice(i + 1, 0, item);
+
+            }
+            if (!this.isMove) this.dragItem = null;
+        }
     }
 
     toCart (item) {
-        if (item) this.cartItems.push(item);
+        if (item) {
+            this.cartItems.push(item);
+            let spacer = new Asset ();
+            spacer.spacer = true;
+/*            this.cartItems.push(spacer);*/
+        }
     }
 
     offCart (item) {
         if (item) {
-            let index = this.cartItems.indexOf(item);
-            console.log(index);
+            let index:number = this.cartItems.indexOf(item);
+            console.log("offcart" + index);
             if (index > -1) {
                 this.cartItems.splice(index,1);
             }
         }
+    }
+
+    isMove:boolean;
+
+    onCartDragItemStart (item: Asset) {
+        this.isMove = true;
+        this.dragMove = item;
+        this.dragItem = item;
+    }
+
+    onCartDragItemEnd (evt, item: Asset) {
+        if (this.isMove && evt.y > 300) this.offCart (item);
+        this.isMove = false;
+        this.dragMove = null;
+        this.dragItem = null;
     }
 }

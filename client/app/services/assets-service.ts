@@ -11,6 +11,7 @@ export class Asset {
     id:number;
     thumb: string;
     img: string;
+    spacer: boolean;
 }  
 
 @Injectable()
