@@ -16,6 +16,7 @@ export class MessageTools {
 
     @Output () deleted = new EventEmitter();
     @Output () added = new EventEmitter();
+    @Output () saved = new EventEmitter();
 
     add (title: string){
         this.added.emit(new Message(title));
@@ -23,5 +24,9 @@ export class MessageTools {
 
     del () {
         this.deleted.emit();
+    }
+    
+    save () {
+        this.saved.emit();
     }
 }

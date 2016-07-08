@@ -30,7 +30,7 @@ export class MessageService {
             .catch(this.handleError);
     }
 
-    addMessage (name: string): Observable<Message> {
+    addMessage (name: Message): Observable<Message> {
         let body = JSON.stringify({ name });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });

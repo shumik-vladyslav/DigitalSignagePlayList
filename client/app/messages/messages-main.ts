@@ -12,7 +12,7 @@ import { Message } from './message-model';
     selector: 'div',
     template: `<div class ="panel panel-default">
                <div class="panel-heading">
-               <message-tools (added)="onMessageAdded($event)" (deleted)="onMessageDeleted()"></message-tools>
+               <message-tools (added)="onMessageAdded($event)" (deleted)="onMessageDeleted()" (saved)="saveMessage()"></message-tools>
                </div>
                <div class="panel-body">
                <message-list [messages]="messages"></message-list>
@@ -46,11 +46,15 @@ export class MessagesMain implements OnInit {
         }
     }
 
-    saveMessage (name: string) {
+    saveMessage () {
+        let name: Message;
+        this.messages.forEach(function(message){
+            if (message.selected === true) name = message;
+        });
         if (!name) { return; }
         this.messageService.addMessage(name)
             .subscribe(
-                message  => this.messages.push(message),
+                /*message  => this.messages.push(message),*/
                 error =>  this.errorMessage = <any>error);
     }
 
