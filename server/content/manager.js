@@ -1,7 +1,7 @@
 "use strict";
 var express = require('express');
-var db = require("../db/dbContent");
-var dbContent_1 = require("../db/dbContent");
+var db = require("./dbContent");
+var dbContent_1 = require("./dbContent");
 var router = express.Router();
 var mydb = new db.DBContent();
 router.get('/select/all', function (req, res) {

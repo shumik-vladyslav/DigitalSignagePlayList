@@ -1,14 +1,12 @@
 /// <reference path="../../typings/express/express.d.ts" />
-///<reference path="../../docs.ts"/>
-
 
 import * as express from 'express';
 import Request = Express.Request;
 import Response = Express.Response;
 import Q = require('q');
-import db = require("../db/dbAssets");
-import {DBAssets} from "../db/dbAssets";
-import {Assets} from "../db/dbAssets";
+import db = require("./dbAssets");
+import {DBAssets} from "./dbAssets";
+import {Assets} from "./dbAssets";
 
 // import fileProcessing = require("./fileProcessing");
 import {IFileReq} from "./fileProcessing";

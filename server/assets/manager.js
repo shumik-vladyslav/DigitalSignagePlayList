@@ -1,7 +1,7 @@
 "use strict";
 var express = require('express');
-var db = require("../db/dbAssets");
-var dbAssets_1 = require("../db/dbAssets");
+var db = require("./dbAssets");
+var dbAssets_1 = require("./dbAssets");
 var fileProcessing_1 = require("./fileProcessing");
 var ImageProcess_1 = require("./ImageProcess");
 var router = express.Router();
