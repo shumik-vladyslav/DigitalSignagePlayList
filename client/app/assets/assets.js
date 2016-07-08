@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
 var assets_service_1 = require('../services/assets-service');
+var ng2_dragula_1 = require('ng2-dragula/ng2-dragula');
 var AssetsComponent = (function () {
     function AssetsComponent(service) {
         this.service = service;
@@ -31,7 +31,7 @@ var AssetsComponent = (function () {
             template: "\n               <div class =\"panel panel-default\">\n               <div class=\"panel-body\">\n                     <md-content  class=\"content\">                   \n                         <md-card *ngFor=\"let item of data\" class=\"card\">\n                                  <img src=\" {{ item.thumb }} \">\n                         </md-card>\n                     \n                     </md-content>\n               </div>\n               </div>\n                ",
             //styleUrls: ['app/assets/main.css'],
             styles: ["\n        .card {\n          height: 128px;\n          width: 128px;\n          float: left;\n        }\n    "],
-            directives: [router_1.ROUTER_DIRECTIVES],
+            directives: [ng2_dragula_1.Dragula],
             providers: [assets_service_1.AssetsService]
         }), 
         __metadata('design:paramtypes', [assets_service_1.AssetsService])

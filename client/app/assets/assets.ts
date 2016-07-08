@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
-
 import { AssetsService, Asset } from '../services/assets-service';
+
+import {Dragula, DragulaService} from 'ng2-dragula/ng2-dragula';
 
 
 @Component({
@@ -26,7 +26,7 @@ import { AssetsService, Asset } from '../services/assets-service';
           float: left;
         }
     `],
-    directives: [ROUTER_DIRECTIVES],
+    directives: [Dragula],
     providers: [AssetsService]
 })
 
