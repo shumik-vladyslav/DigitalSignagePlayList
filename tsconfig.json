@@ -4,9 +4,12 @@
     "target": "es5",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "removeComments": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "client",
+    "typings"
   ]
 }

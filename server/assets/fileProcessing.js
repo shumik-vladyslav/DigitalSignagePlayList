@@ -1,4 +1,3 @@
-/// <reference path="../typings/express/express.d.ts" />
 "use strict";
 var Q = require('q');
 var multer = require("multer");
@@ -44,10 +43,8 @@ var FileProcessing = (function () {
             }
             else {
                 _this.fileReq = req.file;
-                console.log(req.file);
-                console.log(_this.fileReq);
                 _this.onFileUploaded();
-                deferred.resolve();
+                deferred.resolve(_this.fileReq);
             }
         });
         return deferred.promise;
@@ -59,7 +56,6 @@ var FileProcessing = (function () {
                 deferred.reject(err);
             }
             else {
-                console.log('file size: ' + stats["size"]);
                 deferred.resolve(stats["size"]);
             }
         });
@@ -68,19 +64,35 @@ var FileProcessing = (function () {
     FileProcessing.prototype.moveFile = function (thumbnailPath, originaImagePath, filename) {
         var _this = this;
         var deferred = Q.defer();
-        // var newPathThumb:string = this.path.resolve(__dirname + this.pathDestC + 'thumbnails/' + originaImagelName);
-        // var newOriginaImagelPath:string = this.path.resolve(__dirname + this.pathDestC + 'userImages/' + originaImagelName);
-        var newPathThumb = this.pathDestC + 'thumbnails/' + filename;
-        var newOriginaImagelPath = this.pathDestC + 'userImages/' + filename;
-        console.log('newPathThumb ', newPathThumb);
-        console.log('newOriginalPath ', newOriginaImagelPath);
-        this.fs.rename(thumbnailPath, newPathThumb, function (err) {
+        this.newPathThumb = this.pathDestC + 'thumbnails/' + filename;
+        this.newOriginaImagelPath = this.pathDestC + 'userImages/' + filename;
+        this.fs.rename(thumbnailPath, this.newPathThumb, function (err) {
             if (err) {
                 deferred.reject(err);
             }
             else {
-                _this.fs.rename(originaImagePath, newOriginaImagelPath, function (err) {
-                    deferred.resolve([newPathThumb, newOriginaImagelPath]);
+                _this.fs.rename(originaImagePath, _this.newOriginaImagelPath, function (err) {
+                    deferred.resolve([_this.newPathThumb, _this.newOriginaImagelPath]);
+                });
+            }
+        });
+        return deferred.promise;
+    };
+    FileProcessing.prototype.deleteFile = function (thumbnailPath, originaImagePath) {
+        var _this = this;
+        var deferred = Q.defer();
+        this.fs.unlink(thumbnailPath, function (err) {
+            if (err) {
+                deferred.reject(err);
+            }
+            else {
+                _this.fs.unlink(originaImagePath, function (err) {
+                    if (err) {
+                        deferred.reject(err);
+                    }
+                    else {
+                        deferred.resolve();
+                    }
                 });
             }
         });

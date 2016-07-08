@@ -1,5 +1,3 @@
-///<reference path="../typings/sqlite3/sqlite3.d.ts"/>
-///<reference path="../typings/q/Q.d.ts"/>
 "use strict";
 var Q = require('q');
 var DBDriver = (function () {
@@ -50,13 +48,11 @@ var DBDriver = (function () {
 exports.DBDriver = DBDriver;
 var DBSQLite = (function () {
     function DBSQLite() {
-        // import sqlite from 'sqlite';
         var sqlite = require('sqlite3').verbose();
         this.db = new sqlite.Database('./server/db/ads.db');
     }
     DBSQLite.prototype.runQuery = function (sql) {
         var deferred = Q.defer();
-        // console.log('dbDriver runQuery');
         this.db.run(sql, function (error) {
             if (error) {
                 deferred.reject({
@@ -65,7 +61,6 @@ var DBSQLite = (function () {
                 });
             }
             else {
-                // console.log('runQuery this ',this);
                 deferred.resolve(this);
             }
         });
@@ -87,7 +82,6 @@ var DBSQLite = (function () {
     };
     DBSQLite.prototype.createTable = function (sql1, sql2) {
         var deferred = Q.defer();
-        // console.log('dbDriver createTable');
         var self = this;
         var p = this.runQuery(sql1);
         p.then(function (val) {
@@ -118,7 +112,6 @@ var DBSQLite = (function () {
                 });
             }
             else {
-                // console.log({ id: this.lastID });
                 deferred.resolve({ changes: this.changes });
             }
         });
@@ -134,7 +127,6 @@ var DBSQLite = (function () {
                 });
             }
             else {
-                // console.log({ id: this.lastID });
                 deferred.resolve({ changes: this.changes });
             }
         });
@@ -164,7 +156,6 @@ var DBSQLite = (function () {
                 });
             }
             else {
-                // console.log(rows);
                 deferred.resolve(row);
             }
         });
@@ -184,7 +175,6 @@ var DBSQLite = (function () {
                 });
             }
             else {
-                // console.log({ id: this.lastID });
                 deferred.resolve({ id: this.lastID });
             }
         });
@@ -204,7 +194,6 @@ var DBSQLite = (function () {
                 });
             }
             else {
-                // console.log({ changes: this.changes });
                 deferred.resolve({ changes: this.changes });
             }
         });
@@ -224,7 +213,6 @@ var DBSQLite = (function () {
                 });
             }
             else {
-                // console.log({ id: this.lastID });
                 deferred.resolve({ changes: this.changes });
             }
         });

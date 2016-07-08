@@ -3,10 +3,10 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 import './rxjs-operators';
 
 import { MessagesMain } from './messages/messages-main';
-import { AssetsMain } from './assets/assets-main';
-import { DataTableBasicUsageComponent } from "./test/DataTableBasicUsageComponent";
-import { TableComponent } from "./table/MyTable";
-import { AgentsManager } from "./agents/AgentsManager";
+import { AssetsComponent } from './assets/assets';
+import {TableComponent} from "./table/MyTable";
+import {AgentsManager} from "./agents/AgentsManager";
+import {DragulaAppApp} from "./test/DragulaApp";
 
 @Component({
     selector: 'my-app',
@@ -30,10 +30,10 @@ export class AppComponent {
 export const AppRoutes = [
     { path: '', redirectTo: '/dashboard/messages', terminal: true },
     { path: 'dashboard/messages', component: MessagesMain, useAsDefault: true},
-    { path: 'dashboard/assets', component: AssetsMain },
+    { path: 'dashboard/assets', component: AssetsComponent },
     { path: 'dashboard/table', component:TableComponent },
     { path: 'dashboard/agents', component:AgentsManager },
-    { path: 'dashboard', component:DataTableBasicUsageComponent}
+    { path: 'dashboard', component:DragulaAppApp}
 ]
 
 

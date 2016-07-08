@@ -13,11 +13,9 @@ import {HTTP_PROVIDERS, Http} from "@angular/http";
       <div></div>
       <div class="panel-body">
       <table-simple [thedata]="mydata" [theheader]="myheads"></table-simple>
-      </div>
-      
-    </div>
-      
-      `,
+      </div>      
+    </div>      
+    `,
     directives: [TableComponent]
 })
 
@@ -26,7 +24,7 @@ export class AgentsManager{
     table:TableComponent
     myurl:string = '';
     title:string ='Agents Header';
-   mydata:string[][];
+    mydata:string[][];
     private myheads:string[];
     constructor(private http:Http) {
         http.get("http://front-desk.ca/tableblue/agents/getagents.php")

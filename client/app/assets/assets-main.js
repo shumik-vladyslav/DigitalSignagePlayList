@@ -9,51 +9,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
 var assets_service_1 = require('../services/assets-service');
-var AssetsMain = (function () {
-    function AssetsMain(service) {
+var ng2_dragula_1 = require('ng2-dragula/ng2-dragula');
+var AssetsComponent = (function () {
+    function AssetsComponent(service) {
         this.service = service;
-        this.cart = [];
     }
-    AssetsMain.prototype.ngOnInit = function () {
+    AssetsComponent.prototype.ngOnInit = function () {
         this.getData();
     };
-    AssetsMain.prototype.getData = function () {
+    AssetsComponent.prototype.getData = function () {
         var _this = this;
         this.service.getData()
-            .subscribe(function (data) { return _this.data = data; }, function (error) { return _this.errorMessage = error; });
+            .subscribe(function (data) { return _this.items = data; }, function (error) { return _this.errorMessage = error; });
         {
         }
     };
-    AssetsMain.prototype.showFullImage = function (item) {
-        item.full = item;
-    };
-    AssetsMain.prototype.hideFullImage = function (item) {
-        item.full = '';
-    };
-    AssetsMain.prototype.toCard = function (item) {
-        this.cart.push(item);
-    };
-    AssetsMain.prototype.dropCard = function (item) {
-        if (item) {
-            var index = this.cart.indexOf(item);
-            if (index > -1) {
-                this.cart.splice(index, 1);
-            }
-        }
-    };
-    AssetsMain = __decorate([
+    AssetsComponent = __decorate([
         core_1.Component({
             selector: 'assets-app',
-            template: "\n               <div class =\"panel panel-default\">\n               <div class=\"panel-body\">\n                     <md-content layout=\"row\">\n                     <div *ngFor=\"let item of data\">\n                        <md-card>\n                                  <img md-card-sm-image src=\" {{ item.thumb }} \" (click)=\"showFullImage(item)\" (dragend)=\"toCard(item)\">\n                        </md-card>\n                        <div *ngIf=\"item.full\"> \n                           <img src=\" {{ item.img }} \" width=\"200\" (click)=\"hideFullImage(item)\">\n                        </div>\n                     </div>\n                     </md-content>\n               </div>\n               <div class = \"cart\" *ngFor=\"let item of cart\"> \n                    <img src=\" {{ item.img }} \" width=\"200\" (dragend)=\"dropCard(item)\">\n               </div>\n               </div>\n                ",
+            template: "\n               <div class =\"panel panel-default\">          \n   \n               <div class=\"panel-body wrapper\">\n                     <md-content  class=\"content container\">                   \n                         <md-card *ngFor=\"let item of items\" class=\"card\" [dragula]='\"bag-one\"' [dragulaModel]='items'>\n                                  <img src=\" {{ item.thumb }} \">\n                         </md-card>\n                     \n                     </md-content>\n               </div>\n               </div>\n                ",
             styleUrls: ['app/assets/main.css'],
-            directives: [router_1.ROUTER_DIRECTIVES],
+            directives: [ng2_dragula_1.Dragula],
+            viewProviders: [ng2_dragula_1.DragulaService],
             providers: [assets_service_1.AssetsService]
         }), 
         __metadata('design:paramtypes', [assets_service_1.AssetsService])
-    ], AssetsMain);
-    return AssetsMain;
+    ], AssetsComponent);
+    return AssetsComponent;
 }());
-exports.AssetsMain = AssetsMain;
-//# sourceMappingURL=assets-main.js.map
+exports.AssetsComponent = AssetsComponent;
+//# sourceMappingURL=assets.js.map

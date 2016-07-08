@@ -5,12 +5,8 @@
 /// <reference path="typings/body-parser/body-parser.d.ts" />
 ///<reference path="typings/express-session/express-session.d.ts"/>
 ///<reference path="typings/cookie-parser/cookie-parser.d.ts"/>
-///<reference path="server/users/db-users.ts"/>
-
-//test
+///<reference path="server/users/dbUsers.ts"/>
 import * as express from 'express';
-
-
 import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
 import * as cookie from 'cookie-parser';
@@ -54,6 +50,11 @@ app.get('/dashboard', function(req:express.Request, res:express.Response){
 app.get('/dashboard/*', function(req:express.Request, res:express.Response){
     res.sendFile('indexts.html',{ 'root':WWW});
 });
+
+app.get('/apidocs', function(req:express.Request, res:express.Response){
+    res.sendFile('index.html',{ 'root':path.resolve(WWW + '/apidocs/')});
+});
+
 app.use(function(req:Request, res:Response, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -61,10 +62,11 @@ app.use(function(req:Request, res:Response, next) {
 });
 
 const port:number = process.env.PORT || 8888;
-app.use('/api/users', require('./server/users/index'));
-app.use('/api/user', require('./server/users/user'));
+// app.use('/api/users', require('./server/users/index'));
+// app.use('/api/user', require('./server/users/user'));
 app.use('/api/content', require('./server/content/manager'));
 app.use('/api/assets', require('./server/assets/manager'));
+app.use('/api/messages', require('./server/message/manager'));
 app.listen(port,function(){
     console.log('http://127.0.0.1:' + port);
     console.log('http://127.0.0.1:' + port + '/api');
