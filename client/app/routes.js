@@ -1,3 +1,6 @@
+/**
+ * Created by Dmitriy Prilutsky on 01.07.2016.
+ */
 "use strict";
 var messages_1 = require('./messages/messages');
 var assets_1 = require('./assets/assets');

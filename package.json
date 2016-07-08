@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./server",
-    "test": "apidoc -i server/ -o apidocs/ -t apitemplate/"
+    "test": "apidoc -i server/ -o client/apidocs/ -t apitemplate/"
   },
   "repository": {
     "type": "git",

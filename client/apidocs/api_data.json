@@ -1,60 +1,297 @@
 [
   {
-    "type": "get",
-    "url": "/api/messages/select/all",
-    "title": "Request User information",
-    "name": "GetMessages",
-    "group": "Messages",
+    "type": "post",
+    "url": "/api/assets/upload",
+    "title": "Upload Image",
+    "version": "0.0.1",
+    "name": "UploadImage",
+    "group": "Assets",
+    "description": "<p>Upload Image and create thumbnail.</p>",
+    "parameter": {
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "<form name      =  \"uploadForm\"\n      id        =  \"uploadForm\"\n      enctype   =  \"multipart/form-data\"\n      action    =  \"/api/assets/upload\"\n      method    =  \"POST\"\n>\n    <input type=\"file\" name=\"userImages\" />\n    <input type=\"submit\" value=\"Upload Image\" name=\"submit\">\n</form>",
+          "type": "html"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "http://127.0.0.1:8888/api/assets/upload",
+        "type": "js"
+      }
+    ],
     "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\nIUplResult {\n     insertId: 5,\n     thumbPath: '/clientAssets/uploads/thumbnails/_1468011297776_face.png',\n     imagePath: '/clientAssets/uploads/userImages/_1468011297776_face.png'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"errno\": 1\n  \"code\": \"SQLITE_ERROR\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "server/assets/manager.ts",
+    "groupTitle": "Assets",
+    "sampleRequest": [
+      {
+        "url": "http://127.0.0.1:8888/api/assets/upload"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "/api/messages/select/:id",
+    "title": "Get Message",
+    "version": "0.0.1",
+    "name": "GetMessage",
+    "group": "Messages",
+    "description": "<p>Response message from DB by id.</p>",
+    "parameter": {
       "fields": {
-        "Success 200": [
+        "Parameter": [
           {
-            "group": "Success 200",
-            "type": "Object[]",
+            "group": "Parameter",
+            "type": "number",
             "optional": false,
-            "field": "IMessage",
-            "description": ""
-          },
-          {
-            "group": "Success 200",
-            "type": "Number",
-            "optional": false,
-            "field": "IMessage.id",
-            "description": ""
-          },
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "IMessage.active",
-            "description": ""
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "IMessage.message",
-            "description": ""
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "lastname",
-            "description": "<p>Lastname of the User.</p>"
+            "field": "id",
+            "description": "<p>id in BD</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"firstname\": \"John\",\n  \"lastname\": \"Doe\"\n}",
+          "title": "Request-Example:",
+          "content": "{\n  \"id\":  1\n}",
           "type": "json"
         }
       ]
     },
-    "version": "0.0.0",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "http://127.0.0.1:8888/api/messages/select/1",
+        "type": "js"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"id\": 1,\n    \"activ\": \"true\",\n    \"message\": \"some text\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"errno\": 1\n  \"code\": \"SQLITE_ERROR\"\n}",
+          "type": "json"
+        }
+      ]
+    },
     "filename": "server/message/manager.ts",
-    "groupTitle": "Messages"
+    "groupTitle": "Messages",
+    "sampleRequest": [
+      {
+        "url": "http://127.0.0.1:8888/api/messages/select/:id"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "/api/messages/select/all",
+    "title": "Get All Messages",
+    "version": "0.0.1",
+    "name": "GetMessages",
+    "group": "Messages",
+    "description": "<p>Response all messages from DB.</p>",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "http://127.0.0.1:8888/api/messages/select/all",
+        "type": "js"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "  HTTP/1.1 200 OK\n[\n    {\n        \"id\": 1,\n        \"activ\": \"true\",\n        \"message\": \"some text\"\n    },\n    {\n        \"id\": 2,\n        \"activ\": \"false\",\n        \"message\": \"some text\"\n    }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"errno\": 1\n  \"code\": \"SQLITE_ERROR\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "server/message/manager.ts",
+    "groupTitle": "Messages",
+    "sampleRequest": [
+      {
+        "url": "http://127.0.0.1:8888/api/messages/select/all"
+      }
+    ]
+  },
+  {
+    "type": "post",
+    "url": "/api/messages/insert",
+    "title": "Insert Message",
+    "version": "0.0.1",
+    "name": "InsertMessages",
+    "group": "Messages",
+    "description": "<p>Insert messages in DB.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "active",
+            "description": "<p>true or false.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Message text</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"active\":  \"true\",\n  \"message\": \"some text\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "http://127.0.0.1:8888/api/messages/insert",
+        "type": "js"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"activ\": \"true\"\n  \"message\": \"some text\"\n  \"id\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"errno\": 1\n  \"code\": \"SQLITE_ERROR\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "server/message/manager.ts",
+    "groupTitle": "Messages",
+    "sampleRequest": [
+      {
+        "url": "http://127.0.0.1:8888/api/messages/insert"
+      }
+    ]
+  },
+  {
+    "type": "post",
+    "url": "/api/messages/update",
+    "title": "Update Message",
+    "version": "0.0.1",
+    "name": "UpdateMessage",
+    "group": "Messages",
+    "description": "<p>Update messages in DB.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id in BD</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "active",
+            "description": "<p>true or false.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Message text</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"id\":      1\n  \"active\":  true,\n  \"message\": \"some text\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "http://127.0.0.1:8888/api/messages/update",
+        "type": "js"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"activ\": \"true\"\n  \"message\": \"some text\"\n  \"id\": 1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"errno\": 1\n  \"code\": \"SQLITE_ERROR\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "server/message/manager.ts",
+    "groupTitle": "Messages",
+    "sampleRequest": [
+      {
+        "url": "http://127.0.0.1:8888/api/messages/update"
+      }
+    ]
   }
 ]

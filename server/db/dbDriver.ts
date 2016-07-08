@@ -232,7 +232,7 @@ export class DBSQLite implements IDBDriver {
                     });
                 } else {
                     // console.log(rows);
-                    deferred.resolve(row);
+                    deferred.resolve(row || {});
                 }
             });
         return deferred.promise;

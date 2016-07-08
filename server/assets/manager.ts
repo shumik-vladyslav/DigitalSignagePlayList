@@ -17,6 +17,7 @@ import {ImageProcess} from "./ImageProcess";
 
 declare var WWW:string;
 declare var SERVER:string;
+declare  var onError: (err:any, res: express.Response) => void;
 
 const router = express.Router();
 var mydb: DBAssets = new db.DBAssets();
@@ -24,45 +25,73 @@ var mydb: DBAssets = new db.DBAssets();
 var fs = require('fs');
 
 // mydb.deleteTable();
-mydb.createNewTable();
+// mydb.createNewTable();
 
 class IUplResult {
-    constructor() {
-        this.result = {
-            insertId: 0,   // id in DB
-            thumbPath: '',  // path to thumbnail
-            imagePath: ''  // path to original image};
-        }
-    }
-    success: string;
-    result: {
-        insertId: number;   // id in DB
-        thumbPath: string;  // path to thumbnail
-        imagePath: string;  // path to original image
-    }
+    constructor() {}
+    insertId: number;   // id in DB
+    thumbPath: string;  // path to thumbnail
+    imagePath: string;  // path to original image
 }
 
 class IError {
     error: string;
-    reason: any
+    reason: any;
 }
 
+class ISResult {
+    // success: string = "success";
+    constructor(public data: any) {}
+}
+
+var onSuccess = function (result: any, res:express.Response) {
+    console.log('onSuccess result\n', result);
+    // res.json({success:'success', result: result});
+    // result.success = "success";
+    res.json(new ISResult(result));
+};
+
+
+/**
+ * @api {post} /api/assets/upload Upload Image
+ * @apiVersion 0.0.1
+ * @apiName UploadImage
+ * @apiGroup Assets
+ *
+ * @apiDescription Upload Image and create thumbnail.
+ *
+ * @apiParamExample {html} Request-Example:
+ *      <form name      =  "uploadForm"
+ *            id        =  "uploadForm"
+ *            enctype   =  "multipart/form-data"
+ *            action    =  "/api/assets/upload"
+ *            method    =  "POST"
+ *      >
+ *          <input type="file" name="userImages" />
+ *          <input type="submit" value="Upload Image" name="submit">
+ *      </form>
+ *
+ * @apiExample {js} Example usage:
+ *     http://127.0.0.1:8888/api/assets/upload
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     HTTP/1.1 200 OK
+ *     IUplResult {
+ *          insertId: 5,
+ *          thumbPath: '/clientAssets/uploads/thumbnails/_1468011297776_face.png',
+ *          imagePath: '/clientAssets/uploads/userImages/_1468011297776_face.png'
+ *     }
+ *
+ * @apiErrorExample Error-Response:
+ *     {
+ *       "errno": 1
+ *       "code": "SQLITE_ERROR"
+ *     }
+ */
 
 router.post('/upload', function(req:express.Request,res:express.Response) {
     var fp:FileProcessing = new FileProcessing();
     var ip:ImageProcess = new ImageProcess();
-
-    var onSuccess = function (result: IUplResult) {
-        console.log('onSuccess result\n', result);
-        // res.json({success:'success', result: result});
-        result.success = "success";
-        res.json(result);
-    };
-
-    var onError = function (err: any) {
-        console.log('onError error\n', err);
-        res.json({error:'error', reason:err});
-    };
 
     var makeAsset = function (): Assets {
         var lenWWW: number = WWW.length;
@@ -93,15 +122,15 @@ router.post('/upload', function(req:express.Request,res:express.Response) {
         promise.then(function (result: {id:number}) {
             // console.log(result);
             var out: IUplResult = new IUplResult();
-            out.result.insertId = result.id;
-            out.result.thumbPath = a.thumb;
-            out.result.imagePath = a.path;
+            out.insertId = result.id;
+            out.thumbPath = a.thumb;
+            out.imagePath = a.path;
 
-            onSuccess(out);
+            onSuccess(out, res);
         }, function (err) {
             console.log(err);
             fp.deleteFile(fp.newPathThumb, fp.newOriginaImagelPath);
-            onError(err);
+            onError(err, res);
         });
     };
 
@@ -114,7 +143,7 @@ router.post('/upload', function(req:express.Request,res:express.Response) {
                 // console.log('moveFile result ', result);
                 insertInDB();
             }, function (err) {
-                onError(err);
+                onError(err, res);
             });
         });
     };
@@ -124,7 +153,7 @@ router.post('/upload', function(req:express.Request,res:express.Response) {
         // console.log('asset\n', asset);
         processImage();
     }, function (error) {
-        onError(error);
+        onError(error, res);
     });
 
 });
