@@ -35,7 +35,7 @@ export const AppRoutes = [
     { path: 'dashboard/assets1', component: AssetsComponent },
     { path: 'dashboard/table', component:TableComponent },
     { path: 'dashboard/agents', component:AgentsManager },
-    { path: 'dashboard', component:DragulaAppApp}
+    { path: 'dashboard/dragula', component:DragulaAppApp}
 ]
 
 

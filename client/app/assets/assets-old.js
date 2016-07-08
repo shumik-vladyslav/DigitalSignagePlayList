@@ -59,4 +59,4 @@ var AssetsMain = (function () {
     return AssetsMain;
 }());
 exports.AssetsMain = AssetsMain;
-//# sourceMappingURL=assets-main.js.map
+//# sourceMappingURL=assets-old.js.map

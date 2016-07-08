@@ -82,3 +82,20 @@
     cursor: -moz-grabbing;
     cursor: -webkit-grabbing;
 }
+
+.panel-body {
+    clear: both;
+}
+
+.panel-heading {
+    height: 150px;
+}
+
+.item {
+    float: left;
+}
+
+.item {
+    width: 128px;
+    height: 128px;
+}

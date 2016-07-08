@@ -38,6 +38,6 @@ exports.AppRoutes = [
     { path: 'dashboard/assets1', component: assets_1.AssetsComponent },
     { path: 'dashboard/table', component: MyTable_1.TableComponent },
     { path: 'dashboard/agents', component: AgentsManager_1.AgentsManager },
-    { path: 'dashboard', component: DragulaApp_1.DragulaAppApp }
+    { path: 'dashboard/dragula', component: DragulaApp_1.DragulaAppApp }
 ];
 //# sourceMappingURL=app.component.js.map
