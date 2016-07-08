@@ -7,9 +7,7 @@
 ///<reference path="typings/cookie-parser/cookie-parser.d.ts"/>
 ///<reference path="server/users/dbUsers.ts"/>
 
-//test
 import * as express from 'express';
-
 
 import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
