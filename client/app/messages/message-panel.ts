@@ -1,4 +1,7 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
+
+import {MATERIAL_DIRECTIVES} from 'ng2-material';
+
 import {MessageList} from './message-list';
 import {Message} from './message-model';
 
@@ -6,7 +9,7 @@ import {Message} from './message-model';
     selector: 'message-panel',
     templateUrl: 'app/messages/message-panel.html',
     styleUrls: ['app/messages/message-panel.css'],
-    directives: [MessageList]
+    directives: [MessageList, MATERIAL_DIRECTIVES]
 })
 
 export class MessagePanel {
@@ -15,7 +18,6 @@ export class MessagePanel {
    
     @Input () message: Message;
     @Input () messages: Message [];
-    
 
     add (title: string){
          this.added.emit(new Message(title));

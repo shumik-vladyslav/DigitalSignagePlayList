@@ -10,23 +10,40 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var message_servise_1 = require('./message-servise');
 var message_panel_1 = require('./message-panel');
 var message_list_1 = require('./message-list');
 var MessagesComponent = (function () {
-    function MessagesComponent() {
+    function MessagesComponent(messageService) {
+        this.messageService = messageService;
+        this.mode = 'Observable';
         this.messages = [];
     }
-    MessagesComponent.prototype.onMessagesAdded = function (message) {
-        this.messages.push(message);
+    MessagesComponent.prototype.ngOnInit = function () {
+        this.messages = this.getMessages();
+    };
+    MessagesComponent.prototype.getMessages = function () {
+        var _this = this;
+        this.messageService.getMessages()
+            .subscribe(function (messages) { return _this.messages = messages; }, function (error) { return _this.errorMessage = error; });
+    };
+    MessagesComponent.prototype.addMessage = function (name) {
+        var _this = this;
+        if (!name) {
+            return;
+        }
+        this.messageService.addMessage(name)
+            .subscribe(function (message) { return _this.messages.push(message); }, function (error) { return _this.errorMessage = error; });
     };
     MessagesComponent = __decorate([
         core_1.Component({
             selector: 'messages-app',
             templateUrl: 'app/messages/messages.html',
             styleUrls: ['app/messages/messages.css'],
-            directives: [message_panel_1.MessagePanel, message_list_1.MessageList, router_1.ROUTER_DIRECTIVES]
+            directives: [message_panel_1.MessagePanel, message_list_1.MessageList, router_1.ROUTER_DIRECTIVES],
+            providers: [message_servise_1.MessageService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [message_servise_1.MessageService])
     ], MessagesComponent);
     return MessagesComponent;
 }());

@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var ng2_material_1 = require('ng2-material');
 var message_list_1 = require('./message-list');
 var message_model_1 = require('./message-model');
 var MessagePanel = (function () {
@@ -40,7 +41,7 @@ var MessagePanel = (function () {
             selector: 'message-panel',
             templateUrl: 'app/messages/message-panel.html',
             styleUrls: ['app/messages/message-panel.css'],
-            directives: [message_list_1.MessageList]
+            directives: [message_list_1.MessageList, ng2_material_1.MATERIAL_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
     ], MessagePanel);

@@ -50,7 +50,16 @@
             </div>
 
             <div class="panel-body">
-                <table id="tableone" class="table table-condensed table-striped">
+                <md-data-table layout-fill>
+                    <thead>
+                    <tr>
+                        <th class="md-text-cell">Active</th>
+                        <th class="md-text-cell">Content</th>
+                    </tr>
+                    </thead>
+                    <message-list [messages]="messages"></message-list>
+                </md-data-table>
+               <!-- <table id="tableone" class="table table-condensed table-striped">
                     <message-list [messages]="messages"></message-list>
                     <thead>
                     <tr>
@@ -62,7 +71,7 @@
                         </th>
                     </tr>
                     </thead>
-                </table>
+                </table>-->
             </div>
         </div>
     </div>
