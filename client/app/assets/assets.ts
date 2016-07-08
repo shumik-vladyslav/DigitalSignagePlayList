@@ -7,10 +7,11 @@ import {Dragula, DragulaService} from 'ng2-dragula/ng2-dragula';
 @Component({
     selector: 'assets-app',
     template: `
-               <div class ="panel panel-default">
-               <div class="panel-body">
-                     <md-content  class="content">                   
-                         <md-card *ngFor="let item of data" class="card">
+               <div class ="panel panel-default">          
+   
+               <div class="panel-body wrapper">
+                     <md-content  class="content container">                   
+                         <md-card *ngFor="let item of items" class="card" [dragula]='"bag-one"' [dragulaModel]='items'>
                                   <img src=" {{ item.thumb }} ">
                          </md-card>
                      
@@ -18,21 +19,15 @@ import {Dragula, DragulaService} from 'ng2-dragula/ng2-dragula';
                </div>
                </div>
                 `,
-    //styleUrls: ['app/assets/main.css'],
-    styles: [`
-        .card {
-          height: 128px;
-          width: 128px;
-          float: left;
-        }
-    `],
+    styleUrls: ['app/assets/main.css'],
     directives: [Dragula],
+    viewProviders: [DragulaService],
     providers: [AssetsService]
 })
 
 export class AssetsComponent {
     errorMessage: string;
-    data: Asset[];
+    items: Asset[];
 
     constructor ( private service: AssetsService ) {
 
@@ -45,7 +40,7 @@ export class AssetsComponent {
     getData() {
         this.service.getData()
             .subscribe(
-                data => this.data = data,
+                data => this.items = data,
                 error =>  this.errorMessage = <any>error);{
         }
     }

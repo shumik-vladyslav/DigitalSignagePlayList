@@ -4,9 +4,9 @@ import './rxjs-operators';
 
 import { MessagesMain } from './messages/messages-main';
 import { AssetsComponent } from './assets/assets';
-import {DataTableBasicUsageComponent} from "./test/DataTableBasicUsageComponent";
 import {TableComponent} from "./table/MyTable";
 import {AgentsManager} from "./agents/AgentsManager";
+import {DragulaAppApp} from "./test/DragulaApp";
 
 @Component({
     selector: 'my-app',
@@ -33,7 +33,7 @@ export const AppRoutes = [
     { path: 'dashboard/assets', component: AssetsComponent },
     { path: 'dashboard/table', component:TableComponent },
     { path: 'dashboard/agents', component:AgentsManager },
-    { path: 'dashboard', component:DataTableBasicUsageComponent}
+    { path: 'dashboard', component:DragulaAppApp}
 ]
 
 
