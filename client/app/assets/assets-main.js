@@ -14,7 +14,7 @@ var assets_service_1 = require('../services/assets-service');
 var AssetsMain = (function () {
     function AssetsMain(service) {
         this.service = service;
-        this.cart = [];
+        this.cartItems = [];
     }
     AssetsMain.prototype.ngOnInit = function () {
         this.getData();
@@ -26,30 +26,42 @@ var AssetsMain = (function () {
         {
         }
     };
-    AssetsMain.prototype.showFullImage = function (item) {
-        item.full = item;
+    AssetsMain.prototype.onClickItem = function (item) {
+        this.fullItem = item;
     };
-    AssetsMain.prototype.hideFullImage = function (item) {
-        item.full = '';
+    AssetsMain.prototype.hideFullImage = function () {
+        this.fullItem = null;
     };
-    AssetsMain.prototype.onDragEnd = function (event, item) {
-        console.log(event);
+    AssetsMain.prototype.onDragEnd = function (evt) {
+        this.dragItem = null;
     };
-    AssetsMain.prototype.toCard = function (item) {
-        this.cart.push(item);
+    AssetsMain.prototype.onDragEnter = function (evt) {
+        this.toCart(this.dragItem);
+        this.dragItem = null;
     };
-    AssetsMain.prototype.dropCard = function (item) {
+    AssetsMain.prototype.onDragStart = function (item) {
+        this.dragItem = item;
+    };
+    AssetsMain.prototype.onDragOut = function (evt) {
+        this.offCart(this.dragItem);
+    };
+    AssetsMain.prototype.toCart = function (item) {
+        if (item)
+            this.cartItems.push(item);
+    };
+    AssetsMain.prototype.offCart = function (item) {
         if (item) {
-            var index = this.cart.indexOf(item);
+            var index = this.cartItems.indexOf(item);
+            console.log(index);
             if (index > -1) {
-                this.cart.splice(index, 1);
+                this.cartItems.splice(index, 1);
             }
         }
     };
     AssetsMain = __decorate([
         core_1.Component({
             selector: 'assets-app',
-            template: "\n               <div class =\"panel panel-default\">\n               <div class =\"panel-heading\">\n                   <div class = \"cart\">\n                       <div class=\"item\" *ngFor=\"let item of cart\" layout=\"row\">\n                                <img src=\" {{ item.img }} \" width=\"128\" (dragend)=\"dropCard(item)\">\n                       </div>\n                   </div>\n               </div>\n               <div class=\"panel-body\">\n                     <md-content>\n         \n                     <div class=\"card\" *ngFor=\"let item of data\">\n                        <md-card>\n                                  <img md-card-sm-image src=\" {{ item.thumb }} \" (click)=\"showFullImage(item)\" (dragend)=\"onDragEnd($event, item)\">\n                        </md-card>\n                        <div *ngIf=\"item.full\"> \n                           <img src=\" {{ item.img }} \" width=\"200\" (click)=\"hideFullImage(item)\">\n                        </div>\n                     </div>\n                     </md-content>\n               </div>\n               </div>\n                ",
+            template: "\n               <div class =\"panel panel-default\">\n               <div class =\"panel-heading\">\n                   <div class = \"cart\" (dragenter)=\"onDragEnter($event)\" (dragleave)=\"onDragOut($event)\">\n                       <div class=\"item\" *ngFor=\"let item of cartItems\" layout=\"row\">\n                                <img src=\" {{ item.img }} \" width=\"128\" (dragend)=\"dropCard(item)\">\n                       </div>\n                   </div>\n               </div>\n               <div class=\"panel-body\">\n                     <md-content>\n                         <div class=\"card\" *ngFor=\"let item of data\">\n                            <md-card>\n                                      <img md-card-sm-image src=\" {{ item.thumb }} \" (dragstart)=\"onDragStart(item)\" (click)=\"onClickItem(item)\">\n                            </md-card>\n                         </div>\n                     </md-content>\n                     <div class =\"modal\" *ngIf=\"fullItem\"> \n                         <img src=\" {{ fullItem.img }} \" width=\"200\" (click)=\"hideFullImage()\">\n                     </div>\n               </div>\n               </div>\n                ",
             styleUrls: ['app/assets/main.css'],
             directives: [router_1.ROUTER_DIRECTIVES],
             providers: [assets_service_1.AssetsService]
