@@ -22,7 +22,7 @@ var Assets = (function () {
         this.raw_data = raw_data;
         this.path = path;
         this.id = id;
-        // console.log('constructor Assets');
+        // console.log('constructor AssetsMain');
     }
     Assets.prototype.toArray = function () {
         return [this.raw_data, this.path];

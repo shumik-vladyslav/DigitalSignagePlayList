@@ -11,21 +11,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var assets_service_1 = require('../services/assets-service');
-var AssetsComponent = (function () {
-    function AssetsComponent(service) {
+var AssetsMain = (function () {
+    function AssetsMain(service) {
         this.service = service;
     }
-    AssetsComponent.prototype.ngOnInit = function () {
+    AssetsMain.prototype.ngOnInit = function () {
         this.getData();
     };
-    AssetsComponent.prototype.getData = function () {
+    AssetsMain.prototype.getData = function () {
         var _this = this;
         this.service.getData()
             .subscribe(function (data) { return _this.data = data; }, function (error) { return _this.errorMessage = error; });
         {
         }
     };
-    AssetsComponent = __decorate([
+    AssetsMain = __decorate([
         core_1.Component({
             selector: 'assets-app',
             template: "\n               <div class =\"panel panel-default\">\n               <div class=\"panel-body\">\n                     <md-content layout=\"row\">\n                     <div *ngFor=\"let item of data\">\n                         <md-card layout=\"column\">\n                                  <img md-card-sm-image src=\" {{ item.thumb }} \">\n                         </md-card>\n                     </div>\n                     </md-content>\n               </div>\n               </div>\n                ",
@@ -34,8 +34,8 @@ var AssetsComponent = (function () {
             providers: [assets_service_1.AssetsService]
         }), 
         __metadata('design:paramtypes', [assets_service_1.AssetsService])
-    ], AssetsComponent);
-    return AssetsComponent;
+    ], AssetsMain);
+    return AssetsMain;
 }());
-exports.AssetsComponent = AssetsComponent;
-//# sourceMappingURL=assets.js.map
+exports.AssetsMain = AssetsMain;
+//# sourceMappingURL=assets-main.js.map

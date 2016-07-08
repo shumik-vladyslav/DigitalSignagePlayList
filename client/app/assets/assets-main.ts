@@ -24,7 +24,7 @@ import { AssetsService, Asset } from '../services/assets-service';
     providers: [AssetsService]
 })
 
-export class AssetsComponent {
+export class AssetsMain {
     errorMessage: string;
     data: Asset[];
 

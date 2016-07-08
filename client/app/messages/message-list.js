@@ -14,7 +14,11 @@ var MessageList = (function () {
     function MessageList() {
     }
     MessageList.prototype.toggleEditable = function (message) {
-        message.editable = !message.editable;
+        this.message = message;
+        this.messages.forEach(function (message) {
+            message.editable = false;
+        });
+        this.message.editable = !this.message.editable;
     };
     MessageList.prototype.toggleChangeActive = function (message) {
         this.message = message;
@@ -30,7 +34,6 @@ var MessageList = (function () {
         this.messages.forEach(function (message) {
             message.selected = false;
         });
-        console.log("sel");
         this.message.selected = !this.message.selected;
     };
     __decorate([
@@ -44,7 +47,7 @@ var MessageList = (function () {
     MessageList = __decorate([
         core_1.Component({
             selector: 'message-list',
-            template: "<md-data-table>\n                <thead>\n                <tr>\n                    <th class=\"md-text-cell\">Active</th>\n                    <th class=\"md-text-cell\">Content</th>\n                </tr>\n                </thead>\n                <tbody *ngIf=\"messages.length > 0\">\n                    <tr *ngFor=\"let message of messages\" [ngClass]=\"{'selected': message.selected}\" (click)=\"onSelected(message)\">\n                        <td class=\"md-text-cell\">\n                            <md-checkbox (change)=\"toggleChangeActive(message)\" [checked]=\"message.active\"></md-checkbox>\n                        </td>\n                        <td class=\"md-text-cell\" contenteditable = \"true\" (input)=\"inputChange(message, $event)\" (click)=\"toggleEditable(message)\">\n                            {{ message.title }}\n                        </td>\n                </tr>\n                </tbody>\n                </md-data-table>\n                ",
+            template: "<md-data-table>\n                <thead>\n                <tr>\n                    <th class=\"md-text-cell\">Active</th>\n                    <th class=\"md-text-cell\">Content</th>\n                </tr>\n                </thead>\n                <tbody *ngIf=\"messages.length > 0\">\n                    <tr *ngFor=\"let message of messages\" [ngClass]=\"{'selected': message.selected, 'editable': message.editable}\" (click)=\"onSelected(message)\">\n                        <td class=\"md-text-cell\">\n                            <md-checkbox (change)=\"toggleChangeActive(message)\" [checked]=\"message.active\"></md-checkbox>\n                        </td>\n                        <td class=\"md-text-cell\" attr.contenteditable = \"{{ message.editable }}\" (input)=\"inputChange(message, $event)\" (click)=\"toggleEditable(message)\">\n                            {{ message.title }}\n                        </td>\n                </tr>\n                </tbody>\n                </md-data-table>\n                ",
             styleUrls: ['app/messages/message-list.css'],
             directives: [checkbox_1.MdCheckbox]
         }), 

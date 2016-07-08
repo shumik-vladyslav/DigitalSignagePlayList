@@ -18,11 +18,11 @@ interface IMessage {
                 </tr>
                 </thead>
                 <tbody *ngIf="messages.length > 0">
-                    <tr *ngFor="let message of messages" [ngClass]="{'selected': message.selected}" (click)="onSelected(message)">
+                    <tr *ngFor="let message of messages" [ngClass]="{'selected': message.selected, 'editable': message.editable}" (click)="onSelected(message)">
                         <td class="md-text-cell">
                             <md-checkbox (change)="toggleChangeActive(message)" [checked]="message.active"></md-checkbox>
                         </td>
-                        <td class="md-text-cell" contenteditable = "true" (input)="inputChange(message, $event)" (click)="toggleEditable(message)">
+                        <td class="md-text-cell" attr.contenteditable = "{{ message.editable }}" (input)="inputChange(message, $event)" (click)="toggleEditable(message)">
                             {{ message.title }}
                         </td>
                 </tr>
@@ -38,7 +38,11 @@ export class MessageList {
     @Input () message: IMessage;
 
     toggleEditable (message:IMessage) {
-        message.editable = !message.editable;
+        this.message = message;
+        this.messages.forEach(function(message){
+            message.editable = false;
+        });
+        this.message.editable = !this.message.editable;
     }
 
     toggleChangeActive (message:IMessage) {
@@ -57,7 +61,6 @@ export class MessageList {
         this.messages.forEach(function(message){
             message.selected = false;
         });
-        console.log("sel");
         this.message.selected = !this.message.selected;
     }
 }

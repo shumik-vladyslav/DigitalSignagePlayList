@@ -12,7 +12,7 @@ import { Message } from './message-model';
     selector: 'div',
     template: `<div class ="panel panel-default">
                <div class="panel-heading">
-               <message-tools (added)="onMessagesAdded($event)" (deleted)="onMessagesDeleted($event)"></message-tools>
+               <message-tools (added)="onMessageAdded($event)" (deleted)="onMessageDeleted()"></message-tools>
                </div>
                <div class="panel-body">
                <message-list [messages]="messages"></message-list>
@@ -54,16 +54,16 @@ export class MessagesMain implements OnInit {
                 error =>  this.errorMessage = <any>error);
     }
 
-    onMessagesAdded (message: Message) {
+    onMessageAdded (message: Message) {
         this.messages.push(message);
     }
 
-    onMessageDeleted (message: Message) {
-        let item: Message;
-        this.messages.forEach(function(message){
-            if (message.selected === true) item = message;
-        });
-        if (item) {
+    onMessageDeleted () {
+            let item: Message;
+            this.messages.forEach(function(message){
+                if (message.selected === true) item = message;
+            });
+            if (item) {
             let index = this.messages.indexOf(item);
             if (index > -1) {
                 this.messages.splice(index, 1);

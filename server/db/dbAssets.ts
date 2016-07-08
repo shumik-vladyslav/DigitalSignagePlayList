@@ -33,7 +33,7 @@ export class Assets {
         public raw_data:string,
         public path:string,
         public id?:number) {
-        // console.log('constructor Assets');
+        // console.log('constructor AssetsMain');
     }
 
     toArray() {

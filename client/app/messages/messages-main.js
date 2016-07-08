@@ -37,10 +37,10 @@ var MessagesMain = (function () {
         this.messageService.addMessage(name)
             .subscribe(function (message) { return _this.messages.push(message); }, function (error) { return _this.errorMessage = error; });
     };
-    MessagesMain.prototype.onMessagesAdded = function (message) {
+    MessagesMain.prototype.onMessageAdded = function (message) {
         this.messages.push(message);
     };
-    MessagesMain.prototype.onMessageDeleted = function (message) {
+    MessagesMain.prototype.onMessageDeleted = function () {
         var item;
         this.messages.forEach(function (message) {
             if (message.selected === true)
@@ -56,7 +56,7 @@ var MessagesMain = (function () {
     MessagesMain = __decorate([
         core_1.Component({
             selector: 'div',
-            template: "<div class =\"panel panel-default\">\n               <div class=\"panel-heading\">\n               <message-tools (added)=\"onMessagesAdded($event)\" (deleted)=\"onMessagesDeleted($event)\"></message-tools>\n               </div>\n               <div class=\"panel-body\">\n               <message-list [messages]=\"messages\"></message-list>\n               </div>\n               </div>",
+            template: "<div class =\"panel panel-default\">\n               <div class=\"panel-heading\">\n               <message-tools (added)=\"onMessageAdded($event)\" (deleted)=\"onMessageDeleted()\"></message-tools>\n               </div>\n               <div class=\"panel-body\">\n               <message-list [messages]=\"messages\"></message-list>\n               </div>\n               </div>",
             styleUrls: ['app/messages/messages-main.css'],
             directives: [message_tools_1.MessageTools, message_list_1.MessageList, router_1.ROUTER_DIRECTIVES],
             providers: [message_service_1.MessageService]
