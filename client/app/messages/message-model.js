@@ -1,10 +1,11 @@
 "use strict";
 var Message = (function () {
-    function Message(active, title) {
-        this.title = title;
-        this.active = active;
+    function Message(obj) {
         this.selected = false;
         this.editable = false;
+        for (var str in obj)
+            this[str] = obj[str];
+        this.title = this.msg;
     }
     return Message;
 }());

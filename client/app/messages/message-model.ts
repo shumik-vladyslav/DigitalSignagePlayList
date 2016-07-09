@@ -3,20 +3,20 @@ export interface IMessage {
     message: string;
     msg: string;
     id?: number;
+    body:string
 }
 
 export class Message implements IMessage{
     title: string;
     active: boolean;
-    selected: boolean;
-    editable: boolean;
+    selected: boolean = false;
+    editable: boolean = false;
     message: string;
     msg: string;
-
-    constructor (active:boolean, title:string) {
-        this.title = title;
-        this.active = active;
-        this.selected = false;
-        this.editable = false;
+    body:string;
+    id:number;
+    constructor (obj:IMessage) {
+        for(var str in obj)this[str] = obj[str];
+        this.title = this.msg;
     }
 }

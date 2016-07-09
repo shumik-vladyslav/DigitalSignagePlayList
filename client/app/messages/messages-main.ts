@@ -5,16 +5,13 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 import { MessageService} from '../services/message-service';
 import { MessageTools } from './message-tools';
 import { MessageList } from './message-list';
-
-interface Message{
-
-}
+import {Message} from "./message-model";
 
 @Component({
     selector: 'div',
     template: `<div class ="panel panel-default">
                <div class="panel-heading">
-               <message-tools (added)="onMessageAdded($event)" (deleted)="onMessageDeleted()" (saved)="saveMessage()"></message-tools>
+               <message-tools (added)="onMessageAdded($event)" (deleted)="onMessageDeleted()" (saved)="saveMessages()"></message-tools>
                </div>
                <div class="panel-body">
                <message-list [messages]="messages"></message-list>
@@ -26,7 +23,8 @@ interface Message{
 })
 export class MessagesMain implements OnInit {
     errorMessage: string;
-    messages: Message[];
+    messages:Message[];
+
     mode = 'Observable';
 
     constructor (
@@ -48,15 +46,12 @@ export class MessagesMain implements OnInit {
         }
     }
 
-    saveMessage () {
-        let name: Message;
-        this.messages.forEach(function(message){
-            if (message.selected === true) name = message;
-        });
-        if (!name) { return; }
-        this.messageService.addMessage(name)
+    saveMessages () {
+        this.messageService.saveMessages(this.messages)
             .subscribe(
-                /*message  => this.messages.push(message),*/
+                (res)=>{
+                    console.log(res);
+                },
                 error =>  this.errorMessage = <any>error);
     }
 

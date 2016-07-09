@@ -29,20 +29,12 @@ var MessagesMain = (function () {
         {
         }
     };
-    MessagesMain.prototype.saveMessage = function () {
+    MessagesMain.prototype.saveMessages = function () {
         var _this = this;
-        var name;
-        this.messages.forEach(function (message) {
-            if (message.selected === true)
-                name = message;
-        });
-        if (!name) {
-            return;
-        }
-        this.messageService.addMessage(name)
-            .subscribe(
-        /*message  => this.messages.push(message),*/
-        function (error) { return _this.errorMessage = error; });
+        this.messageService.saveMessages(this.messages)
+            .subscribe(function (res) {
+            console.log(res);
+        }, function (error) { return _this.errorMessage = error; });
     };
     MessagesMain.prototype.onMessageAdded = function (message) {
         this.messages.push(message);
@@ -63,7 +55,7 @@ var MessagesMain = (function () {
     MessagesMain = __decorate([
         core_1.Component({
             selector: 'div',
-            template: "<div class =\"panel panel-default\">\n               <div class=\"panel-heading\">\n               <message-tools (added)=\"onMessageAdded($event)\" (deleted)=\"onMessageDeleted()\" (saved)=\"saveMessage()\"></message-tools>\n               </div>\n               <div class=\"panel-body\">\n               <message-list [messages]=\"messages\"></message-list>\n               </div>\n               </div>",
+            template: "<div class =\"panel panel-default\">\n               <div class=\"panel-heading\">\n               <message-tools (added)=\"onMessageAdded($event)\" (deleted)=\"onMessageDeleted()\" (saved)=\"saveMessages()\"></message-tools>\n               </div>\n               <div class=\"panel-body\">\n               <message-list [messages]=\"messages\"></message-list>\n               </div>\n               </div>",
             styleUrls: ['app/messages/messages-main.css'],
             directives: [message_tools_1.MessageTools, message_list_1.MessageList, router_1.ROUTER_DIRECTIVES],
             providers: [message_service_1.MessageService]

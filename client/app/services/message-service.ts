@@ -5,7 +5,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
-import { Message } from '../messages/message-model';
+import {Message, IMessage} from '../messages/message-model';
 import { Observable } from 'rxjs/Observable';
 
 interface IMsg {
@@ -13,16 +13,13 @@ interface IMsg {
     active: boolean;
 }
 
-interface IMyMsg extends IMsg{
-    title: string;
-}
 
 @Injectable()
 export class MessageService {
     constructor(private http:Http) {
     }
 
-    private messagesUrl = 'http://localhost/GitHub/tableblue-master/crawl/crawl.php';
+    private messagesUrl = '/api/messages/test/all';
 
     getMessages (): Observable<Message[]> {
         return this.http.get(this.messagesUrl)
@@ -30,23 +27,34 @@ export class MessageService {
             .catch(this.handleError);
     }
 
+
+    saveMessages (msgs:Message[]): Observable<Message[]> {
+        var out:IMessage[] = [];
+        msgs.forEach(function(item:Message){
+            out.push({id:item.id,active:item.active,body:item.title})
+        })
+        return this.http.post(this.messagesUrl,out)
+            .catch(this.handleError);
+    }
     addMessage (name: Message): Observable<Message> {
         let body = JSON.stringify({ name });
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
+      //  let headers = new Headers({ 'Content-Type': 'application/json' });
+       // let options = new RequestOptions({ headers: headers });
 
-        return this.http.post(this.messagesUrl, body, options)
+        return this.http.post(this.messagesUrl, body)
             .map(this.parseOne)
             .catch(this.handleError);
     }
 
     private parse(res: Response) {
-        let body:IMyMsg [] = res.json();
-        body.forEach (function (item:IMyMsg) {
-            item.title = item.msg;
+        let body:IMessage[] = res.json().data || [];
+
+        var out:Message[] = [];
+        body.forEach (function (item:IMessage) {
+            out.push(new Message(item))
         })
 
-        return body || { };
+        return out;
     }
 
     private parseOne(res: Response) {

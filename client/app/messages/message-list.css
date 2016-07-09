@@ -1,7 +1,6 @@
 .selected {
     background-color: khaki;
 }
-
-.editable {
-    background-color: coral;
+.selected{
+    background-color: #fbfff0;
 }
