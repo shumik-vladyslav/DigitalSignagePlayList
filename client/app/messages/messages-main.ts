@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
-
 import { MessageService} from '../services/message-service';
 import { MessageTools } from './message-tools';
 import { MessageList } from './message-list';
+import {Message} from "./message-model";
 
-interface Message{
-
+interface IMessage{
+    title: string;
+    active: boolean;
+    selected: boolean;
+    editable: boolean;
 }
 
 @Component({
     selector: 'div',
     template: `<div class ="panel panel-default">
                <div class="panel-heading">
-               <message-tools (added)="onMessagesAdded($event)" (deleted)="onMessagesDeleted($event)"></message-tools>
+               <message-tools (added)="onMessageAdded($event)" (deleted)="onMessageDeleted()" (saveEvt)="saveMessages()"></message-tools>
                </div>
                <div class="panel-body">
                <message-list [messages]="messages"></message-list>
@@ -26,7 +29,8 @@ interface Message{
 })
 export class MessagesMain implements OnInit {
     errorMessage: string;
-    messages: Message[];
+    messages: Message [];
+
     mode = 'Observable';
 
     constructor (
@@ -48,24 +52,23 @@ export class MessagesMain implements OnInit {
         }
     }
 
-    saveMessage (name: string) {
-        if (!name) { return; }
-        this.messageService.addMessage(name)
+    saveMessages () {
+        this.messageService.saveMessages(this.messages)
             .subscribe(
-                message  => this.messages.push(message),
                 error =>  this.errorMessage = <any>error);
+        if (!this.errorMessage) alert("Save successful");
     }
 
-    onMessagesAdded (message: Message) {
+    onMessageAdded (message: Message) {
         this.messages.push(message);
     }
 
-    onMessageDeleted (message: Message) {
-        let item: Message;
-        this.messages.forEach(function(message){
-            if (message.selected === true) item = message;
-        });
-        if (item) {
+    onMessageDeleted () {
+            let item: Message;
+            this.messages.forEach(function(message){
+                if (message.selected === true) item = message;
+            });
+            if (item) {
             let index = this.messages.indexOf(item);
             if (index > -1) {
                 this.messages.splice(index, 1);

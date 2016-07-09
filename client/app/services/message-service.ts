@@ -5,17 +5,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
-import { Message } from '../messages/message-model';
+import { IMessage, Message } from '../messages/message-model';
 import { Observable } from 'rxjs/Observable';
-
-interface IMsg {
-    msg: string;
-    active: boolean;
-}
-
-interface IMyMsg extends IMsg{
-    title: string;
-}
 
 @Injectable()
 export class MessageService {
@@ -30,28 +21,22 @@ export class MessageService {
             .catch(this.handleError);
     }
 
-    addMessage (name: string): Observable<Message> {
-        let body = JSON.stringify({ name });
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
-
-        return this.http.post(this.messagesUrl, body, options)
-            .map(this.parseOne)
+    saveMessages (name: IMessage[]): Observable<Message[]> {
+        name.forEach (function (item:Message) {
+            item.msg = item.title;
+        })
+        let body = JSON.stringify(name, ["msg", "active"]);
+        return this.http.post(this.messagesUrl, body)
             .catch(this.handleError);
     }
 
     private parse(res: Response) {
-        let body:IMyMsg [] = res.json();
-        body.forEach (function (item:IMyMsg) {
-            item.title = item.msg;
-        })
-
-        return body || { };
-    }
-
-    private parseOne(res: Response) {
-        let body = res.json();
-        return body.data || { };
+        let body:IMessage [] = res.json();
+        let out:Message [] = [];
+        body.forEach (function (item:Message) {
+            out.push(new Message (item.active, item.msg))
+        });
+        return out;
     }
 
     private handleError (error: any) {

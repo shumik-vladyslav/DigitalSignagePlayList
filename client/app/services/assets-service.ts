@@ -11,6 +11,7 @@ export class Asset {
     id:number;
     thumb: string;
     img: string;
+    spacer: boolean;
 }  
 
 @Injectable()
@@ -40,7 +41,7 @@ export class AssetsService {
         let body: Asset [] = res.json();
         body.forEach (function (item: any) {
             item.img = item.large;
-        })
+        });
         return body || { };
     }
 

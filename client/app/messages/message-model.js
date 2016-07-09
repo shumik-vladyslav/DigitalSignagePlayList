@@ -1,8 +1,8 @@
 "use strict";
 var Message = (function () {
-    function Message(title) {
+    function Message(active, title) {
         this.title = title;
-        this.active = false;
+        this.active = active;
         this.selected = false;
         this.editable = false;
     }
