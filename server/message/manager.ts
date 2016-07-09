@@ -66,7 +66,6 @@ var onError = function (err: any, res:express.Response) {
 
 
 router.post('/test/all', function (req:express.Request, res:express.Response){
-    console.log(req.body);
     fs.writeFile('server/data/messages.json',JSON.stringify(req.body),function(err){
         if(err)onError(err,res);
         else res.json({data:'saved'});

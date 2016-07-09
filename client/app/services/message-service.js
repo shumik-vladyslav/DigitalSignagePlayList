@@ -28,7 +28,7 @@ var MessageService = (function () {
     MessageService.prototype.saveMessages = function (msgs) {
         var out = [];
         msgs.forEach(function (item) {
-            out.push({ id: item.id, active: item.active, body: item.title });
+            out.push({ id: item.id, active: item.active, body: item.body });
         });
         return this.http.post(this.messagesUrl, out)
             .catch(this.handleError);

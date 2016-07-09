@@ -13,7 +13,6 @@ var onError = function (err, res) {
     fs.appendFile(SERVER + 'error.log', str);
 };
 router.post('/test/all', function (req, res) {
-    console.log(req.body);
     fs.writeFile('server/data/messages.json', JSON.stringify(req.body), function (err) {
         if (err)
             onError(err, res);

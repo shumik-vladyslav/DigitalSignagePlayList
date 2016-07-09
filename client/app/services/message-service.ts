@@ -31,7 +31,7 @@ export class MessageService {
     saveMessages (msgs:Message[]): Observable<Message[]> {
         var out:IMessage[] = [];
         msgs.forEach(function(item:Message){
-            out.push({id:item.id,active:item.active,body:item.title})
+            out.push({id:item.id,active:item.active,body:item.body})
         })
         return this.http.post(this.messagesUrl,out)
             .catch(this.handleError);

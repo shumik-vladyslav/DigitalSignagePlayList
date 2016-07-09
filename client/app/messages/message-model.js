@@ -5,8 +5,12 @@ var Message = (function () {
         this.editable = false;
         for (var str in obj)
             this[str] = obj[str];
-        this.title = this.msg;
+        if (this.id && this.id > Message.count)
+            Message.count = this.id;
+        if (!this.id)
+            this.id = Message.count++;
     }
+    Message.count = 1;
     return Message;
 }());
 exports.Message = Message;
