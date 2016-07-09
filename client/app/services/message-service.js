@@ -13,7 +13,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-var message_model_1 = require('../messages/message-model');
 var Observable_1 = require('rxjs/Observable');
 var MessageService = (function () {
     function MessageService(http) {
@@ -25,21 +24,24 @@ var MessageService = (function () {
             .map(this.parse)
             .catch(this.handleError);
     };
-    MessageService.prototype.saveMessages = function (name) {
-        name.forEach(function (item) {
-            item.msg = item.title;
-        });
-        var body = JSON.stringify(name, ["msg", "active"]);
-        return this.http.post(this.messagesUrl, body)
+    MessageService.prototype.addMessage = function (name) {
+        var body = JSON.stringify({ name: name });
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(this.messagesUrl, body, options)
+            .map(this.parseOne)
             .catch(this.handleError);
     };
     MessageService.prototype.parse = function (res) {
         var body = res.json();
-        var out = [];
         body.forEach(function (item) {
-            out.push(new message_model_1.Message(item.active, item.msg));
+            item.title = item.msg;
         });
-        return out;
+        return body || {};
+    };
+    MessageService.prototype.parseOne = function (res) {
+        var body = res.json();
+        return body.data || {};
     };
     MessageService.prototype.handleError = function (error) {
         var errMsg = (error.message) ? error.message :
