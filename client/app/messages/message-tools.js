@@ -17,13 +17,13 @@ var MessageTools = (function () {
         this.saved = new core_1.EventEmitter();
     }
     MessageTools.prototype.add = function (title) {
-        this.added.emit(new message_model_1.Message(title));
+        this.added.emit(new message_model_1.Message({ active: true, msg: title, message: title, body: title }));
     };
     MessageTools.prototype.del = function () {
-        this.deleted.emit();
+        this.deleted.emit(null);
     };
     MessageTools.prototype.save = function () {
-        this.saved.emit();
+        this.saved.emit(null);
     };
     __decorate([
         core_1.Input(), 
@@ -49,7 +49,7 @@ var MessageTools = (function () {
         core_1.Component({
             selector: 'message-tools',
             templateUrl: 'app/messages/message-tools.html',
-            styleUrls: ['app/messages/message-tools.css'],
+            styles: [".tools > div {\n        display: inline-block;\n    }"],
         }), 
         __metadata('design:paramtypes', [])
     ], MessageTools);

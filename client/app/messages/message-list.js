@@ -48,7 +48,7 @@ var MessageList = (function () {
         core_1.Component({
             selector: 'message-list',
             template: "<md-data-table>\n                <thead>\n                <tr>\n                    <th class=\"md-text-cell\">Active</th>\n                    <th class=\"md-text-cell\">Content</th>\n                </tr>\n                </thead>\n                <tbody *ngIf=\"messages.length > 0\">\n                    <tr *ngFor=\"let message of messages\" [ngClass]=\"{'selected': message.selected, 'editable': message.editable}\" (click)=\"onSelected(message)\">\n                        <td class=\"md-text-cell\">\n                            <md-checkbox (change)=\"toggleChangeActive(message)\" [checked]=\"message.active\"></md-checkbox>\n                        </td>\n                        <td class=\"md-text-cell\" attr.contenteditable = \"{{ message.editable }}\" (input)=\"inputChange(message, $event)\" (click)=\"toggleEditable(message)\">\n                            {{ message.title }}\n                        </td>\n                </tr>\n                </tbody>\n                </md-data-table>\n                ",
-            styleUrls: ['app/messages/message-list.css'],
+            styles: ["\n    .selected {\n    background-color: khaki;\n    }\n    .selected{\n        background-color: #fbfff0;\n    }"],
             directives: [checkbox_1.MdCheckbox]
         }), 
         __metadata('design:paramtypes', [])

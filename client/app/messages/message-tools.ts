@@ -7,8 +7,10 @@ import {Message} from './message-model';
 @Component({
     selector: 'message-tools',
     templateUrl: 'app/messages/message-tools.html',
-    styleUrls: ['app/messages/message-tools.css'],
-})
+    styles: [`.tools > div {
+        display: inline-block;
+    }`],
+    })
 
 export class MessageTools {
     @Input () message: Message;
@@ -19,14 +21,14 @@ export class MessageTools {
     @Output () saved = new EventEmitter();
 
     add (title: string){
-        this.added.emit(new Message(title));
+        this.added.emit(new Message({active:true,msg:title,message:title,body:title}));
     }
 
     del () {
-        this.deleted.emit();
+        this.deleted.emit(null);
     }
     
     save () {
-        this.saved.emit();
+        this.saved.emit(null);
     }
 }

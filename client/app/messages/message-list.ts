@@ -29,9 +29,15 @@ interface IMessage {
                 </tbody>
                 </md-data-table>
                 `,
-    styleUrls: ['app/messages/message-list.css'],
-    directives: [MdCheckbox]
-})
+    styles: [`
+    .selected {
+    background-color: khaki;
+    }
+    .selected{
+        background-color: #fbfff0;
+    }`],
+        directives: [MdCheckbox]
+    })
 
 export class MessageList {
     @Input () messages: IMessage[];
