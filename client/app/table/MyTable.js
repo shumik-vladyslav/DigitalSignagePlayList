@@ -18,7 +18,6 @@ var MyTrComponent = (function () {
     }
     MyTrComponent.prototype.onClick = function (col) {
         console.log(this.row);
-        this.selected = true;
     };
     MyTrComponent.prototype.ngOnInit = function () {
         // console.log(this);
@@ -30,7 +29,7 @@ var MyTrComponent = (function () {
     MyTrComponent = __decorate([
         core_1.Component({
             selector: '[myRow]',
-            template: "<td (click)=\"onClick(i)\"  *ngFor=\"let val of row ; let i = index\" >{{val}}</td>"
+            template: "<td (click)=\"onClick(i)\"   *ngFor=\"let val of row ; let i = index\" >{{val}}</td>"
         }), 
         __metadata('design:paramtypes', [])
     ], MyTrComponent);
@@ -38,7 +37,6 @@ var MyTrComponent = (function () {
 }());
 exports.MyTrComponent = MyTrComponent;
 var TableComponent = (function () {
-    // private data:string[][];
     function TableComponent(http) {
         /* http.get("http://front-desk.ca/tableblue/agents/getagents.php")
              .subscribe((data:any)=> {
@@ -61,6 +59,8 @@ var TableComponent = (function () {
              });*/
         this.http = http;
         this.title = "Angular 2 - tr attribute selector";
+        // private data:string[][];
+        this.heads = [];
     }
     TableComponent.prototype.onClick = function (col) {
         console.log(col);
@@ -69,14 +69,10 @@ var TableComponent = (function () {
         core_1.Input('thedata'), 
         __metadata('design:type', Array)
     ], TableComponent.prototype, "data", void 0);
-    __decorate([
-        core_1.Input('theheader'), 
-        __metadata('design:type', Array)
-    ], TableComponent.prototype, "headers", void 0);
     TableComponent = __decorate([
         core_1.Component({
             selector: 'table-simple',
-            template: "<h3>{{title}}</h3>\n    <table class=\"table table-default\">\n    <thead>\n    <tr>\n    <td *ngFor=\"let val of headers\"  >{{val}}</td>\n    </tr>\n    </thead>\n    <tbody>\n    <tr *ngFor=\"let myrow of data\" [myRow]=\"myrow\"></tr>\n    </tbody>\n    </table>",
+            template: "<h3>{{title}}</h3>\n    <table class=\"table table-default\">\n    <thead>\n    <tr>\n    <td *ngFor=\"let val of heads\"  >{{val}}</td>\n    </tr>\n    </thead>\n    <tbody>\n    <tr *ngFor=\"let myrow of data\" [myRow]=\"myrow\"></tr>\n    </tbody>\n    </table>",
             providers: [http_1.HTTP_PROVIDERS],
             directives: [MyTrComponent]
         }), 

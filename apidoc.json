@@ -4,15 +4,8 @@
   "description": "apidoc example project",
   "title": "Custom apiDoc browser title",
   "url" : "",
-  "sampleUrl": "",
-  "header": {
-    "title": "My own header title",
-    "filename": "header.md"
-  },
-  "footer": {
-    "title": "My own footer title",
-    "filename": "footer.md"
-  },
+  "sampleUrl": "http://127.0.0.1:8888",
+
   "template": {
   	"withCompare": true,
   	"withGenerator": true

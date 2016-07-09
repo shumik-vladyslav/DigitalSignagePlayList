@@ -29,8 +29,8 @@ var DBMessages = (function () {
         return this.db.insertOne(sql, data);
     };
     DBMessages.prototype.updateContent = function (message) {
-        var sql = 'UPDATE messages SET activ = ?, message = ?';
-        var data = [message.activ, message.message];
+        var sql = 'UPDATE messages SET activ = ?, message = ? WHERE id = ?';
+        var data = [message.activ, message.message, message.id];
         return this.db.updateOne(sql, data);
     };
     DBMessages.prototype.deleteContent = function (message) {

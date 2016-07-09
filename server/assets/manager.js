@@ -7,14 +7,8 @@ var ImageProcess_1 = require("./ImageProcess");
 var router = express.Router();
 var mydb = new db.DBAssets();
 var fs = require('fs');
-mydb.createNewTable();
 var IUplResult = (function () {
     function IUplResult() {
-        this.result = {
-            insertId: 0,
-            thumbPath: '',
-            imagePath: ''
-        };
     }
     return IUplResult;
 }());
@@ -23,18 +17,19 @@ var IError = (function () {
     }
     return IError;
 }());
+var ISResult = (function () {
+    function ISResult(data) {
+        this.data = data;
+    }
+    return ISResult;
+}());
+var onSuccess = function (result, res) {
+    console.log('onSuccess result\n', result);
+    res.json(new ISResult(result));
+};
 router.post('/upload', function (req, res) {
     var fp = new fileProcessing_1.FileProcessing();
     var ip = new ImageProcess_1.ImageProcess();
-    var onSuccess = function (result) {
-        console.log('onSuccess result\n', result);
-        result.success = "success";
-        res.json(result);
-    };
-    var onError = function (err) {
-        console.log('onError error\n', err);
-        res.json({ error: 'error', reason: err });
-    };
     var makeAsset = function () {
         var lenWWW = WWW.length;
         var asset = new dbAssets_1.Assets();
@@ -54,14 +49,14 @@ router.post('/upload', function (req, res) {
         var promise = mydb.insertContent(a);
         promise.then(function (result) {
             var out = new IUplResult();
-            out.result.insertId = result.id;
-            out.result.thumbPath = a.thumb;
-            out.result.imagePath = a.path;
-            onSuccess(out);
+            out.insertId = result.id;
+            out.thumbPath = a.thumb;
+            out.imagePath = a.path;
+            onSuccess(out, res);
         }, function (err) {
             console.log(err);
             fp.deleteFile(fp.newPathThumb, fp.newOriginaImagelPath);
-            onError(err);
+            onError(err, res);
         });
     };
     var processImage = function () {
@@ -70,14 +65,14 @@ router.post('/upload', function (req, res) {
             fp.moveFile(thumbnailPath, details.path, details.filename).then(function (result) {
                 insertInDB();
             }, function (err) {
-                onError(err);
+                onError(err, res);
             });
         });
     };
     fp.startProces(req, res).then(function (result) {
         processImage();
     }, function (error) {
-        onError(error);
+        onError(error, res);
     });
 });
 module.exports = router;

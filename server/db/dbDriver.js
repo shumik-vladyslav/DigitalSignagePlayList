@@ -156,7 +156,7 @@ var DBSQLite = (function () {
                 });
             }
             else {
-                deferred.resolve(row);
+                deferred.resolve(row || {});
             }
         });
         return deferred.promise;
