@@ -21,17 +21,17 @@ var AssetsComponent = (function () {
     AssetsComponent.prototype.getData = function () {
         var _this = this;
         this.service.getData()
-            .subscribe(function (data) { return _this.data = data; }, function (error) { return _this.errorMessage = error; });
+            .subscribe(function (data) { return _this.items = data; }, function (error) { return _this.errorMessage = error; });
         {
         }
     };
     AssetsComponent = __decorate([
         core_1.Component({
             selector: 'assets-app',
-            template: "\n               <div class =\"panel panel-default\">\n               <div class=\"panel-body\">\n                     <md-content  class=\"content\">                   \n                         <md-card *ngFor=\"let item of data\" class=\"card\">\n                                  <img src=\" {{ item.thumb }} \">\n                         </md-card>\n                     \n                     </md-content>\n               </div>\n               </div>\n                ",
-            //styleUrls: ['app/assets/main.css'],
-            styles: ["\n        .card {\n          height: 128px;\n          width: 128px;\n          float: left;\n        }\n    "],
+            template: "\n               <div class =\"panel panel-default\">          \n   \n               <div class=\"panel-body wrapper\">\n                     <md-content  class=\"content container\">                   \n                         <md-card *ngFor=\"let item of items\" class=\"card\" [dragula]='\"bag-one\"' [dragulaModel]='items'>\n                                  <img src=\" {{ item.thumb }} \">\n                         </md-card>\n                     \n                     </md-content>\n               </div>\n               </div>\n                ",
+            styleUrls: ['app/assets/main.css'],
             directives: [ng2_dragula_1.Dragula],
+            viewProviders: [ng2_dragula_1.DragulaService],
             providers: [assets_service_1.AssetsService]
         }), 
         __metadata('design:paramtypes', [assets_service_1.AssetsService])

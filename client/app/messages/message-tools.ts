@@ -16,17 +16,17 @@ export class MessageTools {
 
     @Output () deleted = new EventEmitter();
     @Output () added = new EventEmitter();
-    @Output () saveEvt = new EventEmitter();
+    @Output () saved = new EventEmitter();
 
-    add (){
-        this.added.emit(new Message(false, ""));
+    add (title: string){
+        this.added.emit(new Message(title));
     }
 
     del () {
-        this.deleted.emit(null);
+        this.deleted.emit();
     }
     
     save () {
-        this.saveEvt.emit(null);
+        this.saved.emit();
     }
 }

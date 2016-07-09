@@ -14,16 +14,16 @@ var MessageTools = (function () {
     function MessageTools() {
         this.deleted = new core_1.EventEmitter();
         this.added = new core_1.EventEmitter();
-        this.saveEvt = new core_1.EventEmitter();
+        this.saved = new core_1.EventEmitter();
     }
-    MessageTools.prototype.add = function () {
-        this.added.emit(new message_model_1.Message(false, ""));
+    MessageTools.prototype.add = function (title) {
+        this.added.emit(new message_model_1.Message(title));
     };
     MessageTools.prototype.del = function () {
-        this.deleted.emit(null);
+        this.deleted.emit();
     };
     MessageTools.prototype.save = function () {
-        this.saveEvt.emit(null);
+        this.saved.emit();
     };
     __decorate([
         core_1.Input(), 
@@ -44,7 +44,7 @@ var MessageTools = (function () {
     __decorate([
         core_1.Output(), 
         __metadata('design:type', Object)
-    ], MessageTools.prototype, "saveEvt", void 0);
+    ], MessageTools.prototype, "saved", void 0);
     MessageTools = __decorate([
         core_1.Component({
             selector: 'message-tools',

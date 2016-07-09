@@ -1,23 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
+
 import { MessageService} from '../services/message-service';
 import { MessageTools } from './message-tools';
 import { MessageList } from './message-list';
-import {Message} from "./message-model";
 
-interface IMessage{
-    title: string;
-    active: boolean;
-    selected: boolean;
-    editable: boolean;
+interface Message{
+
 }
 
 @Component({
     selector: 'div',
     template: `<div class ="panel panel-default">
                <div class="panel-heading">
-               <message-tools (added)="onMessageAdded($event)" (deleted)="onMessageDeleted()" (saveEvt)="saveMessages()"></message-tools>
+               <message-tools (added)="onMessageAdded($event)" (deleted)="onMessageDeleted()" (saved)="saveMessage()"></message-tools>
                </div>
                <div class="panel-body">
                <message-list [messages]="messages"></message-list>
@@ -29,8 +26,7 @@ interface IMessage{
 })
 export class MessagesMain implements OnInit {
     errorMessage: string;
-    messages: Message [];
-
+    messages: Message[];
     mode = 'Observable';
 
     constructor (
@@ -52,11 +48,16 @@ export class MessagesMain implements OnInit {
         }
     }
 
-    saveMessages () {
-        this.messageService.saveMessages(this.messages)
+    saveMessage () {
+        let name: Message;
+        this.messages.forEach(function(message){
+            if (message.selected === true) name = message;
+        });
+        if (!name) { return; }
+        this.messageService.addMessage(name)
             .subscribe(
+                /*message  => this.messages.push(message),*/
                 error =>  this.errorMessage = <any>error);
-        if (!this.errorMessage) alert("Save successful");
     }
 
     onMessageAdded (message: Message) {

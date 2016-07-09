@@ -10,21 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var checkbox_1 = require('@angular2-material/checkbox');
-var message_model_1 = require("./message-model");
 var MessageList = (function () {
     function MessageList() {
     }
     MessageList.prototype.toggleEditable = function (message) {
         this.message = message;
-        this.messages.forEach(function (item) {
-            if (item !== message)
-                item.editable = false;
+        this.messages.forEach(function (message) {
+            message.editable = false;
         });
         this.message.editable = !this.message.editable;
     };
     MessageList.prototype.toggleChangeActive = function (message) {
         this.message = message;
         this.message.active = !this.message.active;
+        console.log(message);
     };
     MessageList.prototype.inputChange = function (message, event) {
         this.message = message;
@@ -32,9 +31,8 @@ var MessageList = (function () {
     };
     MessageList.prototype.onSelected = function (message) {
         this.message = message;
-        this.messages.forEach(function (item) {
-            if (item !== message)
-                item.selected = false;
+        this.messages.forEach(function (message) {
+            message.selected = false;
         });
         this.message.selected = !this.message.selected;
     };
@@ -44,7 +42,7 @@ var MessageList = (function () {
     ], MessageList.prototype, "messages", void 0);
     __decorate([
         core_1.Input(), 
-        __metadata('design:type', message_model_1.Message)
+        __metadata('design:type', Object)
     ], MessageList.prototype, "message", void 0);
     MessageList = __decorate([
         core_1.Component({
