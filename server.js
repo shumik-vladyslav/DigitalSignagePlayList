@@ -3,10 +3,18 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var cookie = require('cookie-parser');
+var fs = require('fs');
 var path = require('path');
 GLOBAL.ROOT = __dirname;
 GLOBAL.WWW = path.resolve(ROOT + '/client/');
 GLOBAL.SERVER = path.resolve(ROOT + '/server/');
+var onError = function (err, res) {
+    console.log('onError error\n', err);
+    res.json({ error: 'error', reason: err });
+    var str = "\r\n" + new Date().toLocaleString() + "\r\n";
+    str += JSON.stringify(err);
+    fs.appendFile(SERVER + 'error.log', str);
+};
 var app = express();
 app.use(cookie());
 app.use(session({
