@@ -42,7 +42,6 @@ export class MessageList {
     toggleChangeActive (message:Message) {
         this.message = message;
         this.message.active = !this.message.active;
-        console.log(message);
     }
 
     inputChange (message:Message, event) {

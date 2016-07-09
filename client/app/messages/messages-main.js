@@ -31,11 +31,10 @@ var MessagesMain = (function () {
     };
     MessagesMain.prototype.saveMessages = function () {
         var _this = this;
-        console.log(this.messages);
         this.messageService.saveMessages(this.messages)
-            .subscribe(
-        /*message  => this.messages.push(message),*/
-        function (error) { return _this.errorMessage = error; });
+            .subscribe(function (error) { return _this.errorMessage = error; });
+        if (!this.errorMessage)
+            alert("Save successful");
     };
     MessagesMain.prototype.onMessageAdded = function (message) {
         this.messages.push(message);

@@ -53,11 +53,10 @@ export class MessagesMain implements OnInit {
     }
 
     saveMessages () {
-        console.log(this.messages);
         this.messageService.saveMessages(this.messages)
             .subscribe(
-                /*message  => this.messages.push(message),*/
                 error =>  this.errorMessage = <any>error);
+        if (!this.errorMessage) alert("Save successful");
     }
 
     onMessageAdded (message: Message) {

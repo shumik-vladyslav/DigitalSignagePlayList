@@ -26,11 +26,11 @@ var MessageService = (function () {
             .catch(this.handleError);
     };
     MessageService.prototype.saveMessages = function (name) {
-        var body = JSON.stringify(name);
-        /*      let headers = new Headers({ 'Content-Type': 'application/json' });*/
-        /*let options = new RequestOptions({ headers: headers });*/
+        name.forEach(function (item) {
+            item.msg = item.title;
+        });
+        var body = JSON.stringify(name, ["msg", "active"]);
         return this.http.post(this.messagesUrl, body)
-            .map(this.parseOne)
             .catch(this.handleError);
     };
     MessageService.prototype.parse = function (res) {
@@ -39,12 +39,7 @@ var MessageService = (function () {
         body.forEach(function (item) {
             out.push(new message_model_1.Message(item.active, item.msg));
         });
-        console.log(out);
         return out;
-    };
-    MessageService.prototype.parseOne = function (res) {
-        var body = res.json();
-        return body.data || {};
     };
     MessageService.prototype.handleError = function (error) {
         var errMsg = (error.message) ? error.message :

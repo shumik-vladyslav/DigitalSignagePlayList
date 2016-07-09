@@ -25,7 +25,6 @@ var MessageList = (function () {
     MessageList.prototype.toggleChangeActive = function (message) {
         this.message = message;
         this.message.active = !this.message.active;
-        console.log(message);
     };
     MessageList.prototype.inputChange = function (message, event) {
         this.message = message;

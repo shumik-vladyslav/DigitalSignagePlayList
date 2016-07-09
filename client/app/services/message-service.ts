@@ -22,12 +22,11 @@ export class MessageService {
     }
 
     saveMessages (name: IMessage[]): Observable<Message[]> {
-        let body = JSON.stringify(name);
-  /*      let headers = new Headers({ 'Content-Type': 'application/json' });*/
-        /*let options = new RequestOptions({ headers: headers });*/
-
+        name.forEach (function (item:Message) {
+            item.msg = item.title;
+        })
+        let body = JSON.stringify(name, ["msg", "active"]);
         return this.http.post(this.messagesUrl, body)
-            .map(this.parseOne)
             .catch(this.handleError);
     }
 
@@ -37,13 +36,7 @@ export class MessageService {
         body.forEach (function (item:Message) {
             out.push(new Message (item.active, item.msg))
         });
-        console.log(out);
         return out;
-    }
-
-    private parseOne(res: Response) {
-        let body = res.json();
-        return body.data || { };
     }
 
     private handleError (error: any) {
