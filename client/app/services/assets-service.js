@@ -37,7 +37,7 @@ let AssetsService = class AssetsService {
     }
     parse(res) {
         let body = res.json();
-        console.log(body);
+        //console.log(body)
         body.forEach(function (item) {
             item.img = item.large;
         });
