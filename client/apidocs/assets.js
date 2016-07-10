@@ -1,32 +1,29 @@
 "use strict";
 var api = "assets/upload";
-var form = `
-    <form name      =  "uploadForm"
-          id        =  "uploadForm"
-          enctype   =  "multipart/form-data"
-          action    =  "/api/assets/upload"
-          method    =  "post"
-    >
-        <input type="file" name="userImages" />
-        <input type="submit" value="Upload Image" name="submit">
-    </form>
-    `;
-class IUplResult {
-}
+var form = "\n    <form name      =  \"uploadForm\"\n          id        =  \"uploadForm\"\n          enctype   =  \"multipart/form-data\"\n          action    =  \"/api/assets/upload\"\n          method    =  \"post\"\n    >\n        <input type=\"file\" name=\"userImages\" />\n        <input type=\"submit\" value=\"Upload Image\" name=\"submit\">\n    </form>\n    ";
+var IUplResult = (function () {
+    function IUplResult() {
+    }
+    return IUplResult;
+}());
 exports.IUplResult = IUplResult;
-class IError {
-}
+var IError = (function () {
+    function IError() {
+    }
+    return IError;
+}());
 exports.IError = IError;
-class Messages {
+var Messages = (function () {
     // public id: number;
     // public activ: boolean;
     // public message: string;
-    constructor(activ, message, id) {
+    function Messages(activ, message, id) {
         this.activ = activ;
         this.message = message;
         this.id = id;
         // console.log('constructor Assets');
     }
-}
+    return Messages;
+}());
 exports.Messages = Messages;
 //# sourceMappingURL=assets.js.map

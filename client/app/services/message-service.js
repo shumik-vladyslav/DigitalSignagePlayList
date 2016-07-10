@@ -11,58 +11,59 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const http_1 = require('@angular/http');
-const message_model_1 = require('../messages/message-model');
-const Observable_1 = require('rxjs/Observable');
-let MessageService = class MessageService {
-    constructor(http) {
+var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+var message_model_1 = require('../messages/message-model');
+var Observable_1 = require('rxjs/Observable');
+var MessageService = (function () {
+    function MessageService(http) {
         this.http = http;
         this.messagesUrl = '/api/messages/test/all';
     }
-    getMessages() {
+    MessageService.prototype.getMessages = function () {
         return this.http.get(this.messagesUrl)
             .map(this.parse)
             .catch(this.handleError);
-    }
-    saveMessages(msgs) {
+    };
+    MessageService.prototype.saveMessages = function (msgs) {
         var out = [];
         msgs.forEach(function (item) {
             out.push({ id: item.id, active: item.active, body: item.body });
         });
         return this.http.post(this.messagesUrl, out)
             .catch(this.handleError);
-    }
-    addMessage(name) {
-        let body = JSON.stringify({ name: name });
+    };
+    MessageService.prototype.addMessage = function (name) {
+        var body = JSON.stringify({ name: name });
         //  let headers = new Headers({ 'Content-Type': 'application/json' });
         // let options = new RequestOptions({ headers: headers });
         return this.http.post(this.messagesUrl, body)
             .map(this.parseOne)
             .catch(this.handleError);
-    }
-    parse(res) {
-        let body = res.json().data || [];
+    };
+    MessageService.prototype.parse = function (res) {
+        var body = res.json().data || [];
         var out = [];
         body.forEach(function (item) {
             out.push(new message_model_1.Message(item));
         });
         return out;
-    }
-    parseOne(res) {
-        let body = res.json();
+    };
+    MessageService.prototype.parseOne = function (res) {
+        var body = res.json();
         return body.data || {};
-    }
-    handleError(error) {
-        let errMsg = (error.message) ? error.message :
-            error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+    };
+    MessageService.prototype.handleError = function (error) {
+        var errMsg = (error.message) ? error.message :
+            error.status ? error.status + " - " + error.statusText : 'Server error';
         console.error(errMsg);
         return Observable_1.Observable.throw(errMsg);
-    }
-};
-MessageService = __decorate([
-    core_1.Injectable(), 
-    __metadata('design:paramtypes', [http_1.Http])
-], MessageService);
+    };
+    MessageService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], MessageService);
+    return MessageService;
+}());
 exports.MessageService = MessageService;
 //# sourceMappingURL=message-service.js.map

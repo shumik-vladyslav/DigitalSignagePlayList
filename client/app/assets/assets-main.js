@@ -8,52 +8,53 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-const core_1 = require('@angular/core');
-const router_1 = require('@angular/router');
-const assets_service_1 = require('../services/assets-service');
-let AssetsMain = class AssetsMain {
-    constructor(service) {
+var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var assets_service_1 = require('../services/assets-service');
+var AssetsMain = (function () {
+    function AssetsMain(service) {
         this.service = service;
         this.cartItems = [new assets_service_1.Asset()];
     }
-    ngOnInit() {
+    AssetsMain.prototype.ngOnInit = function () {
         this.getData();
-    }
-    getData() {
+    };
+    AssetsMain.prototype.getData = function () {
+        var _this = this;
         this.service.getData()
-            .subscribe(data => this.data = data, error => this.errorMessage = error);
+            .subscribe(function (data) { return _this.data = data; }, function (error) { return _this.errorMessage = error; });
         {
         }
-    }
-    onClickItem(item) {
+    };
+    AssetsMain.prototype.onClickItem = function (item) {
         this.fullItem = item;
-    }
-    hideFullImage() {
+    };
+    AssetsMain.prototype.hideFullImage = function () {
         this.fullItem = null;
-    }
-    onDragEnd(evt) {
+    };
+    AssetsMain.prototype.onDragEnd = function (evt) {
         this.dragItem = null;
-    }
-    onDragEnter(evt) {
+    };
+    AssetsMain.prototype.onDragEnter = function (evt) {
         this.toCart(this.dragItem);
-    }
-    onDragStart(item) {
+    };
+    AssetsMain.prototype.onDragStart = function (item) {
         this.isMove = false;
         this.dragItem = item;
-    }
-    onDragOut(evt) {
+    };
+    AssetsMain.prototype.onDragOut = function (evt) {
         if (!this.isMove)
             this.offCart(this.dragItem);
-    }
-    onSpacerDragEnter(item) {
-        let i = this.cartItems.indexOf(item);
+    };
+    AssetsMain.prototype.onSpacerDragEnter = function (item) {
+        var i = this.cartItems.indexOf(item);
         this.insertToCardAt(this.dragItem, i);
-    }
-    insertToCardAt(item, i) {
+    };
+    AssetsMain.prototype.insertToCardAt = function (item, i) {
         console.log(item, i, this.isMove);
         if (item && i !== -1) {
             if (this.isMove) {
-                let index = this.cartItems.indexOf(item);
+                var index = this.cartItems.indexOf(item);
                 if (index > -1) {
                     this.cartItems.splice(index, 1);
                 }
@@ -68,70 +69,46 @@ let AssetsMain = class AssetsMain {
             if (!this.isMove)
                 this.dragItem = null;
         }
-    }
-    toCart(item) {
+    };
+    AssetsMain.prototype.toCart = function (item) {
         if (item) {
             this.cartItems.push(item);
-            let spacer = new assets_service_1.Asset();
+            var spacer = new assets_service_1.Asset();
             spacer.spacer = true;
         }
-    }
-    offCart(item) {
+    };
+    AssetsMain.prototype.offCart = function (item) {
         if (item) {
-            let index = this.cartItems.indexOf(item);
+            var index = this.cartItems.indexOf(item);
             console.log("offcart" + index);
             if (index > -1) {
                 this.cartItems.splice(index, 1);
             }
         }
-    }
-    onCartDragItemStart(item) {
+    };
+    AssetsMain.prototype.onCartDragItemStart = function (item) {
         this.isMove = true;
         this.dragMove = item;
         this.dragItem = item;
-    }
-    onCartDragItemEnd(evt, item) {
+    };
+    AssetsMain.prototype.onCartDragItemEnd = function (evt, item) {
         if (this.isMove && evt.y > 300)
             this.offCart(item);
         this.isMove = false;
         this.dragMove = null;
         this.dragItem = null;
-    }
-};
-AssetsMain = __decorate([
-    core_1.Component({
-        selector: 'assets-app',
-        template: `
-               <div class ="panel panel-default">
-               <div class ="panel-heading">
-                   <div class = "cart" (dragleave)="onDragOut($event)">
-                       <div class="item" *ngFor="let item of cartItems" layout="row" (dragstart)="onCartDragItemStart(item)" (dragend)="onCartDragItemEnd($event, item)">
-                                <img src=" {{ item.img }} " width="128">
-                            <div class="spacer" (dragenter)="onSpacerDragEnter(item)">
-                            
-                            </div>
-                       </div>
-                   </div>
-               </div>
-               <div class="panel-body">
-                     <md-content>
-                         <div class="card" *ngFor="let item of data">
-                            <md-card>
-                                      <img md-card-sm-image src=" {{ item.thumb }} " (dragstart)="onDragStart(item)" (click)="onClickItem(item)">
-                            </md-card>
-                         </div>
-                     </md-content>
-                     <div class ="modal" *ngIf="fullItem"> 
-                         <img src=" {{ fullItem.img }} " width="200" (click)="hideFullImage()">
-                     </div>
-               </div>
-               </div>
-                `,
-        styleUrls: ['app/assets/main.css'],
-        directives: [router_1.ROUTER_DIRECTIVES],
-        providers: [assets_service_1.AssetsService]
-    }), 
-    __metadata('design:paramtypes', [assets_service_1.AssetsService])
-], AssetsMain);
+    };
+    AssetsMain = __decorate([
+        core_1.Component({
+            selector: 'assets-app',
+            template: "\n               <div class =\"panel panel-default\">\n               <div class =\"panel-heading\">\n                   <div class = \"cart\" (dragleave)=\"onDragOut($event)\">\n                       <div class=\"item\" *ngFor=\"let item of cartItems\" layout=\"row\" (dragstart)=\"onCartDragItemStart(item)\" (dragend)=\"onCartDragItemEnd($event, item)\">\n                                <img src=\" {{ item.img }} \" width=\"128\">\n                            <div class=\"spacer\" (dragenter)=\"onSpacerDragEnter(item)\">\n                            \n                            </div>\n                       </div>\n                   </div>\n               </div>\n               <div class=\"panel-body\">\n                     <md-content>\n                         <div class=\"card\" *ngFor=\"let item of data\">\n                            <md-card>\n                                      <img md-card-sm-image src=\" {{ item.thumb }} \" (dragstart)=\"onDragStart(item)\" (click)=\"onClickItem(item)\">\n                            </md-card>\n                         </div>\n                     </md-content>\n                     <div class =\"modal\" *ngIf=\"fullItem\"> \n                         <img src=\" {{ fullItem.img }} \" width=\"200\" (click)=\"hideFullImage()\">\n                     </div>\n               </div>\n               </div>\n                ",
+            styleUrls: ['app/assets/main.css'],
+            directives: [router_1.ROUTER_DIRECTIVES],
+            providers: [assets_service_1.AssetsService]
+        }), 
+        __metadata('design:paramtypes', [assets_service_1.AssetsService])
+    ], AssetsMain);
+    return AssetsMain;
+}());
 exports.AssetsMain = AssetsMain;
 //# sourceMappingURL=assets-main.js.map

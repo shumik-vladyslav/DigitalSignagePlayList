@@ -11,16 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /**
  * Created by Vlad on 7/6/2016.
  */
-const core_1 = require('@angular/core');
-const TableObject_1 = require("../table/TableObject");
-const http_1 = require("@angular/http");
-let AgentsManager = class AgentsManager {
-    constructor(http) {
+var core_1 = require('@angular/core');
+var TableObject_1 = require("../table/TableObject");
+var http_1 = require("@angular/http");
+var AgentsManager = (function () {
+    function AgentsManager(http) {
+        var _this = this;
         this.http = http;
         this.myurl = '';
         this.header = 'Agents Header';
         http.get("http://front-desk.ca/tableblue/agents/getagents.php")
-            .subscribe((data) => {
+            .subscribe(function (data) {
             /*  var head:string[]=[];
               var ar:any[]=[];
               var i=0;
@@ -35,27 +36,19 @@ let AgentsManager = class AgentsManager {
               console.log(ar);
 */
             //  this.myheads = head;
-            this.mydata = data.json().list;
-            console.log(this.mydata);
+            _this.mydata = data.json().list;
+            console.log(_this.mydata);
         });
     }
-};
-AgentsManager = __decorate([
-    core_1.Component({
-        selector: 'agents',
-        template: `
-    <h1 class="title">Agents 2</h1>
-    <div class="panel panel-default">
-      <div></div>
-      <div class="panel-body">
-      <table-object [thedata]="mydata" [header]="header"></table-object>
-      </div>
-      
-    </div>
-      `,
-        directives: [TableObject_1.TableObject]
-    }), 
-    __metadata('design:paramtypes', [http_1.Http])
-], AgentsManager);
+    AgentsManager = __decorate([
+        core_1.Component({
+            selector: 'agents',
+            template: "\n    <h1 class=\"title\">Agents 2</h1>\n    <div class=\"panel panel-default\">\n      <div></div>\n      <div class=\"panel-body\">\n      <table-object [thedata]=\"mydata\" [header]=\"header\"></table-object>\n      </div>\n      \n    </div>\n      ",
+            directives: [TableObject_1.TableObject]
+        }), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], AgentsManager);
+    return AgentsManager;
+}());
 exports.AgentsManager = AgentsManager;
 //# sourceMappingURL=AgentsManager2.js.map

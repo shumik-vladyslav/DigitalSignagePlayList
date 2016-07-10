@@ -11,16 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /**
  * Created by Vlad on 7/6/2016.
  */
-const core_1 = require('@angular/core');
-const MyTable_1 = require("../table/MyTable");
-const http_1 = require("@angular/http");
-let AgentsManager = class AgentsManager {
-    constructor(http) {
+var core_1 = require('@angular/core');
+var MyTable_1 = require("../table/MyTable");
+var http_1 = require("@angular/http");
+var AgentsManager = (function () {
+    function AgentsManager(http) {
+        var _this = this;
         this.http = http;
         this.myurl = '';
         this.title = 'Agents Header';
         http.get("http://front-desk.ca/tableblue/agents/getagents.php")
-            .subscribe((data) => {
+            .subscribe(function (data) {
             var head = [];
             var ar = [];
             var i = 0;
@@ -34,26 +35,19 @@ let AgentsManager = class AgentsManager {
                 ar.push(row);
             });
             console.log(ar);
-            this.myheads = head;
-            this.mydata = ar;
+            _this.myheads = head;
+            _this.mydata = ar;
         });
     }
-};
-AgentsManager = __decorate([
-    core_1.Component({
-        selector: 'agents',
-        template: `
-    <h1 class="title">Agents</h1>
-    <div class="panel panel-default">
-      <div></div>
-      <div class="panel-body">
-      <table-simple [thedata]="mydata" [theheader]="myheads"></table-simple>
-      </div>      
-    </div>      
-    `,
-        directives: [MyTable_1.TableComponent]
-    }), 
-    __metadata('design:paramtypes', [http_1.Http])
-], AgentsManager);
+    AgentsManager = __decorate([
+        core_1.Component({
+            selector: 'agents',
+            template: "\n    <h1 class=\"title\">Agents</h1>\n    <div class=\"panel panel-default\">\n      <div></div>\n      <div class=\"panel-body\">\n      <table-simple [thedata]=\"mydata\" [theheader]=\"myheads\"></table-simple>\n      </div>      \n    </div>      \n    ",
+            directives: [MyTable_1.TableComponent]
+        }), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], AgentsManager);
+    return AgentsManager;
+}());
 exports.AgentsManager = AgentsManager;
 //# sourceMappingURL=AgentsManager.js.map

@@ -1,6 +1,7 @@
 /**
  * Created by Vlad on 6/28/2016.
  */
+/// <reference path="../typings/globals/es6-shim/index.d.ts" />
 import { bootstrap }    from '@angular/platform-browser-dynamic';
 
 import { HTTP_PROVIDERS } from '@angular/http';
@@ -13,6 +14,8 @@ import { provideRouter } from '@angular/router';
 import { AppRoutes } from './app.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { AppComponent } from './app.component';
+
+
 
 
 
