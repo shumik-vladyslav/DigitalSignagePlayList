@@ -12,6 +12,8 @@ import {Message} from './message-model';
     }`],
     })
 
+
+
 export class MessageTools {
     @Input () message: Message;
     @Input () messages: Message[];
