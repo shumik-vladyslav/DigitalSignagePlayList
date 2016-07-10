@@ -11,35 +11,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /**
  * Created by Vlad on 7/5/2016.
  */
-var core_1 = require('@angular/core');
-var http_1 = require("@angular/http");
-var MyTrComponent = (function () {
-    function MyTrComponent() {
-    }
-    MyTrComponent.prototype.onClick = function (col) {
+const core_1 = require('@angular/core');
+const http_1 = require("@angular/http");
+let MyTrComponent = class MyTrComponent {
+    onClick(col) {
         console.log(this.row);
         this.selected = true;
-    };
-    MyTrComponent.prototype.ngOnInit = function () {
+    }
+    ngOnInit() {
         // console.log(this);
-    };
-    __decorate([
-        core_1.Input('myRow'), 
-        __metadata('design:type', Object)
-    ], MyTrComponent.prototype, "row", void 0);
-    MyTrComponent = __decorate([
-        core_1.Component({
-            selector: '[myRow]',
-            template: "<td (click)=\"onClick(i)\"  *ngFor=\"let val of row ; let i = index\" >{{val}}</td>"
-        }), 
-        __metadata('design:paramtypes', [])
-    ], MyTrComponent);
-    return MyTrComponent;
-}());
+    }
+};
+__decorate([
+    core_1.Input('myRow'), 
+    __metadata('design:type', Object)
+], MyTrComponent.prototype, "row", void 0);
+MyTrComponent = __decorate([
+    core_1.Component({
+        selector: '[myRow]',
+        template: `<td (click)="onClick(i)"  *ngFor="let val of row ; let i = index" >{{val}}</td>`
+    }), 
+    __metadata('design:paramtypes', [])
+], MyTrComponent);
 exports.MyTrComponent = MyTrComponent;
-var TableComponent = (function () {
+let TableComponent = class TableComponent {
     // private data:string[][];
-    function TableComponent(http) {
+    constructor(http) {
         /* http.get("http://front-desk.ca/tableblue/agents/getagents.php")
              .subscribe((data:any)=> {
                  var head:string[]=[];
@@ -62,27 +59,36 @@ var TableComponent = (function () {
         this.http = http;
         this.title = "Angular 2 - tr attribute selector";
     }
-    TableComponent.prototype.onClick = function (col) {
+    onClick(col) {
         console.log(col);
-    };
-    __decorate([
-        core_1.Input('thedata'), 
-        __metadata('design:type', Array)
-    ], TableComponent.prototype, "data", void 0);
-    __decorate([
-        core_1.Input('theheader'), 
-        __metadata('design:type', Array)
-    ], TableComponent.prototype, "headers", void 0);
-    TableComponent = __decorate([
-        core_1.Component({
-            selector: 'table-simple',
-            template: "<h3>{{title}}</h3>\n    <table class=\"table table-default\">\n    <thead>\n    <tr>\n    <td *ngFor=\"let val of headers\"  >{{val}}</td>\n    </tr>\n    </thead>\n    <tbody>\n    <tr *ngFor=\"let myrow of data\" [myRow]=\"myrow\"></tr>\n    </tbody>\n    </table>",
-            providers: [http_1.HTTP_PROVIDERS],
-            directives: [MyTrComponent]
-        }), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], TableComponent);
-    return TableComponent;
-}());
+    }
+};
+__decorate([
+    core_1.Input('thedata'), 
+    __metadata('design:type', Array)
+], TableComponent.prototype, "data", void 0);
+__decorate([
+    core_1.Input('theheader'), 
+    __metadata('design:type', Array)
+], TableComponent.prototype, "headers", void 0);
+TableComponent = __decorate([
+    core_1.Component({
+        selector: 'table-simple',
+        template: `<h3>{{title}}</h3>
+    <table class="table table-default">
+    <thead>
+    <tr>
+    <td *ngFor="let val of headers"  >{{val}}</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let myrow of data" [myRow]="myrow"></tr>
+    </tbody>
+    </table>`,
+        providers: [http_1.HTTP_PROVIDERS],
+        directives: [MyTrComponent]
+    }), 
+    __metadata('design:paramtypes', [http_1.Http])
+], TableComponent);
 exports.TableComponent = TableComponent;
 //# sourceMappingURL=MyTable.js.map

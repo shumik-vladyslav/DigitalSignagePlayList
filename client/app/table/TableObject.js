@@ -11,34 +11,59 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /**
  * Created by Vlad on 7/5/2016.
  */
-var core_1 = require('@angular/core');
-var http_1 = require("@angular/http");
-var TableObject = (function () {
-    function TableObject(http) {
+const core_1 = require('@angular/core');
+const http_1 = require("@angular/http");
+let TableObject = class TableObject {
+    constructor(http) {
         this.http = http;
         this.title = 'Data ';
         // private data:string[][];
         this.heads = [];
     }
-    TableObject.prototype.onClick = function (row) {
+    onClick(row) {
         console.log(row);
-    };
-    TableObject.prototype.onNameClick = function (row) {
+    }
+    onNameClick(row) {
         console.log(row);
-    };
-    __decorate([
-        core_1.Input('thedata'), 
-        __metadata('design:type', Array)
-    ], TableObject.prototype, "data", void 0);
-    TableObject = __decorate([
-        core_1.Component({
-            selector: 'table-object',
-            template: "<h3>{{title}}</h3>\n    <table class=\"table table-default\">\n    <thead>\n        <tr>\n            <td >id</td>\n            <td >Name</td>\n            <td >State</td>\n            <td >time</td>\n        </tr>\n    </thead>\n    <tbody>\n        <tr (click)=\"onClick(row)\" *ngFor=\"let row of data\" >\n            <td>{{row.id}}</td>\n            <td (click)=\"onNameClick(row.name)\" >{{row.name}}</td>\n            <td>\n            <md-card>\n                   <md-card-title-group>\n                      <img md-card-sm-image src=\"css/{{row.state}}.png\">\n                      <md-card-title>Card with title</md-card-title>\n                      <md-card-subtitle>Subtitle</md-card-subtitle>\n                   </md-card-title-group>\n                </md-card>           \n            </td>\n            <td>{{row.time}}</td>\n        </tr>\n    </tbody>\n    </table>",
-            providers: [http_1.HTTP_PROVIDERS]
-        }), 
-        __metadata('design:paramtypes', [http_1.Http])
-    ], TableObject);
-    return TableObject;
-}());
+    }
+};
+__decorate([
+    core_1.Input('thedata'), 
+    __metadata('design:type', Array)
+], TableObject.prototype, "data", void 0);
+TableObject = __decorate([
+    core_1.Component({
+        selector: 'table-object',
+        template: `<h3>{{title}}</h3>
+    <table class="table table-default">
+    <thead>
+        <tr>
+            <td >id</td>
+            <td >Name</td>
+            <td >State</td>
+            <td >time</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr (click)="onClick(row)" *ngFor="let row of data" >
+            <td>{{row.id}}</td>
+            <td (click)="onNameClick(row.name)" >{{row.name}}</td>
+            <td>
+            <md-card>
+                   <md-card-title-group>
+                      <img md-card-sm-image src="css/{{row.state}}.png">
+                      <md-card-title>Card with title</md-card-title>
+                      <md-card-subtitle>Subtitle</md-card-subtitle>
+                   </md-card-title-group>
+                </md-card>           
+            </td>
+            <td>{{row.time}}</td>
+        </tr>
+    </tbody>
+    </table>`,
+        providers: [http_1.HTTP_PROVIDERS]
+    }), 
+    __metadata('design:paramtypes', [http_1.Http])
+], TableObject);
 exports.TableObject = TableObject;
 //# sourceMappingURL=TableObject.js.map

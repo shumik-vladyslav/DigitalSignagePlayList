@@ -7,7 +7,7 @@ import { AssetsMain } from './assets/assets-main';
 
 import {TableComponent} from "./table/MyTable";
 import {AgentsManager} from "./agents/AgentsManager";
-//import {DragulaAppApp} from "./test/DragulaApp";
+
 
 @Component({
     selector: 'my-app',
@@ -25,7 +25,8 @@ import {AgentsManager} from "./agents/AgentsManager";
 
 export class AppComponent {
 
-
+    
+    
 }
 
 export const AppRoutes = [

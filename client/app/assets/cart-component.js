@@ -11,24 +11,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var CartComponent = (function () {
-    function CartComponent(_elementRef) {
+const core_1 = require('@angular/core');
+let CartComponent = class CartComponent {
+    constructor(_elementRef) {
         this._elementRef = _elementRef;
         this.dropped = new core_1.EventEmitter();
     }
-    CartComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        var el = this._elementRef.nativeElement;
+    ngOnInit() {
+        let el = this._elementRef.nativeElement;
         // Add a style to indicate that this element is a drop target
-        el.addEventListener('dragenter', function (e) {
+        el.addEventListener('dragenter', (e) => {
             el.classList.add('over');
         });
         // Remove the style
-        el.addEventListener('dragleave', function (e) {
+        el.addEventListener('dragleave', (e) => {
             el.classList.remove('over');
         });
-        el.addEventListener('dragover', function (e) {
+        el.addEventListener('dragover', (e) => {
             if (e.preventDefault) {
                 e.preventDefault();
             }
@@ -37,27 +36,26 @@ var CartComponent = (function () {
         });
         // On drop, get the data and convert it back to a JSON object
         // and fire off an event passing the data
-        el.addEventListener('drop', function (e) {
+        el.addEventListener('drop', (e) => {
             if (e.stopPropagation) {
                 e.stopPropagation(); // Stops some browsers from redirecting.
             }
             el.classList.remove('over');
-            var data = JSON.parse(e.dataTransfer.getData('text'));
-            _this.dropped.emit(data);
+            let data = JSON.parse(e.dataTransfer.getData('text'));
+            this.dropped.emit(data);
             return false;
         });
-    };
-    __decorate([
-        core_1.Output(), 
-        __metadata('design:type', core_1.EventEmitter)
-    ], CartComponent.prototype, "dropped", void 0);
-    CartComponent = __decorate([
-        core_1.Directive({
-            selector: '[makeDroppable]'
-        }), 
-        __metadata('design:paramtypes', [core_1.ElementRef])
-    ], CartComponent);
-    return CartComponent;
-}());
+    }
+};
+__decorate([
+    core_1.Output(), 
+    __metadata('design:type', core_1.EventEmitter)
+], CartComponent.prototype, "dropped", void 0);
+CartComponent = __decorate([
+    core_1.Directive({
+        selector: '[makeDroppable]'
+    }), 
+    __metadata('design:paramtypes', [core_1.ElementRef])
+], CartComponent);
 exports.CartComponent = CartComponent;
 //# sourceMappingURL=cart-component.js.map

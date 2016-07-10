@@ -8,55 +8,76 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
-var assets_service_1 = require('../services/assets-service');
-var AssetsMain = (function () {
-    function AssetsMain(service) {
+const core_1 = require('@angular/core');
+const router_1 = require('@angular/router');
+const assets_service_1 = require('../services/assets-service');
+let AssetsMain = class AssetsMain {
+    constructor(service) {
         this.service = service;
         this.cart = [];
     }
-    AssetsMain.prototype.ngOnInit = function () {
+    ngOnInit() {
         this.getData();
-    };
-    AssetsMain.prototype.getData = function () {
-        var _this = this;
+    }
+    getData() {
         this.service.getData()
-            .subscribe(function (data) { return _this.data = data; }, function (error) { return _this.errorMessage = error; });
+            .subscribe(data => this.data = data, error => this.errorMessage = error);
         {
         }
-    };
-    AssetsMain.prototype.showFullImage = function (item) {
+    }
+    showFullImage(item) {
         item.full = item;
-    };
-    AssetsMain.prototype.hideFullImage = function (item) {
+    }
+    hideFullImage(item) {
         item.full = '';
-    };
-    AssetsMain.prototype.onDragEnd = function (event, item) {
+    }
+    onDragEnd(event, item) {
         console.log(event);
-    };
-    AssetsMain.prototype.toCard = function (item) {
+    }
+    toCard(item) {
         this.cart.push(item);
-    };
-    AssetsMain.prototype.dropCard = function (item) {
+    }
+    dropCard(item) {
         if (item) {
-            var index = this.cart.indexOf(item);
+            let index = this.cart.indexOf(item);
             if (index > -1) {
                 this.cart.splice(index, 1);
             }
         }
-    };
-    AssetsMain = __decorate([
-        core_1.Component({
-            selector: 'assets-app',
-            template: "\n               <div class =\"panel panel-default\">\n               <div class =\"panel-heading\">\n                   <div class = \"cart\">\n                       <div class=\"item\" *ngFor=\"let item of cart\" layout=\"row\">\n                                <img src=\" {{ item.img }} \" width=\"128\" (dragend)=\"dropCard(item)\">\n                       </div>\n                   </div>\n               </div>\n               <div class=\"panel-body\">\n                     <md-content>\n         \n                     <div class=\"card\" *ngFor=\"let item of data\">\n                        <md-card>\n                                  <img md-card-sm-image src=\" {{ item.thumb }} \" (click)=\"showFullImage(item)\" (dragend)=\"onDragEnd($event, item)\">\n                        </md-card>\n                        <div *ngIf=\"item.full\"> \n                           <img src=\" {{ item.img }} \" width=\"200\" (click)=\"hideFullImage(item)\">\n                        </div>\n                     </div>\n                     </md-content>\n               </div>\n               </div>\n                ",
-            styleUrls: ['app/assets/main.css'],
-            directives: [router_1.ROUTER_DIRECTIVES],
-            providers: [assets_service_1.AssetsService]
-        }), 
-        __metadata('design:paramtypes', [assets_service_1.AssetsService])
-    ], AssetsMain);
-    return AssetsMain;
-}());
+    }
+};
+AssetsMain = __decorate([
+    core_1.Component({
+        selector: 'assets-app',
+        template: `
+               <div class ="panel panel-default">
+               <div class ="panel-heading">
+                   <div class = "cart">
+                       <div class="item" *ngFor="let item of cart" layout="row">
+                                <img src=" {{ item.img }} " width="128" (dragend)="dropCard(item)">
+                       </div>
+                   </div>
+               </div>
+               <div class="panel-body">
+                     <md-content>
+         
+                     <div class="card" *ngFor="let item of data">
+                        <md-card>
+                                  <img md-card-sm-image src=" {{ item.thumb }} " (click)="showFullImage(item)" (dragend)="onDragEnd($event, item)">
+                        </md-card>
+                        <div *ngIf="item.full"> 
+                           <img src=" {{ item.img }} " width="200" (click)="hideFullImage(item)">
+                        </div>
+                     </div>
+                     </md-content>
+               </div>
+               </div>
+                `,
+        styleUrls: ['app/assets/main.css'],
+        directives: [router_1.ROUTER_DIRECTIVES],
+        providers: [assets_service_1.AssetsService]
+    }), 
+    __metadata('design:paramtypes', [assets_service_1.AssetsService])
+], AssetsMain);
 exports.AssetsMain = AssetsMain;
 //# sourceMappingURL=assets-old.js.map

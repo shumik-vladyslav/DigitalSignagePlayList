@@ -1,6 +1,6 @@
 "use strict";
-var Message = (function () {
-    function Message(obj) {
+class Message {
+    constructor(obj) {
         this.selected = false;
         this.editable = false;
         for (var str in obj)
@@ -10,8 +10,7 @@ var Message = (function () {
         if (!this.id)
             this.id = Message.count++;
     }
-    Message.count = 1;
-    return Message;
-}());
+}
+Message.count = 1;
 exports.Message = Message;
 //# sourceMappingURL=message-model.js.map
