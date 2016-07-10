@@ -21,7 +21,7 @@ export class MessageTools {
     @Output () saved = new EventEmitter();
 
     add (title: string){
-        this.added.emit(new Message({active:true,msg:title,message:title,body:title}));
+        this.added.emit(new Message({active:true,body:title}));
     }
 
     del () {

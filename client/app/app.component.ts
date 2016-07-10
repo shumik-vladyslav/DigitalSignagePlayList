@@ -4,7 +4,7 @@ import './rxjs-operators';
 
 import { MessagesMain } from './messages/messages-main';
 import { AssetsMain } from './assets/assets-main';
-import { AssetsComponent } from './assets/assets';
+
 import {TableComponent} from "./table/MyTable";
 import {AgentsManager} from "./agents/AgentsManager";
 //import {DragulaAppApp} from "./test/DragulaApp";
