@@ -41,6 +41,20 @@ export class TableModel {
         return this.db.createTable(sql1, sql2);
     }
 
+    selectAllContent() {
+        var sql: string = "SELECT * FROM " + this.table;
+        var data: any[] = [];
+
+        return this.db.selectAll(sql, data);
+    }
+
+    selectContentById(id:number) {
+        var sql: string = "SELECT * FROM " + this.table + " WHERE id = ?";
+        var data: any[] = [id];
+
+        return this.db.selectOne(sql, data);
+    }
+
     insertContent(row:any): Q.Promise<{id:number}> {
         console.log('row', row);
         var ar1:string[] = [];

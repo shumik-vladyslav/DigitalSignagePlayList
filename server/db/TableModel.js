@@ -29,6 +29,16 @@ var TableModel = (function () {
             arr.join(", ") + ")";
         return this.db.createTable(sql1, sql2);
     };
+    TableModel.prototype.selectAllContent = function () {
+        var sql = "SELECT * FROM " + this.table;
+        var data = [];
+        return this.db.selectAll(sql, data);
+    };
+    TableModel.prototype.selectContentById = function (id) {
+        var sql = "SELECT * FROM " + this.table + " WHERE id = ?";
+        var data = [id];
+        return this.db.selectOne(sql, data);
+    };
     TableModel.prototype.insertContent = function (row) {
         console.log('row', row);
         var ar1 = [];
