@@ -7,15 +7,11 @@ var ImageProcess_1 = require("./ImageProcess");
 var router = express.Router();
 var mydb = new db.DBAssets();
 var fs = require('fs');
-var IUplResult = (function () {
-    function IUplResult() {
+mydb.createNewTable();
+var SUplResult = (function () {
+    function SUplResult() {
     }
-    return IUplResult;
-}());
-var IError = (function () {
-    function IError() {
-    }
-    return IError;
+    return SUplResult;
 }());
 var ISResult = (function () {
     function ISResult(data) {
@@ -48,13 +44,13 @@ router.post('/upload', function (req, res) {
         var a = makeAsset();
         var promise = mydb.insertContent(a);
         promise.then(function (result) {
-            var out = new IUplResult();
+            var out = new SUplResult();
             out.insertId = result.id;
             out.thumbPath = a.thumb;
             out.imagePath = a.path;
+            res.json({ data: out });
             onSuccess(out, res);
         }, function (err) {
-            console.log(err);
             fp.deleteFile(fp.newPathThumb, fp.newOriginaImagelPath);
             onError(err, res);
         });
@@ -69,7 +65,55 @@ router.post('/upload', function (req, res) {
             });
         });
     };
-    fp.startProces(req, res).then(function (result) {
+    fp.uploadFile(req, res).then(function (result) {
+        processImage();
+    }, function (error) {
+        onError(error, res);
+    });
+});
+router.post('/uploads', function (req, res) {
+    var fp = new fileProcessing_1.FileProcessing();
+    var ip = new ImageProcess_1.ImageProcess();
+    var makeAsset = function () {
+        var lenWWW = WWW.length;
+        var asset = new dbAssets_1.Assets();
+        asset.originalName = fp.fileReq.originalname;
+        asset.mime = fp.fileReq.mimetype;
+        asset.size = fp.fileReq.size;
+        asset.width = ip.widthImage;
+        asset.height = ip.heightImage;
+        asset.thumb = fp.newPathThumb;
+        asset.path = fp.newOriginaImagelPath;
+        asset.thumb = asset.thumb.substr(lenWWW);
+        asset.path = asset.path.substr(lenWWW);
+        return asset;
+    };
+    var insertInDB = function () {
+        var a = makeAsset();
+        var promise = mydb.insertContent(a);
+        promise.then(function (result) {
+            var out = new SUplResult();
+            out.insertId = result.id;
+            out.thumbPath = a.thumb;
+            out.imagePath = a.path;
+            res.json({ data: out });
+            onSuccess(out, res);
+        }, function (err) {
+            fp.deleteFile(fp.newPathThumb, fp.newOriginaImagelPath);
+            onError(err, res);
+        });
+    };
+    var processImage = function () {
+        var details = fp.fileReq;
+        ip.makeThumbnail(details.path, details.filename).then(function (thumbnailPath) {
+            fp.moveFile(thumbnailPath, details.path, details.filename).then(function (result) {
+                insertInDB();
+            }, function (err) {
+                onError(err, res);
+            });
+        });
+    };
+    fp.uploadFiles(req, res).then(function (result) {
         processImage();
     }, function (error) {
         onError(error, res);

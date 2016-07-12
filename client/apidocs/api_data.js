@@ -27,7 +27,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\nIUplResult {\n     insertId: 5,\n     thumbPath: '/clientAssets/uploads/thumbnails/_1468011297776_face.png',\n     imagePath: '/clientAssets/uploads/userImages/_1468011297776_face.png'\n}",
+          "content": "HTTP/1.1 200 OK\ndata {\n     insertId: 5,\n     thumbPath: '/clientAssets/uploads/thumbnails/_1468011297776_face.png',\n     imagePath: '/clientAssets/uploads/userImages/_1468011297776_face.png'\n}",
           "type": "json"
         }
       ]
@@ -88,7 +88,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"id\": 1,\n    \"activ\": \"true\",\n    \"message\": \"some text\"\n}",
+          "content": "{\n    \"data\": {\n        \"id\": 1,\n        \"activ\": \"true\",\n        \"message\": \"some text\"\n    }\n}",
           "type": "json"
         }
       ]
@@ -129,7 +129,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "  HTTP/1.1 200 OK\n[\n    {\n        \"id\": 1,\n        \"activ\": \"true\",\n        \"message\": \"some text\"\n    },\n    {\n        \"id\": 2,\n        \"activ\": \"false\",\n        \"message\": \"some text\"\n    }\n]",
+          "content": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"activ\": 1,\n            \"message\": \"some text\"\n        },\n        {\n            \"id\": 2,\n            \"activ\": 0,\n            \"message\": \"some text\"\n        }\n    ]\n }",
           "type": "json"
         }
       ]
@@ -272,7 +272,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"activ\": \"true\"\n  \"message\": \"some text\"\n  \"id\": 1\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"data\": {\n    \"changes\": 1\n  }\n}",
           "type": "json"
         }
       ]

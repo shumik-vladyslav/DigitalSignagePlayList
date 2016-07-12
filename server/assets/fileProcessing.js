@@ -24,7 +24,7 @@ var FileProcessing = (function () {
             }
         });
     };
-    FileProcessing.prototype.startProces = function (req, res) {
+    FileProcessing.prototype.uploadFile = function (req, res) {
         var _this = this;
         var deferred = Q.defer();
         this.deffered = deferred;
@@ -43,6 +43,33 @@ var FileProcessing = (function () {
             }
             else {
                 _this.fileReq = req.file;
+                _this.onFileUploaded();
+                deferred.resolve(_this.fileReq);
+            }
+        });
+        return deferred.promise;
+    };
+    FileProcessing.prototype.uploadFiles = function (req, res) {
+        var _this = this;
+        var deferred = Q.defer();
+        this.deffered = deferred;
+        console.log('req', req);
+        var storage = this.multer.diskStorage({
+            destination: function (req, file, callback) {
+                callback(null, SERVER + '/uploads/' + file.fieldname);
+            },
+            filename: function (req, file, callback) {
+                callback(null, '_' + Date.now() + '_' + file.originalname);
+            }
+        });
+        var upload = multer({ storage: storage }).array('userImages', 2);
+        upload(req, res, function (err) {
+            if (err) {
+                deferred.reject(err);
+            }
+            else {
+                _this.fileReq = req.file;
+                console.log('fileReq ', _this.fileReq);
                 _this.onFileUploaded();
                 deferred.resolve(_this.fileReq);
             }

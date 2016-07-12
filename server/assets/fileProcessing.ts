@@ -50,7 +50,8 @@ export class FileProcessing {
         });
     }
 
-    startProces(req:express.Request, res:express.Response): Q.Promise<any> {
+    // startProces(req:express.Request, res:express.Response): Q.Promise<any> {
+    uploadFile(req:express.Request, res:express.Response): Q.Promise<any> {
         var deferred: Q.Deferred<any> = Q.defer();
         this.deffered = deferred;
 
@@ -73,6 +74,40 @@ export class FileProcessing {
 
                 // console.log(req.file);
                 //console.log('fileReq ', this.fileReq);
+
+                this.onFileUploaded();
+                deferred.resolve(this.fileReq);
+            }
+        });
+
+        return deferred.promise;
+    }
+
+    uploadFiles(req:express.Request, res:express.Response): Q.Promise<any> {
+        var deferred: Q.Deferred<any> = Q.defer();
+        this.deffered = deferred;
+
+        console.log('req', req);
+
+        var storage = this.multer.diskStorage({
+            destination: function (req, file, callback) {
+                callback(null, SERVER + '/uploads/' + file.fieldname);
+            },
+            filename: function (req, file, callback) {
+                callback(null, '_' + Date.now() + '_' + file.originalname);
+            }
+        });
+
+        var upload:express.RequestHandler = multer({ storage : storage}).array('userImages',2);
+
+        upload(req,res, (err)=> {
+            if(err) {
+                deferred.reject(err);
+            } else {
+                this.fileReq = req.file;
+
+                // console.log(req.file);
+                console.log('fileReq ', this.fileReq);
 
                 this.onFileUploaded();
                 deferred.resolve(this.fileReq);
