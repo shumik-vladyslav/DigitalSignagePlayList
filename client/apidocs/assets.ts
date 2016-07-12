@@ -38,7 +38,7 @@ export class Messages {
         public message: string,
         public id?: number
     ) {
-        // console.log('constructor Assets');
+        // console.log('constructor Asset');
     }
 
 }

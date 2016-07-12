@@ -5,7 +5,7 @@ define({ "api": [
     "title": "Upload Image",
     "version": "0.0.1",
     "name": "UploadImage",
-    "group": "Assets",
+    "group": "Asset",
     "description": "<p>Upload Image and create thumbnail.</p>",
     "parameter": {
       "examples": [
@@ -42,7 +42,7 @@ define({ "api": [
       ]
     },
     "filename": "server/assets/manager.ts",
-    "groupTitle": "Assets",
+    "groupTitle": "Asset",
     "sampleRequest": [
       {
         "url": "http://127.0.0.1:8888/api/assets/upload"

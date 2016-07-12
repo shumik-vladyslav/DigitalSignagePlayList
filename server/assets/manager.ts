@@ -4,26 +4,33 @@ import * as express from 'express';
 import Request = Express.Request;
 import Response = Express.Response;
 import Q = require('q');
-import db = require("./dbAssets");
-import {DBAssets} from "./dbAssets";
-import {Assets} from "./dbAssets";
+// import mytable = require("../db/TableModel");
+import {Asset} from "./AssetRow";
 
 // import fileProcessing = require("./fileProcessing");
 import {IFileReq} from "./fileProcessing";
 import {FileProcessing} from "./fileProcessing";
 import {ImageProcess} from "./ImageProcess";
+import {TableModel} from "../db/TableModel";
 
 declare var WWW:string;
 declare var SERVER:string;
 declare  var onError: (err:any, res: express.Response) => void;
 
 const router = express.Router();
-var mydb: DBAssets = new db.DBAssets();
+var mytable: TableModel = new TableModel("assets", Asset.getInit());
 
 var fs = require('fs');
 
-// mydb.deleteTable();
-mydb.createNewTable();
+// mytable.deleteTable();
+// mytable.createNewTable().then(function (res) {
+//     console.log(res);
+// }, function (err) {
+//     console.log(err);
+// });
+// mytable.getStucture().then(function (res) {
+//     console.log(res);
+// });
 
 // var onError = function (err: any, res:express.Response) {
 //     console.log('onError error\n', err);
@@ -60,7 +67,7 @@ var onSuccess = function (result: any, res:express.Response) {
  * @api {post} /api/assets/upload Upload Image
  * @apiVersion 0.0.1
  * @apiName UploadImage
- * @apiGroup Assets
+ * @apiGroup Asset
  *
  * @apiDescription Upload Image and create thumbnail.
  *
@@ -97,10 +104,10 @@ router.post('/upload', function(req:express.Request,res:express.Response) {
     var fp:FileProcessing = new FileProcessing();
     var ip:ImageProcess = new ImageProcess();
 
-    var makeAsset = function (): Assets {
+    var makeAsset = function (): Asset {
         var lenWWW: number = WWW.length;
 
-        var asset = new Assets();
+        var asset = new Asset({});
 
         asset.originalName = fp.fileReq.originalname;
         asset.mime = fp.fileReq.mimetype;
@@ -120,11 +127,11 @@ router.post('/upload', function(req:express.Request,res:express.Response) {
 
 
     var insertInDB = function () {
-        var a: Assets = makeAsset();
+        var a: Asset = makeAsset();
 
-        var promise = mydb.insertContent(a);
+        var promise = mytable.insertContent(a);
         promise.then(function (result: {id:number}) {
-            // console.log(result);
+            console.log('insertInDB done');
             var out: SUplResult = new SUplResult();
             out.insertId = result.id;
             out.thumbPath = a.thumb;
@@ -142,9 +149,9 @@ router.post('/upload', function(req:express.Request,res:express.Response) {
         var details:IFileReq = fp.fileReq;
         // console.log('details\n', details);
         ip.makeThumbnail(details.path, details.filename).then( function (thumbnailPath:string) {
-            // console.log('thumbnailPath ',thumbnailPath);
+            console.log('ip.makeThumbnail done ');
             fp.moveFile(thumbnailPath, details.path, details.filename).then( function (result) {
-                // console.log('moveFile result ', result);
+                console.log('fp.moveFile done');
                 insertInDB();
             }, function (err) {
                 onError(err, res);
@@ -153,8 +160,8 @@ router.post('/upload', function(req:express.Request,res:express.Response) {
     };
     
     // fp.startProces(req, res).then(function (result) {
-    fp.uploadFile(req, res).then(function (result) {
-        // console.log('result\n', result);
+    fp.uploadImage(req, res).then(function (result) {
+        console.log('result uploadImage done\n');
         // console.log('asset\n', asset);
         processImage();
     }, function (error) {
@@ -164,14 +171,16 @@ router.post('/upload', function(req:express.Request,res:express.Response) {
 });
 
 router.post('/uploads', function(req:express.Request,res:express.Response) {
-    
+    // console.log(req.files);
+    // res.send(req.body);
+    // return;
     var fp:FileProcessing = new FileProcessing();
     var ip:ImageProcess = new ImageProcess();
 
-    var makeAsset = function (): Assets {
+    var makeAsset = function (): Asset {
         var lenWWW: number = WWW.length;
 
-        var asset = new Assets();
+        var asset = new Asset({});
 
         asset.originalName = fp.fileReq.originalname;
         asset.mime = fp.fileReq.mimetype;
@@ -191,9 +200,9 @@ router.post('/uploads', function(req:express.Request,res:express.Response) {
 
 
     var insertInDB = function () {
-        var a: Assets = makeAsset();
+        var a: Asset = makeAsset();
 
-        var promise = mydb.insertContent(a);
+        var promise = mytable.insertContent(a);
         promise.then(function (result: {id:number}) {
             // console.log(result);
             var out: SUplResult = new SUplResult();
@@ -224,7 +233,7 @@ router.post('/uploads', function(req:express.Request,res:express.Response) {
     };
 
     // fp.startProces(req, res).then(function (result) {
-    fp.uploadFiles(req, res).then(function (result) {
+    fp.uploadImages(req, res).then(function (result) {
         // console.log('result\n', result);
         // console.log('asset\n', asset);
         processImage();

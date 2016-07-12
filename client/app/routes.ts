@@ -13,7 +13,7 @@ export const AppRoutes = [
     { path: '', redirectTo: '/dashboard', terminal: true },
     { path: 'dashboard/messages', component: MessagesComponent, useAsDefault: true},
     { path: 'dashboard/assets', component: AssetsComponent },
-    { path: 'dashboard/table', component:TableComponent },
+    { path: 'dashboard/mytable', component:TableComponent },
     { path: 'dashboard/agents', component:AgentsManager },
     { path: 'dashboard', component:DataTableBasicUsageComponent}
 ]
