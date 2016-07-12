@@ -65,7 +65,7 @@ router.post('/upload', function (req, res) {
             });
         });
     };
-    fp.uploadFile(req, res).then(function (result) {
+    fp.uploadImage(req, res).then(function (result) {
         processImage();
     }, function (error) {
         onError(error, res);
@@ -113,7 +113,7 @@ router.post('/uploads', function (req, res) {
             });
         });
     };
-    fp.uploadFiles(req, res).then(function (result) {
+    fp.uploadImages(req, res).then(function (result) {
         processImage();
     }, function (error) {
         onError(error, res);

@@ -153,7 +153,7 @@ router.post('/upload', function(req:express.Request,res:express.Response) {
     };
     
     // fp.startProces(req, res).then(function (result) {
-    fp.uploadFile(req, res).then(function (result) {
+    fp.uploadImage(req, res).then(function (result) {
         // console.log('result\n', result);
         // console.log('asset\n', asset);
         processImage();
@@ -164,7 +164,9 @@ router.post('/upload', function(req:express.Request,res:express.Response) {
 });
 
 router.post('/uploads', function(req:express.Request,res:express.Response) {
-    
+    // console.log(req.files);
+    // res.send(req.body);
+    // return;
     var fp:FileProcessing = new FileProcessing();
     var ip:ImageProcess = new ImageProcess();
 
@@ -224,7 +226,7 @@ router.post('/uploads', function(req:express.Request,res:express.Response) {
     };
 
     // fp.startProces(req, res).then(function (result) {
-    fp.uploadFiles(req, res).then(function (result) {
+    fp.uploadImages(req, res).then(function (result) {
         // console.log('result\n', result);
         // console.log('asset\n', asset);
         processImage();

@@ -24,7 +24,7 @@ var FileProcessing = (function () {
             }
         });
     };
-    FileProcessing.prototype.uploadFile = function (req, res) {
+    FileProcessing.prototype.uploadImage = function (req, res) {
         var _this = this;
         var deferred = Q.defer();
         this.deffered = deferred;
@@ -49,11 +49,10 @@ var FileProcessing = (function () {
         });
         return deferred.promise;
     };
-    FileProcessing.prototype.uploadFiles = function (req, res) {
+    FileProcessing.prototype.uploadImages = function (req, res) {
         var _this = this;
         var deferred = Q.defer();
         this.deffered = deferred;
-        console.log('req', req);
         var storage = this.multer.diskStorage({
             destination: function (req, file, callback) {
                 callback(null, SERVER + '/uploads/' + file.fieldname);
@@ -68,8 +67,8 @@ var FileProcessing = (function () {
                 deferred.reject(err);
             }
             else {
-                _this.fileReq = req.file;
-                console.log('fileReq ', _this.fileReq);
+                _this.filesReq = req.files;
+                console.log('req.files\n', req.files);
                 _this.onFileUploaded();
                 deferred.resolve(_this.fileReq);
             }
