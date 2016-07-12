@@ -14,10 +14,10 @@ var fs = require('fs');
 const router = express.Router();
 var mydb: DBMessages = new db.DBMessages();
 
-// mydb.deleteTable();
+// mytable.deleteTable();
 mydb.createNewTable();
 
-// var p = mydb.addNewColumn();
+// var p = mytable.addNewColumn();
 // console.log(p);
 
 /**

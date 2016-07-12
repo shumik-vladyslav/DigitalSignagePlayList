@@ -10,10 +10,10 @@ var mydb: DBContent = new db.DBContent();
 // var mycontent = new db.Content('cappuccino', 'coffee');
 // var mycontent = new db.Content();
 
-// mydb.deleteTable();
-// mydb.createNewTable();
+// mytable.deleteTable();
+// mytable.createNewTable();
 
-// var p = mydb.addNewColumn();
+// var p = mytable.addNewColumn();
 // console.log(p);
 
 router.get('/select/all', function (req:express.Request, res:express.Response) {
@@ -89,7 +89,7 @@ export = router
 
 
 // var insertContent = function (mycontent) {
-//     var promise = mydb.insertContent(mycontent);
+//     var promise = mytable.insertContent(mycontent);
 //     promise.then(function (res) {
 //         console.log(res);
 //         // sellect
@@ -97,7 +97,7 @@ export = router
 // };
 //
 // var selectContent = function () {
-//     var promise = mydb.selectAllContent();
+//     var promise = mytable.selectAllContent();
 //     promise.then(function (res) {
 //         console.log(res);
 //         // sellect
@@ -105,7 +105,7 @@ export = router
 // };
 //
 // var updateContent = function (mycontent) {
-//     var promise = mydb.insertContent(mycontent);
+//     var promise = mytable.insertContent(mycontent);
 //     promise.then(function (res) {
 //         console.log(res);
 //         // sellect
@@ -113,7 +113,7 @@ export = router
 // };
 //
 // var deleteContent = function (mycontent) {
-//     var promise = mydb.deleteContent(mycontent);
+//     var promise = mytable.deleteContent(mycontent);
 //     promise.then(function (res) {
 //         console.log(res);
 //         // sellect
@@ -121,7 +121,7 @@ export = router
 // };
 //
 // var selectContentById = function (id) {
-//     var promise = mydb.selectContentById(id);
+//     var promise = mytable.selectContentById(id);
 //     promise.then(function (res) {
 //         console.log("res", res);
 //         // sellect

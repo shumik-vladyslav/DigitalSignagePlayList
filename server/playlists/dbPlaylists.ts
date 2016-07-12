@@ -78,7 +78,7 @@ export class Playlist implements ISPlaylist {
         public afterId: number,
         public id?: number
     ) {
-        // console.log('constructor Assets');
+        // console.log('constructor Asset');
     }
 }
 

@@ -72,7 +72,7 @@ export class Message implements ISMessage {
         public message: string,
         public id?: number
     ) {
-        // console.log('constructor Assets');
+        // console.log('constructor Asset');
     }
 }
 
