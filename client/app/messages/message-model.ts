@@ -1,22 +1,20 @@
 export interface IMessage {
     active: boolean;
-    message: string;
-    msg: string;
     id?: number;
+    body:string
 }
 
 export class Message implements IMessage{
-    title: string;
     active: boolean;
-    selected: boolean;
-    editable: boolean;
-    message: string;
-    msg: string;
+    selected: boolean = false;
+    editable: boolean = false;
+    body:string;
+    id:number;
+    static count:number = 1;
+    constructor (obj:IMessage) {
+        for(var str in obj)this[str] = obj[str];
+        if(this.id && this.id>Message.count)Message.count = this.id;
+        if(!this.id) this.id = Message.count++;
 
-    constructor (active:boolean, title:string) {
-        this.title = title;
-        this.active = active;
-        this.selected = false;
-        this.editable = false;
     }
 }

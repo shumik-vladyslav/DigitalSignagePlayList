@@ -7,8 +7,12 @@ import {Message} from './message-model';
 @Component({
     selector: 'message-tools',
     templateUrl: 'app/messages/message-tools.html',
-    styleUrls: ['app/messages/message-tools.css'],
-})
+    styles: [`.tools > div {
+        display: inline-block;
+    }`],
+    })
+
+
 
 export class MessageTools {
     @Input () message: Message;
@@ -16,10 +20,10 @@ export class MessageTools {
 
     @Output () deleted = new EventEmitter();
     @Output () added = new EventEmitter();
-    @Output () saveEvt = new EventEmitter();
+    @Output () saved = new EventEmitter();
 
-    add (){
-        this.added.emit(new Message(false, ""));
+    add (title: string){
+        this.added.emit(new Message({active:true,body:title}));
     }
 
     del () {
@@ -27,6 +31,6 @@ export class MessageTools {
     }
     
     save () {
-        this.saveEvt.emit(null);
+        this.saved.emit(null);
     }
 }

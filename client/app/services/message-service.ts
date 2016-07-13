@@ -5,15 +5,21 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
-import { IMessage, Message } from '../messages/message-model';
+import {Message, IMessage} from '../messages/message-model';
 import { Observable } from 'rxjs/Observable';
+
+interface IMsg {
+    msg: string;
+    active: boolean;
+}
+
 
 @Injectable()
 export class MessageService {
     constructor(private http:Http) {
     }
 
-    private messagesUrl = 'http://localhost/GitHub/tableblue-master/crawl/crawl.php';
+    private messagesUrl = '/api/messages/test/all';
 
     getMessages (): Observable<Message[]> {
         return this.http.get(this.messagesUrl)
@@ -21,22 +27,39 @@ export class MessageService {
             .catch(this.handleError);
     }
 
-    saveMessages (name: IMessage[]): Observable<Message[]> {
-        name.forEach (function (item:Message) {
-            item.msg = item.title;
+
+    saveMessages (msgs:Message[]): Observable<Message[]> {
+        var out:IMessage[] = [];
+        msgs.forEach(function(item:Message){
+            out.push({id:item.id,active:item.active,body:item.body})
         })
-        let body = JSON.stringify(name, ["msg", "active"]);
+        return this.http.post(this.messagesUrl,out)
+            .catch(this.handleError);
+    }
+    addMessage (name: Message): Observable<Message> {
+        let body = JSON.stringify({ name });
+      //  let headers = new Headers({ 'Content-Type': 'application/json' });
+       // let options = new RequestOptions({ headers: headers });
+
         return this.http.post(this.messagesUrl, body)
+            .map(this.parseOne)
             .catch(this.handleError);
     }
 
     private parse(res: Response) {
-        let body:IMessage [] = res.json();
-        let out:Message [] = [];
-        body.forEach (function (item:Message) {
-            out.push(new Message (item.active, item.msg))
-        });
+        let body:IMessage[] = res.json().data || [];
+
+        var out:Message[] = [];
+        body.forEach (function (item:IMessage) {
+            out.push(new Message(item))
+        })
+
         return out;
+    }
+
+    private parseOne(res: Response) {
+        let body = res.json();
+        return body.data || { };
     }
 
     private handleError (error: any) {

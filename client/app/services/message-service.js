@@ -18,28 +18,40 @@ var Observable_1 = require('rxjs/Observable');
 var MessageService = (function () {
     function MessageService(http) {
         this.http = http;
-        this.messagesUrl = 'http://localhost/GitHub/tableblue-master/crawl/crawl.php';
+        this.messagesUrl = '/api/messages/test/all';
     }
     MessageService.prototype.getMessages = function () {
         return this.http.get(this.messagesUrl)
             .map(this.parse)
             .catch(this.handleError);
     };
-    MessageService.prototype.saveMessages = function (name) {
-        name.forEach(function (item) {
-            item.msg = item.title;
+    MessageService.prototype.saveMessages = function (msgs) {
+        var out = [];
+        msgs.forEach(function (item) {
+            out.push({ id: item.id, active: item.active, body: item.body });
         });
-        var body = JSON.stringify(name, ["msg", "active"]);
+        return this.http.post(this.messagesUrl, out)
+            .catch(this.handleError);
+    };
+    MessageService.prototype.addMessage = function (name) {
+        var body = JSON.stringify({ name: name });
+        //  let headers = new Headers({ 'Content-Type': 'application/json' });
+        // let options = new RequestOptions({ headers: headers });
         return this.http.post(this.messagesUrl, body)
+            .map(this.parseOne)
             .catch(this.handleError);
     };
     MessageService.prototype.parse = function (res) {
-        var body = res.json();
+        var body = res.json().data || [];
         var out = [];
         body.forEach(function (item) {
-            out.push(new message_model_1.Message(item.active, item.msg));
+            out.push(new message_model_1.Message(item));
         });
         return out;
+    };
+    MessageService.prototype.parseOne = function (res) {
+        var body = res.json();
+        return body.data || {};
     };
     MessageService.prototype.handleError = function (error) {
         var errMsg = (error.message) ? error.message :

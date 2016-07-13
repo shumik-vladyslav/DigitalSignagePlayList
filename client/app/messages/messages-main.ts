@@ -1,23 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
+
 import { MessageService} from '../services/message-service';
 import { MessageTools } from './message-tools';
 import { MessageList } from './message-list';
-import { Message } from "./message-model";
-
-interface IMessage{
-    title: string;
-    active: boolean;
-    selected: boolean;
-    editable: boolean;
-}
+import {Message} from "./message-model";
 
 @Component({
     selector: 'div',
     template: `<div class ="panel panel-default">
                <div class="panel-heading">
-               <message-tools (added)="onMessageAdded($event)" (deleted)="onMessageDeleted()" (saveEvt)="saveMessages()"></message-tools>
+               <message-tools (added)="onMessageAdded($event)" (deleted)="onMessageDeleted()" (saved)="saveMessages()"></message-tools>
                </div>
                <div class="panel-body">
                <message-list [messages]="messages"></message-list>
@@ -29,7 +23,7 @@ interface IMessage{
 })
 export class MessagesMain implements OnInit {
     errorMessage: string;
-    messages: Message [];
+    messages:Message[];
 
     mode = 'Observable';
 
@@ -55,8 +49,10 @@ export class MessagesMain implements OnInit {
     saveMessages () {
         this.messageService.saveMessages(this.messages)
             .subscribe(
+                (res)=>{
+                    console.log(res);
+                },
                 error =>  this.errorMessage = <any>error);
-        if (!this.errorMessage) alert("Save successful");
     }
 
     onMessageAdded (message: Message) {

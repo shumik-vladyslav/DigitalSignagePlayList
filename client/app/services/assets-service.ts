@@ -39,6 +39,7 @@ export class AssetsService {
 
     private parse(res: Response) {
         let body: Asset [] = res.json();
+        //console.log(body)
         body.forEach (function (item: any) {
             item.img = item.large;
         });

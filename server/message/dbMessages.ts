@@ -3,7 +3,6 @@
 import Q = require('q');
 import {DBDriver} from "../db/dbDriver";
 import {IDBDriver} from "../db/dbDriver";
-import {IMessage} from "../../apidocs/messages_doc";
 
 
 export class DBMessages {
@@ -48,8 +47,8 @@ export class DBMessages {
     }
 
     updateContent(message: Message) {
-        var sql: string = 'UPDATE messages SET activ = ?, message = ?';
-        var data: any[] = [message.activ, message.message];
+        var sql: string = 'UPDATE messages SET activ = ?, message = ? WHERE id = ?';
+        var data: any[] = [message.activ, message.message, message.id];
 
         return this.db.updateOne(sql, data);
     }
@@ -62,7 +61,7 @@ export class DBMessages {
     }
 }
 
-export class Message implements IMessage {
+export class Message implements ISMessage {
 
     // public id: number;
     // public activ: boolean;
@@ -73,7 +72,12 @@ export class Message implements IMessage {
         public message: string,
         public id?: number
     ) {
-        // console.log('constructor Assets');
+        // console.log('constructor Asset');
     }
+}
 
+interface ISMessage {
+    activ: boolean,
+    message: string,
+    id?: number
 }

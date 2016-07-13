@@ -17,15 +17,21 @@ import {Message} from "./message-model";
                             <md-checkbox (change)="toggleChangeActive(message)" [checked]="message.active"></md-checkbox>
                         </td>
                         <td class="md-text-cell" attr.contenteditable = "{{ message.editable }}" (input)="inputChange(message, $event)" (click)="toggleEditable(message)">
-                            {{ message.title }}
+                            {{ message.body}}
                         </td>
                 </tr>
                 </tbody>
                 </md-data-table>
                 `,
-    styleUrls: ['app/messages/message-list.css'],
-    directives: [MdCheckbox]
-})
+    styles: [`
+    .selected {
+    background-color: khaki;
+    }
+    .selected{
+        background-color: #fbfff0;
+    }`],
+        directives: [MdCheckbox]
+    })
 
 export class MessageList {
     @Input () messages:Message[];

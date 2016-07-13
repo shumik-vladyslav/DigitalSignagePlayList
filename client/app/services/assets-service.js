@@ -41,6 +41,7 @@ var AssetsService = (function () {
     };
     AssetsService.prototype.parse = function (res) {
         var body = res.json();
+        //console.log(body)
         body.forEach(function (item) {
             item.img = item.large;
         });
