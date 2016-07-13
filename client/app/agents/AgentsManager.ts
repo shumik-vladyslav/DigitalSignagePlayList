@@ -12,11 +12,10 @@ import {HTTP_PROVIDERS, Http} from "@angular/http";
     <div class="panel panel-default">
       <div></div>
       <div class="panel-body">
-      <table-simple [thedata]="mydata" [header]="header"></table-simple>
-      </div>
-      
-    </div>
-      `,
+      <table-simple [thedata]="mydata" [theheader]="myheads"></table-simple>
+      </div>      
+    </div>      
+    `,
     directives: [TableComponent]
 })
 
@@ -24,8 +23,8 @@ import {HTTP_PROVIDERS, Http} from "@angular/http";
 export class AgentsManager{
     table:TableComponent
     myurl:string = '';
-    header:string ='Agents Header';
-   mydata:string[][];
+    title:string ='Agents Header';
+    mydata:string[][];
     private myheads:string[];
     constructor(private http:Http) {
         http.get("http://front-desk.ca/tableblue/agents/getagents.php")

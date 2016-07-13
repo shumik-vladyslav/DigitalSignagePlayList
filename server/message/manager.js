@@ -5,12 +5,34 @@ var dbMessages_1 = require("./dbMessages");
 var fs = require('fs');
 var router = express.Router();
 var mydb = new db.DBMessages();
-mydb.createNewTable();
+var onError = function (err, res) {
+    console.log('onError error\n', err);
+    res.json({ error: 'error', reason: err });
+    var str = "\r\n" + new Date().toLocaleString() + "\r\n";
+    str += JSON.stringify(err);
+    fs.appendFile(SERVER + 'error.log', str);
+};
+router.post('/test/all', function (req, res) {
+    fs.writeFile('server/data/messages.json', JSON.stringify(req.body), function (err) {
+        if (err)
+            onError(err, res);
+        else
+            res.json({ data: 'saved' });
+    });
+});
+router.get('/test/all', function (req, res) {
+    fs.readFile('server/data/messages.json', 'utf8', function (err, data) {
+        if (err)
+            onError(err, res);
+        else
+            res.json({ data: JSON.parse(data) });
+    });
+});
 router.get('/select/all', function (req, res) {
     var promise = mydb.selectAllContent();
     promise.then(function (result) {
         console.log(result);
-        res.json({ data: result });
+        res.json(result);
     }, function (err) {
         console.log(err);
         res.json(err);
@@ -19,16 +41,11 @@ router.get('/select/all', function (req, res) {
 router.get('/select/:id', function (req, res) {
     var promise = mydb.selectContentById(req.params.id);
     promise.then(function (result) {
-        if (result !== {}) {
-            console.log("res", result);
-            res.json({ data: result });
-        }
-        else {
-            onError(result, res);
-        }
+        console.log("res", result);
+        res.json({ data: result });
     }, function (err) {
         console.log(err);
-        onError(err, res);
+        res.json(err);
     });
 });
 router.post('/insert', function (req, res) {
@@ -41,7 +58,7 @@ router.post('/insert', function (req, res) {
         res.json(message);
     }, function (err) {
         console.log(err);
-        onError(err, res);
+        res.json(err);
     });
 });
 router.post('/update', function (req, res) {
@@ -68,7 +85,7 @@ router.post('/delete', function (req, res) {
     var promise = mydb.deleteContent(message);
     promise.then(function (result) {
         console.log(result);
-        res.json({ data: result });
+        res.json(result);
     }, function (err) {
         console.log(err);
         res.json(err);

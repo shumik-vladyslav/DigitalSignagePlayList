@@ -55,6 +55,21 @@ mydb.createNewTable();
  *     }
  */
 
+
+router.post('/test/all', function (req:express.Request, res:express.Response){
+    fs.writeFile('server/data/messages.json',JSON.stringify(req.body),function(err){
+        if(err)onError(err,res);
+        else res.json({data:'saved'});
+    })
+})
+
+router.get('/test/all', function (req:express.Request, res:express.Response){
+    fs.readFile('server/data/messages.json', 'utf8',function(err,data){
+        if(err)onError(err,res);
+        else res.json({data:JSON.parse(data)});
+    })
+})
+
 router.get('/select/all', function (req:express.Request, res:express.Response) {
     var promise = mydb.selectAllContent();
     promise.then(function (result) {

@@ -9,6 +9,8 @@
         '@angular':                   'node_modules/@angular',
         '@angular2-material':         'node_modules/@angular2-material',
         'ng2-material':         'node_modules/ng2-material',
+       // 'dragula': 'node_modules/dragula/dist/dragula.js',
+       // 'ng2-dragula': 'node_modules/ng2-dragula',
         'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
         'rxjs':                       'node_modules/rxjs'
     };
@@ -18,6 +20,7 @@
         'rxjs':                       { defaultExtension: 'js' },
         'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
         'ng2-material':         { main: 'index.js', defaultExtension: 'js' },
+        //'ng2-dragula':{ main: 'ng2-dragula.js', defaultExtension: 'js' }
     };
     var ngPackageNames = [
         'common',

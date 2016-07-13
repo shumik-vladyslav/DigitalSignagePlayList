@@ -19,7 +19,7 @@ var AgentsManager = (function () {
         var _this = this;
         this.http = http;
         this.myurl = '';
-        this.header = 'Agents Header';
+        this.title = 'Agents Header';
         http.get("http://front-desk.ca/tableblue/agents/getagents.php")
             .subscribe(function (data) {
             var head = [];
@@ -42,7 +42,7 @@ var AgentsManager = (function () {
     AgentsManager = __decorate([
         core_1.Component({
             selector: 'agents',
-            template: "\n    <h1 class=\"title\">Agents</h1>\n    <div class=\"panel panel-default\">\n      <div></div>\n      <div class=\"panel-body\">\n      <table-simple [thedata]=\"mydata\" [header]=\"header\"></table-simple>\n      </div>\n      \n    </div>\n      ",
+            template: "\n    <h1 class=\"title\">Agents</h1>\n    <div class=\"panel panel-default\">\n      <div></div>\n      <div class=\"panel-body\">\n      <table-simple [thedata]=\"mydata\" [theheader]=\"myheads\"></table-simple>\n      </div>      \n    </div>      \n    ",
             directives: [MyTable_1.TableComponent]
         }), 
         __metadata('design:paramtypes', [http_1.Http])

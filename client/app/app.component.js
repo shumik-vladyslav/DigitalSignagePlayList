@@ -10,6 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+require('./rxjs-operators');
+var messages_main_1 = require('./messages/messages-main');
+var assets_main_1 = require('./assets/assets-main');
+var MyTable_1 = require("./table/MyTable");
+var AgentsManager_1 = require("./agents/AgentsManager");
 var AppComponent = (function () {
     function AppComponent() {
     }
@@ -24,4 +29,12 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
+exports.AppRoutes = [
+    { path: '', redirectTo: '/dashboard/messages', terminal: true },
+    { path: 'dashboard/assets', component: assets_main_1.AssetsMain },
+    { path: 'dashboard/messages', component: messages_main_1.MessagesMain, useAsDefault: true },
+    // { path: 'dashboard/assets1', component: AssetsComponent },
+    { path: 'dashboard/table', component: MyTable_1.TableComponent },
+    { path: 'dashboard/agents', component: AgentsManager_1.AgentsManager }
+];
 //# sourceMappingURL=app.component.js.map

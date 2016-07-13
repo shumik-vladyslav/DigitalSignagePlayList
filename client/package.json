@@ -31,6 +31,7 @@
     "@angular2-material/input": "^2.0.0-alpha.5-2",
     "@angular2-material/list": "^2.0.0-alpha.5-2",
     "@angular2-material/core": "2.0.0-alpha.5-2",
+    "ng2-material": "*",
 
     "systemjs": "0.19.27",
 
@@ -44,7 +45,7 @@
     "bootstrap": "^3.3.6"
   },
   "devDependencies": {
-    "concurrently": "^2.0.0",
-    "lite-server": "^2.2.0"
+    "concurrently": "^2.0.0"
+
   }
 }
