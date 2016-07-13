@@ -7,28 +7,18 @@ import {Message} from "./dbMessages";
 
 declare var WWW:string;
 declare var SERVER:string;
+declare  var onError: (err:any, res: express.Response) => void;
 
 var fs = require('fs');
 
 const router = express.Router();
 var mydb: DBMessages = new db.DBMessages();
 
-// mydb.deleteTable();
-// mydb.createNewTable();
+// mytable.deleteTable();
+mydb.createNewTable();
 
-// var p = mydb.addNewColumn();
+// var p = mytable.addNewColumn();
 // console.log(p);
-
-
-var onError = function (err: any, res:express.Response) {
-    console.log('onError error\n', err);
-    res.json({error:'error', reason:err});
-
-    var str: string = "\r\n" + new Date().toLocaleString() + "\r\n";
-    str += JSON.stringify(err);
-
-    fs.appendFile(SERVER + 'error.log', str);
-};
 
 /**
  * @api {get} /api/messages/select/all Get All Messages
@@ -42,19 +32,20 @@ var onError = function (err: any, res:express.Response) {
  *     http://127.0.0.1:8888/api/messages/select/all
  *
  * @apiSuccessExample {json} Success-Response:
- *     HTTP/1.1 200 OK
- *   [
- *       {
- *           "id": 1,
- *           "activ": "true",
- *           "message": "some text"
- *       },
- *       {
- *           "id": 2,
- *           "activ": "false",
- *           "message": "some text"
- *       }
- *   ]
+ *     {
+ *         "data": [
+ *             {
+ *                 "id": 1,
+ *                 "activ": 1,
+ *                 "message": "some text"
+ *             },
+ *             {
+ *                 "id": 2,
+ *                 "activ": 0,
+ *                 "message": "some text"
+ *             }
+ *         ]
+ *      }
  *
  * @apiErrorExample Error-Response:
  *     HTTP/1.1 200 OK
@@ -83,7 +74,7 @@ router.get('/select/all', function (req:express.Request, res:express.Response) {
     var promise = mydb.selectAllContent();
     promise.then(function (result) {
         console.log(result);
-        res.json(result);
+        res.json({data:result});
         // sellect
     }, function (err) {
         console.log(err);
@@ -110,12 +101,13 @@ router.get('/select/all', function (req:express.Request, res:express.Response) {
  *     http://127.0.0.1:8888/api/messages/select/1
  *
  * @apiSuccessExample {json} Success-Response:
- *    HTTP/1.1 200 OK
- *    {
- *        "id": 1,
- *        "activ": "true",
- *        "message": "some text"
- *    }
+ *      {
+ *          "data": {
+ *              "id": 1,
+ *              "activ": "true",
+ *              "message": "some text"
+ *          }
+ *      }
  *
  * @apiErrorExample Error-Response:
  *     HTTP/1.1 200 OK
@@ -129,11 +121,18 @@ router.get('/select/:id', function (req:express.Request, res:express.Response) {
     var promise = mydb.selectContentById(req.params.id);
     // res.json(req.params);
     promise.then(function (result) {
-        console.log("res", result);
-        res.json({data:result});
+        if(result !== {}) {
+            console.log("res", result);
+            res.json({data:result});
+        } else {
+            onError(result, res);
+        }
+
+        // res.json({data:result});
     }, function (err) {
         console.log(err);
-        res.json(err);
+        onError(err, res);
+        // res.json(err);
     });
 });
 
@@ -186,7 +185,8 @@ router.post('/insert', function (req:express.Request, res:express.Response) {
         res.json(message);
     }, function (err) {
         console.log(err);
-        res.json(err);
+        onError(err, res);
+        // res.json(err);
     });
 });
 
@@ -215,9 +215,9 @@ router.post('/insert', function (req:express.Request, res:express.Response) {
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
- *       "activ": "true"
- *       "message": "some text"
- *       "id": 1
+ *       "data": {
+ *         "changes": 1
+ *       }
  *     }
  *
  * @apiErrorExample Error-Response:
@@ -257,7 +257,7 @@ router.post('/delete', function (req:express.Request, res:express.Response) {
     var promise = mydb.deleteContent(message);
     promise.then(function (result) {
         console.log(result);
-        res.json(result);
+        res.json({data:result});
         // sellect
     }, function (err) {
         console.log(err);

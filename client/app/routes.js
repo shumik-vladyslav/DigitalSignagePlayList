@@ -11,7 +11,7 @@ exports.AppRoutes = [
     { path: '', redirectTo: '/dashboard', terminal: true },
     { path: 'dashboard/messages', component: messages_1.MessagesComponent, useAsDefault: true },
     { path: 'dashboard/assets', component: assets_1.AssetsComponent },
-    { path: 'dashboard/table', component: MyTable_1.TableComponent },
+    { path: 'dashboard/mytable', component: MyTable_1.TableComponent },
     { path: 'dashboard/agents', component: AgentsManager_1.AgentsManager },
     { path: 'dashboard', component: DataTableBasicUsageComponent_1.DataTableBasicUsageComponent }
 ];

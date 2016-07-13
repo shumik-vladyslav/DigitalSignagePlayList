@@ -1,21 +1,17 @@
 "use strict";
 var express = require('express');
-var db = require("./dbAssets");
-var dbAssets_1 = require("./dbAssets");
+var AssetRow_1 = require("./AssetRow");
 var fileProcessing_1 = require("./fileProcessing");
 var ImageProcess_1 = require("./ImageProcess");
+var TableModel_1 = require("../db/TableModel");
 var router = express.Router();
-var mydb = new db.DBAssets();
+var mytable = new TableModel_1.TableModel("assets", AssetRow_1.Asset.getInit());
 var fs = require('fs');
-var IUplResult = (function () {
-    function IUplResult() {
+var multer = require("multer");
+var SUplResult = (function () {
+    function SUplResult() {
     }
-    return IUplResult;
-}());
-var IError = (function () {
-    function IError() {
-    }
-    return IError;
+    return SUplResult;
 }());
 var ISResult = (function () {
     function ISResult(data) {
@@ -32,7 +28,7 @@ router.post('/upload', function (req, res) {
     var ip = new ImageProcess_1.ImageProcess();
     var makeAsset = function () {
         var lenWWW = WWW.length;
-        var asset = new dbAssets_1.Assets();
+        var asset = new AssetRow_1.Asset({});
         asset.originalName = fp.fileReq.originalname;
         asset.mime = fp.fileReq.mimetype;
         asset.size = fp.fileReq.size;
@@ -46,15 +42,70 @@ router.post('/upload', function (req, res) {
     };
     var insertInDB = function () {
         var a = makeAsset();
-        var promise = mydb.insertContent(a);
+        var promise = mytable.insertContent(a);
         promise.then(function (result) {
-            var out = new IUplResult();
+            console.log('insertInDB done');
+            var out = new SUplResult();
             out.insertId = result.id;
             out.thumbPath = a.thumb;
             out.imagePath = a.path;
+            res.json({ data: out });
             onSuccess(out, res);
         }, function (err) {
-            console.log(err);
+            fp.deleteFile(fp.newPathThumb, fp.newOriginaImagelPath);
+            onError(err, res);
+        });
+    };
+    var processImage = function () {
+        var details = fp.fileReq;
+        ip.makeThumbnail(details.path, details.filename).then(function (thumbnailPath) {
+            console.log('ip.makeThumbnail done ');
+            fp.moveFile(thumbnailPath, details.path, details.filename).then(function (result) {
+                console.log('fp.moveFile done');
+                insertInDB();
+            }, function (err) {
+                onError(err, res);
+            });
+        });
+    };
+    fp.uploadImage(req, res).then(function (result) {
+        console.log('result uploadImage done\n');
+        processImage();
+    }, function (error) {
+        onError(error, res);
+    });
+});
+router.post('/uploads', function (req, res) {
+    var upload = multer({ dest: 'uploads/' });
+    var cpUpload = upload.fields([{ name: 'avatar', maxCount: 1 }, { name: 'gallery', maxCount: 10 }]);
+    return;
+    var fp = new fileProcessing_1.FileProcessing();
+    var ip = new ImageProcess_1.ImageProcess();
+    var makeAsset = function () {
+        var lenWWW = WWW.length;
+        var asset = new AssetRow_1.Asset({});
+        asset.originalName = fp.fileReq.originalname;
+        asset.mime = fp.fileReq.mimetype;
+        asset.size = fp.fileReq.size;
+        asset.width = ip.widthImage;
+        asset.height = ip.heightImage;
+        asset.thumb = fp.newPathThumb;
+        asset.path = fp.newOriginaImagelPath;
+        asset.thumb = asset.thumb.substr(lenWWW);
+        asset.path = asset.path.substr(lenWWW);
+        return asset;
+    };
+    var insertInDB = function () {
+        var a = makeAsset();
+        var promise = mytable.insertContent(a);
+        promise.then(function (result) {
+            var out = new SUplResult();
+            out.insertId = result.id;
+            out.thumbPath = a.thumb;
+            out.imagePath = a.path;
+            res.json({ data: out });
+            onSuccess(out, res);
+        }, function (err) {
             fp.deleteFile(fp.newPathThumb, fp.newOriginaImagelPath);
             onError(err, res);
         });
@@ -69,11 +120,6 @@ router.post('/upload', function (req, res) {
             });
         });
     };
-    fp.startProces(req, res).then(function (result) {
-        processImage();
-    }, function (error) {
-        onError(error, res);
-    });
 });
 module.exports = router;
 //# sourceMappingURL=manager.js.map

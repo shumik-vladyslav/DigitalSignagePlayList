@@ -22,7 +22,7 @@ GLOBAL.ROOT = __dirname;
 GLOBAL.WWW = path.resolve(ROOT + '/client/');
 GLOBAL.SERVER = path.resolve(ROOT + '/server/');
 
-var onError = function (err: any, res:express.Response) {
+GLOBAL.onError = function (err: any, res:express.Response) {
     console.log('onError error\n', err);
     //TODO Remove reason in production
     res.json({error:'error', reason:err});
@@ -30,7 +30,7 @@ var onError = function (err: any, res:express.Response) {
     var str: string = "\r\n" + new Date().toLocaleString() + "\r\n";
     str += JSON.stringify(err);
 
-    fs.appendFile(SERVER + 'error.log', str);
+    fs.appendFile(SERVER + '/error.log', str);
 };
 
 //////////   Types  only/////////////

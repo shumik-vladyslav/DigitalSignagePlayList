@@ -5,6 +5,7 @@
 import Q = require('q');
 import * as express from 'express';
 import multer = require("multer");
+import Multer = require("multer");
 declare var WWW:string;
 declare var SERVER:string;
 
@@ -26,6 +27,8 @@ export class FileProcessing {
     multer = require('multer');
 
     fileReq: IFileReq;
+    // filesReq: Array<IFileReq>;
+    filesReq: IFileReq[];
 
     private pathDestC:string;
 
@@ -50,7 +53,8 @@ export class FileProcessing {
         });
     }
 
-    startProces(req:express.Request, res:express.Response): Q.Promise<any> {
+    // startProces(req:express.Request, res:express.Response): Q.Promise<any> {
+    uploadImage(req:express.Request, res:express.Response): Q.Promise<any> {
         var deferred: Q.Deferred<any> = Q.defer();
         this.deffered = deferred;
 
@@ -73,6 +77,42 @@ export class FileProcessing {
 
                 // console.log(req.file);
                 //console.log('fileReq ', this.fileReq);
+
+                this.onFileUploaded();
+                deferred.resolve(this.fileReq);
+            }
+        });
+
+        return deferred.promise;
+    }
+
+    uploadImages(req:express.Request, res:express.Response): Q.Promise<any> {
+        var deferred: Q.Deferred<any> = Q.defer();
+        this.deffered = deferred;
+
+        // console.log('req', req);
+
+        var storage = this.multer.diskStorage({
+            destination: function (req, file, callback) {
+                callback(null, SERVER + '/uploads/' + file.fieldname);
+            },
+            filename: function (req, file, callback) {
+                callback(null, '_' + Date.now() + '_' + file.originalname);
+            }
+        });
+
+        var upload:express.RequestHandler = multer({ storage : storage}).array('userImages',2);
+
+        upload(req, res, (err)=> {
+            if(err) {
+                deferred.reject(err);
+            } else {
+                this.filesReq = <any> req.files;
+
+                // console.log(req.file);
+                // console.log('fileReq ', this.fileReq);
+                console.log('req.files\n', req.files);
+
 
                 this.onFileUploaded();
                 deferred.resolve(this.fileReq);

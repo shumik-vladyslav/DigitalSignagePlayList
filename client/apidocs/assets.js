@@ -21,7 +21,7 @@ var Messages = (function () {
         this.activ = activ;
         this.message = message;
         this.id = id;
-        // console.log('constructor Assets');
+        // console.log('constructor Asset');
     }
     return Messages;
 }());
