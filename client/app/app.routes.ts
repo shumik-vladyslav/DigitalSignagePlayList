@@ -7,10 +7,10 @@ import { provideRouter, RouterConfig } from '@angular/router';
 
 import { MessagesMain } from './messages/messages-main';
 import { AssetsMain } from './assets/assets-main';
-import { AssetsComponent } from './assets/assets';
 import { TableComponent } from './table/MyTable';
 import { AgentsManager } from './agents/AgentsManager';
-import { DragulaAppApp } from "./test/DragulaApp";
+
+import { UploadFiles } from "./assets/UploadFiles";
 import { contentmanagerRoutes } from './contentmanager/contentmanager.route';
 import { addRoutes } from "./add/add.routes";
 
@@ -19,11 +19,10 @@ export const routes: RouterConfig = [
     ...addRoutes,
     { path: '', component: MessagesMain },
     { path: 'dashboard/assets', component: AssetsMain },
+    { path: 'dashboard/assets/upload', component:UploadFiles},
     { path: 'dashboard/messages', component: MessagesMain},
-    { path: 'dashboard/assets1', component: AssetsComponent },
     { path: 'dashboard/table', component:TableComponent },
     { path: 'dashboard/agents', component:AgentsManager },
-    { path: 'dashboard/dragula', component:DragulaAppApp},
     { path: '**', redirectTo: '/dashboard/messages' }
 ]
 
