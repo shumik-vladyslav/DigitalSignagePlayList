@@ -25,7 +25,7 @@ var UploadFiles = (function () {
     }
     UploadFiles.prototype.handleUpload = function (data) {
         var _this = this;
-        console.log(data);
+        // console.log(data);
         var id = data.id;
         var index = this.findIndex(id);
         if (index === -1) {

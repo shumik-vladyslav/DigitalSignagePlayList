@@ -55,7 +55,7 @@ export class UploadFiles {
     }
 
     handleUpload(data:any): void {
-        console.log(data);
+       // console.log(data);
         let id = data.id;
         let index = this.findIndex(id);
         if (index === -1) {

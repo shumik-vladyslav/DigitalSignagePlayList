@@ -8,12 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+/**
+ * Created by Vlad on 7/5/2016.
+ */
 var core_1 = require('@angular/core');
 var http_1 = require("@angular/http");
 var TableObject = (function () {
     function TableObject(http) {
         this.http = http;
         this.title = 'Data ';
+        // private data:string[][];
         this.heads = [];
     }
     TableObject.prototype.onClick = function (row) {

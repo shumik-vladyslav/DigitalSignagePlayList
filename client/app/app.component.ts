@@ -25,7 +25,6 @@ import {UploadFiles} from "./assets/UploadFiles";
 })
 
 export class AppComponent {
-
     
     
 }

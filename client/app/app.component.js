@@ -35,6 +35,7 @@ exports.AppRoutes = [
     { path: 'dashboard/assets', component: assets_main_1.AssetsMain },
     { path: 'dashboard/assets/upload', component: UploadFiles_1.UploadFiles },
     { path: 'dashboard/messages', component: messages_main_1.MessagesMain, useAsDefault: true },
+    // { path: 'dashboard/assets1', component: AssetsComponent },
     { path: 'dashboard/table', component: MyTable_1.TableComponent },
     { path: 'dashboard/agents', component: AgentsManager_1.AgentsManager }
 ];
