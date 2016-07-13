@@ -1,3 +1,21 @@
 
 2016-07-13 00:00:23
 {"errno":1,"code":"SQLITE_ERROR"}
+7/12/2016, 9:34:43 PM
+{"code":"LIMIT_UNEXPECTED_FILE","field":"file","storageErrors":[]}
+7/12/2016, 9:34:43 PM
+{"code":"LIMIT_UNEXPECTED_FILE","field":"file","storageErrors":[]}
+7/12/2016, 9:34:43 PM
+{"code":"LIMIT_UNEXPECTED_FILE","field":"file","storageErrors":[]}
+7/12/2016, 9:34:43 PM
+{"code":"LIMIT_UNEXPECTED_FILE","field":"file","storageErrors":[]}
+7/12/2016, 9:34:43 PM
+{"code":"LIMIT_UNEXPECTED_FILE","field":"file","storageErrors":[]}
+7/12/2016, 9:34:43 PM
+{"code":"LIMIT_UNEXPECTED_FILE","field":"file","storageErrors":[]}
+7/12/2016, 9:34:43 PM
+{"code":"LIMIT_UNEXPECTED_FILE","field":"file","storageErrors":[]}
+7/12/2016, 9:36:09 PM
+{"code":"LIMIT_UNEXPECTED_FILE","field":"file","storageErrors":[]}
+7/12/2016, 9:38:00 PM
+{"errno":-4058,"code":"ENOENT","syscall":"open","path":"C:\\wamp\\www\\GitHub\\DigitalSignage\\server\\uploads\\file\\_1468373880403_Layout 1.jpg","storageErrors":[]}

@@ -67,7 +67,7 @@ export class FileProcessing {
             }
         });
 
-        var upload:express.RequestHandler = multer({ storage : storage}).single('userImages');
+        var upload:express.RequestHandler = multer({ storage : storage}).single('file');
 
         upload(req,res, (err)=> {
             if(err) {

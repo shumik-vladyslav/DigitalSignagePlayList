@@ -178,9 +178,28 @@ router.post('/uploads', function(req:express.Request,res:express.Response) {
     // console.log(req.files);
     // res.send(req.body);
     // return;
-    var upload = multer({ dest: 'uploads/' });
-    var cpUpload = upload.fields([{ name: 'avatar', maxCount: 1 }, { name: 'gallery', maxCount: 10 }]);
 
+    var storage = multer.diskStorage({
+        destination: function (req, file, callback) {
+            callback(null, SERVER + '/uploads/temp');
+        },
+        filename: function (req, file, callback) {
+            callback(null, '_' + Date.now() + '_' + file.originalname);
+        }
+    });
+
+    var upload:express.RequestHandler = multer({ storage : storage}).array('file',10);
+
+    upload(req, res, function (err){
+        if(err) {
+
+            res.json(err);
+        } else {
+          console.log(req.files);
+            console.log(this);
+            res.json(req.files);
+        }
+    });
 
 
     return;

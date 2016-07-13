@@ -7,6 +7,7 @@ import { AssetsMain } from './assets/assets-main';
 
 import {TableComponent} from "./table/MyTable";
 import {AgentsManager} from "./agents/AgentsManager";
+import {UploadFiles} from "./assets/UploadFiles";
 
 
 @Component({
@@ -32,11 +33,13 @@ export class AppComponent {
 export const AppRoutes = [
     { path: '', redirectTo: '/dashboard/messages', terminal: true },
     { path: 'dashboard/assets', component: AssetsMain },
+    { path: 'dashboard/assets/upload', component:UploadFiles},
+    
     { path: 'dashboard/messages', component: MessagesMain, useAsDefault: true},
    // { path: 'dashboard/assets1', component: AssetsComponent },
     { path: 'dashboard/table', component:TableComponent },
     { path: 'dashboard/agents', component:AgentsManager }
-   // { path: 'dashboard/dragula', component:DragulaAppApp}
+    
 ]
 
 
