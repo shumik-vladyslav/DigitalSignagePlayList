@@ -1,3 +1,6 @@
+/**
+ * Created by Dmitriy Prilutsky on 13.07.2016.
+ */
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,19 +13,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-require('./rxjs-operators');
-var AppComponent = (function () {
-    function AppComponent() {
+var AddContent = (function () {
+    function AddContent() {
     }
-    AppComponent = __decorate([
+    AddContent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "\n    <h1 class=\"title\">Dashboard</h1>\n    <nav>\n      <a [routerLink]=\"['/dashboard/messages']\" class=\"btn\"><span class=\"fa fa-messages\"></span> Messages Marquee</a>\n      <a [routerLink]=\"['/dashboard/table']\" class=\"btn\"><span class=\"fa fa-calculator\"></span> Table</a>\n      <a [routerLink]=\"['/dashboard/assets']\" class=\"btn\"><span class=\"fa fa-picture-o\"></span> Assets</a>\n      <a [routerLink]=\"['/dashboard/content-manager']\" class=\"btn\"><span class=\"fa fa-messages\"></span> Content Manager</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
+            selector: 'add-content',
+            template: "\n        <h1>Add-content</h1>\n        <nav>\n            <a [routerLink]=\"['/dashboard/content-manager/add/files']\" class=\"btn\"><span class=\"fa fa-messages\"></span> File</a>\n            <a [routerLink]=\"['/dashboard/content-manager/add/rss']\" class=\"btn\"><span class=\"fa fa-messages\"></span> RSS</a>\n            <a [routerLink]=\"['/dashboard/content-manager/add/web-content']\" class=\"btn\"><span class=\"fa fa-messages\"></span> URL</a>\n        </nav>\n        <router-outlet></router-outlet>\n  ",
             directives: [router_1.ROUTER_DIRECTIVES]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], AddContent);
+    return AddContent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.AddContent = AddContent;
+//# sourceMappingURL=add-content.js.map

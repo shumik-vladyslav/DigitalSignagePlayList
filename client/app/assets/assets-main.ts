@@ -26,7 +26,7 @@ import { AssetsService, Asset } from '../services/assets-service';
                             </md-card>
                          </div>
                      </md-content>
-                     <div class ="modal" *ngIf="fullItem"> 
+                     <div class="full-image" *ngIf="fullItem"> 
                          <img src=" {{ fullItem.img }} " width="200" (click)="hideFullImage()">
                      </div>
                </div>

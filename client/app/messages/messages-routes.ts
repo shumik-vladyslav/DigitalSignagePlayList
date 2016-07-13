@@ -3,11 +3,11 @@
  */
 import { RouterConfig } from '@angular/router';
 
-import { MessagesComponent } from './messages';
+import { MessagesMain } from './messages-main';
 
 export const MessagesRoutes: RouterConfig = [
     {
         path: '',
-        component: MessagesComponent
+        component: MessagesMain
     }
 ];

@@ -1,0 +1,27 @@
+/**
+ * Created by Dmitriy Prilutsky on 13.07.2016.
+ */
+"use strict";
+var router_1 = require('@angular/router');
+var messages_main_1 = require('./messages/messages-main');
+var assets_main_1 = require('./assets/assets-main');
+var assets_1 = require('./assets/assets');
+var MyTable_1 = require('./table/MyTable');
+var AgentsManager_1 = require('./agents/AgentsManager');
+var DragulaApp_1 = require("./test/DragulaApp");
+var contentmanager_route_1 = require('./contentmanager/contentmanager.route');
+var add_routes_1 = require("./add/add.routes");
+exports.routes = contentmanager_route_1.contentmanagerRoutes.concat(add_routes_1.addRoutes, [
+    { path: '', component: messages_main_1.MessagesMain },
+    { path: 'dashboard/assets', component: assets_main_1.AssetsMain },
+    { path: 'dashboard/messages', component: messages_main_1.MessagesMain },
+    { path: 'dashboard/assets1', component: assets_1.AssetsComponent },
+    { path: 'dashboard/table', component: MyTable_1.TableComponent },
+    { path: 'dashboard/agents', component: AgentsManager_1.AgentsManager },
+    { path: 'dashboard/dragula', component: DragulaApp_1.DragulaAppApp },
+    { path: '**', redirectTo: '/dashboard/messages' }
+]);
+exports.appRouterProviders = [
+    router_1.provideRouter(exports.routes)
+];
+//# sourceMappingURL=app.routes.js.map

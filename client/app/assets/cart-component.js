@@ -1,5 +1,5 @@
 /**
- * Created by Администратор on 08.07.2016.
+ * Created by Dmitriy Prilutsky on 08.07.2016.
  */
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {

@@ -1,5 +1,5 @@
 /**
- * Created by Администратор on 08.07.2016.
+ * Created by Dmitriy Prilutsky on 08.07.2016.
  */
 
 import { Directive, OnInit, ElementRef, Output, EventEmitter } from '@angular/core';

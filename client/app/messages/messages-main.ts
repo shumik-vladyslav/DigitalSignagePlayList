@@ -4,7 +4,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 import { MessageService} from '../services/message-service';
 import { MessageTools } from './message-tools';
 import { MessageList } from './message-list';
-import {Message} from "./message-model";
+import { Message } from "./message-model";
 
 interface IMessage{
     title: string;
