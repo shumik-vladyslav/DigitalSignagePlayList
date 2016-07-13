@@ -8,7 +8,7 @@ var rss_content_1 = require('../rss/rss-content');
 var web_content_1 = require('../web/web-content');
 exports.addRoutes = [
     {
-        path: 'dashboard/content-manager/add',
+        path: 'dashboard/content-manager',
         component: add_content_1.AddContent,
         children: [
             { path: 'files', component: file_content_1.FileContent },

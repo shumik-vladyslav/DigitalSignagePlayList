@@ -31,6 +31,7 @@
     "@angular2-material/input": "^2.0.0-alpha.5-2",
     "@angular2-material/list": "^2.0.0-alpha.5-2",
     "@angular2-material/core": "2.0.0-alpha.5-2",
+    "@angular2-material/tabs": "2.0.0-alpha.5-2",
     "ng2-material": "*",
     "systemjs": "0.19.27",
     "core-js": "^2.4.0",

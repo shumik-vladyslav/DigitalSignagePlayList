@@ -9,6 +9,7 @@ export class Message implements IMessage{
     selected: boolean = false;
     editable: boolean = false;
     body:string;
+    title:string;
     id:number;
     static count:number = 1;
     constructor (obj:IMessage) {

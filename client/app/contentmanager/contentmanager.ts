@@ -10,7 +10,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
     template: `
         <h1>Content-manager</h1>
         <nav>
-            <a [routerLink]="['/dashboard/content-manager/add']" class="btn"><span class="fa fa-messages"></span> Add</a>
+            <a [routerLink]="['/dashboard/content-manager/files']" class="btn"><span class="fa fa-messages"></span> Add</a>
         </nav>
         <router-outlet></router-outlet>
   `,

@@ -17,7 +17,6 @@ exports.routes = contentmanager_route_1.contentmanagerRoutes.concat(add_routes_1
     { path: 'dashboard/messages', component: messages_main_1.MessagesMain },
     { path: 'dashboard/table', component: MyTable_1.TableComponent },
     { path: 'dashboard/agents', component: AgentsManager_1.AgentsManager },
-    { path: '**', redirectTo: '/dashboard/messages' }
 ]);
 exports.appRouterProviders = [
     router_1.provideRouter(exports.routes)

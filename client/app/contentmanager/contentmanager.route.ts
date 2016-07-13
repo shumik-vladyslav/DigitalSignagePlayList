@@ -9,7 +9,6 @@ import { ContentManager } from './contentmanager';
 
 
 export const contentmanagerRoutes: RouterConfig = [
-    { path: 'dashboard/content-manager', component:ContentManager },
-    { path: 'dashboard/content-manager/add', component: AddContent }
+    { path: 'dashboard/content-manager', component:ContentManager}
 ];
 

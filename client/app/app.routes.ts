@@ -23,7 +23,7 @@ export const routes: RouterConfig = [
     { path: 'dashboard/messages', component: MessagesMain},
     { path: 'dashboard/table', component:TableComponent },
     { path: 'dashboard/agents', component:AgentsManager },
-    { path: '**', redirectTo: '/dashboard/messages' }
+    /*{ path: '**', redirectTo: '/dashboard/messages' }*/
 ]
 
 

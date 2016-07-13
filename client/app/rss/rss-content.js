@@ -12,21 +12,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
 var RssContent = (function () {
-    function RssContent(router) {
-        this.router = router;
+    function RssContent() {
+        this.goback = new core_1.EventEmitter();
     }
-    RssContent.prototype.goBack = function () {
-        var link = ['/dashboard/content-manager'];
-        this.router.navigate(link);
+    RssContent.prototype.back = function () {
+        this.goback.emit(null);
     };
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], RssContent.prototype, "goback", void 0);
     RssContent = __decorate([
         core_1.Component({
             selector: 'rss-content',
-            template: "\n        <h1>RSS</h1>\n        <form>\n          <div class=\"form-group\">\n            <label for=\"UrlOfRSS\">URL</label>\n            <input type=\"text\" class=\"form-control\" id=\"UrlOfRSS\" placeholder=\"Enter Url of RSS\">\n          </div>\n          <button type=\"submit\" class=\"btn btn-default\">Save</button>\n          <button type=\"button\" class=\"btn btn-default\" (click)=\"goBack()\">Close</button>\n        </form>\n  ",
+            template: "\n        <form>\n          <div class=\"form-group\">\n            <label for=\"UrlOfRSS\">URL</label>\n            <input type=\"text\" class=\"form-control\" id=\"UrlOfRSS\" placeholder=\"Enter Url of RSS\">\n          </div>\n          <button type=\"submit\" class=\"btn btn-default\">Save</button>\n          <button type=\"button\" class=\"btn btn-default\" (click)=\"back()\">Close</button>\n        </form>\n  ",
         }), 
-        __metadata('design:paramtypes', [router_1.Router])
+        __metadata('design:paramtypes', [])
     ], RssContent);
     return RssContent;
 }());
