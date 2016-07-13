@@ -7,19 +7,39 @@ import {UPLOAD_DIRECTIVES} from 'ng2-uploader/ng2-uploader';
 
 @Component({
     selector: 'multiple-progressbar',
-    templateUrl: 'app/assets/multiple-progressbar.html',
+    template:`
+        <div>
+            <label for="files-pb" class="ui small black button right icon upload-button">
+                <i class="ion-document-text icon"></i>
+                Choose files
+            </label>
+            <input type="file"
+                   id="files-pb"
+                   style="display:none;"
+                   [ng-file-select]="options"
+                   name="userImages"
+                   (onUpload)="handleUpload($event)"
+                   multiple>
+        </div>
+        <div class="ui divider"></div>
+        <div *ngFor="let progressObj of uploadProgresses">
+            <div>{{progressObj.originalName}}</div>
+            <div class="ui indicating olive progress">
+                <div class="bar" [style.width]="progressObj.percent + '%'"></div>
+                <div class="label">Uploading file ({{ progressObj.percent }}%)</div>
+            </div>
+        </div>
+        `,
    directives: [UPLOAD_DIRECTIVES],
     styles:[`
-.olive{
-background-color: olive;
-}
-.bar{
-height: 30px;
-background-color: red;
-}
-`]
-
-
+            .olive{
+                background-color: olive;
+             }
+             .bar{
+                height: 30px;
+                background-color: red;
+             }
+    `]
 })
 
 export class UploadFiles {

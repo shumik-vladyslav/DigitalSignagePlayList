@@ -43,9 +43,9 @@ var UploadFiles = (function () {
     UploadFiles = __decorate([
         core_1.Component({
             selector: 'multiple-progressbar',
-            templateUrl: 'app/assets/multiple-progressbar.html',
+            template: "\n        <div>\n            <label for=\"files-pb\" class=\"ui small black button right icon upload-button\">\n                <i class=\"ion-document-text icon\"></i>\n                Choose files\n            </label>\n            <input type=\"file\"\n                   id=\"files-pb\"\n                   style=\"display:none;\"\n                   [ng-file-select]=\"options\"\n                   name=\"userImages\"\n                   (onUpload)=\"handleUpload($event)\"\n                   multiple>\n        </div>\n        <div class=\"ui divider\"></div>\n        <div *ngFor=\"let progressObj of uploadProgresses\">\n            <div>{{progressObj.originalName}}</div>\n            <div class=\"ui indicating olive progress\">\n                <div class=\"bar\" [style.width]=\"progressObj.percent + '%'\"></div>\n                <div class=\"label\">Uploading file ({{ progressObj.percent }}%)</div>\n            </div>\n        </div>\n        ",
             directives: [ng2_uploader_1.UPLOAD_DIRECTIVES],
-            styles: ["\n.olive{\nbackground-color: olive;\n}\n.bar{\nheight: 30px;\nbackground-color: red;\n}\n"]
+            styles: ["\n            .olive{\n                background-color: olive;\n             }\n             .bar{\n                height: 30px;\n                background-color: red;\n             }\n    "]
         }), 
         __metadata('design:paramtypes', [core_1.NgZone])
     ], UploadFiles);
