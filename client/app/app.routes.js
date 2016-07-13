@@ -14,6 +14,7 @@ exports.routes = contentmanager_route_1.contentmanagerRoutes.concat(add_routes_1
     { path: '', component: messages_main_1.MessagesMain },
     { path: 'dashboard/assets', component: assets_main_1.AssetsMain },
     { path: 'dashboard/assets/upload', component: UploadFiles_1.UploadFiles },
+    { path: 'dashboard/files/upload', component: UploadFiles_1.UploadFiles },
     { path: 'dashboard/messages', component: messages_main_1.MessagesMain },
     { path: 'dashboard/table', component: MyTable_1.TableComponent },
     { path: 'dashboard/agents', component: AgentsManager_1.AgentsManager },

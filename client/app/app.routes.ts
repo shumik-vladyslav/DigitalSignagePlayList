@@ -20,6 +20,7 @@ export const routes: RouterConfig = [
     { path: '', component: MessagesMain },
     { path: 'dashboard/assets', component: AssetsMain },
     { path: 'dashboard/assets/upload', component:UploadFiles},
+    { path: 'dashboard/files/upload', component:UploadFiles},
     { path: 'dashboard/messages', component: MessagesMain},
     { path: 'dashboard/table', component:TableComponent },
     { path: 'dashboard/agents', component:AgentsManager },

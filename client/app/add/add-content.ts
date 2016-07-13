@@ -3,11 +3,8 @@
  */
 
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { MD_TABS_DIRECTIVES } from '@angular2-material/tabs';
 import { ROUTER_DIRECTIVES } from '@angular/router';
-
-import { RssContent } from '../rss/rss-content';
 
 @Component({
     selector: 'add-content',
@@ -38,12 +35,5 @@ import { RssContent } from '../rss/rss-content';
 })
 
 export class AddContent {
-    constructor(
-        private router: Router) {
-    }
 
-    goBack() {
-        let link = ['/dashboard/content-manager'];
-        this.router.navigate(link);
-    }
 }
