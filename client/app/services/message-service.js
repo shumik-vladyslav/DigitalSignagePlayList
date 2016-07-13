@@ -1,6 +1,3 @@
-/**
- * Created by Dmitriy Prilutsky on 05.07.2016.
- */
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -35,8 +32,6 @@ var MessageService = (function () {
     };
     MessageService.prototype.addMessage = function (name) {
         var body = JSON.stringify({ name: name });
-        //  let headers = new Headers({ 'Content-Type': 'application/json' });
-        // let options = new RequestOptions({ headers: headers });
         return this.http.post(this.messagesUrl, body)
             .map(this.parseOne)
             .catch(this.handleError);

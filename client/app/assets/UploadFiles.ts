@@ -8,7 +8,7 @@ import {UPLOAD_DIRECTIVES} from 'ng2-uploader/ng2-uploader';
 @Component({
     selector: 'multiple-progressbar',
     templateUrl: 'app/assets/multiple-progressbar.html',
-    directives: [UPLOAD_DIRECTIVES],
+   directives: [UPLOAD_DIRECTIVES],
     styles:[`
 .olive{
 background-color: olive;
@@ -25,13 +25,13 @@ background-color: red;
 export class UploadFiles {
     uploadFiles: any[];
     uploadProgresses: any[] = [];
-    zone: NgZone;
+   // zone: NgZone;
     options: Object = {
         url: 'http://localhost:8888/api/assets/upload'
     };
 
-    constructor() {
-        this.zone = new NgZone({ enableLongStackTrace: false });
+    constructor(private zone:NgZone) {
+       // this.zone = new NgZone({ enableLongStackTrace: false });
     }
 
     handleUpload(data:any): void {

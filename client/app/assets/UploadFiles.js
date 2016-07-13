@@ -14,12 +14,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var ng2_uploader_1 = require('ng2-uploader/ng2-uploader');
 var UploadFiles = (function () {
-    function UploadFiles() {
+    function UploadFiles(zone) {
+        this.zone = zone;
         this.uploadProgresses = [];
+        // zone: NgZone;
         this.options = {
             url: 'http://localhost:8888/api/assets/upload'
         };
-        this.zone = new core_1.NgZone({ enableLongStackTrace: false });
+        // this.zone = new NgZone({ enableLongStackTrace: false });
     }
     UploadFiles.prototype.handleUpload = function (data) {
         var _this = this;
@@ -45,7 +47,7 @@ var UploadFiles = (function () {
             directives: [ng2_uploader_1.UPLOAD_DIRECTIVES],
             styles: ["\n.olive{\nbackground-color: olive;\n}\n.bar{\nheight: 30px;\nbackground-color: red;\n}\n"]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [core_1.NgZone])
     ], UploadFiles);
     return UploadFiles;
 }());
