@@ -7,6 +7,7 @@ var TableModel_1 = require("../db/TableModel");
 var router = express.Router();
 var mytable = new TableModel_1.TableModel("assets", AssetRow_1.Asset.getInit());
 var fs = require('fs');
+var multer = require("multer");
 var SUplResult = (function () {
     function SUplResult() {
     }
@@ -75,6 +76,9 @@ router.post('/upload', function (req, res) {
     });
 });
 router.post('/uploads', function (req, res) {
+    var upload = multer({ dest: 'uploads/' });
+    var cpUpload = upload.fields([{ name: 'avatar', maxCount: 1 }, { name: 'gallery', maxCount: 10 }]);
+    return;
     var fp = new fileProcessing_1.FileProcessing();
     var ip = new ImageProcess_1.ImageProcess();
     var makeAsset = function () {
@@ -116,11 +120,6 @@ router.post('/uploads', function (req, res) {
             });
         });
     };
-    fp.uploadImages(req, res).then(function (result) {
-        processImage();
-    }, function (error) {
-        onError(error, res);
-    });
 });
 module.exports = router;
 //# sourceMappingURL=manager.js.map

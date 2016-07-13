@@ -22,6 +22,10 @@ var mytable: TableModel = new TableModel("assets", Asset.getInit());
 
 var fs = require('fs');
 
+import multer = require("multer");
+
+
+
 // mytable.deleteTable();
 // mytable.createNewTable().then(function (res) {
 //     console.log(res);
@@ -174,8 +178,15 @@ router.post('/uploads', function(req:express.Request,res:express.Response) {
     // console.log(req.files);
     // res.send(req.body);
     // return;
-    var fp:FileProcessing = new FileProcessing();
-    var ip:ImageProcess = new ImageProcess();
+    var upload = multer({ dest: 'uploads/' });
+    var cpUpload = upload.fields([{ name: 'avatar', maxCount: 1 }, { name: 'gallery', maxCount: 10 }]);
+
+
+
+    return;
+
+   var fp:FileProcessing = new FileProcessing();
+  var ip:ImageProcess = new ImageProcess();
 
     var makeAsset = function (): Asset {
         var lenWWW: number = WWW.length;
@@ -232,14 +243,16 @@ router.post('/uploads', function(req:express.Request,res:express.Response) {
         });
     };
 
-    // fp.startProces(req, res).then(function (result) {
+    
+    
+    /* fp.startProces(req, res).then(function (result) {
     fp.uploadImages(req, res).then(function (result) {
         // console.log('result\n', result);
         // console.log('asset\n', asset);
         processImage();
     }, function (error) {
         onError(error, res);
-    });
+    });*/
 
 });
 
