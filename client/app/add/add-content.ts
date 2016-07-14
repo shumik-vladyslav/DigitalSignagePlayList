@@ -4,7 +4,12 @@
 
 import { Component } from '@angular/core';
 import { MD_TABS_DIRECTIVES } from '@angular2-material/tabs';
-import { ROUTER_DIRECTIVES, Router } from '@angular/router';
+import { ROUTER_DIRECTIVES, Router, ActivatedRoute } from '@angular/router';
+import {FileContent} from "../files/file-content";
+import {RssContent} from "../rss/rss-content";
+import {WebContent} from "../web/web-content";
+
+
 
 @Component({
     selector: 'add-content',
@@ -13,18 +18,32 @@ import { ROUTER_DIRECTIVES, Router } from '@angular/router';
                     <div class="add-content-title">
                         Add content
                     </div>
-                    <md-tab-group>
+                    <md-tab-group [(selectedIndex)]="selectedIndex">
                       <md-tab>
-                        <template md-tab-label><a [routerLink]="['/dashboard/content-manager/add/files']" class="btn"><span class="fa fa-messages"></span> File</a></template>
+                        <template md-tab-label><a [routerLink]="['../files']" class="btn"><span class="fa fa-messages"></span> File</a></template>
+                        <template md-tab-content>
+                          <md-content class="md-padding">
+                            <multiple-progressbar></multiple-progressbar>
+                          </md-content>
+                         </template>
                       </md-tab>
                       <md-tab>
-                        <template md-tab-label><a [routerLink]="['/dashboard/content-manager/add/rss']" class="btn"><span class="fa fa-messages"></span> RSS</a></template>
+                        <template md-tab-label><a [routerLink]="['../rss']" class="btn"><span class="fa fa-messages"></span> RSS</a></template>
+                         <template md-tab-content>
+                          <md-content class="md-padding">
+                            <rss-content></rss-content>
+                          </md-content>
+                         </template>
                       </md-tab>
                       <md-tab>
-                        <template md-tab-label><a [routerLink]="['/dashboard/content-manager/add/web-content']" class="btn"><span class="fa fa-messages"></span> URL</a></template>
+                        <template md-tab-label><a [routerLink]="['../web-content']" class="btn"><span class="fa fa-messages"></span> URL</a></template>
+                        <template md-tab-content>
+                          <md-content class="md-padding">
+                            <web-content></web-content>
+                          </md-content>
+                         </template>
                       </md-tab>
                     </md-tab-group>
-                    <router-outlet></router-outlet>
                 </div>
   `,
     styles:[`
@@ -40,16 +59,42 @@ import { ROUTER_DIRECTIVES, Router } from '@angular/router';
                 font-weight: bold;
             }
     `],
-  directives: [ROUTER_DIRECTIVES, MD_TABS_DIRECTIVES]
+  directives: [ROUTER_DIRECTIVES, MD_TABS_DIRECTIVES, FileContent, RssContent, WebContent]
 })
 
 export class AddContent {
+    contm2:any;
+    paramsSub:any;
+    selectedIndex:number = 0;
 
-    constructor(  private router: Router) {
+    constructor(  private router: Router, private activatedRoute: ActivatedRoute) {
 
     }
 
     ngOnInit() {
-        this.router.navigate(['/dashboard/content-manager/add/files']);
+        this.paramsSub = this.activatedRoute.params.subscribe((params) => {
+            console.log(params)
+            switch (params['contm2']) {
+                case "files":
+                    this.selectedIndex = 0;
+                    break;
+                case "rss":
+                    this.selectedIndex = 1;
+                    break;
+                case "web-content":
+                    this.selectedIndex = 2;
+                    break;
+            };
+            this.id = +params['contm2']
+        });
+/*        this.router.navigate(['./files']);*/
+    }
+
+    ngOnDestroy() {
+            this.paramsSub.unsubscribe();
+        }
+
+    handleFocus(evt:Event) {
+
     }
 }

@@ -3,18 +3,14 @@
  */
 "use strict";
 var add_content_1 = require("./add-content");
-var file_content_1 = require('../files/file-content');
-var rss_content_1 = require('../rss/rss-content');
-var web_content_1 = require('../web/web-content');
 exports.addRoutes = [
     {
-        path: 'dashboard/content-manager/add',
+        path: 'content-manager/add',
         component: add_content_1.AddContent,
-        children: [
-            { path: 'files', component: file_content_1.FileContent, },
-            { path: 'rss', component: rss_content_1.RssContent },
-            { path: 'web-content', component: web_content_1.WebContent }
-        ]
+    },
+    {
+        path: 'content-manager/add/:id',
+        component: add_content_1.AddContent
     }
 ];
 //# sourceMappingURL=add.routes.js.map

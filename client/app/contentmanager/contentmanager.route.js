@@ -5,7 +5,8 @@
 var add_content_1 = require('../add/add-content');
 var contentmanager_1 = require('./contentmanager');
 exports.contentmanagerRoutes = [
-    { path: 'dashboard/content-manager', component: contentmanager_1.ContentManager },
-    { path: 'dashboard/content-manager/add', component: add_content_1.AddContent },
+    /*    ...addRoutes,*/
+    { path: 'content-manager', component: contentmanager_1.ContentManager },
+    { path: 'content-manager/add/:id', component: add_content_1.AddContent }
 ];
 //# sourceMappingURL=contentmanager.route.js.map

@@ -6,10 +6,12 @@ import { RouterConfig } from '@angular/router';
 
 import { AddContent }  from '../add/add-content';
 import { ContentManager } from './contentmanager';
+import { addRoutes } from "../add/add.routes";
 
 
 export const contentmanagerRoutes: RouterConfig = [
-    { path: 'dashboard/content-manager', component:ContentManager},
-    { path: 'dashboard/content-manager/add', component:AddContent},
+/*    ...addRoutes,*/
+    { path: 'content-manager', component:ContentManager },
+    { path: 'content-manager/add/:id', component: AddContent }
 ];
 
