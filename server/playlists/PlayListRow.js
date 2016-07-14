@@ -1,19 +1,19 @@
 "use strict";
-var PlayListRow = (function () {
-    function PlayListRow(obj) {
-        for (var str in obj)
-            this[str] = obj[str];
+var PlayList = (function () {
+    function PlayList(obj) {
+        if (obj) {
+            for (var str in obj) {
+                if (PlayList[str])
+                    this[str] = obj[str];
+            }
+        }
     }
-    PlayListRow.getInit = function () {
-        return new PlayListRow({
-            id: 0,
-            listId: 0,
-            assetId: 0,
-            duration: 0,
-            afterId: 0
-        });
-    };
-    return PlayListRow;
+    PlayList.id = 1;
+    PlayList.listId = 1;
+    PlayList.assetId = 1;
+    PlayList.duration = 1;
+    PlayList.afterId = 1;
+    return PlayList;
 }());
-exports.PlayListRow = PlayListRow;
+exports.PlayList = PlayList;
 //# sourceMappingURL=PlayListRow.js.map

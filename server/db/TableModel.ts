@@ -7,7 +7,7 @@ import {IDBDriver} from "../db/dbDriver";
 
 export class TableModel {
 
-    private db:IDBDriver;
+    public db:IDBDriver;
     
     constructor(public table: string, public row: any){
         this.db = new DBSQLite();
@@ -27,7 +27,7 @@ export class TableModel {
 
     createNewTable(): Q.Promise<any>  {
         var sql1 = "DROP TABLE " + this.table;
-        var row = this.row.getInit();
+        var row = this.row;
         delete row['id'];
         var arr: string[] = [];
 
@@ -48,7 +48,7 @@ export class TableModel {
         return this.db.selectAll(sql, data);
     }
 
-    selectContentById(id:number) {
+    selectContentById(id:number): Q.Promise<any> {
         var sql: string = "SELECT * FROM " + this.table + " WHERE id = ?";
         var data: any[] = [id];
 
@@ -56,7 +56,7 @@ export class TableModel {
     }
 
     insertContent(row:any): Q.Promise<{id:number}> {
-        console.log('row', row);
+        // console.log('row', row);
         var ar1:string[] = [];
         var ar2:string[] = [];
         var ar3:any[]    = [];
@@ -67,25 +67,27 @@ export class TableModel {
         }
 
         var sql: string = 'INSERT INTO '+this.table+' ('+ar1.join(',')+') VALUES ('+ar2.join(',')+')';
+        console.log('sql ', sql);
         var data: any[] = ar3;
 
         return this.db.insertOne(sql, data);
     }
 
-    updateContent(row:any): Q.Promise<{affected:number}>{
+    updateContent(row:any): Q.Promise<{changes:number}>{
 
         var id = row.id;
         delete row.id;
 
-        var ar1:string[];
-        var ar2:string[];
-        var ar3:any[];
+        var ar1:string[] = [];
+        var ar2:string[] = [];
+        var ar3:any[] = [];
         for(var str in row){
             ar1.push(str + ' = ?');
             ar3.push(row[str]);
         }
 
-        var sql: string = 'UPDATE '+ this.table + ' '+ar1.join(',')+' WHERE id = ' + id;
+        var sql: string = 'UPDATE '+ this.table + ' SET '+ar1.join(', ')+' WHERE id = ' + id;
+        console.log('sql ', sql);
         var data: any[] = ar3;
 
         return this.db.updateOne(sql, data);
