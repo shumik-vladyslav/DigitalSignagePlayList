@@ -17,13 +17,13 @@ var PlaylistsTable = (function (_super) {
         var data = [id];
         return this.db.selectAll(sql, data);
     };
-    PlaylistsTable.prototype.selectPlayListByListId = function (id) {
+    PlaylistsTable.prototype.selectPlayListItemByListId = function (id) {
         var sql = "SELECT * FROM " + this.table + ", assets WHERE playlists.listid = ? AND playlists.assetid = assets.id";
         var data = [id];
         return this.db.selectAll(sql, data);
     };
     PlaylistsTable.prototype.selectMax = function (column_name) {
-        var sql = "SELECT max(" + column_name + ") AS column_name FROM " + this.table;
+        var sql = "SELECT max(" + column_name + ") AS " + column_name + " FROM " + this.table;
         var data = [];
         console.log('sql select max', sql);
         return this.db.selectOne(sql, data);

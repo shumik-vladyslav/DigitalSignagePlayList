@@ -20,7 +20,7 @@ export class PlaylistsTable extends TableModel {
         return this.db.selectAll(sql, data);
     }
 
-    selectPlayListByListId(id:number): Q.Promise<ISPlayListItem[]> {
+    selectPlayListItemByListId(id:number): Q.Promise<ISPlayListItem[]> {
         var sql: string = "SELECT * FROM " + this.table + ", assets WHERE playlists.listid = ? AND playlists.assetid = assets.id";
         var data: any[] = [id];
 
@@ -28,7 +28,7 @@ export class PlaylistsTable extends TableModel {
     }
 
     selectMax(column_name: string): Q.Promise<{column_name:number}> {
-        var sql: string = "SELECT max(" + column_name + ") AS column_name FROM " + this.table;
+        var sql: string = "SELECT max(" + column_name + ") AS " + column_name + " FROM " + this.table;
         var data: any[] = [];
         console.log('sql select max', sql);
         return this.db.selectOne(sql, data);
