@@ -5,9 +5,9 @@
 import { Component } from '@angular/core';
 import { MD_TABS_DIRECTIVES } from '@angular2-material/tabs';
 import { ROUTER_DIRECTIVES, Router, ActivatedRoute } from '@angular/router';
-import {FileContent} from "../files/file-content";
-import {RssContent} from "../rss/rss-content";
-import {WebContent} from "../web/web-content";
+import {FileContent} from "./content-files";
+import {RssContent} from "./content-rss";
+import {WebContent} from "./content-web";
 
 
 
@@ -15,9 +15,6 @@ import {WebContent} from "../web/web-content";
     selector: 'add-content',
     template: `
                 <div class="add-content">
-                    <div class="add-content-title">
-                        Add content
-                    </div>
                     <md-tab-group [(selectedIndex)]="selectedIndex">
                       <md-tab>
                         <template md-tab-label><a [routerLink]="['../files']" class="btn"><span class="fa fa-messages"></span> File</a></template>
@@ -47,12 +44,6 @@ import {WebContent} from "../web/web-content";
                 </div>
   `,
     styles:[`
-            .add-content {
-            width: 480px;
-            height: 480px;
-            border: 1px solid #000;
-            margin: auto auto;
-            }
             .add-content-title {
                 margin-top: 20px;
                 text-align: center;
@@ -85,7 +76,7 @@ export class AddContent {
                     this.selectedIndex = 2;
                     break;
             };
-            this.id = +params['contm2']
+            this.contm2 = +params['contm2']
         });
 /*        this.router.navigate(['./files']);*/
     }

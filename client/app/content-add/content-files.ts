@@ -126,7 +126,7 @@ export class FileContent {
     }
 
     goBack() {
-        let link = ['/dashboard/content-manager'];
+        let link = ['/content-manager'];
         this.router.navigate(link);
     }
 

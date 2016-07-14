@@ -11,20 +11,20 @@ import { TableComponent } from './table/MyTable';
 import { AgentsManager } from './agents/AgentsManager';
 
 import { UploadFiles } from "./assets/UploadFiles";
-import { contentmanagerRoutes } from './contentmanager/contentmanager';
-import { addRoutes } from "./add/add.routes";
+import { contentmanagerRoutes } from './content-manager/content-manager';
+import { addRoutes } from "./content-add/add.routes";
 
 export const routes: RouterConfig = [
     ...contentmanagerRoutes,
 /*    ...addRoutes,*/
     { path: '', component: MessagesMain },
-   /* { path: 'assets', component: AssetsMain },
-    { path: 'assets/upload', component:UploadFiles},
-    { path: 'files/upload', component:UploadFiles},*/
+    { path: 'assets', component: AssetsMain },
+    /*{ path: 'assets/upload', component:UploadFiles},
+    { path: 'files/upload', component:UploadFiles},*!/*/
     { path: 'messages', component: MessagesMain},
-    { path: 'table', component:TableComponent },
+/*    { path: 'table', component:TableComponent },
     { path: 'agents', component:AgentsManager },
-    /*{ path: '**', redirectTo: '/dashboard/messages' }*/
+    { path: '**', redirectTo: '/dashboard/messages' }*/
 ]
 
 

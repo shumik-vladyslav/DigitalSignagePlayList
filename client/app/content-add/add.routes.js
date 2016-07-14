@@ -2,15 +2,15 @@
  * Created by Dmitriy Prilutsky on 13.07.2016.
  */
 "use strict";
-var add_content_1 = require("./add-content");
+var content_add_1 = require("./content-add");
 exports.addRoutes = [
     {
         path: 'content-manager/add',
-        component: add_content_1.AddContent,
+        component: content_add_1.AddContent,
     },
     {
         path: 'content-manager/add/:id',
-        component: add_content_1.AddContent
+        component: content_add_1.AddContent
     }
 ];
 //# sourceMappingURL=add.routes.js.map

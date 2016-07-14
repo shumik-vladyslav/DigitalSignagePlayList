@@ -43,7 +43,7 @@ var FileContent = (function () {
         return this.uploadProgresses.findIndex(function (x) { return x.id === id; });
     };
     FileContent.prototype.goBack = function () {
-        var link = ['/dashboard/content-manager'];
+        var link = ['/content-manager'];
         this.router.navigate(link);
     };
     FileContent = __decorate([
@@ -58,4 +58,4 @@ var FileContent = (function () {
     return FileContent;
 }());
 exports.FileContent = FileContent;
-//# sourceMappingURL=file-content.js.map
+//# sourceMappingURL=content-files.js.map

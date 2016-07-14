@@ -13,7 +13,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var add_content_1 = require('../add/add-content');
+var content_add_1 = require('../content-add/content-add');
+var asset_library_1 = require("../assets/asset-library");
 var ContentManager = (function () {
     function ContentManager(ar, myrouter) {
         this.ar = ar;
@@ -47,9 +48,9 @@ var ContentManager = (function () {
     ContentManager = __decorate([
         core_1.Component({
             selector: 'content-manager',
-            template: "\n                <h2>Content manager</h2>\n                <nav>\n                    <a [routerLink]=\"['./add/files']\" class=\"btn\"><span class=\"fa fa-messages\"></span> Add</a>\n                </nav>\n                <div>\n                    <content-box></content-box>\n                </div>\n                <div *ngIf=\"isAddContent\">\n                  <div id=\"myModal\" class=\"modal\" role=\"dialog\">\n                      <div class=\"modal-dialog\">\n         \n                        <!-- Modal content-->\n                        <div class=\"modal-content\">\n                          <div class=\"modal-header\">\n                            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" (click)=\"onModalClose()\">&times;</button>\n                            <h4 class=\"modal-title\">Modal Header</h4>\n                          </div>\n                          <div class=\"modal-body\">\n                            <add-content></add-content>\n                          </div>\n                          <div class=\"modal-footer\">\n\n                          </div>\n                        </div>\n                    \n                  </div>\n                </div>\n                \n                \n                    \n                </div>\n              ",
+            template: "\n                <h2>Content manager</h2>\n                <nav>\n                    <a [routerLink]=\"['./add/files']\" class=\"btn\"><span class=\"fa fa-messages\"></span> Add</a>\n                </nav>\n                <div>\n                    <asset-library></asset-library>\n                </div>\n                <div *ngIf=\"isAddContent\">\n                  <div id=\"myModal\" class=\"modal\" role=\"dialog\">\n                      <div class=\"modal-dialog\">\n         \n                        <!-- Modal content-->\n                        <div class=\"modal-content\">\n                          <div class=\"modal-header\">\n                            <button type=\"button\" class=\"close\" data-dismiss=\"modal\" (click)=\"onModalClose()\">&times;</button>\n                            <h4 class=\"modal-title\">Add content</h4>\n                          </div>\n                          <div class=\"modal-body\">\n                            <add-content></add-content>\n                          </div>\n                          <div class=\"modal-footer\">\n\n                          </div>\n                        </div>\n                    \n                      </div>\n                  </div>\n                </div>\n              ",
             styles: ["\n                .modal {\n                    display: block;\n                    background-color: rgba(0, 0, 0, 0.31);\n                }\n            "],
-            directives: [router_1.ROUTER_DIRECTIVES, add_content_1.AddContent]
+            directives: [router_1.ROUTER_DIRECTIVES, content_add_1.AddContent, asset_library_1.AssetLibrary]
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, router_1.Router])
     ], ContentManager);
@@ -61,4 +62,4 @@ exports.contentmanagerRoutes = [
     { path: 'content-manager', component: ContentManager },
     { path: 'content-manager/:contm/:contm2', component: ContentManager }
 ];
-//# sourceMappingURL=contentmanager.js.map
+//# sourceMappingURL=content-manager.js.map

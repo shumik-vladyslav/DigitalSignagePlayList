@@ -4,10 +4,10 @@
 
 import { RouterConfig } from '@angular/router';
 
-import { AddContent } from "./add-content";
-import { FileContent }  from '../files/file-content';
-import { RssContent }  from '../rss/rss-content';
-import { WebContent }  from '../web/web-content';
+import { AddContent } from "./content-add";
+import { FileContent }  from './content-files';
+import { RssContent }  from './content-rss';
+import { WebContent }  from './content-web';
 
 
 
