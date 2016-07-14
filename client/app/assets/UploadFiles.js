@@ -8,18 +8,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+/**
+ * Created by Vlad on 7/12/2016.
+ */
 var core_1 = require('@angular/core');
 var ng2_uploader_1 = require('ng2-uploader/ng2-uploader');
 var UploadFiles = (function () {
     function UploadFiles(zone) {
         this.zone = zone;
         this.uploadProgresses = [];
+        // zone: NgZone;
         this.options = {
             url: 'http://localhost:8888/api/assets/upload'
         };
+        // this.zone = new NgZone({ enableLongStackTrace: false });
     }
     UploadFiles.prototype.handleUpload = function (data) {
         var _this = this;
+        // console.log(data);
         var id = data.id;
         var index = this.findIndex(id);
         if (index === -1) {

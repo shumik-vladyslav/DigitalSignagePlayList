@@ -170,7 +170,8 @@ var DBSQLite = (function () {
         var deferred = Q.defer();
         this.db.run(sql, data, function (error) {
             if (error) {
-                deferred.reject({ error: error
+                deferred.reject({
+                    error: error
                 });
             }
             else {
@@ -188,8 +189,7 @@ var DBSQLite = (function () {
         this.db.run(sql, data, function (error) {
             if (error) {
                 deferred.reject({
-                    errno: error.errno,
-                    code: error.code
+                    error: error
                 });
             }
             else {

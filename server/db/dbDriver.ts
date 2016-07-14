@@ -249,7 +249,8 @@ export class DBSQLite implements IDBDriver {
 
         this.db.run(sql, data, function(error) {
             if (error) {
-                deferred.reject({error
+                deferred.reject({
+                    error
                     // errno: error.errno,
                     // code: error.code
                 });
@@ -273,8 +274,9 @@ export class DBSQLite implements IDBDriver {
         this.db.run(sql, data, function(error) {
             if (error) {
                 deferred.reject({
-                    errno: error.errno,
-                    code: error.code
+                    error
+                    // errno: error.errno,
+                    // code: error.code
                 });
             } else {
                 // console.log({ changes: this.changes });

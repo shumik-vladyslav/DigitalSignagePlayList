@@ -56,7 +56,7 @@ router.post('/insert-content', function (req, res) {
         var p = mytableP.selectPlayListItemById(result.id);
         p.then(function (result) {
             console.log(result);
-            res.json(result);
+            res.json({ data: result });
         }, function (err) {
             console.log(err);
             onError(err, res);
@@ -82,7 +82,7 @@ router.post('/update-playlist-item', function (req, res) {
         console.log(result);
     }, function (err) {
         console.log(err);
-        res.json(err);
+        onError(err, res);
     });
 });
 module.exports = router;

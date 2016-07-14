@@ -26,6 +26,32 @@ var mytableP: PlaylistsTable = new PlaylistsTable("playlists", new PlayList());
 //     console.log(err);
 // });
 
+/**
+ * @api {get} /api/playlists/create-playlist Create New Playlist
+ * @apiVersion 0.0.1
+ * @apiName NewPlaylist
+ * @apiGroup Playlist
+ *
+ * @apiDescription Create New Playlist ID in DB.
+ *
+ * @apiExample {js} Example usage:
+ *     http://127.0.0.1:8888/api/playlists/create-playlist
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     {
+ *         "data": {
+ *                 "playlistId": 11
+ *             }
+ *      }
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "errno": 1
+ *       "code": "SQLITE_ERROR"
+ *     }
+ */
+
 router.get('/create-playlist', function (req:express.Request, res:express.Response) {
     var column_name: string = 'listId';
     var promise = mytableP.selectMax(column_name);
@@ -53,20 +79,24 @@ router.get('/create-playlist', function (req:express.Request, res:express.Respon
 });
 
 /**
- * @api {post} //api/playlistsinsert Insert Message
+ * @api {post} /api/playlists/insert-content Insert Content
  * @apiVersion 0.0.1
- * @apiName InsertMessages
- * @apiGroup Messages
+ * @apiName InsertContent
+ * @apiGroup Playlist
  *
- * @apiDescription Insert messages in DB.
+ * @apiDescription Insert Content(fields of playlist) in DB.
+ *                 Return all inserted fields of playlists + full assets
  *
- * @apiParam {String} active    true or false.
- * @apiParam {String} message   Message text
+ * @apiParam {Number} listId     required parameter and must be > 0.
+ * @apiParam {Number} assetId    required parameter and must be > 0.
+ * @apiParam {Number} afterId    required parameter and must be !< 0.
+ * @apiParam {Number} duration   optional
  *
  * @apiParamExample {json} Request-Example:
  *     {
- *       "active":  "true",
- *       "message": "some text"
+ *       "listId":7,
+ *       "assetId": 3,
+ *       "afterId":6
  *     }
  *
  * @apiExample {js} Example usage:
@@ -74,11 +104,27 @@ router.get('/create-playlist', function (req:express.Request, res:express.Respon
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
- *     {
- *       "activ": "true"
- *       "message": "some text"
- *       "id": 1
- *     }
+ *       {
+ *        "data": [
+ *          {
+ *            "id": 30,
+ *            "originalName": "face.png",
+ *            "path": "/clientAssets/uploads/userImages/_1468363584469_face.png",
+ *            "thumb": "/clientAssets/uploads/thumbnails/_1468363584469_face.png",
+ *            "size": 132545,
+ *            "width": 350,
+ *            "height": 350,
+ *            "mime": "image/png",
+ *            "orientation": null,
+ *            "active": null,
+ *            "orig_duration": null,
+ *            "listId": 7,
+ *            "assetId": 3,
+ *            "duration": null,
+ *            "afterId": 6
+ *          }
+ *        ]
+ *      }
  *
  * @apiErrorExample Error-Response:
  *     {
@@ -124,7 +170,7 @@ router.post('/insert-content', function (req:express.Request, res:express.Respon
         var p = mytableP.selectPlayListItemById(result.id);
         p.then(function (result: ISPlayListItem) {
             console.log(result);
-            res.json(result);
+            res.json({data:result});
         }, function (err) {
             console.log(err);
             onError(err, res);
@@ -137,34 +183,50 @@ router.post('/insert-content', function (req:express.Request, res:express.Respon
 });
 
 /**
- * @api {post} /api/messages/update Update Message
+ * @api {post} /api/playlists/update-playlist-item
  * @apiVersion 0.0.1
- * @apiName UpdateMessage
- * @apiGroup Messages
+ * @apiName UpdatePlaylist
+ * @apiGroup Playlist
  *
- * @apiDescription Update messages in DB.
+ * @apiDescription Update Playlist(fields of playlist) in DB.
  *
- * @apiParam {Number} id        id in BD
- * @apiParam {String} active    true or false.
- * @apiParam {String} message   Message text
+ * @apiParam {Number} id         required parameter (prime).
+ * @apiParam {Number} afterId    optional
+ * @apiParam {Number} duration   optional
  *
  * @apiParamExample {json} Request-Example:
  *     {
- *       "id":      1
- *       "active":  true,
- *       "message": "some text"
+ *       "id":28,
+ *       "duration":20,
+ *       "afterId":6
  *     }
  *
  * @apiExample {js} Example usage:
- *     http://127.0.0.1:8888/api/messages/update
+ *     http://127.0.0.1:8888/api/messages/insert
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
- *     {
- *       "data": {
- *         "changes": 1
- *       }
- *     }
+ *       {
+ *        "data": [
+ *          {
+ *            "id": 30,
+ *            "originalName": "face.png",
+ *            "path": "/clientAssets/uploads/userImages/_1468363584469_face.png",
+ *            "thumb": "/clientAssets/uploads/thumbnails/_1468363584469_face.png",
+ *            "size": 132545,
+ *            "width": 350,
+ *            "height": 350,
+ *            "mime": "image/png",
+ *            "orientation": null,
+ *            "active": null,
+ *            "orig_duration": null,
+ *            "listId": 7,
+ *            "assetId": 3,
+ *            "duration": null,
+ *            "afterId": 6
+ *          }
+ *        ]
+ *      }
  *
  * @apiErrorExample Error-Response:
  *     {
@@ -191,7 +253,7 @@ router.post('/update-playlist-item', function (req:express.Request, res:express.
         console.log(result);
     }, function (err) {
         console.log(err);
-        res.json(err);
+        onError(err, res);
     });
 });
 

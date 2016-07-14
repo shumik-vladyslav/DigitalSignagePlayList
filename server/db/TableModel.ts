@@ -86,7 +86,8 @@ export class TableModel {
             ar3.push(row[str]);
         }
 
-        var sql: string = 'UPDATE '+ this.table + ' '+ar1.join(',')+' WHERE id = ' + id;
+        var sql: string = 'UPDATE '+ this.table + ' SET '+ar1.join(', ')+' WHERE id = ' + id;
+        console.log('sql ', sql);
         var data: any[] = ar3;
 
         return this.db.updateOne(sql, data);

@@ -63,7 +63,8 @@ var TableModel = (function () {
             ar1.push(str + ' = ?');
             ar3.push(row[str]);
         }
-        var sql = 'UPDATE ' + this.table + ' ' + ar1.join(',') + ' WHERE id = ' + id;
+        var sql = 'UPDATE ' + this.table + ' SET ' + ar1.join(', ') + ' WHERE id = ' + id;
+        console.log('sql ', sql);
         var data = ar3;
         return this.db.updateOne(sql, data);
     };
