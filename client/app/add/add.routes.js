@@ -1,6 +1,3 @@
-/**
- * Created by Dmitriy Prilutsky on 13.07.2016.
- */
 "use strict";
 var add_content_1 = require("./add-content");
 exports.addRoutes = [

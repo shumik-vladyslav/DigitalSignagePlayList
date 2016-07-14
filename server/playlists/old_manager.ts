@@ -62,7 +62,7 @@ router.get('/selectPlayListItemById/:id', function (req:express.Request, res:exp
 router.get('/get-playlistById/:id', function (req:express.Request, res:express.Response) {
     var promise = mytableP.selectPlayListItemById(req.params.id);
     // res.json(req.params);
-    promise.then(function (result:ISPlayListItem[]) {
+    promise.then(function (result:ISPlayListItem) {
         if(result !== {}) {
             console.log("res", result);
             res.json({data:result});

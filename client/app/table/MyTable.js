@@ -8,9 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-/**
- * Created by Vlad on 7/5/2016.
- */
 var core_1 = require('@angular/core');
 var http_1 = require("@angular/http");
 var MyTrComponent = (function () {
@@ -21,7 +18,6 @@ var MyTrComponent = (function () {
         this.selected = true;
     };
     MyTrComponent.prototype.ngOnInit = function () {
-        // console.log(this);
     };
     __decorate([
         core_1.Input('myRow'), 
@@ -38,27 +34,7 @@ var MyTrComponent = (function () {
 }());
 exports.MyTrComponent = MyTrComponent;
 var TableComponent = (function () {
-    // private data:string[][];
     function TableComponent(http) {
-        /* http.get("http://front-desk.ca/tableblue/agents/getagents.php")
-             .subscribe((data:any)=> {
-                 var head:string[]=[];
-                 var ar:any[]=[];
-                 var i=0;
-                 data.json().list.forEach(function(item){
-                     var row:string[] =[];
-                     if(i++===0)  for(var str in item)head.push(str);
-                     for(var str in item) row.push(item[str]);
-                     ar.push(row);
-                 })
- 
- 
-                 console.log(data);
- 
-                 this.heads = head;
-             this.data = ar;
- 
-             });*/
         this.http = http;
         this.title = "Angular 2 - tr attribute selector";
     }

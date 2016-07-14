@@ -1,6 +1,3 @@
-/**
- * Created by Dmitriy Prilutsky on 13.07.2016.
- */
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -41,7 +38,6 @@ var AddContent = (function () {
             ;
             _this.id = +params['contm2'];
         });
-        /*        this.router.navigate(['./files']);*/
     };
     AddContent.prototype.ngOnDestroy = function () {
         this.paramsSub.unsubscribe();

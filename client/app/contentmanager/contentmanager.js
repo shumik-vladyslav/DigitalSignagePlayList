@@ -1,6 +1,3 @@
-/**
- * Created by Dmitriy Prilutsky on 13.07.2016.
- */
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -39,7 +36,6 @@ var ContentManager = (function () {
             }
             ;
         });
-        /*        this.router.navigate(['./files']);*/
     };
     ContentManager.prototype.ngOnDestroy = function () {
         this.paramsSub.unsubscribe();
@@ -57,7 +53,6 @@ var ContentManager = (function () {
 }());
 exports.ContentManager = ContentManager;
 exports.contentmanagerRoutes = [
-    /*    ...addRoutes,*/
     { path: 'content-manager', component: ContentManager },
     { path: 'content-manager/:contm/:contm2', component: ContentManager }
 ];

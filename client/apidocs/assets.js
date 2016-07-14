@@ -14,14 +14,10 @@ var IError = (function () {
 }());
 exports.IError = IError;
 var Messages = (function () {
-    // public id: number;
-    // public activ: boolean;
-    // public message: string;
     function Messages(activ, message, id) {
         this.activ = activ;
         this.message = message;
         this.id = id;
-        // console.log('constructor Asset');
     }
     return Messages;
 }());
