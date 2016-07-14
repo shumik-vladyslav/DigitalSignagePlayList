@@ -36,7 +36,7 @@ var FileProcessing = (function () {
                 callback(null, '_' + Date.now() + '_' + file.originalname);
             }
         });
-        var upload = multer({ storage: storage }).single('userImages');
+        var upload = multer({ storage: storage }).single('file');
         upload(req, res, function (err) {
             if (err) {
                 deferred.reject(err);

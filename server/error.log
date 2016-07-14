@@ -1,39 +1,21 @@
 
 2016-07-13 00:00:23
 {"errno":1,"code":"SQLITE_ERROR"}
-2016-07-13 19:24:49
-{"errno":1,"code":"SQLITE_ERROR"}
-2016-07-13 19:24:59
-{"errno":1,"code":"SQLITE_ERROR"}
-2016-07-13 22:08:29
-{"errno":19,"code":"SQLITE_CONSTRAINT"}
-2016-07-13 23:23:13
-{"errno":1,"code":"SQLITE_ERROR"}
-2016-07-13 23:23:31
-{"errno":1,"code":"SQLITE_ERROR"}
-2016-07-13 23:24:42
-{"errno":1,"code":"SQLITE_ERROR"}
-2016-07-13 23:39:24
-{"errno":1,"code":"SQLITE_ERROR"}
-2016-07-14 04:46:23
-{"errno":1,"code":"SQLITE_ERROR"}
-2016-07-14 04:56:20
-{"errno":1,"code":"SQLITE_ERROR"}
-2016-07-14 04:59:12
-{"errno":1,"code":"SQLITE_ERROR"}
-2016-07-14 05:00:40
-{"error":{"errno":1,"code":"SQLITE_ERROR"}}
-2016-07-14 05:02:12
-{"error":{"errno":1,"code":"SQLITE_ERROR"}}
-2016-07-14 18:26:53
-{"error":{"errno":1,"code":"SQLITE_ERROR"}}
-2016-07-14 18:31:49
-{"error":{"errno":1,"code":"SQLITE_ERROR"}}
-2016-07-14 18:33:23
-{"error":{"errno":1,"code":"SQLITE_ERROR"}}
-2016-07-14 18:35:14
-{"error":{"errno":1,"code":"SQLITE_ERROR"}}
-2016-07-14 18:39:55
-{"error":{"errno":1,"code":"SQLITE_ERROR"}}
-2016-07-14 18:51:32
-{"error":{"errno":1,"code":"SQLITE_ERROR"}}
+7/12/2016, 9:34:43 PM
+{"code":"LIMIT_UNEXPECTED_FILE","field":"file","storageErrors":[]}
+7/12/2016, 9:34:43 PM
+{"code":"LIMIT_UNEXPECTED_FILE","field":"file","storageErrors":[]}
+7/12/2016, 9:34:43 PM
+{"code":"LIMIT_UNEXPECTED_FILE","field":"file","storageErrors":[]}
+7/12/2016, 9:34:43 PM
+{"code":"LIMIT_UNEXPECTED_FILE","field":"file","storageErrors":[]}
+7/12/2016, 9:34:43 PM
+{"code":"LIMIT_UNEXPECTED_FILE","field":"file","storageErrors":[]}
+7/12/2016, 9:34:43 PM
+{"code":"LIMIT_UNEXPECTED_FILE","field":"file","storageErrors":[]}
+7/12/2016, 9:34:43 PM
+{"code":"LIMIT_UNEXPECTED_FILE","field":"file","storageErrors":[]}
+7/12/2016, 9:36:09 PM
+{"code":"LIMIT_UNEXPECTED_FILE","field":"file","storageErrors":[]}
+7/12/2016, 9:38:00 PM
+{"errno":-4058,"code":"ENOENT","syscall":"open","path":"C:\\wamp\\www\\GitHub\\DigitalSignage\\server\\uploads\\file\\_1468373880403_Layout 1.jpg","storageErrors":[]}
