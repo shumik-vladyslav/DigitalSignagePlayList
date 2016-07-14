@@ -1,49 +1,58 @@
 /**
  * Created by Vlad on 7/12/2016.
  */
-import {Component, NgZone} from '@angular/core';
-import { Router, ROUTER_DIRECTIVES } from '@angular/router';
-import {UPLOAD_DIRECTIVES} from 'ng2-uploader/ng2-uploader';
-
+import { Component, NgZone } from '@angular/core';
+import { Router } from '@angular/router';
+import { UPLOAD_DIRECTIVES } from 'ng2-uploader/ng2-uploader';
 
 @Component({
     selector: 'multiple-progressbar',
     template:`
-        <div>
-            <br>
-            <label for="files-pb" class="ui small black button right icon upload-button">
-                <i class="ion-document-text icon"></i>
-                Browse
-            </label>
-            <br>
-            <input type="file"
-                   id="files-pb"
-                   style="display:none;"
-                   [ng-file-select]="options"
-                   name="userImages"
-                   (onUpload)="handleUpload($event)"
-                   multiple>
-        </div>
-        <div class="ui divider"></div>
-        <div *ngFor="let progressObj of uploadProgresses">
-            <div>{{progressObj.originalName}}</div>
-            <div class="ui indicating olive progress">
-                <div class="bar" [style.width]="progressObj.percent + '%'"></div>
-                <div class="label">Uploading file ({{ progressObj.percent }}%)</div>
-            </div>
-        </div>
-        <br>
-        <!--<button type="submit" class="btn btn-default">Upload</button>-->
-        <button type="button" class="btn btn-default" (click)="goBack()">Close</button>
-        `,
-   directives: [UPLOAD_DIRECTIVES, ROUTER_DIRECTIVES],
+              <div class="wraper">
+                <div>
+                    <br>
+                    <label for="files-pb" class="ui small black button right icon upload-button">
+                        <i class="ion-document-text icon"></i>
+                        Browse
+                    </label>
+                    <br>
+                    <input type="file"
+                           id="files-pb"
+                           style="display:none;"
+                           [ng-file-select]="options"
+                           name="userImages"
+                           (onUpload)="handleUpload($event)"
+                           multiple>
+                </div>
+                <div class="ui divider"></div>
+                <div *ngFor="let progressObj of uploadProgresses">
+                    <div>{{progressObj.originalName}}</div>
+                    <div class="ui indicating olive progress">
+                        <div class="bar" [style.width]="progressObj.percent + '%'"></div>
+                        <div class="label">Uploading file ({{ progressObj.percent }}%)</div>
+                    </div>
+                </div>
+                <br>
+                <!--<button type="submit" class="btn btn-default">Upload</button>-->
+                <button type="button" class="btn btn-default" (click)="goBack()">Close</button>
+              </div>  
+             `,
+   directives: [UPLOAD_DIRECTIVES],
     styles:[`
-            .button {
+            .wraper {
+                margin: 20px 20px;
+                width: 440px;
+                height: 350px;
+                position: relative;
+            }
+            .upload-button {
+                position: absolute;
+                top: 40%;
+                left: 42%;
                 color: #333;
                 background-color: #fff;
                 display: inline-block;
                 padding: 6px 12px;
-                margin-bottom: 0;
                 font-size: 14px;
                 font-weight: 400;
                 line-height: 1.42857143;
@@ -59,12 +68,19 @@ import {UPLOAD_DIRECTIVES} from 'ng2-uploader/ng2-uploader';
                 user-select: none;
                 background-image: none;
                 border: 1px solid #ccc;
-                border-radius: 4px
+                border-radius: 4px;
+                margin: auto auto;
             }
             
-            .button:hover {
+            .upload-button:hover {
                 background-color: #e6e6e6;
                 border-color: #adadad;
+            }
+            
+            .btn {
+                position: absolute;
+                top: 90%;
+                left: 80%;
             }
             
             .olive {

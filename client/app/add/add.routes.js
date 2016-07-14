@@ -8,10 +8,10 @@ var rss_content_1 = require('../rss/rss-content');
 var web_content_1 = require('../web/web-content');
 exports.addRoutes = [
     {
-        path: 'dashboard/content-manager',
+        path: 'dashboard/content-manager/add',
         component: add_content_1.AddContent,
         children: [
-            { path: 'files', component: file_content_1.FileContent },
+            { path: 'files', component: file_content_1.FileContent, },
             { path: 'rss', component: rss_content_1.RssContent },
             { path: 'web-content', component: web_content_1.WebContent }
         ]

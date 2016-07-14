@@ -13,10 +13,10 @@ import { WebContent }  from '../web/web-content';
 
 export const addRoutes: RouterConfig = [
     {
-        path: 'dashboard/content-manager',
+        path: 'dashboard/content-manager/add',
         component: AddContent,
         children: [
-            { path: 'files',  component: FileContent },
+            { path: 'files',  component: FileContent,},
             { path: 'rss',  component: RssContent },
             { path: 'web-content', component: WebContent }
         ]

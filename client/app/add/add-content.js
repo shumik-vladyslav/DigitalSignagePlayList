@@ -15,15 +15,20 @@ var core_1 = require('@angular/core');
 var tabs_1 = require('@angular2-material/tabs');
 var router_1 = require('@angular/router');
 var AddContent = (function () {
-    function AddContent() {
+    function AddContent(router) {
+        this.router = router;
     }
+    AddContent.prototype.ngOnInit = function () {
+        this.router.navigate(['/dashboard/content-manager/add/files']);
+    };
     AddContent = __decorate([
         core_1.Component({
             selector: 'add-content',
-            template: "\n        <h1>Add content</h1>\n        <md-tab-group>\n          <md-tab>\n            <template md-tab-label><a [routerLink]=\"['/dashboard/content-manager/files']\" class=\"btn\"><span class=\"fa fa-messages\"></span> File</a></template>\n          </md-tab>\n          <md-tab>\n            <template md-tab-label><a [routerLink]=\"['/dashboard/content-manager/rss']\" class=\"btn\"><span class=\"fa fa-messages\"></span> RSS</a></template>\n          </md-tab>\n          <md-tab>\n            <template md-tab-label><a [routerLink]=\"['/dashboard/content-manager/web-content']\" class=\"btn\"><span class=\"fa fa-messages\"></span> URL</a></template>\n          </md-tab>\n        </md-tab-group>\n                \n        \n        \n        <!--<nav>\n            <a [routerLink]=\"['/dashboard/content-manager/add/files']\" class=\"btn\"><span class=\"fa fa-messages\"></span> File</a>\n            <a [routerLink]=\"['/dashboard/content-manager/add/rss']\" class=\"btn\"><span class=\"fa fa-messages\"></span> RSS</a>\n            <a [routerLink]=\"['/dashboard/content-manager/add/web-content']\" class=\"btn\"><span class=\"fa fa-messages\"></span> URL</a>\n        </nav>-->\n        <router-outlet></router-outlet>\n  ",
+            template: "\n                <div class=\"add-content\">\n                    <div class=\"add-content-title\">\n                        Add content\n                    </div>\n                    <md-tab-group>\n                      <md-tab>\n                        <template md-tab-label><a [routerLink]=\"['/dashboard/content-manager/add/files']\" class=\"btn\"><span class=\"fa fa-messages\"></span> File</a></template>\n                      </md-tab>\n                      <md-tab>\n                        <template md-tab-label><a [routerLink]=\"['/dashboard/content-manager/add/rss']\" class=\"btn\"><span class=\"fa fa-messages\"></span> RSS</a></template>\n                      </md-tab>\n                      <md-tab>\n                        <template md-tab-label><a [routerLink]=\"['/dashboard/content-manager/add/web-content']\" class=\"btn\"><span class=\"fa fa-messages\"></span> URL</a></template>\n                      </md-tab>\n                    </md-tab-group>\n                    <router-outlet></router-outlet>\n                </div>\n  ",
+            styles: ["\n            .add-content {\n            width: 480px;\n            height: 480px;\n            border: 1px solid #000;\n            margin: auto auto;\n            }\n            .add-content-title {\n                margin-top: 20px;\n                text-align: center;\n                font-weight: bold;\n            }\n    "],
             directives: [router_1.ROUTER_DIRECTIVES, tabs_1.MD_TABS_DIRECTIVES]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router])
     ], AddContent);
     return AddContent;
 }());
