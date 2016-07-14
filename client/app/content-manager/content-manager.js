@@ -29,7 +29,6 @@ var ContentManager = (function () {
     ContentManager.prototype.ngOnInit = function () {
         var _this = this;
         this.paramsSub = this.ar.params.subscribe(function (params) {
-            console.log(params);
             switch (params['contm']) {
                 case "add":
                     _this.isAddContent = true;

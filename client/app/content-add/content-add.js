@@ -26,7 +26,6 @@ var AddContent = (function () {
     AddContent.prototype.ngOnInit = function () {
         var _this = this;
         this.paramsSub = this.activatedRoute.params.subscribe(function (params) {
-            console.log(params);
             switch (params['contm2']) {
                 case "files":
                     _this.selectedIndex = 0;

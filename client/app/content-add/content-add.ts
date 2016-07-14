@@ -64,7 +64,6 @@ export class AddContent {
 
     ngOnInit() {
         this.paramsSub = this.activatedRoute.params.subscribe((params) => {
-            console.log(params)
             switch (params['contm2']) {
                 case "files":
                     this.selectedIndex = 0;

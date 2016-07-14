@@ -70,7 +70,6 @@ export class ContentManager {
 
     ngOnInit() {
         this.paramsSub = this.ar.params.subscribe((params) => {
-            console.log(params)
             switch (params['contm']) {
                 case "add":
                     this.isAddContent = true;

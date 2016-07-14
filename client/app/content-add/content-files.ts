@@ -9,80 +9,53 @@ import { UPLOAD_DIRECTIVES } from 'ng2-uploader/ng2-uploader';
     selector: 'multiple-progressbar',
     template:`
               <div class="wraper">
-                <div>
-                    <br>
-                    <label for="files-pb" class="ui small black button right icon upload-button">
-                        <i class="ion-document-text icon"></i>
-                        Browse
-                    </label>
-                    <br>
-                    <input type="file"
-                           id="files-pb"
-                           style="display:none;"
-                           [ng-file-select]="options"
-                           name="userImages"
-                           (onUpload)="handleUpload($event)"
-                           multiple>
-                </div>
-                <div class="ui divider"></div>
-                <div *ngFor="let progressObj of uploadProgresses">
-                    <div>{{progressObj.originalName}}</div>
-                    <div class="ui indicating olive progress">
-                        <div class="bar" [style.width]="progressObj.percent + '%'"></div>
-                        <div class="label">Uploading file ({{ progressObj.percent }}%)</div>
+                <div class="wraper-tools {{ showtools }}">
+                    <div class="btn btn-default upload-button">
+    
+                        <label for="files-pb" class="ui small black button icon">
+                            <span class="ion-document-text icon"></span>
+                            Browse
+                        </label>
+    
+                        <input type="file"
+                               id="files-pb"
+                               style="display:none;"
+                               [ng-file-select]="options"
+                               name="userImages"
+                               (onUpload)="handleUpload($event)"
+                               multiple>
                     </div>
+                    <button type="button" class="btn btn-default" (click)="goBack()">Close</button>
                 </div>
-                <br>
-                <!--<button type="submit" class="btn btn-default">Upload</button>-->
-                <button type="button" class="btn btn-default" (click)="goBack()">Close</button>
-              </div>  
+                <div class="progress-container {{ showprogress }}">
+                    <div class="progress-window">
+                        <div *ngFor="let progressObj of uploadProgresses">
+                            <div>{{progressObj.originalName}}</div>
+                            <div class="ui indicating olive progress">
+                                <div class="bar" [style.width]="progressObj.percent + '%'"></div>
+                                <div class="label">Uploading file ({{ progressObj.percent }}%)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-default" (click)="goBack()">Cancel</button>
+                </div>
+              </div>
+                 
              `,
    directives: [UPLOAD_DIRECTIVES],
     styles:[`
-            .wraper {
-                margin: 20px 20px;
-                width: 440px;
-                height: 350px;
-                position: relative;
-            }
-            .upload-button {
+               
+            .wraper-tools {
                 position: absolute;
-                top: 40%;
-                left: 42%;
-                color: #333;
-                background-color: #fff;
-                display: inline-block;
-                padding: 6px 12px;
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 1.42857143;
-                text-align: center;
-                white-space: nowrap;
-                vertical-align: middle;
-                -ms-touch-action: manipulation;
-                touch-action: manipulation;
-                cursor: pointer;
-                -webkit-user-select: none;
-                -moz-user-select: none;
-                -ms-user-select: none;
-                user-select: none;
-                background-image: none;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                margin: auto auto;
+                bottom: 20px;
+                right: 20px;
             }
             
-            .upload-button:hover {
-                background-color: #e6e6e6;
-                border-color: #adadad;
+            .progress-window {
+                height: 250px;
+                overflow-y: auto;
             }
-            
-            .btn {
-                position: absolute;
-                top: 90%;
-                left: 80%;
-            }
-            
+                        
             .olive {
                 height: 10px;
                 background-color: olive;
@@ -96,6 +69,7 @@ import { UPLOAD_DIRECTIVES } from 'ng2-uploader/ng2-uploader';
 })
 
 export class FileContent {
+    showtools:string = "show";
     uploadFiles: any[];
     uploadProgresses: any[] = [];
    // zone: NgZone;
