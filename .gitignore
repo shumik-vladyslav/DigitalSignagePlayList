@@ -2,9 +2,7 @@
 node_modules/
 /client/node_modules/
 /.idea
-/client/images/
 client/app/test/
 /client/clientAssets/
 /server/db/ads.db
-
 /server/uploads/
