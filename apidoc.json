@@ -2,7 +2,7 @@
   "name": "apidoc-example",
   "version": "0.0.1",
   "description": "apidoc example project",
-  "title": "Custom apiDoc browser title",
+  "title": "DigitalSignage apiDoc",
   "url" : "",
   "sampleUrl": "http://127.0.0.1:8888",
 

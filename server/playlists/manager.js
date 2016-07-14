@@ -1,27 +1,23 @@
 "use strict";
 var express = require('express');
-var db = require("./dbMessages");
-var dbMessages_1 = require("./dbMessages");
+var PlayListRow_1 = require("./PlayListRow");
+var PlaylistsTable_1 = require("./PlaylistsTable");
 var fs = require('fs');
 var router = express.Router();
-var mydb = new db.DBMessages();
-mydb.createNewTable();
-router.get('/select/all', function (req, res) {
-    var promise = mydb.selectAllContent();
-    promise.then(function (result) {
-        console.log(result);
-        res.json({ data: result });
-    }, function (err) {
-        console.log(err);
-        res.json(err);
-    });
-});
-router.get('/select/:id', function (req, res) {
-    var promise = mydb.selectContentById(req.params.id);
+var mytableP = new PlaylistsTable_1.PlaylistsTable("playlists", new PlayListRow_1.PlayList());
+router.get('/create-playlist', function (req, res) {
+    var column_name = 'listId';
+    var promise = mytableP.selectMax(column_name);
     promise.then(function (result) {
         if (result !== {}) {
-            console.log("res", result);
-            res.json({ data: result });
+            var max = ++result[column_name];
+            console.log('result = ', result);
+            var p = mytableP.insertContent(result);
+            p.then(function (result) {
+                res.json({ data: { 'playlistId': max } });
+            }, function (err) {
+                onError(err, res);
+            });
         }
         else {
             onError(result, res);
@@ -31,24 +27,51 @@ router.get('/select/:id', function (req, res) {
         onError(err, res);
     });
 });
-router.post('/insert', function (req, res) {
+router.post('/insert-content', function (req, res) {
     var body = req.body;
-    var message = new dbMessages_1.Message(body.active, body.message);
-    var promise = mydb.insertContent(message);
+    console.log('body ', body);
+    var pl = new PlayListRow_1.PlayList(body);
+    console.log('playlist ', pl);
+    var err;
+    var isValid = function (arg) {
+        if (arg.listId <= 0 || typeof arg.listId !== 'number') {
+            err = 'listId <= 0 or must by number';
+            return err;
+        }
+        else if (arg.assetId <= 0 || typeof arg.assetId !== 'number') {
+            err = 'assetId <= 0 or must by number';
+            return err;
+        }
+        else if (arg.afterId < 0 || typeof arg.afterId !== 'number') {
+            err = 'afterId < 0 or must by number';
+            return err;
+        }
+    };
+    if (isValid(pl)) {
+        res.json({ error: err, pl: pl });
+        return;
+    }
+    var promise = mytableP.insertContent(pl);
     promise.then(function (result) {
-        message.id = result.id;
-        console.log(message);
-        res.json(message);
+        var p = mytableP.selectPlayListItemById(result.id);
+        p.then(function (result) {
+            console.log(result);
+            res.json({ data: result });
+        }, function (err) {
+            console.log(err);
+            onError(err, res);
+        });
     }, function (err) {
         console.log(err);
         onError(err, res);
     });
 });
-router.post('/update', function (req, res) {
+router.post('/update-playlist-item', function (req, res) {
     var body = req.body;
-    var message = new dbMessages_1.Message(body.active, body.message, body.id);
-    console.log(message);
-    var promise = mydb.updateContent(message);
+    console.log('body ', body);
+    var pl = new PlayListRow_1.PlayList(body);
+    console.log('playlist ', pl);
+    var promise = mytableP.updateContent(pl);
     promise.then(function (result) {
         if (result.changes) {
             res.json({ data: result });
@@ -59,19 +82,7 @@ router.post('/update', function (req, res) {
         console.log(result);
     }, function (err) {
         console.log(err);
-        res.json(err);
-    });
-});
-router.post('/delete', function (req, res) {
-    var body = req.body;
-    var message = new dbMessages_1.Message(body.active, body.message, body.id);
-    var promise = mydb.deleteContent(message);
-    promise.then(function (result) {
-        console.log(result);
-        res.json({ data: result });
-    }, function (err) {
-        console.log(err);
-        res.json(err);
+        onError(err, res);
     });
 });
 module.exports = router;

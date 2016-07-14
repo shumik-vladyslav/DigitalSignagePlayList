@@ -1,13 +1,12 @@
 "use strict";
 var express = require('express');
-var AssetRow_1 = require("./AssetRow");
 var fileProcessing_1 = require("./fileProcessing");
 var ImageProcess_1 = require("./ImageProcess");
 var TableModel_1 = require("../db/TableModel");
+var AssetRow_1 = require("./AssetRow");
 var router = express.Router();
 var mytable = new TableModel_1.TableModel("assets", AssetRow_1.Asset.getInit());
 var fs = require('fs');
-var multer = require("multer");
 var SUplResult = (function () {
     function SUplResult() {
     }
@@ -76,26 +75,6 @@ router.post('/upload', function (req, res) {
     });
 });
 router.post('/uploads', function (req, res) {
-    var storage = multer.diskStorage({
-        destination: function (req, file, callback) {
-            callback(null, SERVER + '/uploads/temp');
-        },
-        filename: function (req, file, callback) {
-            callback(null, '_' + Date.now() + '_' + file.originalname);
-        }
-    });
-    var upload = multer({ storage: storage }).array('file', 10);
-    upload(req, res, function (err) {
-        if (err) {
-            res.json(err);
-        }
-        else {
-            console.log(req.files);
-            console.log(this);
-            res.json(req.files);
-        }
-    });
-    return;
     var fp = new fileProcessing_1.FileProcessing();
     var ip = new ImageProcess_1.ImageProcess();
     var makeAsset = function () {
@@ -137,6 +116,11 @@ router.post('/uploads', function (req, res) {
             });
         });
     };
+    fp.uploadImages(req, res).then(function (result) {
+        processImage();
+    }, function (error) {
+        onError(error, res);
+    });
 });
 module.exports = router;
 //# sourceMappingURL=manager.js.map
