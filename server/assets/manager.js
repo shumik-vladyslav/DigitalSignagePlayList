@@ -22,6 +22,31 @@ var onSuccess = function (result, res) {
     console.log('onSuccess result\n', result);
     res.json(new ISResult(result));
 };
+router.get('/select-all', function (req, res) {
+    var promise = mytable.selectAllContent();
+    promise.then(function (result) {
+        console.log(result);
+        res.json({ data: result });
+    }, function (err) {
+        console.log(err);
+        res.json(err);
+    });
+});
+router.get('/select/:id', function (req, res) {
+    var promise = mytable.selectContentById(req.params.id);
+    promise.then(function (result) {
+        if (result !== {}) {
+            console.log("res", result);
+            res.json({ data: result });
+        }
+        else {
+            onError(result, res);
+        }
+    }, function (err) {
+        console.log(err);
+        onError(err, res);
+    });
+});
 router.post('/upload', function (req, res) {
     var fp = new fileProcessing_1.FileProcessing();
     var ip = new ImageProcess_1.ImageProcess();

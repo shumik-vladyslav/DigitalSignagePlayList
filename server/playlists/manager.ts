@@ -30,7 +30,7 @@ var mytableP: PlaylistsTable = new PlaylistsTable("playlists", new PlayList());
  * @api {get} /api/playlists/create-playlist Create New Playlist
  * @apiVersion 0.0.1
  * @apiName NewPlaylist
- * @apiGroup Playlist
+ * @apiGroup Playlists
  *
  * @apiDescription Create New Playlist ID in DB.
  *
@@ -79,10 +79,10 @@ router.get('/create-playlist', function (req:express.Request, res:express.Respon
 });
 
 /**
- * @api {post} /api/playlists/insert-content Insert Content
+ * @api {post} /api/playlists/insert-content Insert Playlist
  * @apiVersion 0.0.1
  * @apiName InsertContent
- * @apiGroup Playlist
+ * @apiGroup Playlists
  *
  * @apiDescription Insert Content(fields of playlist) in DB.
  *                 Return all inserted fields of playlists + full assets
@@ -100,7 +100,7 @@ router.get('/create-playlist', function (req:express.Request, res:express.Respon
  *     }
  *
  * @apiExample {js} Example usage:
- *     http://127.0.0.1:8888/api/messages/insert
+ *     http://127.0.0.1:8888/api/playlists/insert-content
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
@@ -183,10 +183,10 @@ router.post('/insert-content', function (req:express.Request, res:express.Respon
 });
 
 /**
- * @api {post} /api/playlists/update-playlist-item
+ * @api {post} /api/playlists/update-playlist-item Update Playlist
  * @apiVersion 0.0.1
  * @apiName UpdatePlaylist
- * @apiGroup Playlist
+ * @apiGroup Playlists
  *
  * @apiDescription Update Playlist(fields of playlist) in DB.
  *
@@ -202,31 +202,16 @@ router.post('/insert-content', function (req:express.Request, res:express.Respon
  *     }
  *
  * @apiExample {js} Example usage:
- *     http://127.0.0.1:8888/api/messages/insert
+ *     http://127.0.0.1:8888/api/playlists/update-playlist-item
  *
  * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *       {
- *        "data": [
- *          {
- *            "id": 30,
- *            "originalName": "face.png",
- *            "path": "/clientAssets/uploads/userImages/_1468363584469_face.png",
- *            "thumb": "/clientAssets/uploads/thumbnails/_1468363584469_face.png",
- *            "size": 132545,
- *            "width": 350,
- *            "height": 350,
- *            "mime": "image/png",
- *            "orientation": null,
- *            "active": null,
- *            "orig_duration": null,
- *            "listId": 7,
- *            "assetId": 3,
- *            "duration": null,
- *            "afterId": 6
+ *          "data": {
+ *              "changes": 1
  *          }
- *        ]
- *      }
+ *       }
+ *
  *
  * @apiErrorExample Error-Response:
  *     {
@@ -254,6 +239,25 @@ router.post('/update-playlist-item', function (req:express.Request, res:express.
     }, function (err) {
         console.log(err);
         onError(err, res);
+    });
+});
+
+router.post('/delete', function (req:express.Request, res:express.Response) {
+    var body:any = req.body;
+    // res.send(req.body);
+    // return;
+    console.log('body ', body);
+    var pl = new PlayList(body);
+    console.log('playlist ', pl);
+
+    var promise = mydb.deleteContent(message);
+    promise.then(function (result) {
+        console.log(result);
+        res.json({data:result});
+        // sellect
+    }, function (err) {
+        console.log(err);
+        res.json(err);
     });
 });
 

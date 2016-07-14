@@ -1,11 +1,113 @@
 [
   {
+    "type": "get",
+    "url": "/api/assets/select/:id",
+    "title": "Get Asset",
+    "version": "0.0.1",
+    "name": "GetAsset",
+    "group": "Assets",
+    "description": "<p>Response asset from DB by id.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id in BD</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"id\":  1\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "http://127.0.0.1:8888/api/assets/select/1",
+        "type": "js"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"data\": {\n         \"id\": 1,\n         \"originalName\": \"face.png\",\n         \"path\": \"/clientAssets/uploads/userImages/_1468357328476_face.png\",\n         \"thumb\": \"/clientAssets/uploads/thumbnails/_1468357328476_face.png\",\n         \"size\": 132545,\n         \"width\": 350,\n         \"height\": 350,\n         \"mime\": \"image/png\",\n         \"orientation\": null,\n         \"active\": null,\n         \"orig_duration\": null\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"errno\": 1\n  \"code\": \"SQLITE_ERROR\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "server/assets/manager.ts",
+    "groupTitle": "Assets",
+    "sampleRequest": [
+      {
+        "url": "http://127.0.0.1:8888/api/assets/select/:id"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "/api/assets/select-all",
+    "title": "Get All Assets",
+    "version": "0.0.1",
+    "name": "GetAssets",
+    "group": "Assets",
+    "description": "<p>Response all assets from DB.</p>",
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "http://127.0.0.1:8888/api/assets/select-all",
+        "type": "js"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"data\": [\n       {\n          \"id\": 1,\n          \"originalName\": \"face.png\",\n          \"path\": \"/clientAssets/uploads/userImages/_1468357328476_face.png\",\n          \"thumb\": \"/clientAssets/uploads/thumbnails/_1468357328476_face.png\",\n          \"size\": 132545,\n          \"width\": 350,\n          \"height\": 350,\n          \"mime\": \"image/png\",\n          \"orientation\": null,\n          \"active\": null,\n          \"orig_duration\": null\n       },\n       {\n           \"id\": 2,\n           \"originalName\": \"face.png\",\n           \"path\": \"/clientAssets/uploads/userImages/_1468359521555_face.png\",\n           \"thumb\": \"/clientAssets/uploads/thumbnails/_1468359521555_face.png\",\n           \"size\": 132545,\n           \"width\": 350,\n           \"height\": 350,\n           \"mime\": \"image/png\",\n           \"orientation\": null,\n           \"active\": null,\n           \"orig_duration\": null\n       }\n    ]\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"errno\": 1\n  \"code\": \"SQLITE_ERROR\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "server/assets/manager.ts",
+    "groupTitle": "Assets",
+    "sampleRequest": [
+      {
+        "url": "http://127.0.0.1:8888/api/assets/select-all"
+      }
+    ]
+  },
+  {
     "type": "post",
     "url": "/api/assets/upload",
     "title": "Upload Image",
     "version": "0.0.1",
     "name": "UploadImage",
-    "group": "Asset",
+    "group": "Assets",
     "description": "<p>Upload Image and create thumbnail.</p>",
     "parameter": {
       "examples": [
@@ -42,7 +144,7 @@
       ]
     },
     "filename": "server/assets/manager.ts",
-    "groupTitle": "Asset",
+    "groupTitle": "Assets",
     "sampleRequest": [
       {
         "url": "http://127.0.0.1:8888/api/assets/upload"
@@ -297,10 +399,10 @@
   {
     "type": "post",
     "url": "/api/playlists/insert-content",
-    "title": "Insert Content",
+    "title": "Insert Playlist",
     "version": "0.0.1",
     "name": "InsertContent",
-    "group": "Playlist",
+    "group": "Playlists",
     "description": "<p>Insert Content(fields of playlist) in DB. Return all inserted fields of playlists + full assets</p>",
     "parameter": {
       "fields": {
@@ -310,21 +412,21 @@
             "type": "Number",
             "optional": false,
             "field": "listId",
-            "description": "<p>required parameter angd must be &gt; 0.</p>"
+            "description": "<p>required parameter and must be &gt; 0.</p>"
           },
           {
             "group": "Parameter",
             "type": "Number",
             "optional": false,
             "field": "assetId",
-            "description": "<p>required parameter angd must be &gt; 0.</p>"
+            "description": "<p>required parameter and must be &gt; 0.</p>"
           },
           {
             "group": "Parameter",
             "type": "Number",
             "optional": false,
             "field": "afterId",
-            "description": "<p>required parameter angd must be !&lt; 0.</p>"
+            "description": "<p>required parameter and must be !&lt; 0.</p>"
           },
           {
             "group": "Parameter",
@@ -346,7 +448,7 @@
     "examples": [
       {
         "title": "Example usage:",
-        "content": "http://127.0.0.1:8888/api/messages/insert",
+        "content": "http://127.0.0.1:8888/api/playlists/insert-content",
         "type": "js"
       }
     ],
@@ -369,7 +471,7 @@
       ]
     },
     "filename": "server/playlists/manager.ts",
-    "groupTitle": "Playlist",
+    "groupTitle": "Playlists",
     "sampleRequest": [
       {
         "url": "http://127.0.0.1:8888/api/playlists/insert-content"
@@ -382,7 +484,7 @@
     "title": "Create New Playlist",
     "version": "0.0.1",
     "name": "NewPlaylist",
-    "group": "Playlist",
+    "group": "Playlists",
     "description": "<p>Create New Playlist ID in DB.</p>",
     "examples": [
       {
@@ -410,10 +512,85 @@
       ]
     },
     "filename": "server/playlists/manager.ts",
-    "groupTitle": "Playlist",
+    "groupTitle": "Playlists",
     "sampleRequest": [
       {
         "url": "http://127.0.0.1:8888/api/playlists/create-playlist"
+      }
+    ]
+  },
+  {
+    "type": "post",
+    "url": "/api/playlists/update-playlist-item",
+    "title": "Update Playlist",
+    "version": "0.0.1",
+    "name": "UpdatePlaylist",
+    "group": "Playlists",
+    "description": "<p>Update Playlist(fields of playlist) in DB.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>required parameter (prime).</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "afterId",
+            "description": "<p>optional</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "duration",
+            "description": "<p>optional</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"id\":28,\n  \"duration\":20,\n  \"afterId\":6\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "examples": [
+      {
+        "title": "Example usage:",
+        "content": "http://127.0.0.1:8888/api/playlists/update-playlist-item",
+        "type": "js"
+      }
+    ],
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n  {\n     \"data\": {\n         \"changes\": 1\n     }\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "{\n  \"errno\": 1\n  \"code\": \"SQLITE_ERROR\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "server/playlists/manager.ts",
+    "groupTitle": "Playlists",
+    "sampleRequest": [
+      {
+        "url": "http://127.0.0.1:8888/api/playlists/update-playlist-item"
       }
     ]
   }
