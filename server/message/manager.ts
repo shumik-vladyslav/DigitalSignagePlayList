@@ -15,7 +15,7 @@ const router = express.Router();
 var mydb: DBMessages = new db.DBMessages();
 
 // mytable.deleteTable();
-mydb.createNewTable();
+// mydb.createNewTable();
 
 // var p = mytable.addNewColumn();
 // console.log(p);

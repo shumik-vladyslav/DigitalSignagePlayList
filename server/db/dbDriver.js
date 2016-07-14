@@ -61,6 +61,7 @@ var DBSQLite = (function () {
                 });
             }
             else {
+                console.log('runQuery this ', this);
                 deferred.resolve(this);
             }
         });
@@ -149,7 +150,7 @@ var DBSQLite = (function () {
         var deferred = Q.defer();
         this.db.get(sql, data, function (error, row) {
             if (error) {
-                console.log(error);
+                console.log('selectOne ', error);
                 deferred.reject({
                     errno: error.errno,
                     code: error.code
@@ -169,9 +170,7 @@ var DBSQLite = (function () {
         var deferred = Q.defer();
         this.db.run(sql, data, function (error) {
             if (error) {
-                deferred.reject({
-                    errno: error.errno,
-                    code: error.code
+                deferred.reject({ error: error
                 });
             }
             else {

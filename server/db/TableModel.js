@@ -16,7 +16,7 @@ var TableModel = (function () {
     };
     TableModel.prototype.createNewTable = function () {
         var sql1 = "DROP TABLE " + this.table;
-        var row = this.row.getInit();
+        var row = this.row;
         delete row['id'];
         var arr = [];
         for (var str in row) {
@@ -40,7 +40,6 @@ var TableModel = (function () {
         return this.db.selectOne(sql, data);
     };
     TableModel.prototype.insertContent = function (row) {
-        console.log('row', row);
         var ar1 = [];
         var ar2 = [];
         var ar3 = [];
@@ -50,15 +49,16 @@ var TableModel = (function () {
             ar3.push(row[str]);
         }
         var sql = 'INSERT INTO ' + this.table + ' (' + ar1.join(',') + ') VALUES (' + ar2.join(',') + ')';
+        console.log('sql ', sql);
         var data = ar3;
         return this.db.insertOne(sql, data);
     };
     TableModel.prototype.updateContent = function (row) {
         var id = row.id;
         delete row.id;
-        var ar1;
-        var ar2;
-        var ar3;
+        var ar1 = [];
+        var ar2 = [];
+        var ar3 = [];
         for (var str in row) {
             ar1.push(str + ' = ?');
             ar3.push(row[str]);

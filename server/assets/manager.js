@@ -1,9 +1,9 @@
 "use strict";
 var express = require('express');
-var AssetRow_1 = require("./AssetRow");
 var fileProcessing_1 = require("./fileProcessing");
 var ImageProcess_1 = require("./ImageProcess");
 var TableModel_1 = require("../db/TableModel");
+var AssetRow_1 = require("./AssetRow");
 var router = express.Router();
 var mytable = new TableModel_1.TableModel("assets", AssetRow_1.Asset.getInit());
 var fs = require('fs');

@@ -16,7 +16,7 @@ var Asset = (function () {
             mime: 'string',
             orientation: 'string',
             active: 0,
-            duration: 0
+            orig_duration: 0
         });
     };
     return Asset;

@@ -45,6 +45,7 @@ app.use(function (req, res, next) {
 var port = process.env.PORT || 8888;
 app.use('/api/content', require('./server/content/manager'));
 app.use('/api/assets', require('./server/assets/manager'));
+app.use('/api/playlists', require('./server/playlists/manager'));
 app.use('/api/messages', require('./server/message/manager'));
 app.listen(port, function () {
     console.log('http://127.0.0.1:' + port);

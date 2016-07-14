@@ -5,7 +5,6 @@ var dbMessages_1 = require("./dbMessages");
 var fs = require('fs');
 var router = express.Router();
 var mydb = new db.DBMessages();
-mydb.createNewTable();
 router.get('/select/all', function (req, res) {
     var promise = mydb.selectAllContent();
     promise.then(function (result) {

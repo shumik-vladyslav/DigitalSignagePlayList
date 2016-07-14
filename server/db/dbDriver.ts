@@ -111,12 +111,13 @@ export class DBSQLite implements IDBDriver {
         // console.log('dbDriver runQuery');
         this.db.run(sql, function(error) {
             if (error) {
+                // console.log('runQuery error', error);
                 deferred.reject({
                     errno: error.errno,
                     code: error.code
                 });
             } else {
-                // console.log('runQuery this ',this);
+                console.log('runQuery this ',this);
                 deferred.resolve(this);
             }
         });
@@ -169,7 +170,7 @@ export class DBSQLite implements IDBDriver {
         return deferred.promise;
     }
 
-    addColumn(sql:string, data?:any[]): Q.Promise<any> {
+    addColumn(sql:string, data?:any[]): Q.Promise<{changes:number}> {
         var deferred: Q.Deferred<any> = Q.defer();
 
         this.db.run(sql, function(error) {
@@ -225,7 +226,7 @@ export class DBSQLite implements IDBDriver {
 
         this.db.get(sql, data, function(error, row) {
                 if (error) {
-                    console.log(error);
+                    console.log('selectOne ', error);
                     deferred.reject({
                         errno: error.errno,
                         code: error.code
@@ -248,9 +249,9 @@ export class DBSQLite implements IDBDriver {
 
         this.db.run(sql, data, function(error) {
             if (error) {
-                deferred.reject({
-                    errno: error.errno,
-                    code: error.code
+                deferred.reject({error
+                    // errno: error.errno,
+                    // code: error.code
                 });
             } else {
                 // console.log({ id: this.lastID });

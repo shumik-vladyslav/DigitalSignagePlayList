@@ -5,13 +5,13 @@ import Request = Express.Request;
 import Response = Express.Response;
 import Q = require('q');
 // import mytable = require("../db/TableModel");
-import {Asset} from "./AssetRow";
 
 // import fileProcessing = require("./fileProcessing");
 import {IFileReq} from "./fileProcessing";
 import {FileProcessing} from "./fileProcessing";
 import {ImageProcess} from "./ImageProcess";
 import {TableModel} from "../db/TableModel";
+import {Asset} from "./AssetRow";
 
 declare var WWW:string;
 declare var SERVER:string;
