@@ -85,5 +85,19 @@ router.post('/update-playlist-item', function (req, res) {
         onError(err, res);
     });
 });
+router.post('/delete', function (req, res) {
+    var body = req.body;
+    console.log('body ', body);
+    var pl = new PlayListRow_1.PlayList(body);
+    console.log('playlist ', pl);
+    var promise = mydb.deleteContent(message);
+    promise.then(function (result) {
+        console.log(result);
+        res.json({ data: result });
+    }, function (err) {
+        console.log(err);
+        res.json(err);
+    });
+});
 module.exports = router;
 //# sourceMappingURL=manager.js.map

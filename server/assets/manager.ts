@@ -62,12 +62,137 @@ var onSuccess = function (result: any, res:express.Response) {
     res.json(new ISResult(result));
 };
 
+/**
+ * @api {get} /api/assets/select-all Get All Assets
+ * @apiVersion 0.0.1
+ * @apiName GetAssets
+ * @apiGroup Assets
+ *
+ * @apiDescription Response all assets from DB.
+ *
+ * @apiExample {js} Example usage:
+ *     http://127.0.0.1:8888/api/assets/select-all
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *     {
+ *         "data": [
+ *            {
+ *               "id": 1,
+ *               "originalName": "face.png",
+ *               "path": "/clientAssets/uploads/userImages/_1468357328476_face.png",
+ *               "thumb": "/clientAssets/uploads/thumbnails/_1468357328476_face.png",
+ *               "size": 132545,
+ *               "width": 350,
+ *               "height": 350,
+ *               "mime": "image/png",
+ *               "orientation": null,
+ *               "active": null,
+ *               "orig_duration": null
+ *            },
+ *            {
+ *                "id": 2,
+ *                "originalName": "face.png",
+ *                "path": "/clientAssets/uploads/userImages/_1468359521555_face.png",
+ *                "thumb": "/clientAssets/uploads/thumbnails/_1468359521555_face.png",
+ *                "size": 132545,
+ *                "width": 350,
+ *                "height": 350,
+ *                "mime": "image/png",
+ *                "orientation": null,
+ *                "active": null,
+ *                "orig_duration": null
+ *            }
+ *         ]
+ *      }
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "errno": 1
+ *       "code": "SQLITE_ERROR"
+ *     }
+ */
+
+router.get('/select-all', function (req:express.Request, res:express.Response) {
+    var promise = mytable.selectAllContent();
+    promise.then(function (result) {
+        console.log(result);
+        res.json({data:result});
+        // sellect
+    }, function (err) {
+        console.log(err);
+        res.json(err);
+    });
+});
+
+
+/**
+ * @api {get} /api/assets/select/:id Get Asset
+ * @apiVersion 0.0.1
+ * @apiName GetAsset
+ * @apiGroup Assets
+ *
+ * @apiDescription Response asset from DB by id.
+ *
+ * @apiParam {number} id   id in BD
+ *
+ * @apiParamExample {json} Request-Example:
+ *     {
+ *       "id":  1
+ *     }
+ *
+ * @apiExample {js} Example usage:
+ *     http://127.0.0.1:8888/api/assets/select/1
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *      {
+ *          "data": {
+ *               "id": 1,
+ *               "originalName": "face.png",
+ *               "path": "/clientAssets/uploads/userImages/_1468357328476_face.png",
+ *               "thumb": "/clientAssets/uploads/thumbnails/_1468357328476_face.png",
+ *               "size": 132545,
+ *               "width": 350,
+ *               "height": 350,
+ *               "mime": "image/png",
+ *               "orientation": null,
+ *               "active": null,
+ *               "orig_duration": null
+ *          }
+ *      }
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "errno": 1
+ *       "code": "SQLITE_ERROR"
+ *     }
+ */
+
+router.get('/select/:id', function (req:express.Request, res:express.Response) {
+    var promise = mytable.selectContentById(req.params.id);
+    // res.json(req.params);
+    promise.then(function (result) {
+        if(result !== {}) {
+            console.log("res", result);
+            res.json({data:result});
+        } else {
+            onError(result, res);
+        }
+        // res.json({data:result});
+    }, function (err) {
+        console.log(err);
+        onError(err, res);
+        // res.json(err);
+    });
+});
+
 
 /**
  * @api {post} /api/assets/upload Upload Image
  * @apiVersion 0.0.1
  * @apiName UploadImage
- * @apiGroup Asset
+ * @apiGroup Assets
  *
  * @apiDescription Upload Image and create thumbnail.
  *
