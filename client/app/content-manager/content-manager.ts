@@ -6,8 +6,9 @@ import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES, ActivatedRoute, Router } from '@angular/router';
 import { RouterConfig } from '@angular/router';
 
-import { AddContent }  from '../add/add-content';
-import { addRoutes } from "../add/add.routes";
+import { AddContent }  from '../content-add/content-add';
+import { addRoutes } from "../content-add/add.routes";
+import {AssetLibrary} from "../assets/asset-library";
 
 @Component({
     selector: 'content-manager',
@@ -17,7 +18,7 @@ import { addRoutes } from "../add/add.routes";
                     <a [routerLink]="['./add/files']" class="btn"><span class="fa fa-messages"></span> Add</a>
                 </nav>
                 <div>
-                    <content-box></content-box>
+                    <asset-library></asset-library>
                 </div>
                 <div *ngIf="isAddContent">
                   <div id="myModal" class="modal" role="dialog">
@@ -25,7 +26,7 @@ import { addRoutes } from "../add/add.routes";
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" (click)="onModalClose()">&times;</button>
-                            <h4 class="modal-title">Modal Header</h4>
+                            <h4 class="modal-title">Add content</h4>
                           </div>
                           <div class="modal-body">
                             <add-content></add-content>
@@ -35,11 +36,8 @@ import { addRoutes } from "../add/add.routes";
                           </div>
                         </div>
                     
+                      </div>
                   </div>
-                </div>
-                
-                
-                    
                 </div>
               `,
     styles: [ `
@@ -49,7 +47,7 @@ import { addRoutes } from "../add/add.routes";
                 }
             `]
             ,
-    directives: [ROUTER_DIRECTIVES, AddContent]
+    directives: [ROUTER_DIRECTIVES, AddContent, AssetLibrary]
 })
 
 export class ContentManager {
@@ -70,7 +68,6 @@ export class ContentManager {
 
     ngOnInit() {
         this.paramsSub = this.ar.params.subscribe((params) => {
-            console.log(params)
             switch (params['contm']) {
                 case "add":
                     this.isAddContent = true;

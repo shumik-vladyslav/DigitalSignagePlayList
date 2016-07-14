@@ -4,9 +4,9 @@
 
 import { RouterConfig } from '@angular/router';
 
-import { AddContent }  from '../add/add-content';
-import { ContentManager } from './contentmanager';
-import { addRoutes } from "../add/add.routes";
+import { AddContent }  from '../content-add/content-add';
+import { ContentManager } from './content-manager';
+import { addRoutes } from "../content-add/add.routes";
 
 
 export const contentmanagerRoutes: RouterConfig = [

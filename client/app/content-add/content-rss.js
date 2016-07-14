@@ -38,7 +38,7 @@ var RssContent = (function () {
         return errMsg;
     };
     RssContent.prototype.goBack = function () {
-        var link = ['/dashboard/content-manager'];
+        var link = ['/content-manager'];
         this.router.navigate(link);
     };
     RssContent = __decorate([
@@ -52,4 +52,4 @@ var RssContent = (function () {
     return RssContent;
 }());
 exports.RssContent = RssContent;
-//# sourceMappingURL=rss-content.js.map
+//# sourceMappingURL=content-rss.js.map

@@ -21,7 +21,7 @@ var WebContent = (function () {
     WebContent.prototype.onChange = function (input) {
     };
     WebContent.prototype.goBack = function () {
-        var link = ['/dashboard/content-manager'];
+        var link = ['/content-manager'];
         this.router.navigate(link);
     };
     WebContent = __decorate([
@@ -35,4 +35,4 @@ var WebContent = (function () {
     return WebContent;
 }());
 exports.WebContent = WebContent;
-//# sourceMappingURL=web-content.js.map
+//# sourceMappingURL=content-web.js.map
