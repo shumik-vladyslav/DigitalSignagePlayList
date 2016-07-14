@@ -7,3 +7,4 @@ client/app/test/
 /client/clientAssets/
 /server/db/ads.db
 
+/server/uploads/
