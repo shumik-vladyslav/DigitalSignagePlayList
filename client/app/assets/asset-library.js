@@ -27,7 +27,7 @@ var AssetLibrary = (function () {
         var _this = this;
         this.service.getData()
             .subscribe(function (data) {
-            console.log(data);
+            // console.log(data);
             _this.data = data;
         }, function (error) { return _this.errorMessage = error; });
         {

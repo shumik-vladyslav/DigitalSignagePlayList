@@ -56,7 +56,7 @@ export class AssetLibrary {
         this.service.getData()
             .subscribe(
                 (data) => {
-                    console.log(data);
+                   // console.log(data);
                     this.data = data
                 },
                         error => this.errorMessage = <any>error

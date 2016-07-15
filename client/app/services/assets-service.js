@@ -41,7 +41,7 @@ var AssetsService = (function () {
     };
     AssetsService.prototype.parse = function (res) {
         var body = res.json().data;
-        console.log(body);
+        //  console.log(body)
         body.forEach(function (item) {
             item.img = item.path;
             // item.thumb='http://digitalsignage.front-desk.ca'+item.thumb;

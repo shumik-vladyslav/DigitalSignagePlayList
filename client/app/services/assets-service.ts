@@ -40,7 +40,7 @@ export class AssetsService {
 
     private parse(res: Response) {
         let body: Asset [] = res.json().data;
-        console.log(body)
+      //  console.log(body)
         body.forEach (function (item: any) {
             item.img = item.path;
            // item.thumb='http://digitalsignage.front-desk.ca'+item.thumb;
