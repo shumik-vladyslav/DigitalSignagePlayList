@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var cookie = require('cookie-parser');
 var fs = require('fs');
+var request = require('request');
 var path = require('path');
 GLOBAL.ROOT = __dirname;
 GLOBAL.WWW = path.resolve(ROOT + '/client/');
@@ -41,6 +42,12 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
+});
+app.all('/proxy/*', function (req, res) {
+    var url = 'http://digitalsignage.front-desk.ca/';
+    url = url + req.url.substr(7);
+    console.log("proxying: " + url);
+    request({ url: url, method: req.method, body: req.body }).pipe(res);
 });
 var port = process.env.PORT || 8888;
 app.use('/api/content', require('./server/content/manager'));

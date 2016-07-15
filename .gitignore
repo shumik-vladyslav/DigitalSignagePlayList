@@ -4,3 +4,5 @@ node_modules/
 /.idea
 /client/images/
 client/app/test/
+/server/db/ads.db
+/client/clientAssets/

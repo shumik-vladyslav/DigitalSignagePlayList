@@ -242,7 +242,7 @@ router.post('/update-playlist-item', function (req:express.Request, res:express.
     });
 });
 
-router.post('/delete', function (req:express.Request, res:express.Response) {
+router.post('/delete-playlist-item', function (req:express.Request, res:express.Response) {
     var body:any = req.body;
     // res.send(req.body);
     // return;
@@ -250,7 +250,7 @@ router.post('/delete', function (req:express.Request, res:express.Response) {
     var pl = new PlayList(body);
     console.log('playlist ', pl);
 
-    var promise = mydb.deleteContent(message);
+    var promise = mytableP.deleteContent(pl);
     promise.then(function (result) {
         console.log(result);
         res.json({data:result});
