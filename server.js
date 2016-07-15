@@ -42,7 +42,7 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-var port = process.env.PORT || 8888;
+var port = process.env.PORT || 56777;
 app.use('/api/content', require('./server/content/manager'));
 app.use('/api/assets', require('./server/assets/manager'));
 app.use('/api/playlists', require('./server/playlists/manager'));

@@ -74,7 +74,7 @@ app.use(function(req:Request, res:Response, next) {
     next();
 });
 
-const port:number = process.env.PORT || 8888;
+const port:number = process.env.PORT || 56777;
 // app.use('/api/users', require('./server/users/index'));
 // app.use('/api/user', require('./server/users/user'));
 app.use('/api/content', require('./server/content/manager'));
