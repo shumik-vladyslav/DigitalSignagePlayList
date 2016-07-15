@@ -20,7 +20,7 @@ export class AssetsService {
     }
 
 
-    private dataUrl = 'api/assets/select-all';
+    private dataUrl = 'proxy/api/assets/select-all';
 
     getData (): Observable<Asset[]> {
         return this.http.get(this.dataUrl)
@@ -42,7 +42,7 @@ export class AssetsService {
         let body: Asset [] = res.json().data;
       //  console.log(body)
         body.forEach (function (item: any) {
-            item.img = item.path;
+            item.img = 'proxy'+item.path;
            // item.thumb='http://digitalsignage.front-desk.ca'+item.thumb;
 
         });

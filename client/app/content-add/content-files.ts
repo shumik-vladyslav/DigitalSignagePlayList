@@ -74,7 +74,7 @@ export class FileContent {
     uploadProgresses: any[] = [];
    // zone: NgZone;
     options: Object = {
-        url: 'http://localhost:56777/api/assets/upload'
+        url: 'http://localhost:56777/proxy/api/assets/upload'
     };
 
     constructor(private zone:NgZone,  private router: Router) {

@@ -22,7 +22,7 @@ var FileContent = (function () {
         this.uploadProgresses = [];
         // zone: NgZone;
         this.options = {
-            url: 'http://localhost:56777/api/assets/upload'
+            url: 'http://localhost:56777/proxy/api/assets/upload'
         };
         // this.zone = new NgZone({ enableLongStackTrace: false });
     }

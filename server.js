@@ -43,13 +43,15 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+var httpProxy = require('http-proxy');
+var proxy = httpProxy.createProxyServer({});
 app.all('/proxy/*', function (req, res) {
-    var url = 'http://digitalsignage.front-desk.ca/';
-    url = url + req.url.substr(7);
-    console.log("proxying: " + url);
-    request({ url: url, method: req.method, body: req.body }).pipe(res);
+    var proxyURL = "http://digitalsignage.front-desk.ca/";
+    req.url = req.url.substr(7);
+    var options = { target: proxyURL };
+    proxy.web(req, res, options);
 });
-var port = process.env.PORT || 8888;
+var port = process.env.PORT || 56777;
 app.use('/api/content', require('./server/content/manager'));
 app.use('/api/assets', require('./server/assets/manager'));
 app.use('/api/playlists', require('./server/playlists/manager'));

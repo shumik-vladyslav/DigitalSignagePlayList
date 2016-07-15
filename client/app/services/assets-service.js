@@ -23,7 +23,7 @@ exports.Asset = Asset;
 var AssetsService = (function () {
     function AssetsService(http) {
         this.http = http;
-        this.dataUrl = 'api/assets/select-all';
+        this.dataUrl = 'proxy/api/assets/select-all';
     }
     AssetsService.prototype.getData = function () {
         var _this = this;
@@ -43,7 +43,7 @@ var AssetsService = (function () {
         var body = res.json().data;
         //  console.log(body)
         body.forEach(function (item) {
-            item.img = item.path;
+            item.img = 'proxy' + item.path;
             // item.thumb='http://digitalsignage.front-desk.ca'+item.thumb;
         });
         return body || {};

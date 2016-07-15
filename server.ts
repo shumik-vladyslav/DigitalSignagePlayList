@@ -75,14 +75,19 @@ app.use(function(req:Request, res:Response, next) {
     next();
 });
 
+var httpProxy = require('http-proxy');
+var proxy = httpProxy.createProxyServer({});
+
 app.all('/proxy/*', function(req: express.Request, res:express.Response) {
-    var url = 'http://digitalsignage.front-desk.ca/';
-    url = url + req.url.substr(7);
-    console.log("proxying: " + url);
-    request({ url: url, method: req.method, body: req.body }).pipe(res);
+
+    var proxyURL = "http://digitalsignage.front-desk.ca/" ;
+    req.url = req.url.substr(7);
+    var options = {target : proxyURL};
+    proxy.web(  req, res, options  );
+
 });
 
-const port:number = process.env.PORT || 8888;
+const port:number = process.env.PORT || 56777;
 // app.use('/api/users', require('./server/users/index'));
 // app.use('/api/user', require('./server/users/user'));
 app.use('/api/content', require('./server/content/manager'));
