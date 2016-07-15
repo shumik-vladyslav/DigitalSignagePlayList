@@ -23,7 +23,8 @@ exports.Asset = Asset;
 var AssetsService = (function () {
     function AssetsService(http) {
         this.http = http;
-        this.dataUrl = 'images/images.json';
+        this.server = 'http://digitalsignage.front-desk.ca/api/';
+        this.dataUrl = this.server + 'assets/select-all';
     }
     AssetsService.prototype.getData = function () {
         var _this = this;
@@ -40,10 +41,11 @@ var AssetsService = (function () {
             .catch(this.handleError);
     };
     AssetsService.prototype.parse = function (res) {
-        var body = res.json();
-        //console.log(body)
+        var body = res.json().data;
+        console.log(body);
         body.forEach(function (item) {
             item.img = item.large;
+            item.thumb = 'http://digitalsignage.front-desk.ca/api' + item.thumb;
         });
         return body || {};
     };

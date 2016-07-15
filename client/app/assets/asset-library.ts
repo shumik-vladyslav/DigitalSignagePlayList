@@ -1,7 +1,7 @@
 /**
  * Created by Dmitriy Prilutsky on 14.07.2016.
  */
-
+import {DomSanitizationService} from '@angular/platform-browser';
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
@@ -14,7 +14,7 @@ import { AssetsService, Asset } from '../services/assets-service';
                      <md-content>
                          <div class="card" *ngFor="let item of data">
                             <md-card>
-                                      <img md-card-sm-image src=" {{ item.thumb }} " (click)="onClickItem(item)">
+                                      <img md-card-sm-image src=" {{sanitizer.bypassSecurityTrustUrl(item.thumb)}} " (click)="onClickItem(item)">
                             </md-card>
                          </div>
                      </md-content>
@@ -30,7 +30,7 @@ import { AssetsService, Asset } from '../services/assets-service';
                     float: left;
                 }
             `],
-    directives: [ROUTER_DIRECTIVES],
+    directives: [ROUTER_DIRECTIVES,DomSanitizationService],
     providers: [AssetsService]
 })
 
@@ -43,7 +43,7 @@ export class AssetLibrary {
     fullItem:Asset;
     dragMove:Asset;
 
-    constructor(private service:AssetsService) {
+    constructor(private service:AssetsService,private sanitizer:DomSanitizationService) {
         this.cartItems = [new Asset()];
     }
 
@@ -54,8 +54,12 @@ export class AssetLibrary {
     getData() {
         this.service.getData()
             .subscribe(
-                data => this.data = data,
-                error => this.errorMessage = <any>error);
+                (data) => {
+                    console.log(data);
+                    this.data = data
+                },
+                        error => this.errorMessage = <any>error
+               );
         {
         }
     }

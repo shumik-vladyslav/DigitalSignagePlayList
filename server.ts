@@ -40,7 +40,11 @@ import {Express} from "express";
 ///////////////////////////////////////
 
 const app:Express = express();
-
+app.use(function(req:Request, res:Response, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 // configure our app to use bodyParser(it let us get the json data from a POST)
 app.use(cookie());
 app.use(session({
@@ -50,6 +54,8 @@ app.use(session({
 }));
 app.use('/api',bodyParser.urlencoded({extended: true}));
 app.use('/api',bodyParser.json());
+
+
 
 app.use(express.static(WWW));
 
@@ -68,11 +74,7 @@ app.get('/apidocs', function(req:express.Request, res:express.Response){
     res.sendFile('index.html',{ 'root':path.resolve(WWW + '/apidocs/')});
 });
 
-app.use(function(req:Request, res:Response, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+
 
 const port:number = process.env.PORT || 56777;
 // app.use('/api/users', require('./server/users/index'));

@@ -16,6 +16,11 @@ GLOBAL.onError = function (err, res) {
     fs.appendFile(SERVER + '/error.log', str);
 };
 var app = express();
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 app.use(cookie());
 app.use(session({
     resave: false,
@@ -36,11 +41,6 @@ app.get('/dashboard/*', function (req, res) {
 });
 app.get('/apidocs', function (req, res) {
     res.sendFile('index.html', { 'root': path.resolve(WWW + '/apidocs/') });
-});
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
 });
 var port = process.env.PORT || 56777;
 app.use('/api/content', require('./server/content/manager'));

@@ -1,6 +1,3 @@
-/**
- * Created by Dmitriy Prilutsky on 14.07.2016.
- */
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -11,12 +8,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+/**
+ * Created by Dmitriy Prilutsky on 14.07.2016.
+ */
+var platform_browser_1 = require('@angular/platform-browser');
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var assets_service_1 = require('../services/assets-service');
 var AssetLibrary = (function () {
-    function AssetLibrary(service) {
+    function AssetLibrary(service, sanitizer) {
         this.service = service;
+        this.sanitizer = sanitizer;
         this.cartItems = [new assets_service_1.Asset()];
     }
     AssetLibrary.prototype.ngOnInit = function () {
@@ -25,7 +27,10 @@ var AssetLibrary = (function () {
     AssetLibrary.prototype.getData = function () {
         var _this = this;
         this.service.getData()
-            .subscribe(function (data) { return _this.data = data; }, function (error) { return _this.errorMessage = error; });
+            .subscribe(function (data) {
+            console.log(data);
+            _this.data = data;
+        }, function (error) { return _this.errorMessage = error; });
         {
         }
     };
@@ -38,12 +43,12 @@ var AssetLibrary = (function () {
     AssetLibrary = __decorate([
         core_1.Component({
             selector: 'asset-library',
-            template: "<div class=\"asset-library\">\n                     <md-content>\n                         <div class=\"card\" *ngFor=\"let item of data\">\n                            <md-card>\n                                      <img md-card-sm-image src=\" {{ item.thumb }} \" (click)=\"onClickItem(item)\">\n                            </md-card>\n                         </div>\n                     </md-content>\n                     <div class=\"full-image\" *ngIf=\"fullItem\"> \n                         <img src=\" {{ fullItem.img }} \" width=\"200\" (click)=\"hideFullImage()\">\n                     </div>\n               </div>\n                ",
+            template: "<div class=\"asset-library\">\n                     <md-content>\n                         <div class=\"card\" *ngFor=\"let item of data\">\n                            <md-card>\n                                      <img md-card-sm-image src=\" {{sanitizer.bypassSecurityTrustUrl(item.thumb)}} \" (click)=\"onClickItem(item)\">\n                            </md-card>\n                         </div>\n                     </md-content>\n                     <div class=\"full-image\" *ngIf=\"fullItem\"> \n                         <img src=\" {{ fullItem.img }} \" width=\"200\" (click)=\"hideFullImage()\">\n                     </div>\n               </div>\n                ",
             styles: ["\n                .card {\n                    height: 128px;\n                    width: 128px;\n                    float: left;\n                }\n            "],
-            directives: [router_1.ROUTER_DIRECTIVES],
+            directives: [router_1.ROUTER_DIRECTIVES, platform_browser_1.DomSanitizationService],
             providers: [assets_service_1.AssetsService]
         }), 
-        __metadata('design:paramtypes', [assets_service_1.AssetsService])
+        __metadata('design:paramtypes', [assets_service_1.AssetsService, platform_browser_1.DomSanitizationService])
     ], AssetLibrary);
     return AssetLibrary;
 }());
