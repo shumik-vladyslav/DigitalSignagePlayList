@@ -34,6 +34,7 @@ import { AssetsService, Asset } from '../services/assets-service';
     providers: [AssetsService]
 })
 
+
 export class AssetLibrary {
     errorMessage:string;
     data:Asset[];
