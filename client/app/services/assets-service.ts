@@ -19,8 +19,8 @@ export class AssetsService {
     constructor(private http:Http) {
     }
 
-    private server:string ='http://digitalsignage.front-desk.ca/api/'
-    private dataUrl = this.server+'assets/select-all';
+
+    private dataUrl = 'api/assets/select-all';
 
     getData (): Observable<Asset[]> {
         return this.http.get(this.dataUrl)
@@ -42,8 +42,8 @@ export class AssetsService {
         let body: Asset [] = res.json().data;
         console.log(body)
         body.forEach (function (item: any) {
-            item.img = item.large;
-            item.thumb='http://digitalsignage.front-desk.ca/api'+item.thumb;
+            item.img = item.path;
+           // item.thumb='http://digitalsignage.front-desk.ca'+item.thumb;
 
         });
         return body || { };

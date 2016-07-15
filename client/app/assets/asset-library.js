@@ -11,14 +11,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /**
  * Created by Dmitriy Prilutsky on 14.07.2016.
  */
-var platform_browser_1 = require('@angular/platform-browser');
+//import {DomSanitizationService} from '@angular/platform-browser';
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var assets_service_1 = require('../services/assets-service');
 var AssetLibrary = (function () {
-    function AssetLibrary(service, sanitizer) {
+    function AssetLibrary(service) {
         this.service = service;
-        this.sanitizer = sanitizer;
         this.cartItems = [new assets_service_1.Asset()];
     }
     AssetLibrary.prototype.ngOnInit = function () {
@@ -43,12 +42,12 @@ var AssetLibrary = (function () {
     AssetLibrary = __decorate([
         core_1.Component({
             selector: 'asset-library',
-            template: "<div class=\"asset-library\">\n                     <md-content>\n                         <div class=\"card\" *ngFor=\"let item of data\">\n                            <md-card>\n                                      <img md-card-sm-image src=\" {{sanitizer.bypassSecurityTrustUrl(item.thumb)}} \" (click)=\"onClickItem(item)\">\n                            </md-card>\n                         </div>\n                     </md-content>\n                     <div class=\"full-image\" *ngIf=\"fullItem\"> \n                         <img src=\" {{ fullItem.img }} \" width=\"200\" (click)=\"hideFullImage()\">\n                     </div>\n               </div>\n                ",
+            template: "<div class=\"asset-library\">\n                     <md-content>\n                         <div class=\"card\" *ngFor=\"let item of data\">\n                            <md-card>\n                                      <img md-card-sm-image src=\"{{item.thumb}} \" (click)=\"onClickItem(item)\">\n                                      \n                            </md-card>\n                         </div>\n                     </md-content>\n                     <div class=\"full-image\" *ngIf=\"fullItem\"> \n                         <img src=\" {{ fullItem.img }} \" width=\"200\" (click)=\"hideFullImage()\">\n                     </div>\n               </div>\n                ",
             styles: ["\n                .card {\n                    height: 128px;\n                    width: 128px;\n                    float: left;\n                }\n            "],
-            directives: [router_1.ROUTER_DIRECTIVES, platform_browser_1.DomSanitizationService],
+            directives: [router_1.ROUTER_DIRECTIVES],
             providers: [assets_service_1.AssetsService]
         }), 
-        __metadata('design:paramtypes', [assets_service_1.AssetsService, platform_browser_1.DomSanitizationService])
+        __metadata('design:paramtypes', [assets_service_1.AssetsService])
     ], AssetLibrary);
     return AssetLibrary;
 }());
