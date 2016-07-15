@@ -5,7 +5,7 @@
 /// <reference path="typings/body-parser/body-parser.d.ts" />
 ///<reference path="typings/express-session/express-session.d.ts"/>
 ///<reference path="typings/cookie-parser/cookie-parser.d.ts"/>
-///<reference path="server/users/dbUsers.ts"/>
+
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as session from 'express-session';
@@ -16,6 +16,7 @@ declare var WWW:string;
 declare var SERVER:string;
 
 var fs = require('fs');
+var request = require('request');
 
 var path = require('path');
 GLOBAL.ROOT = __dirname;
@@ -40,12 +41,6 @@ import {Express} from "express";
 ///////////////////////////////////////
 
 const app:Express = express();
-app.use(function(req:Request, res:Response, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
-
 
 // configure our app to use bodyParser(it let us get the json data from a POST)
 app.use(cookie());
@@ -56,8 +51,6 @@ app.use(session({
 }));
 app.use('/api',bodyParser.urlencoded({extended: true}));
 app.use('/api',bodyParser.json());
-
-
 
 app.use(express.static(WWW));
 
@@ -76,9 +69,20 @@ app.get('/apidocs', function(req:express.Request, res:express.Response){
     res.sendFile('index.html',{ 'root':path.resolve(WWW + '/apidocs/')});
 });
 
+app.use(function(req:Request, res:Response, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
+app.all('/proxy/*', function(req: express.Request, res:express.Response) {
+    var url = 'http://digitalsignage.front-desk.ca/';
+    url = url + req.url.substr(7);
+    console.log("proxying: " + url);
+    request({ url: url, method: req.method, body: req.body }).pipe(res);
+});
 
-const port:number = process.env.PORT || 56777;
+const port:number = process.env.PORT || 8888;
 // app.use('/api/users', require('./server/users/index'));
 // app.use('/api/user', require('./server/users/user'));
 app.use('/api/content', require('./server/content/manager'));

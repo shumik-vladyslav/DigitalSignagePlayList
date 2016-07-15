@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var cookie = require('cookie-parser');
 var fs = require('fs');
+var request = require('request');
 var path = require('path');
 GLOBAL.ROOT = __dirname;
 GLOBAL.WWW = path.resolve(ROOT + '/client/');
@@ -16,11 +17,6 @@ GLOBAL.onError = function (err, res) {
     fs.appendFile(SERVER + '/error.log', str);
 };
 var app = express();
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
 app.use(cookie());
 app.use(session({
     resave: false,
@@ -42,7 +38,18 @@ app.get('/dashboard/*', function (req, res) {
 app.get('/apidocs', function (req, res) {
     res.sendFile('index.html', { 'root': path.resolve(WWW + '/apidocs/') });
 });
-var port = process.env.PORT || 56777;
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+app.all('/proxy/*', function (req, res) {
+    var url = 'http://digitalsignage.front-desk.ca/';
+    url = url + req.url.substr(7);
+    console.log("proxying: " + url);
+    request({ url: url, method: req.method, body: req.body }).pipe(res);
+});
+var port = process.env.PORT || 8888;
 app.use('/api/content', require('./server/content/manager'));
 app.use('/api/assets', require('./server/assets/manager'));
 app.use('/api/playlists', require('./server/playlists/manager'));
