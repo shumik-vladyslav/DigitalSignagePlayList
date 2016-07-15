@@ -45,6 +45,8 @@ app.use(function(req:Request, res:Response, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+
 // configure our app to use bodyParser(it let us get the json data from a POST)
 app.use(cookie());
 app.use(session({
