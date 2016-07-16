@@ -17,6 +17,11 @@ declare var SERVER:string;
 
 var fs = require('fs');
 var request = require('request');
+var httpProxy = require('http-proxy');
+var proxy = httpProxy.createProxyServer({
+    changeOrigin:true,
+    port:80
+});
 
 var path = require('path');
 GLOBAL.ROOT = __dirname;
@@ -75,15 +80,12 @@ app.use(function(req:Request, res:Response, next) {
     next();
 });
 
-var httpProxy = require('http-proxy');
-var proxy = httpProxy.createProxyServer({});
 
 app.all('/proxy/*', function(req: express.Request, res:express.Response) {
-
     var proxyURL = "http://digitalsignage.front-desk.ca/" ;
-    req.url = req.url.substr(7);
+    req.url = req.url.substr(6);
     var options = {target : proxyURL};
-    proxy.web(  req, res, options  );
+    proxy.web(req, res, options);
 
 });
 

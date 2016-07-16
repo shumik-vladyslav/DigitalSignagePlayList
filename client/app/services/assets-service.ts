@@ -42,8 +42,8 @@ export class AssetsService {
         let body: Asset [] = res.json().data;
       //  console.log(body)
         body.forEach (function (item: any) {
-            item.img = 'proxy'+item.path;
-           // item.thumb='http://digitalsignage.front-desk.ca'+item.thumb;
+            item.thumb =  item.img = 'proxy'+item.path;
+
 
         });
         return body || { };
