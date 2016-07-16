@@ -59,6 +59,26 @@ app.use('/api/content', require('./server/content/manager'));
 app.use('/api/assets', require('./server/assets/manager'));
 app.use('/api/playlists', require('./server/playlists/manager'));
 app.use('/api/messages', require('./server/message/manager'));
+var rss = require('./server/libs/rss');
+app.get('/api/rss/:id', function (req, res) {
+    rss.read(req.params.id, function (result) {
+        res.json({ data: result });
+    });
+});
+var phantom = require('node-phantom');
+var webshot = require('webshot');
+app.get('/api/web2/:id', function (req, res) {
+    var phantom = require('node-phantom');
+    phantom.create(function (err, ph) {
+        res.json(err);
+        console.log(ph);
+    });
+});
+app.get('/api/webpage/:id', function (req, res) {
+    webshot('uplight.ca', 'uplight.png', function (err) {
+        res.json(err);
+    });
+});
 app.listen(port, function () {
     console.log('http://127.0.0.1:' + port);
     console.log('http://127.0.0.1:' + port + '/api');

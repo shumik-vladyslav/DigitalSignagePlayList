@@ -96,6 +96,55 @@ app.use('/api/content', require('./server/content/manager'));
 app.use('/api/assets', require('./server/assets/manager'));
 app.use('/api/playlists', require('./server/playlists/manager'));
 app.use('/api/messages', require('./server/message/manager'));
+
+var rss = require('./server/libs/rss');
+
+app.get('/api/rss/:id',function(req: express.Request, res:express.Response){
+    rss.read(req.params.id,function(result){
+        res.json({data:result})
+    });
+})
+var phantom = require('node-phantom');
+var webshot = require('webshot');
+//var webpage = require('webpage');
+app.get('/api/web2/:id',function(req: express.Request, res:express.Response){
+    var phantom =require('node-phantom');
+    phantom.create(function(err,ph) {
+        res.json(err)
+        console.log(ph);
+    });
+});
+
+app.get('/api/webpage/:id',function(req: express.Request, res:express.Response){
+
+   /* var page = webpage.create();
+    page.open('http://uplight.ca', function(status) {
+        console.log("Status: " + status);
+        if(status === "success") {
+            page.render('example.png');
+        }
+
+        phantom.exit();
+        res.json(status)
+    });*/
+
+    webshot('uplight.ca', 'uplight.png', function(err) {
+        // screenshot now saved to google.png
+        res.json(err);
+    });
+   /* phantom.create(function(error,ph){
+        console.log(error);
+        res.json(ph)
+        ph.createPage(function(err,page){
+            page.open('http://uplight.ca' ,function(err,status){
+                page.render('example.png');
+
+            });
+        });
+
+    });*/
+})
+
 app.listen(port,function(){
     console.log('http://127.0.0.1:' + port);
     console.log('http://127.0.0.1:' + port + '/api');
