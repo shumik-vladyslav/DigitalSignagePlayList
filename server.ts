@@ -54,6 +54,8 @@ app.use(session({
     saveUninitialized: false, // don't create session until something stored
     secret:'somesecrettokenhere'
 }));
+
+
 app.use('/api',bodyParser.urlencoded({extended: true}));
 app.use('/api',bodyParser.json());
 
@@ -64,6 +66,7 @@ app.get('/', function(req:express.Request, res:express.Response){
 });
 
 app.get('/dashboard', function(req:express.Request, res:express.Response){
+
     res.sendFile('indexts.html',{ 'root':WWW});
 });
 app.get('/dashboard/*', function(req:express.Request, res:express.Response){
@@ -71,6 +74,7 @@ app.get('/dashboard/*', function(req:express.Request, res:express.Response){
 });
 
 app.get('/apidocs', function(req:express.Request, res:express.Response){
+
     res.sendFile('index.html',{ 'root':path.resolve(WWW + '/apidocs/')});
 });
 
