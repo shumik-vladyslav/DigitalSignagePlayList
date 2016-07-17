@@ -8,6 +8,7 @@
         'app':                        'app', // 'dist',
        'app-screen':                        'app-screen', // 'dist',
         '@angular':                   'node_modules/@angular',
+        '@angular/router-deprecated':'node_modules/@angular/router-deprecated',
         '@angular2-material':         'node_modules/@angular2-material',
         'ng2-material':         'node_modules/ng2-material',
        // 'dragula': 'node_modules/dragula/dist/dragula.js',
@@ -62,6 +63,7 @@
     function packUmd(pkgName) {
         packages['@angular/'+pkgName] = { main: '/bundles/' + pkgName + '.umd.js', defaultExtension: 'js' };
     }
+    packages['@angular/router-deprecated'] = { main: '/bundles/router-deprecated' + '.umd.js', defaultExtension: 'js' };
     // Most environments should use UMD; some (Karma) need the individual index files
     var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;
 

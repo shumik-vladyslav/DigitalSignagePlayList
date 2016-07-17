@@ -18,12 +18,18 @@ var PlayerLite = (function () {
         this.service = service;
     }
     PlayerLite.prototype.ngOnInit = function () {
-        // this.service.getPlaylist('a').subscribe(data=>this._data=data, err=>this._error = err);
+        console.log(this.playervo);
+        this.screenid = PlayerVO.screenid;
+        // this.service.getPlaylist(this.playerid).subscribe(data=>this._data=data, err=>this._error = err);
     };
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', PlayerVO)
+    ], PlayerLite.prototype, "playervo", void 0);
     PlayerLite = __decorate([
         core_1.Component({
             selector: 'player-lite',
-            template: "\n        <h2>Player Lite</h2>\n    ",
+            template: "\n        <h2>Player Lite id {{playervo.id}}</h2>       \n         <h2>Screen {{screenid}}</h2>       \n    ",
             providers: [player_service_1.PlayerService]
         }), 
         __metadata('design:paramtypes', [player_service_1.PlayerService])
@@ -31,4 +37,12 @@ var PlayerLite = (function () {
     return PlayerLite;
 }());
 exports.PlayerLite = PlayerLite;
+var PlayerVO = (function () {
+    function PlayerVO(obj) {
+        for (var str in obj)
+            this[str] = obj[str];
+    }
+    return PlayerVO;
+}());
+exports.PlayerVO = PlayerVO;
 //# sourceMappingURL=index.js.map

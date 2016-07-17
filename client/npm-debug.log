@@ -1,730 +1,684 @@
 0 info it worked if it ends with ok
 1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
 1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
-1 verbose cli   'install' ]
+1 verbose cli   'install',
+1 verbose cli   '@angular/router-deprecated' ]
 2 info using npm@2.15.8
 3 info using node@v4.4.7
-4 verbose readDependencies loading dependencies from C:\wamp\www\GitHub\DigitalSignage\client\package.json
+4 verbose install initial load of C:\wamp\www\GitHub\DigitalSignage\client\package.json
 5 warn package.json Digital@1.0.0 No description
 6 warn package.json Digital@1.0.0 No README data
-7 verbose install where, deps [ 'C:\\wamp\\www\\GitHub\\DigitalSignage\\client',
-7 verbose install   [ '@angular/common',
-7 verbose install     '@angular/compiler',
-7 verbose install     '@angular/core',
-7 verbose install     '@angular/forms',
-7 verbose install     '@angular/http',
-7 verbose install     '@angular/platform-browser',
-7 verbose install     '@angular/platform-browser-dynamic',
-7 verbose install     '@angular/router',
-7 verbose install     '@angular/router-deprecated',
-7 verbose install     '@angular/upgrade',
-7 verbose install     'systemjs',
-7 verbose install     'core-js',
-7 verbose install     'reflect-metadata',
-7 verbose install     'rxjs',
-7 verbose install     'zone.js',
-7 verbose install     'angular2-in-memory-web-api',
-7 verbose install     'bootstrap',
-7 verbose install     'concurrently' ] ]
-8 verbose install where, peers [ 'C:\\wamp\\www\\GitHub\\DigitalSignage\\client', [] ]
-9 verbose installManyTop reading for lifecycle C:\wamp\www\GitHub\DigitalSignage\client\package.json
-10 info preinstall Digital@1.0.0
-11 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\angular2-in-memory-web-api\package.json
-12 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\bootstrap\package.json
-13 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\concurrently\package.json
-14 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\core-js\package.json
-15 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\dragula\package.json
-16 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\es6-promise\package.json
-17 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\es6-shim\package.json
-18 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\jquery\package.json
-19 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\lite-server\package.json
-20 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-dragula\package.json
-21 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material\package.json
-22 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-uploader\package.json
-23 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\reflect-metadata\package.json
-24 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\rxjs\package.json
-25 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\systemjs\package.json
-26 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\zone.js\package.json
-27 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\common\package.json
-28 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\compiler\package.json
-29 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\core\package.json
-30 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\forms\package.json
-31 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\http\package.json
-32 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\platform-browser\package.json
-33 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\platform-browser-dynamic\package.json
-34 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router\package.json
-35 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated\package.json
-36 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\upgrade\package.json
-37 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\checkbox\package.json
-38 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core\package.json
-39 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\input\package.json
-40 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\list\package.json
-41 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\tabs\package.json
-42 info package.json @angular/common@2.0.0-rc.4 No description
-43 info package.json @angular/core@2.0.0-rc.4 No description
-44 info package.json @angular/core@2.0.0-rc.4 No README data
-45 info package.json @angular/http@2.0.0-rc.4 No description
-46 info package.json @angular/http@2.0.0-rc.4 No README data
+7 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\angular2-in-memory-web-api\package.json
+8 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\bootstrap\package.json
+9 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\concurrently\package.json
+10 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\core-js\package.json
+11 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\dragula\package.json
+12 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\es6-promise\package.json
+13 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\es6-shim\package.json
+14 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\jquery\package.json
+15 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\lite-server\package.json
+16 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-dragula\package.json
+17 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material\package.json
+18 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-uploader\package.json
+19 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\reflect-metadata\package.json
+20 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\rxjs\package.json
+21 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\systemjs\package.json
+22 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\zone.js\package.json
+23 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\common\package.json
+24 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\compiler\package.json
+25 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\core\package.json
+26 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\forms\package.json
+27 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\http\package.json
+28 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\platform-browser\package.json
+29 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\platform-browser-dynamic\package.json
+30 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router\package.json
+31 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated\package.json
+32 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\upgrade\package.json
+33 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\checkbox\package.json
+34 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core\package.json
+35 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\input\package.json
+36 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\list\package.json
+37 verbose installManyTop reading scoped package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\tabs\package.json
+38 info package.json @angular/common@2.0.0-rc.4 No description
+39 info package.json @angular/core@2.0.0-rc.4 No description
+40 info package.json @angular/core@2.0.0-rc.4 No README data
+41 info package.json @angular/http@2.0.0-rc.4 No description
+42 info package.json @angular/http@2.0.0-rc.4 No README data
+43 info package.json @angular/compiler@2.0.0-rc.4 No description
+44 info package.json @angular/compiler@2.0.0-rc.4 No README data
+45 info package.json @angular/forms@0.2.0 No description
+46 info package.json @angular/forms@0.2.0 No README data
 47 info package.json @angular/platform-browser@2.0.0-rc.4 No description
 48 info package.json @angular/platform-browser@2.0.0-rc.4 No README data
 49 info package.json @angular/platform-browser-dynamic@2.0.0-rc.4 No description
 50 info package.json @angular/platform-browser-dynamic@2.0.0-rc.4 No README data
-51 info package.json @angular/router@3.0.0-beta.1 No description
-52 info package.json @angular/router@3.0.0-beta.1 No README data
-53 info package.json @angular/forms@0.2.0 No description
-54 info package.json @angular/forms@0.2.0 No README data
-55 info package.json @angular/compiler@2.0.0-rc.4 No description
-56 info package.json @angular/compiler@2.0.0-rc.4 No README data
-57 info package.json @angular/router-deprecated@2.0.0-rc.2 No description
-58 info package.json @angular/router-deprecated@2.0.0-rc.2 No README data
-59 info package.json @angular/upgrade@2.0.0-rc.4 No description
-60 info package.json @angular/upgrade@2.0.0-rc.4 No README data
-61 verbose readDependencies loading dependencies from C:\wamp\www\GitHub\DigitalSignage\client\package.json
-62 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\angular2-in-memory-web-api\package.json
-63 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\bootstrap\package.json
-64 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\concurrently\package.json
-65 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\core-js\package.json
-66 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\dragula\package.json
-67 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\es6-promise\package.json
-68 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\es6-shim\package.json
-69 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\jquery\package.json
-70 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\lite-server\package.json
-71 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-dragula\package.json
-72 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material\package.json
-73 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-uploader\package.json
-74 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\reflect-metadata\package.json
-75 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\rxjs\package.json
-76 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\systemjs\package.json
-77 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\zone.js\package.json
-78 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\common\package.json
-79 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\compiler\package.json
-80 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\core\package.json
-81 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\forms\package.json
-82 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\http\package.json
-83 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\platform-browser\package.json
-84 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\platform-browser-dynamic\package.json
-85 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router\package.json
-86 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated\package.json
-87 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\upgrade\package.json
-88 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\concurrent\package.json
-89 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\concurrent.cmd\package.json
-90 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\concurrently\package.json
-91 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\concurrently.cmd\package.json
-92 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\lite-server\package.json
-93 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\.bin\lite-server.cmd\package.json
-94 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\checkbox\package.json
-95 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\core\package.json
-96 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\input\package.json
-97 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\list\package.json
-98 verbose targetResolver reading package data from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular2-material\tabs\package.json
-99 silly cache add args [ '@angular/router@3.0.0-beta.2', null ]
-100 verbose cache add spec @angular/router@3.0.0-beta.2
-101 silly cache add parsed spec Result {
-101 silly cache add   raw: '@angular/router@3.0.0-beta.2',
-101 silly cache add   scope: '@angular',
-101 silly cache add   name: '@angular/router',
-101 silly cache add   rawSpec: '3.0.0-beta.2',
-101 silly cache add   spec: '3.0.0-beta.2',
-101 silly cache add   type: 'version' }
-102 silly addNamed @angular/router@3.0.0-beta.2
-103 verbose addNamed "3.0.0-beta.2" is a plain semver version for @angular/router
-104 silly mapToRegistry name @angular/router
-105 silly mapToRegistry scope (from package name) @angular
-106 verbose mapToRegistry no registry URL found in name for scope @angular
-107 silly mapToRegistry using default registry
-108 silly mapToRegistry registry https://registry.npmjs.org/
-109 silly mapToRegistry data Result {
-109 silly mapToRegistry   raw: '@angular/router',
-109 silly mapToRegistry   scope: '@angular',
-109 silly mapToRegistry   name: '@angular/router',
-109 silly mapToRegistry   rawSpec: '',
-109 silly mapToRegistry   spec: 'latest',
-109 silly mapToRegistry   type: 'tag' }
-110 silly mapToRegistry uri https://registry.npmjs.org/@angular%2frouter
-111 verbose addNameVersion registry:https://registry.npmjs.org/@angular%2frouter not in flight; fetching
-112 verbose already installed skipping @angular/router-deprecated@2.0.0-rc.2 C:\wamp\www\GitHub\DigitalSignage\client
-113 verbose already installed skipping @angular/upgrade@2.0.0-rc.4 C:\wamp\www\GitHub\DigitalSignage\client
-114 verbose already installed skipping systemjs@0.19.27 C:\wamp\www\GitHub\DigitalSignage\client
-115 verbose already installed skipping core-js@^2.4.0 C:\wamp\www\GitHub\DigitalSignage\client
-116 verbose already installed skipping reflect-metadata@^0.1.3 C:\wamp\www\GitHub\DigitalSignage\client
-117 verbose already installed skipping rxjs@5.0.0-beta.6 C:\wamp\www\GitHub\DigitalSignage\client
-118 verbose already installed skipping zone.js@^0.6.12 C:\wamp\www\GitHub\DigitalSignage\client
-119 verbose already installed skipping angular2-in-memory-web-api@0.0.14 C:\wamp\www\GitHub\DigitalSignage\client
-120 verbose already installed skipping bootstrap@^3.3.6 C:\wamp\www\GitHub\DigitalSignage\client
-121 verbose already installed skipping concurrently@^2.0.0 C:\wamp\www\GitHub\DigitalSignage\client
-122 verbose already installed skipping @angular/common@2.0.0-rc.4 C:\wamp\www\GitHub\DigitalSignage\client
-123 verbose already installed skipping @angular/compiler@2.0.0-rc.4 C:\wamp\www\GitHub\DigitalSignage\client
-124 verbose already installed skipping @angular/core@2.0.0-rc.4 C:\wamp\www\GitHub\DigitalSignage\client
-125 verbose already installed skipping @angular/forms@0.2.0 C:\wamp\www\GitHub\DigitalSignage\client
-126 verbose already installed skipping @angular/http@2.0.0-rc.4 C:\wamp\www\GitHub\DigitalSignage\client
-127 verbose already installed skipping @angular/platform-browser@2.0.0-rc.4 C:\wamp\www\GitHub\DigitalSignage\client
-128 verbose already installed skipping @angular/platform-browser-dynamic@2.0.0-rc.4 C:\wamp\www\GitHub\DigitalSignage\client
-129 verbose request uri https://registry.npmjs.org/@angular%2frouter
-130 verbose request no auth needed
-131 info attempt registry request try #1 at 11:19:33 PM
-132 verbose request id b3510b59518fb113
-133 verbose etag "DD28O01QUYE6JU5L78X8HCXYH"
-134 http request GET https://registry.npmjs.org/@angular%2frouter
-135 http 304 https://registry.npmjs.org/@angular%2frouter
-136 verbose headers { date: 'Sun, 17 Jul 2016 03:19:28 GMT',
-136 verbose headers   via: '1.1 varnish',
-136 verbose headers   'cache-control': 'max-age=0',
-136 verbose headers   etag: '"DD28O01QUYE6JU5L78X8HCXYH"',
-136 verbose headers   age: '0',
-136 verbose headers   connection: 'keep-alive',
-136 verbose headers   'x-served-by': 'cache-yyz8332-YYZ',
-136 verbose headers   'x-cache': 'MISS',
-136 verbose headers   'x-cache-hits': '0',
-136 verbose headers   'x-timer': 'S1468725568.231018,VS0,VE421',
-136 verbose headers   vary: 'Accept-Encoding' }
-137 silly get cb [ 304,
-137 silly get   { date: 'Sun, 17 Jul 2016 03:19:28 GMT',
-137 silly get     via: '1.1 varnish',
-137 silly get     'cache-control': 'max-age=0',
-137 silly get     etag: '"DD28O01QUYE6JU5L78X8HCXYH"',
-137 silly get     age: '0',
-137 silly get     connection: 'keep-alive',
-137 silly get     'x-served-by': 'cache-yyz8332-YYZ',
-137 silly get     'x-cache': 'MISS',
-137 silly get     'x-cache-hits': '0',
-137 silly get     'x-timer': 'S1468725568.231018,VS0,VE421',
-137 silly get     vary: 'Accept-Encoding' } ]
-138 verbose etag https://registry.npmjs.org/@angular%2frouter from cache
-139 verbose get saving @angular/router to C:\Users\Vlad\AppData\Roaming\npm-cache\registry.npmjs.org\_40angular_252frouter\.cache.json
-140 verbose correctMkdir C:\Users\Vlad\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
-141 silly mapToRegistry name @angular/router
-142 silly mapToRegistry scope (from package name) @angular
-143 verbose mapToRegistry no registry URL found in name for scope @angular
-144 silly mapToRegistry using default registry
-145 silly mapToRegistry registry https://registry.npmjs.org/
-146 silly mapToRegistry data Result {
-146 silly mapToRegistry   raw: '@angular/router',
-146 silly mapToRegistry   scope: '@angular',
-146 silly mapToRegistry   name: '@angular/router',
-146 silly mapToRegistry   rawSpec: '',
-146 silly mapToRegistry   spec: 'latest',
-146 silly mapToRegistry   type: 'tag' }
-147 silly mapToRegistry uri https://registry.npmjs.org/@angular%2frouter
-148 verbose addRemoteTarball https://registry.npmjs.org/@angular/router/-/router-3.0.0-beta.2.tgz not in flight; adding
-149 verbose addRemoteTarball [ 'https://registry.npmjs.org/@angular/router/-/router-3.0.0-beta.2.tgz',
-149 verbose addRemoteTarball   '99a42b8aba7cb4e2be4cde508d5f7d53f0715025' ]
-150 info retry fetch attempt 1 at 11:19:34 PM
-151 info attempt registry request try #1 at 11:19:34 PM
-152 http fetch GET https://registry.npmjs.org/@angular/router/-/router-3.0.0-beta.2.tgz
-153 http fetch 200 https://registry.npmjs.org/@angular/router/-/router-3.0.0-beta.2.tgz
-154 silly fetchAndShaCheck shasum 99a42b8aba7cb4e2be4cde508d5f7d53f0715025
-155 verbose addTmpTarball C:\Users\Vlad\AppData\Local\Temp\npm-8320-9ea89f04\registry.npmjs.org\_40angular\router\-\router-3.0.0-beta.2.tgz not in flight; adding
-156 verbose addTmpTarball already have metadata; skipping unpack for @angular/router@3.0.0-beta.2
-157 verbose correctMkdir C:\Users\Vlad\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
-158 silly cache afterAdd @angular/router@3.0.0-beta.2
-159 verbose afterAdd C:\Users\Vlad\AppData\Roaming\npm-cache\@angular\router\3.0.0-beta.2\package\package.json not in flight; writing
-160 verbose correctMkdir C:\Users\Vlad\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
-161 verbose afterAdd C:\Users\Vlad\AppData\Roaming\npm-cache\@angular\router\3.0.0-beta.2\package\package.json written
-162 silly install resolved [ { name: '@angular/router',
-162 silly install resolved     version: '3.0.0-beta.2',
-162 silly install resolved     description: '',
-162 silly install resolved     main: 'index.js',
-162 silly install resolved     'jsnext:main': 'esm/index.js',
-162 silly install resolved     keywords: [ 'angular2', 'angular', 'router' ],
-162 silly install resolved     repository:
-162 silly install resolved      { type: 'git',
-162 silly install resolved        url: 'git+https://github.com/angular/angular.git' },
-162 silly install resolved     author: { name: 'angular' },
-162 silly install resolved     license: 'MIT',
-162 silly install resolved     bugs: { url: 'https://github.com/angular/angular/issues' },
-162 silly install resolved     homepage: 'https://github.com/angular/angular#readme',
-162 silly install resolved     peerDependencies:
-162 silly install resolved      { '@angular/core': '^2.0.0-rc.4',
-162 silly install resolved        '@angular/compiler': '^2.0.0-rc.4',
-162 silly install resolved        '@angular/common': '^2.0.0-rc.4',
-162 silly install resolved        '@angular/platform-browser': '^2.0.0-rc.4',
-162 silly install resolved        '@angular/platform-browser-dynamic': '^2.0.0-rc.4',
-162 silly install resolved        rxjs: '5.0.0-beta.6' },
-162 silly install resolved     typings: 'index.d.ts',
-162 silly install resolved     _id: '@angular/router@3.0.0-beta.2',
-162 silly install resolved     scripts: {},
-162 silly install resolved     _shasum: '99a42b8aba7cb4e2be4cde508d5f7d53f0715025',
-162 silly install resolved     _from: '@angular/router@3.0.0-beta.2',
-162 silly install resolved     _npmVersion: '3.9.5',
-162 silly install resolved     _nodeVersion: '6.2.2',
-162 silly install resolved     _npmUser: { name: 'angular', email: 'angular-core+npm@google.com' },
-162 silly install resolved     dist:
-162 silly install resolved      { shasum: '99a42b8aba7cb4e2be4cde508d5f7d53f0715025',
-162 silly install resolved        tarball: 'https://registry.npmjs.org/@angular/router/-/router-3.0.0-beta.2.tgz' },
-162 silly install resolved     maintainers: [ [Object] ],
-162 silly install resolved     _npmOperationalInternal:
-162 silly install resolved      { host: 'packages-16-east.internal.npmjs.com',
-162 silly install resolved        tmp: 'tmp/router-3.0.0-beta.2.tgz_1467323895728_0.9900497584603727' },
-162 silly install resolved     directories: {},
-162 silly install resolved     _resolved: 'https://registry.npmjs.org/@angular/router/-/router-3.0.0-beta.2.tgz' } ]
-163 info install @angular/router@3.0.0-beta.2 into C:\wamp\www\GitHub\DigitalSignage\client
-164 info installOne @angular/router@3.0.0-beta.2
-165 verbose installOne of @angular/router to C:\wamp\www\GitHub\DigitalSignage\client not in flight; installing
-166 verbose correctMkdir C:\Users\Vlad\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
-167 verbose lock using C:\Users\Vlad\AppData\Roaming\npm-cache\_locks\angular-router-3ddd5bd537889477.lock for C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router
-168 silly install write writing @angular/router 3.0.0-beta.2 to C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router
-169 verbose unbuild node_modules\@angular\router
-170 info preuninstall @angular/router@3.0.0-beta.1
-171 info uninstall @angular/router@3.0.0-beta.1
-172 verbose unbuild rmStuff @angular/router@3.0.0-beta.1 from C:\wamp\www\GitHub\DigitalSignage\client\node_modules
-173 verbose unbuild rmStuff in C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular
-174 info postuninstall @angular/router@3.0.0-beta.1
-175 silly gentlyRm C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router is being purged from base C:\wamp\www\GitHub\DigitalSignage\client
-176 verbose gentlyRm don't care about contents; nuking C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router
-177 silly vacuum-fs purging C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router
-178 silly vacuum-fs quitting because other entries in C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular
-179 verbose tar unpack C:\Users\Vlad\AppData\Roaming\npm-cache\@angular\router\3.0.0-beta.2\package.tgz
-180 verbose tar unpacking to C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router
-181 silly gentlyRm C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router is being purged
-182 verbose gentlyRm don't care about contents; nuking C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router
-183 silly gunzTarPerm modes [ '777', '666' ]
-184 silly gunzTarPerm extractEntry package.json
-185 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
-186 silly gunzTarPerm extractEntry index.js
-187 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
-188 silly gunzTarPerm extractEntry bundles/router.umd.js
-189 silly gunzTarPerm modified mode [ 'bundles/router.umd.js', 420, 438 ]
-190 silly gunzTarPerm extractEntry bundles/router.umd.min.js
-191 silly gunzTarPerm modified mode [ 'bundles/router.umd.min.js', 420, 438 ]
-192 silly gunzTarPerm extractEntry esm/index.js
-193 silly gunzTarPerm modified mode [ 'esm/index.js', 420, 438 ]
-194 silly gunzTarPerm extractEntry esm/index.d.ts
-195 silly gunzTarPerm modified mode [ 'esm/index.d.ts', 420, 438 ]
-196 silly gunzTarPerm extractEntry esm/index.js.map
-197 silly gunzTarPerm modified mode [ 'esm/index.js.map', 420, 438 ]
-198 silly gunzTarPerm extractEntry esm/index.metadata.json
-199 silly gunzTarPerm modified mode [ 'esm/index.metadata.json', 420, 438 ]
-200 silly gunzTarPerm extractEntry esm/src/resolve.js
-201 silly gunzTarPerm modified mode [ 'esm/src/resolve.js', 420, 438 ]
-202 silly gunzTarPerm extractEntry esm/src/create_router_state.js
-203 silly gunzTarPerm modified mode [ 'esm/src/create_router_state.js', 420, 438 ]
-204 silly gunzTarPerm extractEntry esm/src/create_url_tree.js
-205 silly gunzTarPerm modified mode [ 'esm/src/create_url_tree.js', 420, 438 ]
-206 silly gunzTarPerm extractEntry esm/src/interfaces.js
-207 silly gunzTarPerm modified mode [ 'esm/src/interfaces.js', 420, 438 ]
-208 silly gunzTarPerm extractEntry esm/src/recognize.js
-209 silly gunzTarPerm modified mode [ 'esm/src/recognize.js', 420, 438 ]
-210 silly gunzTarPerm extractEntry esm/src/config.js
-211 silly gunzTarPerm modified mode [ 'esm/src/config.js', 420, 438 ]
-212 silly gunzTarPerm extractEntry esm/src/router.js
-213 silly gunzTarPerm modified mode [ 'esm/src/router.js', 420, 438 ]
-214 silly gunzTarPerm extractEntry esm/src/router_outlet_map.js
-215 silly gunzTarPerm modified mode [ 'esm/src/router_outlet_map.js', 420, 438 ]
-216 silly gunzTarPerm extractEntry esm/src/router_providers.js
-217 silly gunzTarPerm modified mode [ 'esm/src/router_providers.js', 420, 438 ]
-218 silly gunzTarPerm extractEntry esm/src/router_state.js
-219 silly gunzTarPerm modified mode [ 'esm/src/router_state.js', 420, 438 ]
-220 silly gunzTarPerm extractEntry esm/src/shared.js
-221 silly gunzTarPerm modified mode [ 'esm/src/shared.js', 420, 438 ]
-222 silly gunzTarPerm extractEntry esm/src/common_router_providers.js
-223 silly gunzTarPerm modified mode [ 'esm/src/common_router_providers.js', 420, 438 ]
-224 silly gunzTarPerm extractEntry esm/src/url_tree.js
-225 silly gunzTarPerm modified mode [ 'esm/src/url_tree.js', 420, 438 ]
-226 silly gunzTarPerm extractEntry esm/src/apply_redirects.js
-227 silly gunzTarPerm modified mode [ 'esm/src/apply_redirects.js', 420, 438 ]
-228 silly gunzTarPerm extractEntry esm/src/apply_redirects.d.ts
-229 silly gunzTarPerm modified mode [ 'esm/src/apply_redirects.d.ts', 420, 438 ]
-230 silly gunzTarPerm extractEntry esm/src/create_url_tree.js.map
-231 silly gunzTarPerm modified mode [ 'esm/src/create_url_tree.js.map', 420, 438 ]
-232 silly gunzTarPerm extractEntry esm/src/directives/router_link_active.js
-233 silly gunzTarPerm modified mode [ 'esm/src/directives/router_link_active.js', 420, 438 ]
-234 silly gunzTarPerm extractEntry esm/src/directives/router_link.js
-235 silly gunzTarPerm modified mode [ 'esm/src/directives/router_link.js', 420, 438 ]
-236 silly gunzTarPerm extractEntry esm/src/directives/router_outlet.js
-237 silly gunzTarPerm modified mode [ 'esm/src/directives/router_outlet.js', 420, 438 ]
-238 silly gunzTarPerm extractEntry esm/src/directives/router_link_active.js.map
-239 silly gunzTarPerm modified mode [ 'esm/src/directives/router_link_active.js.map', 420, 438 ]
-240 silly gunzTarPerm extractEntry esm/src/directives/router_link_active.d.ts
-241 silly gunzTarPerm modified mode [ 'esm/src/directives/router_link_active.d.ts', 420, 438 ]
-242 silly gunzTarPerm extractEntry esm/src/directives/router_link.d.ts
-243 silly gunzTarPerm modified mode [ 'esm/src/directives/router_link.d.ts', 420, 438 ]
-244 silly gunzTarPerm extractEntry esm/src/directives/router_link.js.map
-245 silly gunzTarPerm modified mode [ 'esm/src/directives/router_link.js.map', 420, 438 ]
-246 silly gunzTarPerm extractEntry esm/src/directives/router_link_active.metadata.json
-247 silly gunzTarPerm modified mode [ 'esm/src/directives/router_link_active.metadata.json',
-247 silly gunzTarPerm   420,
-247 silly gunzTarPerm   438 ]
-248 silly gunzTarPerm extractEntry esm/src/directives/router_outlet.d.ts
-249 silly gunzTarPerm modified mode [ 'esm/src/directives/router_outlet.d.ts', 420, 438 ]
-250 silly gunzTarPerm extractEntry esm/src/directives/router_link.metadata.json
-251 silly gunzTarPerm modified mode [ 'esm/src/directives/router_link.metadata.json', 420, 438 ]
-252 silly gunzTarPerm extractEntry esm/src/directives/router_outlet.js.map
-253 silly gunzTarPerm modified mode [ 'esm/src/directives/router_outlet.js.map', 420, 438 ]
-254 silly gunzTarPerm extractEntry esm/src/directives/router_outlet.metadata.json
-255 silly gunzTarPerm modified mode [ 'esm/src/directives/router_outlet.metadata.json', 420, 438 ]
-256 silly gunzTarPerm extractEntry esm/src/interfaces.d.ts
-257 silly gunzTarPerm modified mode [ 'esm/src/interfaces.d.ts', 420, 438 ]
-258 silly gunzTarPerm extractEntry esm/src/common_router_providers.js.map
-259 silly gunzTarPerm modified mode [ 'esm/src/common_router_providers.js.map', 420, 438 ]
-260 silly gunzTarPerm extractEntry esm/src/interfaces.js.map
-261 silly gunzTarPerm modified mode [ 'esm/src/interfaces.js.map', 420, 438 ]
-262 silly gunzTarPerm extractEntry esm/src/recognize.d.ts
-263 silly gunzTarPerm modified mode [ 'esm/src/recognize.d.ts', 420, 438 ]
-264 silly gunzTarPerm extractEntry esm/src/common_router_providers.metadata.json
-265 silly gunzTarPerm modified mode [ 'esm/src/common_router_providers.metadata.json', 420, 438 ]
-266 silly gunzTarPerm extractEntry esm/src/recognize.js.map
-267 silly gunzTarPerm modified mode [ 'esm/src/recognize.js.map', 420, 438 ]
-268 silly gunzTarPerm extractEntry esm/src/resolve.d.ts
-269 silly gunzTarPerm modified mode [ 'esm/src/resolve.d.ts', 420, 438 ]
-270 silly gunzTarPerm extractEntry esm/src/config.d.ts
-271 silly gunzTarPerm modified mode [ 'esm/src/config.d.ts', 420, 438 ]
-272 silly gunzTarPerm extractEntry esm/src/resolve.js.map
-273 silly gunzTarPerm modified mode [ 'esm/src/resolve.js.map', 420, 438 ]
-274 silly gunzTarPerm extractEntry esm/src/resolve.metadata.json
-275 silly gunzTarPerm modified mode [ 'esm/src/resolve.metadata.json', 420, 438 ]
-276 silly gunzTarPerm extractEntry esm/src/router.d.ts
-277 silly gunzTarPerm modified mode [ 'esm/src/router.d.ts', 420, 438 ]
-278 silly gunzTarPerm extractEntry esm/src/apply_redirects.js.map
-279 silly gunzTarPerm modified mode [ 'esm/src/apply_redirects.js.map', 420, 438 ]
-280 silly gunzTarPerm extractEntry esm/src/router.js.map
-281 silly gunzTarPerm modified mode [ 'esm/src/router.js.map', 420, 438 ]
-282 silly gunzTarPerm extractEntry esm/src/router_outlet_map.d.ts
-283 silly gunzTarPerm modified mode [ 'esm/src/router_outlet_map.d.ts', 420, 438 ]
-284 silly gunzTarPerm extractEntry esm/src/config.js.map
-285 silly gunzTarPerm modified mode [ 'esm/src/config.js.map', 420, 438 ]
-286 silly gunzTarPerm extractEntry esm/src/router_outlet_map.js.map
-287 silly gunzTarPerm modified mode [ 'esm/src/router_outlet_map.js.map', 420, 438 ]
-288 silly gunzTarPerm extractEntry esm/src/router_providers.d.ts
-289 silly gunzTarPerm modified mode [ 'esm/src/router_providers.d.ts', 420, 438 ]
-290 silly gunzTarPerm extractEntry esm/src/create_router_state.d.ts
-291 silly gunzTarPerm modified mode [ 'esm/src/create_router_state.d.ts', 420, 438 ]
-292 silly gunzTarPerm extractEntry esm/src/router_providers.js.map
-293 silly gunzTarPerm modified mode [ 'esm/src/router_providers.js.map', 420, 438 ]
-294 silly gunzTarPerm extractEntry esm/src/router_providers.metadata.json
-295 silly gunzTarPerm modified mode [ 'esm/src/router_providers.metadata.json', 420, 438 ]
-296 silly gunzTarPerm extractEntry esm/src/router_state.d.ts
-297 silly gunzTarPerm modified mode [ 'esm/src/router_state.d.ts', 420, 438 ]
-298 silly gunzTarPerm extractEntry esm/src/common_router_providers.d.ts
-299 silly gunzTarPerm modified mode [ 'esm/src/common_router_providers.d.ts', 420, 438 ]
-300 silly gunzTarPerm extractEntry esm/src/router_state.js.map
-301 silly gunzTarPerm modified mode [ 'esm/src/router_state.js.map', 420, 438 ]
-302 silly gunzTarPerm extractEntry esm/src/shared.d.ts
-303 silly gunzTarPerm modified mode [ 'esm/src/shared.d.ts', 420, 438 ]
-304 silly gunzTarPerm extractEntry esm/src/create_router_state.js.map
-305 silly gunzTarPerm modified mode [ 'esm/src/create_router_state.js.map', 420, 438 ]
-306 silly gunzTarPerm extractEntry esm/src/shared.js.map
-307 silly gunzTarPerm modified mode [ 'esm/src/shared.js.map', 420, 438 ]
-308 silly gunzTarPerm extractEntry esm/src/shared.metadata.json
-309 silly gunzTarPerm modified mode [ 'esm/src/shared.metadata.json', 420, 438 ]
-310 silly gunzTarPerm extractEntry esm/src/url_tree.d.ts
-311 silly gunzTarPerm modified mode [ 'esm/src/url_tree.d.ts', 420, 438 ]
-312 silly gunzTarPerm extractEntry esm/src/create_url_tree.d.ts
-313 silly gunzTarPerm modified mode [ 'esm/src/create_url_tree.d.ts', 420, 438 ]
-314 silly gunzTarPerm extractEntry esm/src/url_tree.js.map
-315 silly gunzTarPerm modified mode [ 'esm/src/url_tree.js.map', 420, 438 ]
-316 silly gunzTarPerm extractEntry esm/src/url_tree.metadata.json
-317 silly gunzTarPerm modified mode [ 'esm/src/url_tree.metadata.json', 420, 438 ]
-318 silly gunzTarPerm extractEntry esm/src/utils/collection.js
-319 silly gunzTarPerm modified mode [ 'esm/src/utils/collection.js', 420, 438 ]
-320 silly gunzTarPerm extractEntry esm/src/utils/tree.js
-321 silly gunzTarPerm modified mode [ 'esm/src/utils/tree.js', 420, 438 ]
-322 silly gunzTarPerm extractEntry esm/src/utils/collection.d.ts
-323 silly gunzTarPerm modified mode [ 'esm/src/utils/collection.d.ts', 420, 438 ]
-324 silly gunzTarPerm extractEntry esm/src/utils/collection.js.map
-325 silly gunzTarPerm modified mode [ 'esm/src/utils/collection.js.map', 420, 438 ]
-326 silly gunzTarPerm extractEntry esm/src/utils/collection.metadata.json
-327 silly gunzTarPerm modified mode [ 'esm/src/utils/collection.metadata.json', 420, 438 ]
-328 silly gunzTarPerm extractEntry esm/src/utils/tree.d.ts
-329 silly gunzTarPerm modified mode [ 'esm/src/utils/tree.d.ts', 420, 438 ]
-330 silly gunzTarPerm extractEntry esm/src/utils/tree.js.map
-331 silly gunzTarPerm modified mode [ 'esm/src/utils/tree.js.map', 420, 438 ]
-332 silly gunzTarPerm extractEntry index.d.ts
-333 silly gunzTarPerm modified mode [ 'index.d.ts', 420, 438 ]
-334 silly gunzTarPerm extractEntry index.js.map
-335 silly gunzTarPerm modified mode [ 'index.js.map', 420, 438 ]
-336 silly gunzTarPerm extractEntry index.metadata.json
-337 silly gunzTarPerm modified mode [ 'index.metadata.json', 420, 438 ]
-338 silly gunzTarPerm extractEntry src/resolve.js
-339 silly gunzTarPerm modified mode [ 'src/resolve.js', 420, 438 ]
-340 silly gunzTarPerm extractEntry src/create_router_state.js
-341 silly gunzTarPerm modified mode [ 'src/create_router_state.js', 420, 438 ]
-342 silly gunzTarPerm extractEntry src/create_url_tree.js
-343 silly gunzTarPerm modified mode [ 'src/create_url_tree.js', 420, 438 ]
-344 silly gunzTarPerm extractEntry src/interfaces.js
-345 silly gunzTarPerm modified mode [ 'src/interfaces.js', 420, 438 ]
-346 silly gunzTarPerm extractEntry src/recognize.js
-347 silly gunzTarPerm modified mode [ 'src/recognize.js', 420, 438 ]
-348 silly gunzTarPerm extractEntry src/config.js
-349 silly gunzTarPerm modified mode [ 'src/config.js', 420, 438 ]
-350 silly gunzTarPerm extractEntry src/router.js
-351 silly gunzTarPerm modified mode [ 'src/router.js', 420, 438 ]
-352 silly gunzTarPerm extractEntry src/router_outlet_map.js
-353 silly gunzTarPerm modified mode [ 'src/router_outlet_map.js', 420, 438 ]
-354 silly gunzTarPerm extractEntry src/router_providers.js
-355 silly gunzTarPerm modified mode [ 'src/router_providers.js', 420, 438 ]
-356 silly gunzTarPerm extractEntry src/router_state.js
-357 silly gunzTarPerm modified mode [ 'src/router_state.js', 420, 438 ]
-358 silly gunzTarPerm extractEntry src/shared.js
-359 silly gunzTarPerm modified mode [ 'src/shared.js', 420, 438 ]
-360 silly gunzTarPerm extractEntry src/common_router_providers.js
-361 silly gunzTarPerm modified mode [ 'src/common_router_providers.js', 420, 438 ]
-362 silly gunzTarPerm extractEntry src/url_tree.js
-363 silly gunzTarPerm modified mode [ 'src/url_tree.js', 420, 438 ]
-364 silly gunzTarPerm extractEntry src/apply_redirects.js
-365 silly gunzTarPerm modified mode [ 'src/apply_redirects.js', 420, 438 ]
-366 silly gunzTarPerm extractEntry src/apply_redirects.d.ts
-367 silly gunzTarPerm modified mode [ 'src/apply_redirects.d.ts', 420, 438 ]
-368 silly gunzTarPerm extractEntry src/create_url_tree.js.map
-369 silly gunzTarPerm modified mode [ 'src/create_url_tree.js.map', 420, 438 ]
-370 silly gunzTarPerm extractEntry src/directives/router_link_active.js
-371 silly gunzTarPerm modified mode [ 'src/directives/router_link_active.js', 420, 438 ]
-372 silly gunzTarPerm extractEntry src/directives/router_link.js
-373 silly gunzTarPerm modified mode [ 'src/directives/router_link.js', 420, 438 ]
-374 silly gunzTarPerm extractEntry src/directives/router_outlet.js
-375 silly gunzTarPerm modified mode [ 'src/directives/router_outlet.js', 420, 438 ]
-376 silly gunzTarPerm extractEntry src/directives/router_link_active.js.map
-377 silly gunzTarPerm modified mode [ 'src/directives/router_link_active.js.map', 420, 438 ]
-378 silly gunzTarPerm extractEntry src/directives/router_link_active.d.ts
-379 silly gunzTarPerm modified mode [ 'src/directives/router_link_active.d.ts', 420, 438 ]
-380 silly gunzTarPerm extractEntry src/directives/router_link.d.ts
-381 silly gunzTarPerm modified mode [ 'src/directives/router_link.d.ts', 420, 438 ]
-382 silly gunzTarPerm extractEntry src/directives/router_link.js.map
-383 silly gunzTarPerm modified mode [ 'src/directives/router_link.js.map', 420, 438 ]
-384 silly gunzTarPerm extractEntry src/directives/router_link_active.metadata.json
-385 silly gunzTarPerm modified mode [ 'src/directives/router_link_active.metadata.json', 420, 438 ]
-386 silly gunzTarPerm extractEntry src/directives/router_outlet.d.ts
-387 silly gunzTarPerm modified mode [ 'src/directives/router_outlet.d.ts', 420, 438 ]
-388 silly gunzTarPerm extractEntry src/directives/router_link.metadata.json
-389 silly gunzTarPerm modified mode [ 'src/directives/router_link.metadata.json', 420, 438 ]
-390 silly gunzTarPerm extractEntry src/directives/router_outlet.js.map
-391 silly gunzTarPerm modified mode [ 'src/directives/router_outlet.js.map', 420, 438 ]
-392 silly gunzTarPerm extractEntry src/directives/router_outlet.metadata.json
-393 silly gunzTarPerm modified mode [ 'src/directives/router_outlet.metadata.json', 420, 438 ]
-394 silly gunzTarPerm extractEntry src/interfaces.d.ts
-395 silly gunzTarPerm modified mode [ 'src/interfaces.d.ts', 420, 438 ]
-396 silly gunzTarPerm extractEntry src/common_router_providers.js.map
-397 silly gunzTarPerm modified mode [ 'src/common_router_providers.js.map', 420, 438 ]
-398 silly gunzTarPerm extractEntry src/interfaces.js.map
-399 silly gunzTarPerm modified mode [ 'src/interfaces.js.map', 420, 438 ]
-400 silly gunzTarPerm extractEntry src/recognize.d.ts
-401 silly gunzTarPerm modified mode [ 'src/recognize.d.ts', 420, 438 ]
-402 silly gunzTarPerm extractEntry src/common_router_providers.metadata.json
-403 silly gunzTarPerm modified mode [ 'src/common_router_providers.metadata.json', 420, 438 ]
-404 silly gunzTarPerm extractEntry src/recognize.js.map
-405 silly gunzTarPerm modified mode [ 'src/recognize.js.map', 420, 438 ]
-406 silly gunzTarPerm extractEntry src/resolve.d.ts
-407 silly gunzTarPerm modified mode [ 'src/resolve.d.ts', 420, 438 ]
-408 silly gunzTarPerm extractEntry src/config.d.ts
-409 silly gunzTarPerm modified mode [ 'src/config.d.ts', 420, 438 ]
-410 silly gunzTarPerm extractEntry src/resolve.js.map
-411 silly gunzTarPerm modified mode [ 'src/resolve.js.map', 420, 438 ]
-412 silly gunzTarPerm extractEntry src/resolve.metadata.json
-413 silly gunzTarPerm modified mode [ 'src/resolve.metadata.json', 420, 438 ]
-414 silly gunzTarPerm extractEntry src/router.d.ts
-415 silly gunzTarPerm modified mode [ 'src/router.d.ts', 420, 438 ]
-416 silly gunzTarPerm extractEntry src/apply_redirects.js.map
-417 silly gunzTarPerm modified mode [ 'src/apply_redirects.js.map', 420, 438 ]
-418 silly gunzTarPerm extractEntry src/router.js.map
-419 silly gunzTarPerm modified mode [ 'src/router.js.map', 420, 438 ]
-420 silly gunzTarPerm extractEntry src/router_outlet_map.d.ts
-421 silly gunzTarPerm modified mode [ 'src/router_outlet_map.d.ts', 420, 438 ]
-422 silly gunzTarPerm extractEntry src/config.js.map
-423 silly gunzTarPerm modified mode [ 'src/config.js.map', 420, 438 ]
-424 silly gunzTarPerm extractEntry src/router_outlet_map.js.map
-425 silly gunzTarPerm modified mode [ 'src/router_outlet_map.js.map', 420, 438 ]
-426 silly gunzTarPerm extractEntry src/router_providers.d.ts
-427 silly gunzTarPerm modified mode [ 'src/router_providers.d.ts', 420, 438 ]
-428 silly gunzTarPerm extractEntry src/create_router_state.d.ts
-429 silly gunzTarPerm modified mode [ 'src/create_router_state.d.ts', 420, 438 ]
-430 silly gunzTarPerm extractEntry src/router_providers.js.map
-431 silly gunzTarPerm modified mode [ 'src/router_providers.js.map', 420, 438 ]
-432 silly gunzTarPerm extractEntry src/router_providers.metadata.json
-433 silly gunzTarPerm modified mode [ 'src/router_providers.metadata.json', 420, 438 ]
-434 silly gunzTarPerm extractEntry src/router_state.d.ts
-435 silly gunzTarPerm modified mode [ 'src/router_state.d.ts', 420, 438 ]
-436 silly gunzTarPerm extractEntry src/common_router_providers.d.ts
-437 silly gunzTarPerm modified mode [ 'src/common_router_providers.d.ts', 420, 438 ]
-438 silly gunzTarPerm extractEntry src/router_state.js.map
-439 silly gunzTarPerm modified mode [ 'src/router_state.js.map', 420, 438 ]
-440 silly gunzTarPerm extractEntry src/shared.d.ts
-441 silly gunzTarPerm modified mode [ 'src/shared.d.ts', 420, 438 ]
-442 silly gunzTarPerm extractEntry src/create_router_state.js.map
-443 silly gunzTarPerm modified mode [ 'src/create_router_state.js.map', 420, 438 ]
-444 silly gunzTarPerm extractEntry src/shared.js.map
-445 silly gunzTarPerm modified mode [ 'src/shared.js.map', 420, 438 ]
-446 silly gunzTarPerm extractEntry src/shared.metadata.json
-447 silly gunzTarPerm modified mode [ 'src/shared.metadata.json', 420, 438 ]
-448 silly gunzTarPerm extractEntry src/url_tree.d.ts
-449 silly gunzTarPerm modified mode [ 'src/url_tree.d.ts', 420, 438 ]
-450 silly gunzTarPerm extractEntry src/create_url_tree.d.ts
-451 silly gunzTarPerm modified mode [ 'src/create_url_tree.d.ts', 420, 438 ]
-452 silly gunzTarPerm extractEntry src/url_tree.js.map
-453 silly gunzTarPerm modified mode [ 'src/url_tree.js.map', 420, 438 ]
-454 silly gunzTarPerm extractEntry src/url_tree.metadata.json
-455 silly gunzTarPerm modified mode [ 'src/url_tree.metadata.json', 420, 438 ]
-456 silly gunzTarPerm extractEntry src/utils/collection.js
-457 silly gunzTarPerm modified mode [ 'src/utils/collection.js', 420, 438 ]
-458 silly gunzTarPerm extractEntry src/utils/tree.js
-459 silly gunzTarPerm modified mode [ 'src/utils/tree.js', 420, 438 ]
-460 silly gunzTarPerm extractEntry src/utils/collection.d.ts
-461 silly gunzTarPerm modified mode [ 'src/utils/collection.d.ts', 420, 438 ]
-462 silly gunzTarPerm extractEntry src/utils/collection.js.map
-463 silly gunzTarPerm modified mode [ 'src/utils/collection.js.map', 420, 438 ]
-464 silly gunzTarPerm extractEntry src/utils/collection.metadata.json
-465 silly gunzTarPerm modified mode [ 'src/utils/collection.metadata.json', 420, 438 ]
-466 silly gunzTarPerm extractEntry src/utils/tree.d.ts
-467 silly gunzTarPerm modified mode [ 'src/utils/tree.d.ts', 420, 438 ]
-468 silly gunzTarPerm extractEntry src/utils/tree.js.map
-469 silly gunzTarPerm modified mode [ 'src/utils/tree.js.map', 420, 438 ]
-470 verbose write writing to C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router\package.json
-471 info preinstall @angular/router@3.0.0-beta.2
-472 verbose readDependencies loading dependencies from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router\package.json
-473 verbose readDependencies loading dependencies from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router\package.json
-474 silly install resolved []
-475 verbose about to build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router
-476 info build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router
-477 info linkStuff @angular/router@3.0.0-beta.2
-478 silly linkStuff @angular/router@3.0.0-beta.2 has C:\wamp\www\GitHub\DigitalSignage\client\node_modules as its parent node_modules
-479 verbose linkBins @angular/router@3.0.0-beta.2
-480 verbose linkMans @angular/router@3.0.0-beta.2
-481 verbose rebuildBundles @angular/router@3.0.0-beta.2
-482 info install @angular/router@3.0.0-beta.2
-483 info postinstall @angular/router@3.0.0-beta.2
-484 verbose unlock done using C:\Users\Vlad\AppData\Roaming\npm-cache\_locks\angular-router-3ddd5bd537889477.lock for C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router
-485 info build C:\wamp\www\GitHub\DigitalSignage\client
-486 info linkStuff Digital@1.0.0
-487 silly linkStuff Digital@1.0.0 has C:\wamp\www\GitHub\DigitalSignage as its parent node_modules
-488 verbose linkBins Digital@1.0.0
-489 verbose linkMans Digital@1.0.0
-490 verbose rebuildBundles Digital@1.0.0
-491 verbose rebuildBundles [ '.bin',
-491 verbose rebuildBundles   '@angular',
-491 verbose rebuildBundles   '@angular2-material',
-491 verbose rebuildBundles   'angular2-in-memory-web-api',
-491 verbose rebuildBundles   'bootstrap',
-491 verbose rebuildBundles   'concurrently',
-491 verbose rebuildBundles   'core-js',
-491 verbose rebuildBundles   'dragula',
-491 verbose rebuildBundles   'es6-promise',
-491 verbose rebuildBundles   'es6-shim',
-491 verbose rebuildBundles   'jquery',
-491 verbose rebuildBundles   'lite-server',
-491 verbose rebuildBundles   'ng2-dragula',
-491 verbose rebuildBundles   'ng2-material',
-491 verbose rebuildBundles   'ng2-uploader',
-491 verbose rebuildBundles   'reflect-metadata',
-491 verbose rebuildBundles   'rxjs',
-491 verbose rebuildBundles   'systemjs',
-491 verbose rebuildBundles   'zone.js' ]
-492 verbose rebuild bundle C:\wamp\www\GitHub\DigitalSignage\client\node_modules\dragula
-493 info build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\dragula
-494 info preinstall dragula@3.7.1
-495 info linkStuff dragula@3.7.1
-496 silly linkStuff dragula@3.7.1 has C:\wamp\www\GitHub\DigitalSignage\client\node_modules as its parent node_modules
-497 verbose linkBins dragula@3.7.1
-498 verbose linkMans dragula@3.7.1
-499 verbose rebuildBundles dragula@3.7.1
-500 verbose rebuildBundles [ 'contra', 'crossvent' ]
-501 info install dragula@3.7.1
-502 info postinstall dragula@3.7.1
-503 verbose rebuild bundle C:\wamp\www\GitHub\DigitalSignage\client\node_modules\es6-promise
-504 info build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\es6-promise
-505 info preinstall es6-promise@3.2.1
-506 info linkStuff es6-promise@3.2.1
-507 silly linkStuff es6-promise@3.2.1 has C:\wamp\www\GitHub\DigitalSignage\client\node_modules as its parent node_modules
-508 verbose linkBins es6-promise@3.2.1
-509 verbose linkMans es6-promise@3.2.1
-510 verbose rebuildBundles es6-promise@3.2.1
-511 info install es6-promise@3.2.1
-512 info postinstall es6-promise@3.2.1
-513 verbose rebuild bundle C:\wamp\www\GitHub\DigitalSignage\client\node_modules\es6-shim
-514 info build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\es6-shim
-515 info preinstall es6-shim@0.35.1
-516 info linkStuff es6-shim@0.35.1
-517 silly linkStuff es6-shim@0.35.1 has C:\wamp\www\GitHub\DigitalSignage\client\node_modules as its parent node_modules
-518 verbose linkBins es6-shim@0.35.1
-519 verbose linkMans es6-shim@0.35.1
-520 verbose rebuildBundles es6-shim@0.35.1
-521 info install es6-shim@0.35.1
-522 info postinstall es6-shim@0.35.1
-523 verbose rebuild bundle C:\wamp\www\GitHub\DigitalSignage\client\node_modules\jquery
-524 info build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\jquery
-525 info preinstall jquery@2.2.4
-526 info linkStuff jquery@2.2.4
-527 silly linkStuff jquery@2.2.4 has C:\wamp\www\GitHub\DigitalSignage\client\node_modules as its parent node_modules
-528 verbose linkBins jquery@2.2.4
-529 verbose linkMans jquery@2.2.4
-530 verbose rebuildBundles jquery@2.2.4
-531 info install jquery@2.2.4
-532 info postinstall jquery@2.2.4
-533 verbose rebuild bundle C:\wamp\www\GitHub\DigitalSignage\client\node_modules\lite-server
-534 info build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\lite-server
-535 info preinstall lite-server@2.2.2
-536 info linkStuff lite-server@2.2.2
-537 silly linkStuff lite-server@2.2.2 has C:\wamp\www\GitHub\DigitalSignage\client\node_modules as its parent node_modules
-538 verbose linkBins lite-server@2.2.2
-539 verbose link bins [ { 'lite-server': './bin/lite-server' },
-539 verbose link bins   'C:\\wamp\\www\\GitHub\\DigitalSignage\\client\\node_modules\\.bin',
-539 verbose link bins   false ]
-540 verbose linkMans lite-server@2.2.2
-541 verbose rebuildBundles lite-server@2.2.2
-542 verbose rebuildBundles [ '.bin',
-542 verbose rebuildBundles   'browser-sync',
-542 verbose rebuildBundles   'connect-history-api-fallback',
-542 verbose rebuildBundles   'connect-logger',
-542 verbose rebuildBundles   'lodash',
-542 verbose rebuildBundles   'minimist' ]
-543 info install lite-server@2.2.2
-544 info postinstall lite-server@2.2.2
-545 verbose rebuild bundle C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-dragula
-546 info build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-dragula
-547 info preinstall ng2-dragula@1.1.10
-548 info linkStuff ng2-dragula@1.1.10
-549 silly linkStuff ng2-dragula@1.1.10 has C:\wamp\www\GitHub\DigitalSignage\client\node_modules as its parent node_modules
-550 verbose linkBins ng2-dragula@1.1.10
-551 verbose linkMans ng2-dragula@1.1.10
-552 verbose rebuildBundles ng2-dragula@1.1.10
-553 info install ng2-dragula@1.1.10
-554 info postinstall ng2-dragula@1.1.10
-555 verbose rebuild bundle C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
-556 info build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-material
-557 info preinstall ng2-material@0.5.0
-558 info linkStuff ng2-material@0.5.0
-559 silly linkStuff ng2-material@0.5.0 has C:\wamp\www\GitHub\DigitalSignage\client\node_modules as its parent node_modules
-560 verbose linkBins ng2-material@0.5.0
-561 verbose linkMans ng2-material@0.5.0
-562 verbose rebuildBundles ng2-material@0.5.0
-563 info install ng2-material@0.5.0
-564 info postinstall ng2-material@0.5.0
-565 verbose rebuild bundle C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-uploader
-566 info build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\ng2-uploader
-567 info preinstall ng2-uploader@0.5.2
-568 info linkStuff ng2-uploader@0.5.2
-569 silly linkStuff ng2-uploader@0.5.2 has C:\wamp\www\GitHub\DigitalSignage\client\node_modules as its parent node_modules
-570 verbose linkBins ng2-uploader@0.5.2
-571 verbose linkMans ng2-uploader@0.5.2
-572 verbose rebuildBundles ng2-uploader@0.5.2
-573 verbose rebuildBundles [ '.bin', '@angular', 'clang-format', 'systemjs' ]
-574 info install ng2-uploader@0.5.2
-575 info postinstall ng2-uploader@0.5.2
-576 info install Digital@1.0.0
-577 info postinstall Digital@1.0.0
-578 info prepublish Digital@1.0.0
-579 verbose validateInstall loading C:\wamp\www\GitHub\DigitalSignage\client\package.json for validation
-580 verbose stack Error: The package @angular/common@2.0.0-rc.4 does not satisfy its siblings' peerDependencies requirements!
-580 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\install.js:125:32
-580 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\install.js:268:7
-580 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:142:5
-580 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
-580 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
-580 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
-580 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
-580 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
-580 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
-580 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
-581 verbose cwd C:\wamp\www\GitHub\DigitalSignage\client
-582 error Windows_NT 10.0.10586
-583 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
-584 error node v4.4.7
-585 error npm  v2.15.8
-586 error code EPEERINVALID
-587 error peerinvalid The package @angular/common@2.0.0-rc.4 does not satisfy its siblings' peerDependencies requirements!
-587 error peerinvalid Peer @angular/forms@0.2.0 wants @angular/common@^2.0.0-rc.4
-587 error peerinvalid Peer @angular/platform-browser@2.0.0-rc.4 wants @angular/common@^2.0.0-rc.4
-587 error peerinvalid Peer @angular/platform-browser-dynamic@2.0.0-rc.4 wants @angular/common@^2.0.0-rc.4
-587 error peerinvalid Peer @angular/router@3.0.0-beta.2 wants @angular/common@^2.0.0-rc.4
-587 error peerinvalid Peer @angular/router-deprecated@2.0.0-rc.2 wants @angular/common@^2.0.0-rc
-587 error peerinvalid Peer ng2-material@0.5.0 wants @angular/common@2.0.0-rc.1
-587 error peerinvalid Peer @angular2-material/core@2.0.0-alpha.5-2 wants @angular/common@^2.0.0-rc.1
-587 error peerinvalid Peer ng2-dragula@1.1.10 wants @angular/common@^2.0.0-rc.1
-588 verbose exit [ 1, true ]
+51 info package.json @angular/router@3.0.0-beta.2 No description
+52 info package.json @angular/router@3.0.0-beta.2 No README data
+53 info package.json @angular/router-deprecated@2.0.0-rc.2 No description
+54 info package.json @angular/router-deprecated@2.0.0-rc.2 No README data
+55 info package.json @angular/upgrade@2.0.0-rc.4 No description
+56 info package.json @angular/upgrade@2.0.0-rc.4 No README data
+57 verbose readDependencies loading dependencies from C:\wamp\www\GitHub\DigitalSignage\client\package.json
+58 verbose install @angular/router-deprecated is installed as 2.0.0-rc.2
+59 silly cache add args [ '@angular/router-deprecated@2.0.0-rc.2', null ]
+60 verbose cache add spec @angular/router-deprecated@2.0.0-rc.2
+61 silly cache add parsed spec Result {
+61 silly cache add   raw: '@angular/router-deprecated@2.0.0-rc.2',
+61 silly cache add   scope: '@angular',
+61 silly cache add   name: '@angular/router-deprecated',
+61 silly cache add   rawSpec: '2.0.0-rc.2',
+61 silly cache add   spec: '2.0.0-rc.2',
+61 silly cache add   type: 'version' }
+62 silly addNamed @angular/router-deprecated@2.0.0-rc.2
+63 verbose addNamed "2.0.0-rc.2" is a plain semver version for @angular/router-deprecated
+64 silly mapToRegistry name @angular/router-deprecated
+65 silly mapToRegistry scope (from package name) @angular
+66 verbose mapToRegistry no registry URL found in name for scope @angular
+67 silly mapToRegistry using default registry
+68 silly mapToRegistry registry https://registry.npmjs.org/
+69 silly mapToRegistry data Result {
+69 silly mapToRegistry   raw: '@angular/router-deprecated',
+69 silly mapToRegistry   scope: '@angular',
+69 silly mapToRegistry   name: '@angular/router-deprecated',
+69 silly mapToRegistry   rawSpec: '',
+69 silly mapToRegistry   spec: 'latest',
+69 silly mapToRegistry   type: 'tag' }
+70 silly mapToRegistry uri https://registry.npmjs.org/@angular%2frouter-deprecated
+71 verbose addNameVersion registry:https://registry.npmjs.org/@angular%2frouter-deprecated not in flight; fetching
+72 verbose request uri https://registry.npmjs.org/@angular%2frouter-deprecated
+73 verbose request no auth needed
+74 info attempt registry request try #1 at 11:58:41 PM
+75 verbose request id eb4ee4d60e1ba125
+76 verbose etag "4N3WIBBPFSIBA83WA7GKRUC7Z"
+77 http request GET https://registry.npmjs.org/@angular%2frouter-deprecated
+78 http 304 https://registry.npmjs.org/@angular%2frouter-deprecated
+79 verbose headers { date: 'Sun, 17 Jul 2016 03:58:35 GMT',
+79 verbose headers   via: '1.1 varnish',
+79 verbose headers   'cache-control': 'max-age=0',
+79 verbose headers   etag: '"4N3WIBBPFSIBA83WA7GKRUC7Z"',
+79 verbose headers   age: '0',
+79 verbose headers   connection: 'keep-alive',
+79 verbose headers   'x-served-by': 'cache-yyz8328-YYZ',
+79 verbose headers   'x-cache': 'MISS',
+79 verbose headers   'x-cache-hits': '0',
+79 verbose headers   'x-timer': 'S1468727915.494174,VS0,VE422',
+79 verbose headers   vary: 'Accept-Encoding' }
+80 silly get cb [ 304,
+80 silly get   { date: 'Sun, 17 Jul 2016 03:58:35 GMT',
+80 silly get     via: '1.1 varnish',
+80 silly get     'cache-control': 'max-age=0',
+80 silly get     etag: '"4N3WIBBPFSIBA83WA7GKRUC7Z"',
+80 silly get     age: '0',
+80 silly get     connection: 'keep-alive',
+80 silly get     'x-served-by': 'cache-yyz8328-YYZ',
+80 silly get     'x-cache': 'MISS',
+80 silly get     'x-cache-hits': '0',
+80 silly get     'x-timer': 'S1468727915.494174,VS0,VE422',
+80 silly get     vary: 'Accept-Encoding' } ]
+81 verbose etag https://registry.npmjs.org/@angular%2frouter-deprecated from cache
+82 verbose get saving @angular/router-deprecated to C:\Users\Vlad\AppData\Roaming\npm-cache\registry.npmjs.org\_40angular_252frouter-deprecated\.cache.json
+83 verbose correctMkdir C:\Users\Vlad\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+84 silly cache afterAdd @angular/router-deprecated@2.0.0-rc.2
+85 verbose afterAdd C:\Users\Vlad\AppData\Roaming\npm-cache\@angular\router-deprecated\2.0.0-rc.2\package\package.json not in flight; writing
+86 verbose correctMkdir C:\Users\Vlad\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+87 verbose afterAdd C:\Users\Vlad\AppData\Roaming\npm-cache\@angular\router-deprecated\2.0.0-rc.2\package\package.json written
+88 silly install resolved [ { name: '@angular/router-deprecated',
+88 silly install resolved     version: '2.0.0-rc.2',
+88 silly install resolved     description: '',
+88 silly install resolved     main: 'index.js',
+88 silly install resolved     'jsnext:main': 'esm/index.js',
+88 silly install resolved     typins: 'index.d.ts',
+88 silly install resolved     author: { name: 'angular' },
+88 silly install resolved     license: 'MIT',
+88 silly install resolved     peerDependencies:
+88 silly install resolved      { '@angular/core': '^2.0.0-rc',
+88 silly install resolved        '@angular/common': '^2.0.0-rc',
+88 silly install resolved        '@angular/platform-browser': '^2.0.0-rc' },
+88 silly install resolved     repository:
+88 silly install resolved      { type: 'git',
+88 silly install resolved        url: 'git+https://github.com/angular/angular.git' },
+88 silly install resolved     bugs: { url: 'https://github.com/angular/angular/issues' },
+88 silly install resolved     homepage: 'https://github.com/angular/angular#readme',
+88 silly install resolved     _id: '@angular/router-deprecated@2.0.0-rc.2',
+88 silly install resolved     scripts: {},
+88 silly install resolved     _shasum: '6ffdf75f6090a48e9f084a15aa75e7ce1389be53',
+88 silly install resolved     _from: '@angular/router-deprecated@2.0.0-rc.2',
+88 silly install resolved     _resolved: 'https://registry.npmjs.org/@angular/router-deprecated/-/router-deprecated-2.0.0-rc.2.tgz',
+88 silly install resolved     _npmVersion: '3.9.2',
+88 silly install resolved     _nodeVersion: '5.4.1',
+88 silly install resolved     _npmUser: { name: 'angular', email: 'angular-core+npm@google.com' },
+88 silly install resolved     dist:
+88 silly install resolved      { shasum: '6ffdf75f6090a48e9f084a15aa75e7ce1389be53',
+88 silly install resolved        tarball: 'https://registry.npmjs.org/@angular/router-deprecated/-/router-deprecated-2.0.0-rc.2.tgz' },
+88 silly install resolved     maintainers: [ [Object] ],
+88 silly install resolved     _npmOperationalInternal:
+88 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+88 silly install resolved        tmp: 'tmp/router-deprecated-2.0.0-rc.2.tgz_1466015704080_0.16310800914652646' },
+88 silly install resolved     directories: {},
+88 silly install resolved     readme: 'ERROR: No README data found!' } ]
+89 info install @angular/router-deprecated@2.0.0-rc.2 into C:\wamp\www\GitHub\DigitalSignage\client
+90 info installOne @angular/router-deprecated@2.0.0-rc.2
+91 verbose installOne of @angular/router-deprecated to C:\wamp\www\GitHub\DigitalSignage\client not in flight; installing
+92 verbose correctMkdir C:\Users\Vlad\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+93 verbose lock using C:\Users\Vlad\AppData\Roaming\npm-cache\_locks\angular-router-deprecate-6cff5b917483b37f.lock for C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated
+94 silly install write writing @angular/router-deprecated 2.0.0-rc.2 to C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated
+95 verbose unbuild node_modules\@angular\router-deprecated
+96 info preuninstall @angular/router-deprecated@2.0.0-rc.2
+97 info uninstall @angular/router-deprecated@2.0.0-rc.2
+98 verbose unbuild rmStuff @angular/router-deprecated@2.0.0-rc.2 from C:\wamp\www\GitHub\DigitalSignage\client\node_modules
+99 verbose unbuild rmStuff in C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular
+100 info postuninstall @angular/router-deprecated@2.0.0-rc.2
+101 silly gentlyRm C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated is being purged from base C:\wamp\www\GitHub\DigitalSignage\client
+102 verbose gentlyRm don't care about contents; nuking C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated
+103 silly vacuum-fs purging C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated
+104 silly vacuum-fs quitting because other entries in C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular
+105 verbose tar unpack C:\Users\Vlad\AppData\Roaming\npm-cache\@angular\router-deprecated\2.0.0-rc.2\package.tgz
+106 verbose tar unpacking to C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated
+107 silly gentlyRm C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated is being purged
+108 verbose gentlyRm don't care about contents; nuking C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated
+109 silly gunzTarPerm modes [ '777', '666' ]
+110 silly gunzTarPerm extractEntry package.json
+111 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+112 silly gunzTarPerm extractEntry core_private.js
+113 silly gunzTarPerm modified mode [ 'core_private.js', 420, 438 ]
+114 silly gunzTarPerm extractEntry index.js
+115 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+116 silly gunzTarPerm extractEntry router.js
+117 silly gunzTarPerm modified mode [ 'router.js', 420, 438 ]
+118 silly gunzTarPerm extractEntry testing.js
+119 silly gunzTarPerm modified mode [ 'testing.js', 420, 438 ]
+120 silly gunzTarPerm extractEntry index.d.ts
+121 silly gunzTarPerm modified mode [ 'index.d.ts', 420, 438 ]
+122 silly gunzTarPerm extractEntry bundles/router-deprecated.umd.js
+123 silly gunzTarPerm modified mode [ 'bundles/router-deprecated.umd.js', 420, 438 ]
+124 silly gunzTarPerm extractEntry bundles/router-deprecated.umd.min.js
+125 silly gunzTarPerm modified mode [ 'bundles/router-deprecated.umd.min.js', 420, 438 ]
+126 silly gunzTarPerm extractEntry index.js.map
+127 silly gunzTarPerm modified mode [ 'index.js.map', 420, 438 ]
+128 silly gunzTarPerm extractEntry core_private.d.ts
+129 silly gunzTarPerm modified mode [ 'core_private.d.ts', 420, 438 ]
+130 silly gunzTarPerm extractEntry router.d.ts
+131 silly gunzTarPerm modified mode [ 'router.d.ts', 420, 438 ]
+132 silly gunzTarPerm extractEntry core_private.js.map
+133 silly gunzTarPerm modified mode [ 'core_private.js.map', 420, 438 ]
+134 silly gunzTarPerm extractEntry router.js.map
+135 silly gunzTarPerm modified mode [ 'router.js.map', 420, 438 ]
+136 silly gunzTarPerm extractEntry src/instruction.js
+137 silly gunzTarPerm modified mode [ 'src/instruction.js', 420, 438 ]
+138 silly gunzTarPerm extractEntry src/interfaces.js
+139 silly gunzTarPerm modified mode [ 'src/interfaces.js', 420, 438 ]
+140 silly gunzTarPerm extractEntry src/route_definition.js
+141 silly gunzTarPerm modified mode [ 'src/route_definition.js', 420, 438 ]
+142 silly gunzTarPerm extractEntry src/route_registry.js
+143 silly gunzTarPerm modified mode [ 'src/route_registry.js', 420, 438 ]
+144 silly gunzTarPerm extractEntry src/router.js
+145 silly gunzTarPerm modified mode [ 'src/router.js', 420, 438 ]
+146 silly gunzTarPerm extractEntry src/router_providers.js
+147 silly gunzTarPerm modified mode [ 'src/router_providers.js', 420, 438 ]
+148 silly gunzTarPerm extractEntry src/router_providers_common.js
+149 silly gunzTarPerm modified mode [ 'src/router_providers_common.js', 420, 438 ]
+150 silly gunzTarPerm extractEntry src/url_parser.js
+151 silly gunzTarPerm modified mode [ 'src/url_parser.js', 420, 438 ]
+152 silly gunzTarPerm extractEntry src/utils.js
+153 silly gunzTarPerm modified mode [ 'src/utils.js', 420, 438 ]
+154 silly gunzTarPerm extractEntry src/router.d.ts
+155 silly gunzTarPerm modified mode [ 'src/router.d.ts', 420, 438 ]
+156 silly gunzTarPerm extractEntry src/route_definition.d.ts
+157 silly gunzTarPerm modified mode [ 'src/route_definition.d.ts', 420, 438 ]
+158 silly gunzTarPerm extractEntry src/directives/router_link.js
+159 silly gunzTarPerm modified mode [ 'src/directives/router_link.js', 420, 438 ]
+160 silly gunzTarPerm extractEntry src/directives/router_outlet.js
+161 silly gunzTarPerm modified mode [ 'src/directives/router_outlet.js', 420, 438 ]
+162 silly gunzTarPerm extractEntry src/directives/router_link.d.ts
+163 silly gunzTarPerm modified mode [ 'src/directives/router_link.d.ts', 420, 438 ]
+164 silly gunzTarPerm extractEntry src/directives/router_link.js.map
+165 silly gunzTarPerm modified mode [ 'src/directives/router_link.js.map', 420, 438 ]
+166 silly gunzTarPerm extractEntry src/directives/router_outlet.d.ts
+167 silly gunzTarPerm modified mode [ 'src/directives/router_outlet.d.ts', 420, 438 ]
+168 silly gunzTarPerm extractEntry src/directives/router_outlet.js.map
+169 silly gunzTarPerm modified mode [ 'src/directives/router_outlet.js.map', 420, 438 ]
+170 silly gunzTarPerm extractEntry src/route_definition.js.map
+171 silly gunzTarPerm modified mode [ 'src/route_definition.js.map', 420, 438 ]
+172 silly gunzTarPerm extractEntry src/route_registry.d.ts
+173 silly gunzTarPerm modified mode [ 'src/route_registry.d.ts', 420, 438 ]
+174 silly gunzTarPerm extractEntry src/instruction.js.map
+175 silly gunzTarPerm modified mode [ 'src/instruction.js.map', 420, 438 ]
+176 silly gunzTarPerm extractEntry src/route_registry.js.map
+177 silly gunzTarPerm modified mode [ 'src/route_registry.js.map', 420, 438 ]
+178 silly gunzTarPerm extractEntry src/facade/exception_handler.js
+179 silly gunzTarPerm modified mode [ 'src/facade/exception_handler.js', 420, 438 ]
+180 silly gunzTarPerm extractEntry src/facade/base_wrapped_exception.js
+181 silly gunzTarPerm modified mode [ 'src/facade/base_wrapped_exception.js', 420, 438 ]
+182 silly gunzTarPerm extractEntry src/facade/collection.js
+183 silly gunzTarPerm modified mode [ 'src/facade/collection.js', 420, 438 ]
+184 silly gunzTarPerm extractEntry src/facade/async.js
+185 silly gunzTarPerm modified mode [ 'src/facade/async.js', 420, 438 ]
+186 silly gunzTarPerm extractEntry src/facade/exceptions.js
+187 silly gunzTarPerm modified mode [ 'src/facade/exceptions.js', 420, 438 ]
+188 silly gunzTarPerm extractEntry src/facade/lang.js
+189 silly gunzTarPerm modified mode [ 'src/facade/lang.js', 420, 438 ]
+190 silly gunzTarPerm extractEntry src/facade/promise.js
+191 silly gunzTarPerm modified mode [ 'src/facade/promise.js', 420, 438 ]
+192 silly gunzTarPerm extractEntry src/facade/async.js.map
+193 silly gunzTarPerm modified mode [ 'src/facade/async.js.map', 420, 438 ]
+194 silly gunzTarPerm extractEntry src/facade/collection.js.map
+195 silly gunzTarPerm modified mode [ 'src/facade/collection.js.map', 420, 438 ]
+196 silly gunzTarPerm extractEntry src/facade/exception_handler.d.ts
+197 silly gunzTarPerm modified mode [ 'src/facade/exception_handler.d.ts', 420, 438 ]
+198 silly gunzTarPerm extractEntry src/facade/base_wrapped_exception.d.ts
+199 silly gunzTarPerm modified mode [ 'src/facade/base_wrapped_exception.d.ts', 420, 438 ]
+200 silly gunzTarPerm extractEntry src/facade/exception_handler.js.map
+201 silly gunzTarPerm modified mode [ 'src/facade/exception_handler.js.map', 420, 438 ]
+202 silly gunzTarPerm extractEntry src/facade/exceptions.d.ts
+203 silly gunzTarPerm modified mode [ 'src/facade/exceptions.d.ts', 420, 438 ]
+204 silly gunzTarPerm extractEntry src/facade/async.d.ts
+205 silly gunzTarPerm modified mode [ 'src/facade/async.d.ts', 420, 438 ]
+206 silly gunzTarPerm extractEntry src/facade/exceptions.js.map
+207 silly gunzTarPerm modified mode [ 'src/facade/exceptions.js.map', 420, 438 ]
+208 silly gunzTarPerm extractEntry src/facade/lang.d.ts
+209 silly gunzTarPerm modified mode [ 'src/facade/lang.d.ts', 420, 438 ]
+210 silly gunzTarPerm extractEntry src/facade/base_wrapped_exception.js.map
+211 silly gunzTarPerm modified mode [ 'src/facade/base_wrapped_exception.js.map', 420, 438 ]
+212 silly gunzTarPerm extractEntry src/facade/lang.js.map
+213 silly gunzTarPerm modified mode [ 'src/facade/lang.js.map', 420, 438 ]
+214 silly gunzTarPerm extractEntry src/facade/promise.d.ts
+215 silly gunzTarPerm modified mode [ 'src/facade/promise.d.ts', 420, 438 ]
+216 silly gunzTarPerm extractEntry src/facade/collection.d.ts
+217 silly gunzTarPerm modified mode [ 'src/facade/collection.d.ts', 420, 438 ]
+218 silly gunzTarPerm extractEntry src/facade/promise.js.map
+219 silly gunzTarPerm modified mode [ 'src/facade/promise.js.map', 420, 438 ]
+220 silly gunzTarPerm extractEntry src/interfaces.d.ts
+221 silly gunzTarPerm modified mode [ 'src/interfaces.d.ts', 420, 438 ]
+222 silly gunzTarPerm extractEntry src/router.js.map
+223 silly gunzTarPerm modified mode [ 'src/router.js.map', 420, 438 ]
+224 silly gunzTarPerm extractEntry src/router_providers.d.ts
+225 silly gunzTarPerm modified mode [ 'src/router_providers.d.ts', 420, 438 ]
+226 silly gunzTarPerm extractEntry src/instruction.d.ts
+227 silly gunzTarPerm modified mode [ 'src/instruction.d.ts', 420, 438 ]
+228 silly gunzTarPerm extractEntry src/router_providers.js.map
+229 silly gunzTarPerm modified mode [ 'src/router_providers.js.map', 420, 438 ]
+230 silly gunzTarPerm extractEntry src/router_providers_common.d.ts
+231 silly gunzTarPerm modified mode [ 'src/router_providers_common.d.ts', 420, 438 ]
+232 silly gunzTarPerm extractEntry src/interfaces.js.map
+233 silly gunzTarPerm modified mode [ 'src/interfaces.js.map', 420, 438 ]
+234 silly gunzTarPerm extractEntry src/router_providers_common.js.map
+235 silly gunzTarPerm modified mode [ 'src/router_providers_common.js.map', 420, 438 ]
+236 silly gunzTarPerm extractEntry src/rules/rule_set.js
+237 silly gunzTarPerm modified mode [ 'src/rules/rule_set.js', 420, 438 ]
+238 silly gunzTarPerm extractEntry src/rules/rules.js
+239 silly gunzTarPerm modified mode [ 'src/rules/rules.js', 420, 438 ]
+240 silly gunzTarPerm extractEntry src/rules/route_handlers/async_route_handler.js
+241 silly gunzTarPerm modified mode [ 'src/rules/route_handlers/async_route_handler.js', 420, 438 ]
+242 silly gunzTarPerm extractEntry src/rules/route_handlers/route_handler.js
+243 silly gunzTarPerm modified mode [ 'src/rules/route_handlers/route_handler.js', 420, 438 ]
+244 silly gunzTarPerm extractEntry src/rules/route_handlers/sync_route_handler.js
+245 silly gunzTarPerm modified mode [ 'src/rules/route_handlers/sync_route_handler.js', 420, 438 ]
+246 silly gunzTarPerm extractEntry src/rules/route_handlers/async_route_handler.d.ts
+247 silly gunzTarPerm modified mode [ 'src/rules/route_handlers/async_route_handler.d.ts', 420, 438 ]
+248 silly gunzTarPerm extractEntry src/rules/route_handlers/async_route_handler.js.map
+249 silly gunzTarPerm modified mode [ 'src/rules/route_handlers/async_route_handler.js.map',
+249 silly gunzTarPerm   420,
+249 silly gunzTarPerm   438 ]
+250 silly gunzTarPerm extractEntry src/rules/route_handlers/route_handler.d.ts
+251 silly gunzTarPerm modified mode [ 'src/rules/route_handlers/route_handler.d.ts', 420, 438 ]
+252 silly gunzTarPerm extractEntry src/rules/route_handlers/route_handler.js.map
+253 silly gunzTarPerm modified mode [ 'src/rules/route_handlers/route_handler.js.map', 420, 438 ]
+254 silly gunzTarPerm extractEntry src/rules/route_handlers/sync_route_handler.d.ts
+255 silly gunzTarPerm modified mode [ 'src/rules/route_handlers/sync_route_handler.d.ts', 420, 438 ]
+256 silly gunzTarPerm extractEntry src/rules/route_handlers/sync_route_handler.js.map
+257 silly gunzTarPerm modified mode [ 'src/rules/route_handlers/sync_route_handler.js.map',
+257 silly gunzTarPerm   420,
+257 silly gunzTarPerm   438 ]
+258 silly gunzTarPerm extractEntry src/rules/route_paths/param_route_path.js
+259 silly gunzTarPerm modified mode [ 'src/rules/route_paths/param_route_path.js', 420, 438 ]
+260 silly gunzTarPerm extractEntry src/rules/route_paths/regex_route_path.js
+261 silly gunzTarPerm modified mode [ 'src/rules/route_paths/regex_route_path.js', 420, 438 ]
+262 silly gunzTarPerm extractEntry src/rules/route_paths/route_path.js
+263 silly gunzTarPerm modified mode [ 'src/rules/route_paths/route_path.js', 420, 438 ]
+264 silly gunzTarPerm extractEntry src/rules/route_paths/param_route_path.d.ts
+265 silly gunzTarPerm modified mode [ 'src/rules/route_paths/param_route_path.d.ts', 420, 438 ]
+266 silly gunzTarPerm extractEntry src/rules/route_paths/param_route_path.js.map
+267 silly gunzTarPerm modified mode [ 'src/rules/route_paths/param_route_path.js.map', 420, 438 ]
+268 silly gunzTarPerm extractEntry src/rules/route_paths/regex_route_path.d.ts
+269 silly gunzTarPerm modified mode [ 'src/rules/route_paths/regex_route_path.d.ts', 420, 438 ]
+270 silly gunzTarPerm extractEntry src/rules/route_paths/regex_route_path.js.map
+271 silly gunzTarPerm modified mode [ 'src/rules/route_paths/regex_route_path.js.map', 420, 438 ]
+272 silly gunzTarPerm extractEntry src/rules/route_paths/route_path.d.ts
+273 silly gunzTarPerm modified mode [ 'src/rules/route_paths/route_path.d.ts', 420, 438 ]
+274 silly gunzTarPerm extractEntry src/rules/route_paths/route_path.js.map
+275 silly gunzTarPerm modified mode [ 'src/rules/route_paths/route_path.js.map', 420, 438 ]
+276 silly gunzTarPerm extractEntry src/rules/rule_set.d.ts
+277 silly gunzTarPerm modified mode [ 'src/rules/rule_set.d.ts', 420, 438 ]
+278 silly gunzTarPerm extractEntry src/rules/rule_set.js.map
+279 silly gunzTarPerm modified mode [ 'src/rules/rule_set.js.map', 420, 438 ]
+280 silly gunzTarPerm extractEntry src/rules/rules.d.ts
+281 silly gunzTarPerm modified mode [ 'src/rules/rules.d.ts', 420, 438 ]
+282 silly gunzTarPerm extractEntry src/rules/rules.js.map
+283 silly gunzTarPerm modified mode [ 'src/rules/rules.js.map', 420, 438 ]
+284 silly gunzTarPerm extractEntry src/url_parser.d.ts
+285 silly gunzTarPerm modified mode [ 'src/url_parser.d.ts', 420, 438 ]
+286 silly gunzTarPerm extractEntry src/lifecycle/lifecycle_annotations.js
+287 silly gunzTarPerm modified mode [ 'src/lifecycle/lifecycle_annotations.js', 420, 438 ]
+288 silly gunzTarPerm extractEntry src/lifecycle/lifecycle_annotations_impl.js
+289 silly gunzTarPerm modified mode [ 'src/lifecycle/lifecycle_annotations_impl.js', 420, 438 ]
+290 silly gunzTarPerm extractEntry src/lifecycle/route_lifecycle_reflector.js
+291 silly gunzTarPerm modified mode [ 'src/lifecycle/route_lifecycle_reflector.js', 420, 438 ]
+292 silly gunzTarPerm extractEntry src/lifecycle/lifecycle_annotations.d.ts
+293 silly gunzTarPerm modified mode [ 'src/lifecycle/lifecycle_annotations.d.ts', 420, 438 ]
+294 silly gunzTarPerm extractEntry src/lifecycle/lifecycle_annotations.js.map
+295 silly gunzTarPerm modified mode [ 'src/lifecycle/lifecycle_annotations.js.map', 420, 438 ]
+296 silly gunzTarPerm extractEntry src/lifecycle/lifecycle_annotations_impl.d.ts
+297 silly gunzTarPerm modified mode [ 'src/lifecycle/lifecycle_annotations_impl.d.ts', 420, 438 ]
+298 silly gunzTarPerm extractEntry src/lifecycle/lifecycle_annotations_impl.js.map
+299 silly gunzTarPerm modified mode [ 'src/lifecycle/lifecycle_annotations_impl.js.map', 420, 438 ]
+300 silly gunzTarPerm extractEntry src/lifecycle/route_lifecycle_reflector.d.ts
+301 silly gunzTarPerm modified mode [ 'src/lifecycle/route_lifecycle_reflector.d.ts', 420, 438 ]
+302 silly gunzTarPerm extractEntry src/lifecycle/route_lifecycle_reflector.js.map
+303 silly gunzTarPerm modified mode [ 'src/lifecycle/route_lifecycle_reflector.js.map', 420, 438 ]
+304 silly gunzTarPerm extractEntry src/url_parser.js.map
+305 silly gunzTarPerm modified mode [ 'src/url_parser.js.map', 420, 438 ]
+306 silly gunzTarPerm extractEntry src/utils.d.ts
+307 silly gunzTarPerm modified mode [ 'src/utils.d.ts', 420, 438 ]
+308 silly gunzTarPerm extractEntry src/route_config/route_config_decorator.js
+309 silly gunzTarPerm modified mode [ 'src/route_config/route_config_decorator.js', 420, 438 ]
+310 silly gunzTarPerm extractEntry src/route_config/route_config_impl.js
+311 silly gunzTarPerm modified mode [ 'src/route_config/route_config_impl.js', 420, 438 ]
+312 silly gunzTarPerm extractEntry src/route_config/route_config_normalizer.js
+313 silly gunzTarPerm modified mode [ 'src/route_config/route_config_normalizer.js', 420, 438 ]
+314 silly gunzTarPerm extractEntry src/route_config/route_config_decorator.d.ts
+315 silly gunzTarPerm modified mode [ 'src/route_config/route_config_decorator.d.ts', 420, 438 ]
+316 silly gunzTarPerm extractEntry src/route_config/route_config_decorator.js.map
+317 silly gunzTarPerm modified mode [ 'src/route_config/route_config_decorator.js.map', 420, 438 ]
+318 silly gunzTarPerm extractEntry src/route_config/route_config_impl.d.ts
+319 silly gunzTarPerm modified mode [ 'src/route_config/route_config_impl.d.ts', 420, 438 ]
+320 silly gunzTarPerm extractEntry src/route_config/route_config_impl.js.map
+321 silly gunzTarPerm modified mode [ 'src/route_config/route_config_impl.js.map', 420, 438 ]
+322 silly gunzTarPerm extractEntry src/route_config/route_config_normalizer.d.ts
+323 silly gunzTarPerm modified mode [ 'src/route_config/route_config_normalizer.d.ts', 420, 438 ]
+324 silly gunzTarPerm extractEntry src/route_config/route_config_normalizer.js.map
+325 silly gunzTarPerm modified mode [ 'src/route_config/route_config_normalizer.js.map', 420, 438 ]
+326 silly gunzTarPerm extractEntry src/utils.js.map
+327 silly gunzTarPerm modified mode [ 'src/utils.js.map', 420, 438 ]
+328 silly gunzTarPerm extractEntry testing.d.ts
+329 silly gunzTarPerm modified mode [ 'testing.d.ts', 420, 438 ]
+330 silly gunzTarPerm extractEntry esm/index.js
+331 silly gunzTarPerm modified mode [ 'esm/index.js', 420, 438 ]
+332 silly gunzTarPerm extractEntry esm/core_private.js
+333 silly gunzTarPerm modified mode [ 'esm/core_private.js', 420, 438 ]
+334 silly gunzTarPerm extractEntry esm/router.js
+335 silly gunzTarPerm modified mode [ 'esm/router.js', 420, 438 ]
+336 silly gunzTarPerm extractEntry esm/testing.js
+337 silly gunzTarPerm modified mode [ 'esm/testing.js', 420, 438 ]
+338 silly gunzTarPerm extractEntry esm/router.d.ts
+339 silly gunzTarPerm modified mode [ 'esm/router.d.ts', 420, 438 ]
+340 silly gunzTarPerm extractEntry esm/index.js.map
+341 silly gunzTarPerm modified mode [ 'esm/index.js.map', 420, 438 ]
+342 silly gunzTarPerm extractEntry esm/core_private.js.map
+343 silly gunzTarPerm modified mode [ 'esm/core_private.js.map', 420, 438 ]
+344 silly gunzTarPerm extractEntry esm/index.d.ts
+345 silly gunzTarPerm modified mode [ 'esm/index.d.ts', 420, 438 ]
+346 silly gunzTarPerm extractEntry esm/router.js.map
+347 silly gunzTarPerm modified mode [ 'esm/router.js.map', 420, 438 ]
+348 silly gunzTarPerm extractEntry esm/src/instruction.js
+349 silly gunzTarPerm modified mode [ 'esm/src/instruction.js', 420, 438 ]
+350 silly gunzTarPerm extractEntry esm/src/interfaces.js
+351 silly gunzTarPerm modified mode [ 'esm/src/interfaces.js', 420, 438 ]
+352 silly gunzTarPerm extractEntry esm/src/route_definition.js
+353 silly gunzTarPerm modified mode [ 'esm/src/route_definition.js', 420, 438 ]
+354 silly gunzTarPerm extractEntry esm/src/route_registry.js
+355 silly gunzTarPerm modified mode [ 'esm/src/route_registry.js', 420, 438 ]
+356 silly gunzTarPerm extractEntry esm/src/router.js
+357 silly gunzTarPerm modified mode [ 'esm/src/router.js', 420, 438 ]
+358 silly gunzTarPerm extractEntry esm/src/router_providers.js
+359 silly gunzTarPerm modified mode [ 'esm/src/router_providers.js', 420, 438 ]
+360 silly gunzTarPerm extractEntry esm/src/router_providers_common.js
+361 silly gunzTarPerm modified mode [ 'esm/src/router_providers_common.js', 420, 438 ]
+362 silly gunzTarPerm extractEntry esm/src/url_parser.js
+363 silly gunzTarPerm modified mode [ 'esm/src/url_parser.js', 420, 438 ]
+364 silly gunzTarPerm extractEntry esm/src/utils.js
+365 silly gunzTarPerm modified mode [ 'esm/src/utils.js', 420, 438 ]
+366 silly gunzTarPerm extractEntry esm/src/router.d.ts
+367 silly gunzTarPerm modified mode [ 'esm/src/router.d.ts', 420, 438 ]
+368 silly gunzTarPerm extractEntry esm/src/route_definition.d.ts
+369 silly gunzTarPerm modified mode [ 'esm/src/route_definition.d.ts', 420, 438 ]
+370 silly gunzTarPerm extractEntry esm/src/directives/router_link.js
+371 silly gunzTarPerm modified mode [ 'esm/src/directives/router_link.js', 420, 438 ]
+372 silly gunzTarPerm extractEntry esm/src/directives/router_outlet.js
+373 silly gunzTarPerm modified mode [ 'esm/src/directives/router_outlet.js', 420, 438 ]
+374 silly gunzTarPerm extractEntry esm/src/directives/router_link.d.ts
+375 silly gunzTarPerm modified mode [ 'esm/src/directives/router_link.d.ts', 420, 438 ]
+376 silly gunzTarPerm extractEntry esm/src/directives/router_link.js.map
+377 silly gunzTarPerm modified mode [ 'esm/src/directives/router_link.js.map', 420, 438 ]
+378 silly gunzTarPerm extractEntry esm/src/directives/router_outlet.d.ts
+379 silly gunzTarPerm modified mode [ 'esm/src/directives/router_outlet.d.ts', 420, 438 ]
+380 silly gunzTarPerm extractEntry esm/src/directives/router_outlet.js.map
+381 silly gunzTarPerm modified mode [ 'esm/src/directives/router_outlet.js.map', 420, 438 ]
+382 silly gunzTarPerm extractEntry esm/src/route_definition.js.map
+383 silly gunzTarPerm modified mode [ 'esm/src/route_definition.js.map', 420, 438 ]
+384 silly gunzTarPerm extractEntry esm/src/route_registry.d.ts
+385 silly gunzTarPerm modified mode [ 'esm/src/route_registry.d.ts', 420, 438 ]
+386 silly gunzTarPerm extractEntry esm/src/instruction.js.map
+387 silly gunzTarPerm modified mode [ 'esm/src/instruction.js.map', 420, 438 ]
+388 silly gunzTarPerm extractEntry esm/src/route_registry.js.map
+389 silly gunzTarPerm modified mode [ 'esm/src/route_registry.js.map', 420, 438 ]
+390 silly gunzTarPerm extractEntry esm/src/facade/exception_handler.js
+391 silly gunzTarPerm modified mode [ 'esm/src/facade/exception_handler.js', 420, 438 ]
+392 silly gunzTarPerm extractEntry esm/src/facade/base_wrapped_exception.js
+393 silly gunzTarPerm modified mode [ 'esm/src/facade/base_wrapped_exception.js', 420, 438 ]
+394 silly gunzTarPerm extractEntry esm/src/facade/collection.js
+395 silly gunzTarPerm modified mode [ 'esm/src/facade/collection.js', 420, 438 ]
+396 silly gunzTarPerm extractEntry esm/src/facade/async.js
+397 silly gunzTarPerm modified mode [ 'esm/src/facade/async.js', 420, 438 ]
+398 silly gunzTarPerm extractEntry esm/src/facade/exceptions.js
+399 silly gunzTarPerm modified mode [ 'esm/src/facade/exceptions.js', 420, 438 ]
+400 silly gunzTarPerm extractEntry esm/src/facade/lang.js
+401 silly gunzTarPerm modified mode [ 'esm/src/facade/lang.js', 420, 438 ]
+402 silly gunzTarPerm extractEntry esm/src/facade/promise.js
+403 silly gunzTarPerm modified mode [ 'esm/src/facade/promise.js', 420, 438 ]
+404 silly gunzTarPerm extractEntry esm/src/facade/async.js.map
+405 silly gunzTarPerm modified mode [ 'esm/src/facade/async.js.map', 420, 438 ]
+406 silly gunzTarPerm extractEntry esm/src/facade/collection.js.map
+407 silly gunzTarPerm modified mode [ 'esm/src/facade/collection.js.map', 420, 438 ]
+408 silly gunzTarPerm extractEntry esm/src/facade/exception_handler.d.ts
+409 silly gunzTarPerm modified mode [ 'esm/src/facade/exception_handler.d.ts', 420, 438 ]
+410 silly gunzTarPerm extractEntry esm/src/facade/base_wrapped_exception.d.ts
+411 silly gunzTarPerm modified mode [ 'esm/src/facade/base_wrapped_exception.d.ts', 420, 438 ]
+412 silly gunzTarPerm extractEntry esm/src/facade/exception_handler.js.map
+413 silly gunzTarPerm modified mode [ 'esm/src/facade/exception_handler.js.map', 420, 438 ]
+414 silly gunzTarPerm extractEntry esm/src/facade/exceptions.d.ts
+415 silly gunzTarPerm modified mode [ 'esm/src/facade/exceptions.d.ts', 420, 438 ]
+416 silly gunzTarPerm extractEntry esm/src/facade/async.d.ts
+417 silly gunzTarPerm modified mode [ 'esm/src/facade/async.d.ts', 420, 438 ]
+418 silly gunzTarPerm extractEntry esm/src/facade/exceptions.js.map
+419 silly gunzTarPerm modified mode [ 'esm/src/facade/exceptions.js.map', 420, 438 ]
+420 silly gunzTarPerm extractEntry esm/src/facade/lang.d.ts
+421 silly gunzTarPerm modified mode [ 'esm/src/facade/lang.d.ts', 420, 438 ]
+422 silly gunzTarPerm extractEntry esm/src/facade/base_wrapped_exception.js.map
+423 silly gunzTarPerm modified mode [ 'esm/src/facade/base_wrapped_exception.js.map', 420, 438 ]
+424 silly gunzTarPerm extractEntry esm/src/facade/lang.js.map
+425 silly gunzTarPerm modified mode [ 'esm/src/facade/lang.js.map', 420, 438 ]
+426 silly gunzTarPerm extractEntry esm/src/facade/promise.d.ts
+427 silly gunzTarPerm modified mode [ 'esm/src/facade/promise.d.ts', 420, 438 ]
+428 silly gunzTarPerm extractEntry esm/src/facade/collection.d.ts
+429 silly gunzTarPerm modified mode [ 'esm/src/facade/collection.d.ts', 420, 438 ]
+430 silly gunzTarPerm extractEntry esm/src/facade/promise.js.map
+431 silly gunzTarPerm modified mode [ 'esm/src/facade/promise.js.map', 420, 438 ]
+432 silly gunzTarPerm extractEntry esm/src/interfaces.d.ts
+433 silly gunzTarPerm modified mode [ 'esm/src/interfaces.d.ts', 420, 438 ]
+434 silly gunzTarPerm extractEntry esm/src/router.js.map
+435 silly gunzTarPerm modified mode [ 'esm/src/router.js.map', 420, 438 ]
+436 silly gunzTarPerm extractEntry esm/src/router_providers.d.ts
+437 silly gunzTarPerm modified mode [ 'esm/src/router_providers.d.ts', 420, 438 ]
+438 silly gunzTarPerm extractEntry esm/src/instruction.d.ts
+439 silly gunzTarPerm modified mode [ 'esm/src/instruction.d.ts', 420, 438 ]
+440 silly gunzTarPerm extractEntry esm/src/router_providers.js.map
+441 silly gunzTarPerm modified mode [ 'esm/src/router_providers.js.map', 420, 438 ]
+442 silly gunzTarPerm extractEntry esm/src/router_providers_common.d.ts
+443 silly gunzTarPerm modified mode [ 'esm/src/router_providers_common.d.ts', 420, 438 ]
+444 silly gunzTarPerm extractEntry esm/src/interfaces.js.map
+445 silly gunzTarPerm modified mode [ 'esm/src/interfaces.js.map', 420, 438 ]
+446 silly gunzTarPerm extractEntry esm/src/router_providers_common.js.map
+447 silly gunzTarPerm modified mode [ 'esm/src/router_providers_common.js.map', 420, 438 ]
+448 silly gunzTarPerm extractEntry esm/src/rules/rule_set.js
+449 silly gunzTarPerm modified mode [ 'esm/src/rules/rule_set.js', 420, 438 ]
+450 silly gunzTarPerm extractEntry esm/src/rules/rules.js
+451 silly gunzTarPerm modified mode [ 'esm/src/rules/rules.js', 420, 438 ]
+452 silly gunzTarPerm extractEntry esm/src/rules/route_handlers/async_route_handler.js
+453 silly gunzTarPerm modified mode [ 'esm/src/rules/route_handlers/async_route_handler.js',
+453 silly gunzTarPerm   420,
+453 silly gunzTarPerm   438 ]
+454 silly gunzTarPerm extractEntry esm/src/rules/route_handlers/route_handler.js
+455 silly gunzTarPerm modified mode [ 'esm/src/rules/route_handlers/route_handler.js', 420, 438 ]
+456 silly gunzTarPerm extractEntry esm/src/rules/route_handlers/sync_route_handler.js
+457 silly gunzTarPerm modified mode [ 'esm/src/rules/route_handlers/sync_route_handler.js',
+457 silly gunzTarPerm   420,
+457 silly gunzTarPerm   438 ]
+458 silly gunzTarPerm extractEntry esm/src/rules/route_handlers/async_route_handler.d.ts
+459 silly gunzTarPerm modified mode [ 'esm/src/rules/route_handlers/async_route_handler.d.ts',
+459 silly gunzTarPerm   420,
+459 silly gunzTarPerm   438 ]
+460 silly gunzTarPerm extractEntry esm/src/rules/route_handlers/async_route_handler.js.map
+461 silly gunzTarPerm modified mode [ 'esm/src/rules/route_handlers/async_route_handler.js.map',
+461 silly gunzTarPerm   420,
+461 silly gunzTarPerm   438 ]
+462 silly gunzTarPerm extractEntry esm/src/rules/route_handlers/route_handler.d.ts
+463 silly gunzTarPerm modified mode [ 'esm/src/rules/route_handlers/route_handler.d.ts', 420, 438 ]
+464 silly gunzTarPerm extractEntry esm/src/rules/route_handlers/route_handler.js.map
+465 silly gunzTarPerm modified mode [ 'esm/src/rules/route_handlers/route_handler.js.map', 420, 438 ]
+466 silly gunzTarPerm extractEntry esm/src/rules/route_handlers/sync_route_handler.d.ts
+467 silly gunzTarPerm modified mode [ 'esm/src/rules/route_handlers/sync_route_handler.d.ts',
+467 silly gunzTarPerm   420,
+467 silly gunzTarPerm   438 ]
+468 silly gunzTarPerm extractEntry esm/src/rules/route_handlers/sync_route_handler.js.map
+469 silly gunzTarPerm modified mode [ 'esm/src/rules/route_handlers/sync_route_handler.js.map',
+469 silly gunzTarPerm   420,
+469 silly gunzTarPerm   438 ]
+470 silly gunzTarPerm extractEntry esm/src/rules/route_paths/param_route_path.js
+471 silly gunzTarPerm modified mode [ 'esm/src/rules/route_paths/param_route_path.js', 420, 438 ]
+472 silly gunzTarPerm extractEntry esm/src/rules/route_paths/regex_route_path.js
+473 silly gunzTarPerm modified mode [ 'esm/src/rules/route_paths/regex_route_path.js', 420, 438 ]
+474 silly gunzTarPerm extractEntry esm/src/rules/route_paths/route_path.js
+475 silly gunzTarPerm modified mode [ 'esm/src/rules/route_paths/route_path.js', 420, 438 ]
+476 silly gunzTarPerm extractEntry esm/src/rules/route_paths/param_route_path.d.ts
+477 silly gunzTarPerm modified mode [ 'esm/src/rules/route_paths/param_route_path.d.ts', 420, 438 ]
+478 silly gunzTarPerm extractEntry esm/src/rules/route_paths/param_route_path.js.map
+479 silly gunzTarPerm modified mode [ 'esm/src/rules/route_paths/param_route_path.js.map', 420, 438 ]
+480 silly gunzTarPerm extractEntry esm/src/rules/route_paths/regex_route_path.d.ts
+481 silly gunzTarPerm modified mode [ 'esm/src/rules/route_paths/regex_route_path.d.ts', 420, 438 ]
+482 silly gunzTarPerm extractEntry esm/src/rules/route_paths/regex_route_path.js.map
+483 silly gunzTarPerm modified mode [ 'esm/src/rules/route_paths/regex_route_path.js.map', 420, 438 ]
+484 silly gunzTarPerm extractEntry esm/src/rules/route_paths/route_path.d.ts
+485 silly gunzTarPerm modified mode [ 'esm/src/rules/route_paths/route_path.d.ts', 420, 438 ]
+486 silly gunzTarPerm extractEntry esm/src/rules/route_paths/route_path.js.map
+487 silly gunzTarPerm modified mode [ 'esm/src/rules/route_paths/route_path.js.map', 420, 438 ]
+488 silly gunzTarPerm extractEntry esm/src/rules/rule_set.d.ts
+489 silly gunzTarPerm modified mode [ 'esm/src/rules/rule_set.d.ts', 420, 438 ]
+490 silly gunzTarPerm extractEntry esm/src/rules/rule_set.js.map
+491 silly gunzTarPerm modified mode [ 'esm/src/rules/rule_set.js.map', 420, 438 ]
+492 silly gunzTarPerm extractEntry esm/src/rules/rules.d.ts
+493 silly gunzTarPerm modified mode [ 'esm/src/rules/rules.d.ts', 420, 438 ]
+494 silly gunzTarPerm extractEntry esm/src/rules/rules.js.map
+495 silly gunzTarPerm modified mode [ 'esm/src/rules/rules.js.map', 420, 438 ]
+496 silly gunzTarPerm extractEntry esm/src/url_parser.d.ts
+497 silly gunzTarPerm modified mode [ 'esm/src/url_parser.d.ts', 420, 438 ]
+498 silly gunzTarPerm extractEntry esm/src/lifecycle/lifecycle_annotations.js
+499 silly gunzTarPerm modified mode [ 'esm/src/lifecycle/lifecycle_annotations.js', 420, 438 ]
+500 silly gunzTarPerm extractEntry esm/src/lifecycle/lifecycle_annotations_impl.js
+501 silly gunzTarPerm modified mode [ 'esm/src/lifecycle/lifecycle_annotations_impl.js', 420, 438 ]
+502 silly gunzTarPerm extractEntry esm/src/lifecycle/route_lifecycle_reflector.js
+503 silly gunzTarPerm modified mode [ 'esm/src/lifecycle/route_lifecycle_reflector.js', 420, 438 ]
+504 silly gunzTarPerm extractEntry esm/src/lifecycle/lifecycle_annotations.d.ts
+505 silly gunzTarPerm modified mode [ 'esm/src/lifecycle/lifecycle_annotations.d.ts', 420, 438 ]
+506 silly gunzTarPerm extractEntry esm/src/lifecycle/lifecycle_annotations.js.map
+507 silly gunzTarPerm modified mode [ 'esm/src/lifecycle/lifecycle_annotations.js.map', 420, 438 ]
+508 silly gunzTarPerm extractEntry esm/src/lifecycle/lifecycle_annotations_impl.d.ts
+509 silly gunzTarPerm modified mode [ 'esm/src/lifecycle/lifecycle_annotations_impl.d.ts', 420, 438 ]
+510 silly gunzTarPerm extractEntry esm/src/lifecycle/lifecycle_annotations_impl.js.map
+511 silly gunzTarPerm modified mode [ 'esm/src/lifecycle/lifecycle_annotations_impl.js.map',
+511 silly gunzTarPerm   420,
+511 silly gunzTarPerm   438 ]
+512 silly gunzTarPerm extractEntry esm/src/lifecycle/route_lifecycle_reflector.d.ts
+513 silly gunzTarPerm modified mode [ 'esm/src/lifecycle/route_lifecycle_reflector.d.ts', 420, 438 ]
+514 silly gunzTarPerm extractEntry esm/src/lifecycle/route_lifecycle_reflector.js.map
+515 silly gunzTarPerm modified mode [ 'esm/src/lifecycle/route_lifecycle_reflector.js.map',
+515 silly gunzTarPerm   420,
+515 silly gunzTarPerm   438 ]
+516 silly gunzTarPerm extractEntry esm/src/url_parser.js.map
+517 silly gunzTarPerm modified mode [ 'esm/src/url_parser.js.map', 420, 438 ]
+518 silly gunzTarPerm extractEntry esm/src/utils.d.ts
+519 silly gunzTarPerm modified mode [ 'esm/src/utils.d.ts', 420, 438 ]
+520 silly gunzTarPerm extractEntry esm/src/route_config/route_config_decorator.js
+521 silly gunzTarPerm modified mode [ 'esm/src/route_config/route_config_decorator.js', 420, 438 ]
+522 silly gunzTarPerm extractEntry esm/src/route_config/route_config_impl.js
+523 silly gunzTarPerm modified mode [ 'esm/src/route_config/route_config_impl.js', 420, 438 ]
+524 silly gunzTarPerm extractEntry esm/src/route_config/route_config_normalizer.js
+525 silly gunzTarPerm modified mode [ 'esm/src/route_config/route_config_normalizer.js', 420, 438 ]
+526 silly gunzTarPerm extractEntry esm/src/route_config/route_config_decorator.d.ts
+527 silly gunzTarPerm modified mode [ 'esm/src/route_config/route_config_decorator.d.ts', 420, 438 ]
+528 silly gunzTarPerm extractEntry esm/src/route_config/route_config_decorator.js.map
+529 silly gunzTarPerm modified mode [ 'esm/src/route_config/route_config_decorator.js.map',
+529 silly gunzTarPerm   420,
+529 silly gunzTarPerm   438 ]
+530 silly gunzTarPerm extractEntry esm/src/route_config/route_config_impl.d.ts
+531 silly gunzTarPerm modified mode [ 'esm/src/route_config/route_config_impl.d.ts', 420, 438 ]
+532 silly gunzTarPerm extractEntry esm/src/route_config/route_config_impl.js.map
+533 silly gunzTarPerm modified mode [ 'esm/src/route_config/route_config_impl.js.map', 420, 438 ]
+534 silly gunzTarPerm extractEntry esm/src/route_config/route_config_normalizer.d.ts
+535 silly gunzTarPerm modified mode [ 'esm/src/route_config/route_config_normalizer.d.ts', 420, 438 ]
+536 silly gunzTarPerm extractEntry esm/src/route_config/route_config_normalizer.js.map
+537 silly gunzTarPerm modified mode [ 'esm/src/route_config/route_config_normalizer.js.map',
+537 silly gunzTarPerm   420,
+537 silly gunzTarPerm   438 ]
+538 silly gunzTarPerm extractEntry esm/src/utils.js.map
+539 silly gunzTarPerm modified mode [ 'esm/src/utils.js.map', 420, 438 ]
+540 silly gunzTarPerm extractEntry esm/testing.d.ts
+541 silly gunzTarPerm modified mode [ 'esm/testing.d.ts', 420, 438 ]
+542 silly gunzTarPerm extractEntry esm/core_private.d.ts
+543 silly gunzTarPerm modified mode [ 'esm/core_private.d.ts', 420, 438 ]
+544 silly gunzTarPerm extractEntry esm/testing.js.map
+545 silly gunzTarPerm modified mode [ 'esm/testing.js.map', 420, 438 ]
+546 silly gunzTarPerm extractEntry testing.js.map
+547 silly gunzTarPerm modified mode [ 'testing.js.map', 420, 438 ]
+548 verbose write writing to C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated\package.json
+549 info preinstall @angular/router-deprecated@2.0.0-rc.2
+550 verbose readDependencies loading dependencies from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated\package.json
+551 verbose readDependencies loading dependencies from C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated\package.json
+552 silly install resolved []
+553 verbose about to build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated
+554 info build C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated
+555 info linkStuff @angular/router-deprecated@2.0.0-rc.2
+556 silly linkStuff @angular/router-deprecated@2.0.0-rc.2 has C:\wamp\www\GitHub\DigitalSignage\client\node_modules as its parent node_modules
+557 verbose linkBins @angular/router-deprecated@2.0.0-rc.2
+558 verbose linkMans @angular/router-deprecated@2.0.0-rc.2
+559 verbose rebuildBundles @angular/router-deprecated@2.0.0-rc.2
+560 info install @angular/router-deprecated@2.0.0-rc.2
+561 info postinstall @angular/router-deprecated@2.0.0-rc.2
+562 verbose unlock done using C:\Users\Vlad\AppData\Roaming\npm-cache\_locks\angular-router-deprecate-6cff5b917483b37f.lock for C:\wamp\www\GitHub\DigitalSignage\client\node_modules\@angular\router-deprecated
+563 verbose validateInstall loading C:\wamp\www\GitHub\DigitalSignage\client\package.json for validation
+564 verbose stack Error: The package @angular/common@2.0.0-rc.4 does not satisfy its siblings' peerDependencies requirements!
+564 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\install.js:125:32
+564 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\install.js:268:7
+564 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:142:5
+564 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+564 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+564 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+564 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+564 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+564 verbose stack     at cb (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\async-map.js:47:24)
+564 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\read-installed\read-installed.js:263:14
+565 verbose cwd C:\wamp\www\GitHub\DigitalSignage\client
+566 error Windows_NT 10.0.10586
+567 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "@angular/router-deprecated"
+568 error node v4.4.7
+569 error npm  v2.15.8
+570 error code EPEERINVALID
+571 error peerinvalid The package @angular/common@2.0.0-rc.4 does not satisfy its siblings' peerDependencies requirements!
+571 error peerinvalid Peer @angular/forms@0.2.0 wants @angular/common@^2.0.0-rc.4
+571 error peerinvalid Peer @angular/platform-browser@2.0.0-rc.4 wants @angular/common@^2.0.0-rc.4
+571 error peerinvalid Peer @angular/platform-browser-dynamic@2.0.0-rc.4 wants @angular/common@^2.0.0-rc.4
+571 error peerinvalid Peer @angular/router@3.0.0-beta.2 wants @angular/common@^2.0.0-rc.4
+571 error peerinvalid Peer @angular/router-deprecated@2.0.0-rc.2 wants @angular/common@^2.0.0-rc
+571 error peerinvalid Peer ng2-material@0.5.0 wants @angular/common@2.0.0-rc.1
+571 error peerinvalid Peer @angular2-material/core@2.0.0-alpha.5-2 wants @angular/common@^2.0.0-rc.1
+571 error peerinvalid Peer ng2-dragula@1.1.10 wants @angular/common@^2.0.0-rc.1
+572 verbose exit [ 1, true ]
