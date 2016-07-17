@@ -10,14 +10,19 @@ import './rxjs-operators';
 import { provideRouter, RouterConfig } from '@angular/router';
 import { MessagesMain } from '../app/messages/messages-main';
 import { AssetsMain } from '../app/assets/assets-main';
+import {PlayerLite} from "./player-lite/index";
+import {DefaultController} from "./DefaultController";
+
+
+
 
 
 export const routes: RouterConfig = [
-    { path: '', component: MessagesMain },
-    { path: 'assets', component: AssetsMain },
+    { path: '', component:DefaultController },
+   // { path: 'assets', component: AssetsMain },
     /*{ path: 'assets/upload', component:UploadFiles},
      { path: 'files/upload', component:UploadFiles},*!/*/
-    { path: 'messages', component: MessagesMain},
+   // { path: 'messages', component: MessagesMain},
     /*    { path: 'table', component:TableComponent },
      { path: 'agents', component:AgentsManager },
      { path: '**', redirectTo: '/dashboard/messages' }*/
@@ -31,10 +36,11 @@ export const screenRouterProviders = [
 
 @Component({
     selector: 'my-screen',
-    template: `   
+    template: `
+    <player-lite></player-lite>
     <router-outlet></router-outlet>
   `,
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES,PlayerLite]
 })
 
 export class ScreenComponent {

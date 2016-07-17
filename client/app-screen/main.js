@@ -18,14 +18,10 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 require('./rxjs-operators');
 var router_2 = require('@angular/router');
-var messages_main_1 = require('../app/messages/messages-main');
-var assets_main_1 = require('../app/assets/assets-main');
+var index_1 = require("./player-lite/index");
+var DefaultController_1 = require("./DefaultController");
 exports.routes = [
-    { path: '', component: messages_main_1.MessagesMain },
-    { path: 'assets', component: assets_main_1.AssetsMain },
-    /*{ path: 'assets/upload', component:UploadFiles},
-     { path: 'files/upload', component:UploadFiles},*!/*/
-    { path: 'messages', component: messages_main_1.MessagesMain },
+    { path: '', component: DefaultController_1.DefaultController },
 ];
 exports.screenRouterProviders = [
     router_2.provideRouter(exports.routes)
@@ -36,8 +32,8 @@ var ScreenComponent = (function () {
     ScreenComponent = __decorate([
         core_1.Component({
             selector: 'my-screen',
-            template: "   \n    <router-outlet></router-outlet>\n  ",
-            directives: [router_1.ROUTER_DIRECTIVES]
+            template: "\n    <player-lite></player-lite>\n    <router-outlet></router-outlet>\n  ",
+            directives: [router_1.ROUTER_DIRECTIVES, index_1.PlayerLite]
         }), 
         __metadata('design:paramtypes', [])
     ], ScreenComponent);
