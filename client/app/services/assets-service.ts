@@ -20,7 +20,7 @@ export class AssetsService {
     }
 
 
-    private dataUrl = 'proxy/api/assets/select-all';
+    private dataUrl = 'api/assets/select-all';
 
     getData (): Observable<Asset[]> {
         return this.http.get(this.dataUrl)
@@ -42,7 +42,7 @@ export class AssetsService {
         let body: Asset [] = res.json().data;
       //  console.log(body)
         body.forEach (function (item: any) {
-            item.thumb =  item.img = 'proxy'+item.path;
+            item.thumb =  item.img = item.path;
 
 
         });

@@ -13,8 +13,8 @@ import {PlayerService} from "../services/player.service";
 })
 export class PlayerLite implements OnInit{
     @Input() playervo:PlayerVO;
-    screenid:string
-   private _data:any;
+    screenid:string;
+    private _data:any;
     private _error:string;
     constructor(private service:PlayerService){
 

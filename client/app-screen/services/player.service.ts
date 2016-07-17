@@ -11,8 +11,17 @@ import {Observable} from "rxjs/Rx";
 @Injectable()
 export class PlayerService{
     playlistId:string;
+    screenid:string;
+    currentItem:PlaylistItem;
+
     constructor(private http:Http){
         }
+
+        setIds(playlisid:string,screenid:string):void{
+            this.playlistId = playlisid;
+            this.screenid = screenid;
+        }
+
 
         getPlaylist(playlistid:string):Observable<PlaylistItem[]>{
             this.playlistId = playlistid;

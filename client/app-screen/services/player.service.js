@@ -18,6 +18,10 @@ var PlayerService = (function () {
     function PlayerService(http) {
         this.http = http;
     }
+    PlayerService.prototype.setIds = function (playlisid, screenid) {
+        this.playlistId = playlisid;
+        this.screenid = screenid;
+    };
     PlayerService.prototype.getPlaylist = function (playlistid) {
         this.playlistId = playlistid;
         return this.loadData();
