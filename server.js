@@ -37,6 +37,9 @@ app.get('/', function (req, res) {
 app.get('/dashboard', function (req, res) {
     res.sendFile('indexts.html', { 'root': WWW });
 });
+app.get('/screen/*', function (req, res) {
+    res.sendFile('screen.html', { 'root': WWW });
+});
 app.get('/dashboard/*', function (req, res) {
     res.sendFile('indexts.html', { 'root': WWW });
 });

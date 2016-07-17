@@ -69,6 +69,9 @@ app.get('/dashboard', function(req:express.Request, res:express.Response){
 
     res.sendFile('indexts.html',{ 'root':WWW});
 });
+app.get('/screen/*', function(req:express.Request, res:express.Response){
+    res.sendFile('screen.html',{ 'root':WWW});
+});
 app.get('/dashboard/*', function(req:express.Request, res:express.Response){
     res.sendFile('indexts.html',{ 'root':WWW});
 });

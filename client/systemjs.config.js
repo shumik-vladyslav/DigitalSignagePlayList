@@ -6,6 +6,7 @@
     // map tells the System loader where to look for things
     var map = {
         'app':                        'app', // 'dist',
+       'app-screen':                        'app-screen', // 'dist',
         '@angular':                   'node_modules/@angular',
         '@angular2-material':         'node_modules/@angular2-material',
         'ng2-material':         'node_modules/ng2-material',
@@ -18,6 +19,7 @@
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {
         'app':                        { main: 'main.js',  defaultExtension: 'js' },
+        'app-screen':                        { main: 'main.js',  defaultExtension: 'js' },
         'rxjs':                       { defaultExtension: 'js' },
         'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
         'ng2-material':         { main: 'index.js', defaultExtension: 'js' },
