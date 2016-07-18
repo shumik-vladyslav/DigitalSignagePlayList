@@ -21,6 +21,7 @@ var PlayListService = (function () {
     function PlayListService(http) {
         this.http = http;
         this.dataUrl = 'api/assets/select-all';
+        this.playListUrl = 'api/playlists';
     }
     PlayListService.prototype.getData = function () {
         var _this = this;
@@ -28,17 +29,25 @@ var PlayListService = (function () {
             .map(function (data) { return _this.parse(data); })
             .catch(this.handleError);
     };
-    PlayListService.prototype.addItem = function (name) {
-        var body = JSON.stringify({ name: name });
+    //Observable<Asset>
+    PlayListService.prototype.addItem = function (listId, assetId, afterId, duration) {
+        // let body = JSON.stringify({ name });
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
-        return this.http.post(this.dataUrl, body, options)
+        var body = {
+            "listId": listId,
+            "assetId": assetId,
+            "afterId": afterId,
+            "duration": duration
+        };
+        console.log(body);
+        this.http.post(this.playListUrl + "/insert-content", body, options)
             .map(this.parseOne)
             .catch(this.handleError);
     };
     PlayListService.prototype.parse = function (res) {
         var body = res.json().data;
-        //  console.log(body)
+        // console.log(body)
         body.forEach(function (item) {
             item.thumb = item.img = item.path;
         });
@@ -46,6 +55,7 @@ var PlayListService = (function () {
     };
     PlayListService.prototype.parseOne = function (res) {
         var body = res.json();
+        console.log(body);
         return body.data || {};
     };
     PlayListService.prototype.handleError = function (error) {

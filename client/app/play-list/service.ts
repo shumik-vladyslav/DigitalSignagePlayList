@@ -18,26 +18,34 @@ export class PlayListService {
 
 
     private dataUrl = 'api/assets/select-all';
+    private playListUrl = 'api/playlists';
 
     getData (): Observable<Asset[]> {
         return this.http.get(this.dataUrl)
             .map( (data) => this.parse (data))
             .catch(this.handleError);
     }
-
-    addItem (name: string): Observable<Asset> {
-        let body = JSON.stringify({ name });
+//Observable<Asset>
+    addItem (listId: number, assetId: number, afterId: number, duration: number) {
+        // let body = JSON.stringify({ name });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
+        let body = {
+            "listId": listId,
+            "assetId": assetId,
+            "afterId": afterId,
+            "duration": duration
+        }
+        console.log(body)
 
-        return this.http.post(this.dataUrl, body, options)
+        this.http.post(this.playListUrl+"/insert-content", body, options)
             .map(this.parseOne)
             .catch(this.handleError);
     }
 
     private parse(res: Response) {
         let body: Asset [] = res.json().data;
-        //  console.log(body)
+         // console.log(body)
         body.forEach (function (item: any) {
             item.thumb =  item.img = item.path;
 
@@ -48,6 +56,8 @@ export class PlayListService {
 
     private parseOne(res: Response) {
         let body = res.json();
+        console.log(body)
+
         return body.data || { };
     }
 

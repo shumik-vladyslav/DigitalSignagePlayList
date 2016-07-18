@@ -23,8 +23,6 @@ var PlayList = (function () {
         var _this = this;
         this.service.getData()
             .subscribe(function (data) { return _this.data = data; }, function (error) { return _this.errorMessage = error; });
-        {
-        }
     };
     PlayList.prototype.onClickItem = function (item) {
         this.fullItem = item;
@@ -54,6 +52,7 @@ var PlayList = (function () {
         console.log(item, i, this.isMove);
         if (item && i !== -1) {
             if (this.isMove) {
+                console.log(22);
                 var index = this.cartItems.indexOf(item);
                 if (index > -1) {
                     this.cartItems.splice(index, 1);
@@ -61,8 +60,11 @@ var PlayList = (function () {
                 this.cartItems.splice(i + 1, 0, item);
             }
             else {
-                if (i === (this.cartItems.length - 1))
+                console.log(item.id);
+                if (i === (this.cartItems.length - 1)) {
                     this.cartItems.push(item);
+                    this.service.addItem(1, item.id, i, 10);
+                }
                 else
                     this.cartItems.splice(i + 1, 0, item);
             }

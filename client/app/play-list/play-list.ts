@@ -58,8 +58,8 @@ export class PlayList {
         this.service.getData()
             .subscribe(
                 data => this.data = data,
-                error =>  this.errorMessage = <any>error);{
-        }
+                error =>  this.errorMessage = <any>error);
+
     }
 
     onClickItem (item: Asset) {
@@ -97,6 +97,8 @@ export class PlayList {
         console.log(item, i, this.isMove);
         if (item && i !== -1) {
             if (this.isMove) {
+                console.log(22)
+
                 let index:number = this.cartItems.indexOf(item);
                 if (index > -1) {
                     this.cartItems.splice(index,1);
@@ -104,11 +106,17 @@ export class PlayList {
                 this.cartItems.splice(i + 1, 0, item);
             }
             else {
-                if (i === (this.cartItems.length - 1) ) this.cartItems.push(item);
+                console.log(item.id)
+
+                if (i === (this.cartItems.length - 1) ){
+                    this.cartItems.push(item);
+                    this.service.addItem(1, item.id, i, 10);
+                }
                 else this.cartItems.splice(i + 1, 0, item);
 
             }
             if (!this.isMove) this.dragItem = null;
+
         }
     }
 
