@@ -5,9 +5,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 var core_1 = require('@angular/core');
 var message_model_1 = require('./message-model');
 var MessageTools = (function () {
@@ -26,32 +23,26 @@ var MessageTools = (function () {
         this.saved.emit(null);
     };
     __decorate([
-        core_1.Input(), 
-        __metadata('design:type', message_model_1.Message)
-    ], MessageTools.prototype, "message", void 0);
+        core_1.Input()
+    ], MessageTools.prototype, "message");
     __decorate([
-        core_1.Input(), 
-        __metadata('design:type', Array)
-    ], MessageTools.prototype, "messages", void 0);
+        core_1.Input()
+    ], MessageTools.prototype, "messages");
     __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], MessageTools.prototype, "deleted", void 0);
+        core_1.Output()
+    ], MessageTools.prototype, "deleted");
     __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], MessageTools.prototype, "added", void 0);
+        core_1.Output()
+    ], MessageTools.prototype, "added");
     __decorate([
-        core_1.Output(), 
-        __metadata('design:type', Object)
-    ], MessageTools.prototype, "saved", void 0);
+        core_1.Output()
+    ], MessageTools.prototype, "saved");
     MessageTools = __decorate([
         core_1.Component({
             selector: 'message-tools',
             templateUrl: 'app/messages/message-tools.html',
-            styles: [".tools > div {\n        display: inline-block;\n    }"],
-        }), 
-        __metadata('design:paramtypes', [])
+            styles: [".tools > div {\n        display: inline-block;\n    }"]
+        })
     ], MessageTools);
     return MessageTools;
 }());

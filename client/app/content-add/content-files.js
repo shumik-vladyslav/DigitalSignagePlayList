@@ -5,14 +5,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 /**
  * Created by Vlad on 7/12/2016.
  */
 var core_1 = require('@angular/core');
-var router_1 = require('@angular/router');
 var ng2_uploader_1 = require('ng2-uploader/ng2-uploader');
 var FileContent = (function () {
     function FileContent(zone, router) {
@@ -53,8 +49,7 @@ var FileContent = (function () {
             template: "\n              <div class=\"wraper\">\n                <div class=\"wraper-tools {{ showtools }}\">\n                    <div class=\"btn btn-default upload-button\">\n    \n                        <label for=\"files-pb\" class=\"ui small black button icon\">\n                            <span class=\"ion-document-text icon\"></span>\n                            Browse\n                        </label>\n    \n                        <input type=\"file\"\n                               id=\"files-pb\"\n                               style=\"display:none;\"\n                               [ng-file-select]=\"options\"\n                               name=\"userImages\"\n                               (onUpload)=\"handleUpload($event)\"\n                               multiple>\n                    </div>\n                    <button type=\"button\" class=\"btn btn-default\" (click)=\"goBack()\">Close</button>\n                </div>\n                <div class=\"progress-container {{ showprogress }}\">\n                    <div class=\"progress-window\">\n                        <div *ngFor=\"let progressObj of uploadProgresses\">\n                            <div>{{progressObj.originalName}}</div>\n                            <div class=\"ui indicating olive progress\">\n                                <div class=\"bar\" [style.width]=\"progressObj.percent + '%'\"></div>\n                                <div class=\"label\">Uploading file ({{ progressObj.percent }}%)</div>\n                            </div>\n                        </div>\n                    </div>\n                    <button type=\"button\" class=\"btn btn-default\" (click)=\"goBack()\">Cancel</button>\n                </div>\n              </div>\n                 \n             ",
             directives: [ng2_uploader_1.UPLOAD_DIRECTIVES],
             styles: ["\n               \n            .wraper-tools {\n                position: absolute;\n                bottom: 20px;\n                right: 20px;\n            }\n            \n            .progress-window {\n                height: 250px;\n                overflow-y: auto;\n            }\n                        \n            .olive {\n                height: 10px;\n                background-color: olive;\n            }\n            \n            .bar{\n                height: 10px;\n                background-color: red;\n            }\n    "]
-        }), 
-        __metadata('design:paramtypes', [core_1.NgZone, router_1.Router])
+        })
     ], FileContent);
     return FileContent;
 }());

@@ -6,7 +6,7 @@ var content_add_1 = require("./content-add");
 exports.addRoutes = [
     {
         path: 'content-manager/add',
-        component: content_add_1.AddContent,
+        component: content_add_1.AddContent
     },
     {
         path: 'content-manager/add/:id',

@@ -5,9 +5,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 /**
  * Created by Vlad on 7/5/2016.
  */
@@ -24,15 +21,13 @@ var MyTrComponent = (function () {
         // console.log(this);
     };
     __decorate([
-        core_1.Input('myRow'), 
-        __metadata('design:type', Object)
-    ], MyTrComponent.prototype, "row", void 0);
+        core_1.Input('myRow')
+    ], MyTrComponent.prototype, "row");
     MyTrComponent = __decorate([
         core_1.Component({
             selector: '[myRow]',
             template: "<td (click)=\"onClick(i)\"  *ngFor=\"let val of row ; let i = index\" >{{val}}</td>"
-        }), 
-        __metadata('design:paramtypes', [])
+        })
     ], MyTrComponent);
     return MyTrComponent;
 }());
@@ -66,21 +61,18 @@ var TableComponent = (function () {
         console.log(col);
     };
     __decorate([
-        core_1.Input('thedata'), 
-        __metadata('design:type', Array)
-    ], TableComponent.prototype, "data", void 0);
+        core_1.Input('thedata')
+    ], TableComponent.prototype, "data");
     __decorate([
-        core_1.Input('theheader'), 
-        __metadata('design:type', Array)
-    ], TableComponent.prototype, "headers", void 0);
+        core_1.Input('theheader')
+    ], TableComponent.prototype, "headers");
     TableComponent = __decorate([
         core_1.Component({
             selector: 'table-simple',
             template: "<h3>{{title}}</h3>\n    <table class=\"table table-default\">\n    <thead>\n    <tr>\n    <td *ngFor=\"let val of headers\"  >{{val}}</td>\n    </tr>\n    </thead>\n    <tbody>\n    <tr *ngFor=\"let myrow of data\" [myRow]=\"myrow\"></tr>\n    </tbody>\n    </table>",
             providers: [http_1.HTTP_PROVIDERS],
             directives: [MyTrComponent]
-        }), 
-        __metadata('design:paramtypes', [http_1.Http])
+        })
     ], TableComponent);
     return TableComponent;
 }());

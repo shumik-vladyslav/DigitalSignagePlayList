@@ -1,7 +1,7 @@
 /**
  * Created by Dmitriy Prilutsky on 05.07.2016.
  */
-
+import {Inject} from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
@@ -16,7 +16,7 @@ export class Asset {
 
 @Injectable()
 export class AssetsService {
-    constructor(private http:Http) {
+    constructor(@Inject(Http) http:Http) {
     }
 
 

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
-import { AssetsService, Asset } from '../services/assets-service';
+import { PlayListService, Asset } from './service';
 
 
 @Component({
-    selector: 'assets-app',
+    selector: 'play-list',
     template: `
                <div class ="panel panel-default">
                <div class ="panel-heading">
@@ -34,7 +34,7 @@ import { AssetsService, Asset } from '../services/assets-service';
                 `,
     styleUrls: ['app/assets/main.css'],
     directives: [ROUTER_DIRECTIVES],
-    providers: [AssetsService]
+    providers: [PlayListService]
 })
 
 export class PlayList {
@@ -45,7 +45,7 @@ export class PlayList {
     fullItem: Asset;
     dragMove: Asset;
 
-    constructor ( private service: AssetsService ) {
+    constructor ( private service: PlayListService ) {
         this.cartItems =[new Asset()];
     }
 
@@ -54,6 +54,7 @@ export class PlayList {
     }
 
     getData() {
+
         this.service.getData()
             .subscribe(
                 data => this.data = data,
