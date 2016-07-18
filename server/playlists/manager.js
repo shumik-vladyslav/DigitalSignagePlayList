@@ -5,6 +5,21 @@ var PlaylistsTable_1 = require("./PlaylistsTable");
 var fs = require('fs');
 var router = express.Router();
 var mytableP = new PlaylistsTable_1.PlaylistsTable("playlists", new PlayListRow_1.PlayList());
+router.get('/get-playlistById/:id', function (req, res) {
+    var promise = mytableP.selectPlayListItemById(req.params.id);
+    promise.then(function (result) {
+        if (result !== {}) {
+            console.log("res", result);
+            res.json({ data: result });
+        }
+        else {
+            onError(result, res);
+        }
+    }, function (err) {
+        console.log(err);
+        onError(err, res);
+    });
+});
 router.get('/create-playlist', function (req, res) {
     var column_name = 'listId';
     var promise = mytableP.selectMax(column_name);

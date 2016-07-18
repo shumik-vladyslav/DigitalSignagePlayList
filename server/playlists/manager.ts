@@ -25,7 +25,24 @@ var mytableP: PlaylistsTable = new PlaylistsTable("playlists", new PlayList());
 // }, function (err) {
 //     console.log(err);
 // });
+router.get('/get-playlistById/:id', function (req:express.Request, res:express.Response) {
 
+    var promise = mytableP.selectPlayListItemById(req.params.id);
+    // res.json(req.params);
+    promise.then(function (result:ISPlayListItem) {
+        if(result !== {}) {
+            console.log("res", result);
+            res.json({data:result});
+        } else {
+            onError(result, res);
+        }
+        // res.json({data:result});
+    }, function (err) {
+        console.log(err);
+        onError(err, res);
+        // res.json(err);
+    });
+});
 /**
  * @api {get} /api/playlists/create-playlist Create New Playlist
  * @apiVersion 0.0.1
