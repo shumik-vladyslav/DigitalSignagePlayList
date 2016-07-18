@@ -6,7 +6,7 @@ var fs = require('fs');
 var router = express.Router();
 var mytableP = new PlaylistsTable_1.PlaylistsTable("playlists", new PlayListRow_1.PlayList());
 router.get('/get-playlistById/:id', function (req, res) {
-    var promise = mytableP.selectPlayListItemById(req.params.id);
+    var promise = mytableP.selectPlayListById(req.params.id);
     promise.then(function (result) {
         if (result !== {}) {
             console.log("res", result);

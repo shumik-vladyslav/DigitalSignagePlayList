@@ -106,11 +106,13 @@ export class PlayList {
                 this.cartItems.splice(i + 1, 0, item);
             }
             else {
-                console.log(item.id)
-
                 if (i === (this.cartItems.length - 1) ){
                     this.cartItems.push(item);
-                    this.service.addItem(1, item.id, i, 10);
+                    this.service.addItem(1, item.id, i, 10).subscribe(
+                        (res)=>{
+                            console.log(res);
+                        },
+                        error =>  this.errorMessage = <any>error);
                 }
                 else this.cartItems.splice(i + 1, 0, item);
 

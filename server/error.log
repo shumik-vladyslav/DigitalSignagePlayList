@@ -25,3 +25,9 @@
 {"error":{"errno":1,"code":"SQLITE_ERROR"}}
 2016-07-14 22:29:45
 {"error":{"errno":1,"code":"SQLITE_ERROR"}}
+2016-07-18 15:28:36
+{"errno":25,"code":"SQLITE_RANGE"}
+2016-07-18 15:29:12
+{"errno":25,"code":"SQLITE_RANGE"}
+2016-07-18 15:29:26
+{"errno":25,"code":"SQLITE_RANGE"}

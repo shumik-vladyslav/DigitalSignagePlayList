@@ -12,6 +12,12 @@ var PlaylistsTable = (function (_super) {
         this.table = table;
         this.row = row;
     }
+    PlaylistsTable.prototype.selectPlayListById = function (id) {
+        console.log(id);
+        var sql = "SELECT * FROM " + this.table + " WHERE id = " + id;
+        var data = [id];
+        return this.db.selectAll(sql, data);
+    };
     PlaylistsTable.prototype.selectPlayListItemById = function (id) {
         var sql = "SELECT * FROM assets, " + this.table + " WHERE playlists.id = ? AND playlists.assetid = assets.id";
         var data = [id];

@@ -30,15 +30,30 @@ export class PlayListService {
         // let body = JSON.stringify({ name });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-        let body = {
+        let body = JSON.stringify({
             "listId": listId,
             "assetId": assetId,
             "afterId": afterId,
             "duration": duration
-        }
+        })
         console.log(body)
 
-        this.http.post(this.playListUrl+"/insert-content", body, options)
+        return this.http.post(this.playListUrl+"/insert-content", body, options)
+            .map(this.parseOne)
+            .catch(this.handleError);
+    }
+
+    updateItem (id: number, afterId: number, duration: number) {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        let body = JSON.stringify({
+            "id": id,
+            "afterId": afterId,
+            "duration": duration
+        })
+        console.log(body)
+
+        return this.http.post(this.playListUrl+"/update-playlist-item", body, options)
             .map(this.parseOne)
             .catch(this.handleError);
     }
@@ -58,7 +73,7 @@ export class PlayListService {
         let body = res.json();
         console.log(body)
 
-        return body.data || { };
+        return body || { };
     }
 
     private handleError (error: any) {

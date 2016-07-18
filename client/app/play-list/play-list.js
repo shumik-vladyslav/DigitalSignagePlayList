@@ -49,6 +49,7 @@ var PlayList = (function () {
         this.insertToCardAt(this.dragItem, i);
     };
     PlayList.prototype.insertToCardAt = function (item, i) {
+        var _this = this;
         console.log(item, i, this.isMove);
         if (item && i !== -1) {
             if (this.isMove) {
@@ -60,10 +61,11 @@ var PlayList = (function () {
                 this.cartItems.splice(i + 1, 0, item);
             }
             else {
-                console.log(item.id);
                 if (i === (this.cartItems.length - 1)) {
                     this.cartItems.push(item);
-                    this.service.addItem(1, item.id, i, 10);
+                    this.service.addItem(1, item.id, i, 10).subscribe(function (res) {
+                        console.log(res);
+                    }, function (error) { return _this.errorMessage = error; });
                 }
                 else
                     this.cartItems.splice(i + 1, 0, item);

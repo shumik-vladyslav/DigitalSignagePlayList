@@ -34,14 +34,27 @@ var PlayListService = (function () {
         // let body = JSON.stringify({ name });
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
-        var body = {
+        var body = JSON.stringify({
             "listId": listId,
             "assetId": assetId,
             "afterId": afterId,
             "duration": duration
-        };
+        });
         console.log(body);
-        this.http.post(this.playListUrl + "/insert-content", body, options)
+        return this.http.post(this.playListUrl + "/insert-content", body, options)
+            .map(this.parseOne)
+            .catch(this.handleError);
+    };
+    PlayListService.prototype.updateItem = function (id, afterId, duration) {
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        var body = JSON.stringify({
+            "id": id,
+            "afterId": afterId,
+            "duration": duration
+        });
+        console.log(body);
+        return this.http.post(this.playListUrl + "/update-playlist-item", body, options)
             .map(this.parseOne)
             .catch(this.handleError);
     };
@@ -56,7 +69,7 @@ var PlayListService = (function () {
     PlayListService.prototype.parseOne = function (res) {
         var body = res.json();
         console.log(body);
-        return body.data || {};
+        return body || {};
     };
     PlayListService.prototype.handleError = function (error) {
         var errMsg = (error.message) ? error.message :

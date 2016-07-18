@@ -27,7 +27,7 @@ var mytableP: PlaylistsTable = new PlaylistsTable("playlists", new PlayList());
 // });
 router.get('/get-playlistById/:id', function (req:express.Request, res:express.Response) {
 
-    var promise = mytableP.selectPlayListItemById(req.params.id);
+    var promise = mytableP.selectPlayListById(req.params.id);
     // res.json(req.params);
     promise.then(function (result:ISPlayListItem) {
         if(result !== {}) {
