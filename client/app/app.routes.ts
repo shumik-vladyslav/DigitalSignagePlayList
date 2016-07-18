@@ -13,6 +13,7 @@ import { AgentsManager } from './agents/AgentsManager';
 import { UploadFiles } from "./assets/UploadFiles";
 import { contentmanagerRoutes } from './content-manager/content-manager';
 import { addRoutes } from "./content-add/add.routes";
+import {PlayList} from "./play-list/play-list"
 
 export const routes: RouterConfig = [
     ...contentmanagerRoutes,
@@ -22,6 +23,8 @@ export const routes: RouterConfig = [
     /*{ path: 'assets/upload', component:UploadFiles},
     { path: 'files/upload', component:UploadFiles},*!/*/
     { path: 'messages', component: MessagesMain},
+    { path: 'playlist-editor', component: PlayList},
+
 /*    { path: 'table', component:TableComponent },
     { path: 'agents', component:AgentsManager },
     { path: '**', redirectTo: '/dashboard/messages' }*/

@@ -8,6 +8,7 @@
         'app':                        'app', // 'dist',
        'app-screen':                        'app-screen', // 'dist',
         '@angular':                   'node_modules/@angular',
+        'angular2':                   'node_modules/@angular',
         '@angular/router-deprecated':'node_modules/@angular/router-deprecated',
         '@angular2-material':         'node_modules/@angular2-material',
         'ng2-material':         'node_modules/ng2-material',
