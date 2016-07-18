@@ -1,6 +1,3 @@
-/**
- * Created by Dmitriy Prilutsky on 05.07.2016.
- */
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -13,57 +10,55 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-var message_model_1 = require('../messages/message-model');
 var Observable_1 = require('rxjs/Observable');
-var MessageService = (function () {
-    function MessageService(http) {
-        this.http = http;
-        this.messagesUrl = '/api/messages/test/all';
+var Asset = (function () {
+    function Asset() {
     }
-    MessageService.prototype.getMessages = function () {
-        return this.http.get(this.messagesUrl)
-            .map(this.parse)
+    return Asset;
+}());
+exports.Asset = Asset;
+var PlayListService = (function () {
+    function PlayListService(http) {
+        this.http = http;
+        this.dataUrl = 'api/assets/select-all';
+    }
+    PlayListService.prototype.getData = function () {
+        var _this = this;
+        return this.http.get(this.dataUrl)
+            .map(function (data) { return _this.parse(data); })
             .catch(this.handleError);
     };
-    MessageService.prototype.saveMessages = function (msgs) {
-        var out = [];
-        msgs.forEach(function (item) {
-            out.push({ id: item.id, active: item.active, body: item.body });
-        });
-        return this.http.post(this.messagesUrl, out)
-            .catch(this.handleError);
-    };
-    MessageService.prototype.addMessage = function (name) {
+    PlayListService.prototype.addItem = function (name) {
         var body = JSON.stringify({ name: name });
-        //  let headers = new Headers({ 'Content-Type': 'application/json' });
-        // let options = new RequestOptions({ headers: headers });
-        return this.http.post(this.messagesUrl, body)
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post(this.dataUrl, body, options)
             .map(this.parseOne)
             .catch(this.handleError);
     };
-    MessageService.prototype.parse = function (res) {
-        var body = res.json().data || [];
-        var out = [];
+    PlayListService.prototype.parse = function (res) {
+        var body = res.json().data;
+        //  console.log(body)
         body.forEach(function (item) {
-            out.push(new message_model_1.Message(item));
+            item.thumb = item.img = item.path;
         });
-        return out;
+        return body || {};
     };
-    MessageService.prototype.parseOne = function (res) {
+    PlayListService.prototype.parseOne = function (res) {
         var body = res.json();
         return body.data || {};
     };
-    MessageService.prototype.handleError = function (error) {
+    PlayListService.prototype.handleError = function (error) {
         var errMsg = (error.message) ? error.message :
             error.status ? error.status + " - " + error.statusText : 'Server error';
         console.error(errMsg);
         return Observable_1.Observable.throw(errMsg);
     };
-    MessageService = __decorate([
+    PlayListService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], MessageService);
-    return MessageService;
+    ], PlayListService);
+    return PlayListService;
 }());
-exports.MessageService = MessageService;
-//# sourceMappingURL=message-service.js.map
+exports.PlayListService = PlayListService;
+//# sourceMappingURL=service.js.map

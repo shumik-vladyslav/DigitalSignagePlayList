@@ -16,7 +16,7 @@ export class Asset {
 
 @Injectable()
 export class AssetsService {
-    constructor(@Inject(Http) http:Http) {
+    constructor(private http:Http) {
     }
 
 
