@@ -11,6 +11,24 @@ export class Asset {
     spacer: boolean;
 }
 
+export class PlayListItem{
+    active: number;
+    duration: number;
+    height:number;
+    id:number;
+    img:string;
+    mime:string;
+    orientation:string;
+    originalName:string;
+    path:string;
+    size:number;
+    thumb:string;
+    width:number;
+
+    constructor(obj:any){for(var str in obj) this[str] = obj[str]}
+
+}
+
 @Injectable()
 export class PlayListService {
     constructor(private http:Http) {

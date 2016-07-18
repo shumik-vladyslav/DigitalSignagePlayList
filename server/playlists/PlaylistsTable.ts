@@ -13,14 +13,6 @@ export class PlaylistsTable extends TableModel {
         super(table, row);
     }
 
-    selectPlayListById(id:number): Q.Promise<ISPlayListItem> {
-        console.log(id)
-        var sql: string = "SELECT * FROM " + this.table + " WHERE id = "+ id;
-        var data: any[] = [id];
-
-        return this.db.selectAll(sql, data);
-    }
-
     selectPlayListItemById(id:number): Q.Promise<ISPlayListItem> {
         var sql: string = "SELECT * FROM assets, " + this.table + " WHERE playlists.id = ? AND playlists.assetid = assets.id";
         var data: any[] = [id];

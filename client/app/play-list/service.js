@@ -17,6 +17,14 @@ var Asset = (function () {
     return Asset;
 }());
 exports.Asset = Asset;
+var PlayListItem = (function () {
+    function PlayListItem(obj) {
+        for (var str in obj)
+            this[str] = obj[str];
+    }
+    return PlayListItem;
+}());
+exports.PlayListItem = PlayListItem;
 var PlayListService = (function () {
     function PlayListService(http) {
         this.http = http;

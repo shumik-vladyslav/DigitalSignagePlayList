@@ -31,3 +31,31 @@
 {"errno":25,"code":"SQLITE_RANGE"}
 2016-07-18 15:29:26
 {"errno":25,"code":"SQLITE_RANGE"}
+2016-07-18 15:51:52
+{"errno":1,"code":"SQLITE_ERROR"}
+2016-07-18 15:51:53
+{"errno":1,"code":"SQLITE_ERROR"}
+2016-07-18 15:52:31
+{"errno":1,"code":"SQLITE_ERROR"}
+2016-07-18 15:52:32
+{"errno":1,"code":"SQLITE_ERROR"}
+2016-07-18 15:52:40
+{"errno":1,"code":"SQLITE_ERROR"}
+2016-07-18 15:54:31
+{"errno":1,"code":"SQLITE_ERROR"}
+2016-07-18 15:54:32
+{"errno":1,"code":"SQLITE_ERROR"}
+2016-07-18 15:55:37
+{"errno":1,"code":"SQLITE_ERROR"}
+2016-07-18 15:56:32
+{"errno":1,"code":"SQLITE_ERROR"}
+2016-07-18 15:59:18
+{"errno":25,"code":"SQLITE_RANGE"}
+2016-07-18 15:59:40
+{"errno":25,"code":"SQLITE_RANGE"}
+2016-07-18 16:02:04
+{"errno":1,"code":"SQLITE_ERROR"}
+2016-07-18 16:02:24
+{"errno":1,"code":"SQLITE_ERROR"}
+2016-07-18 16:17:38
+{"errno":1,"code":"SQLITE_ERROR"}
